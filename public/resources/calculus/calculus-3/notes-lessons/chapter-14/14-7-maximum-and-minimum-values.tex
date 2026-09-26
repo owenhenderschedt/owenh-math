@@ -1,0 +1,182 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 14.7 Maximum and Minimum Values\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+\textbf{Problem:} Solve the system of equations.
+
+$\begin{cases}
+    3x+4y-5 = 2x+1\\
+    4y-x = y+2x+1
+\end{cases}$
+
+\vs
+
+\textbf{Problem} Find all relative max/min if $f(x)=x^5/5 +5x^4/4+2x^3$
+
+
+\section{Motivation}
+In 2D whenever our derivative is equal to zero, we have a maximum or minimum value i.e. a peak or a valley. In 3D what does it mean for our derivative to be zero? Do we have a notion of a local maximum or minimum? In this section we utilize our knowledge of partial derivative to find local minimums and maximums and even more!
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item In calc 1 we learn that \textbf{relative} min/max are given by critical points are when the derivative is zero or it is undefined. Occasionally they could also be inflection points when I change concavity. In calc 3 \emph{both} $f_x$ and $f_y$ must equal zero at the same point in order to have a critical value. Or similarly a point which is undefined or a saddle point (changes concavity). \emph{Sketch a picture to see why you don't just need $f_x$ or $f_y$}.
+
+\begin{itemize}
+    \item Both $f_x$ and $f_y$ are Increasing $\to$ Decreasing: Relative Maximum
+    \item Both $f_x$ and $f_y$ are Decreasing $\to$ Increasing: Relative Minimum
+    \item One changes from Increasing $\to$ Decreasing and the other from Decreasing $\to$ Increasing: Saddle Point
+\end{itemize}
+
+\item If first derivatives tell us about increasing and decreasing, then second derivatives tell us about concavity and will give us a way to determine if we have a maximum/minimum/saddle. This is known as the second derivative test and requires to compute the following.
+
+\begin{equation*}
+    D(x,y) = f_{xx}(x,y)f_{yy}(x,y) - (f_{xy}(x,y))^2.
+\end{equation*}
+
+The test says the following for the 4 possible outcomes.
+
+\begin{itemize}
+    \item $D(a,b) > 0$, $f_{xx}(a,b) >0$ $\implies (a,b)$ relative minimum
+    \item $D(a,b) > 0$, $f_{xx}(a,b) <0$ $\implies (a,b)$ relative maximum
+    \item $D(a,b) < 0 $ $\implies$ $(a,b)$ is a saddle point
+    \item $D(a,b) = 0$  $\implies$ Inconclusive
+\end{itemize}
+
+\item If we wish to find absolute maximums or minimums over some closed region then not only do we need to check critical values, we also need to check the boundary of our region. If our boundary of the region is created by lines, we can use these lines and substitute them into our original surface to get a curve! We then can use calc 1 knowledge of absolute max/min values on a curve.
+
+\item Here is some helpful tips for finding absolutes.
+
+\begin{itemize}
+    \item Draw the region
+    \item Label the endpoint of the region
+    \item Label your lines.
+\end{itemize}
+
+
+
+\end{enumerate}
+
+
+
+
+
+\newpage
+
+\section{Examples}
+
+
+\begin{problem}
+    Find and classify all critical values of $f(x,y) = (y-2)x^2-y^2$.
+\end{problem}
+
+
+
+
+\vspace{8cm}
+
+\begin{problem}
+    Find and classify all critical values of $f(x,y) = 7x-8y+2xy-x^2+y^3$.
+\end{problem}
+
+\newpage
+
+
+\begin{problem}
+    Suppose $f_x = 3x^2-3y$ and $f_y = -3x+3y^2$. Find and classify the critical values.
+\end{problem}
+
+\vspace{8cm}
+
+
+\begin{problem}
+        Suppose $f_x = 2x-6-\sqrt{y}$ and $f_y = -\frac{x}{2\sqrt{y}}+1$. Find and classify the critical values.
+\end{problem}
+
+
+
+\newpage
+
+\begin{problem}
+        Suppose $f_x = 3y-2xy-y^2$ and $f_y = 3x-x^2-2xy$. Find and classify the critical values.
+\end{problem}
+
+\vspace{6cm}
+
+
+\begin{problem}
+    Find and classify \emph{all} critical points for the function $f(x,y) = x^2+5y^2+x^2y+2y^3$.
+\end{problem}
+
+\newpage
+
+
+\begin{problem}
+    Find the absolute maximum/minimum and where they occur on the surface $f(x,y) = 3x^2+2xy+y^2$ bounded by the triangle with end points $(-2,-1),(1,-1),(1,2)$.
+\end{problem}
+
+\newpage
+
+\begin{problem}
+    Find the absolute maximum/minimum and where they occur on the surface $f(x,y) = x^2+xy+y^2$ on the region $R= \{-2\leq x\leq 2, -1\leq y\leq 1\}$
+\end{problem}
+
+
+
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

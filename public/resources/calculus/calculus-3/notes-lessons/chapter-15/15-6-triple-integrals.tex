@@ -1,0 +1,157 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 15.6 Triple Integrals\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+\textbf{Question}: How did we define (from the beginning) the definition of a double integral?
+
+
+\section{Motivation}
+We have learned extensively that knowing single integrals from calc 1 (and 2) can help us solve double integrals which represent the volume under a surface bounded by a region in 2-dimensions. But why stop here. We can now use our knowledge of double integrals to solve triple integrals! In words these would represent some 4-dimensional volume under 4-dimensional surfaces bounded by a 3-dimensional region.
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item Just like for double integrals we can take our 3 independent variables $x,y,z$ and take a 3D box and subdivide it into smaller boxes! If we choose an arbitrary point in each box and find this ``4D-volume" we can define the 4D-volume under a 4D-surface as follows.
+
+\begin{equation*}
+    \iiint_T f(x,y,z) \dif{V} = \lim_{l,m,n \to \infty} \sum_{i=1}^l \sum_{j=1}^m \sum_{k=1}^n f(x^*_{ijk},y^*_{ijk},z^*_{ijk}) \Delta V
+\end{equation*}
+
+
+\item  In practice we are going to use a lot of the same tactics we learned for double integrals. For example, in double integrals, we first figure out two curves which bounds our region and then worry about an interval (single integral). Here we will first take care of two surfaces which bound our region which will then leave us a double integral. This double integral region could be on the $xy,xz,yz$ plane.
+
+\begin{itemize}
+    \item First take care of the region in $\mathbb{R}^3$
+    \item Next take care of the specific region in $\mathbb{R}^2$ on a specific coordinate plane.
+\end{itemize}
+
+\item Once again Fubini's Theorem allows us to switch the order of integration! There are 6 ways to order our triple integral so we need to be smart which order we choose.
+
+\item If our first integral which goes between two surfaces that look like $z = g(x,y)$ then we call it $z$-simple. If our surfaces look like $y = g(x,z)$ we call it $y$-simple, and if our surface is $x = g(y,z)$ we call it $x$-simple.
+
+\begin{itemize}
+    \item $x$-simple:
+    
+    \begin{equation*}
+        \iiint_T f(x,y,z) \dif{V} = \iint_R \left[\int_{x = g_1(y,z)}^{x=g_2(y,z)} f(x,y,z) \dif{x} \right]\dif{A}
+    \end{equation*}
+
+        \item $y$-simple:
+    
+    \begin{equation*}
+        \iiint_T f(x,y,z) \dif{V} = \iint_R \left[\int_{y = g_1(x,z)}^{y=g_2(x,z)} f(x,y,z) \dif{y} \right]\dif{A}
+    \end{equation*}
+
+            \item $z$-simple:
+    
+    \begin{equation*}
+        \iiint_T f(x,y,z) \dif{V} = \iint_R \left[\int_{z = g_1(x,y)}^{z=g_2(x,y)} f(x,y,z) \dif{z} \right] \dif{A}
+    \end{equation*}
+\end{itemize}
+
+
+
+
+
+
+
+\end{enumerate}
+
+
+
+
+\section{Examples}
+
+\begin{problem}
+    Evaluate $\iiint_T f(x,y,z) \dif{V}$ where $f(x,y,z) = x$ and $T$ is bounded by $x=0,y=0,z=0$ and $x+y+z=1$.
+\end{problem}
+
+
+
+
+\vspace{11.5cm}
+
+\begin{problem}
+Find the mass of $T$ where $T$ is bounded by $y=x^3$, $y=x$, $z=2x$, $z=0$ where the mass density is given by $\rho(x,y,z) = 2z$.
+\end{problem}
+
+\vspace{9.5cm}
+
+
+\begin{problem}
+    Suppose a 3-D region $T$ has a mass density function $\rho(x,y,z) = y$ where $T$ is bounded by $y=x^2+z^2$ and $y=4$. 
+\end{problem}
+
+\vspace{9.5cm}
+
+
+\begin{problem}
+    Evaluate $\iiint_T z \dif{V}$ if $T$ is bounded by $x^2+z^2 = 4$, $x=2y$, $y=0,z=0$, $x\geq 0$. Try $z$-simple and $y$-simple.
+\end{problem}
+
+\vspace{9.5cm}
+
+
+\begin{problem}
+ Find the mass of the region $T$ which is bounded by $y_1 = x^2 + z^2$ and $y_2 = 8-x^2-z^2$  where $T$ has mass density $\rho(x,y,z) = \sqrt{x^2+z^2}$.
+\end{problem}
+
+
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

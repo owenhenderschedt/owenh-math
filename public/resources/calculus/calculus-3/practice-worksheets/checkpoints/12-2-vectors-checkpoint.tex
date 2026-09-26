@@ -1,0 +1,91 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+\begin{huge}
+    \begin{center}
+        Checkpoint
+    \end{center}
+\end{huge}
+\begin{large}\begin{center}\bf 12.2 Vectors \end{center}
+\end{large}
+
+\vs\vs
+\section{Problems}
+
+\begin{problem}
+What two things make up a vector?
+\end{problem}
+
+\begin{problem}
+What dimension does the following vectors live in and what is their sum?  $ \vec{v}= \langle 2,4,9,-1 \rangle$ and $\vec{u} = \langle 0,-3,-3,2\rangle$
+\end{problem}
+
+\begin{problem}
+Find the magnitude of $\langle 1,-1,9 \rangle$ and find the magnitude of $-2\hat{i}+5\hat{j}-2\hat{k}$.
+\end{problem}
+
+\begin{problem}
+What is the unit vector going in the same direction as $2\hat{i}-\hat{j}+3\hat{k}$?
+\end{problem}
+
+\begin{problem}
+What does it mean for two vectors to be parallel?
+\end{problem}
+
+\newpage
+
+\section{Answers}
+
+\begin{enumerate}
+    \item a magnitude and a direction.
+    \item $4$-dimensions $\vec{v}+\vec{u} = \langle 2,1,6,1\rangle$
+    \item $|\langle 1,-1,9 \rangle|=\sqrt{83}$ and $|-2\hat{i}+5\hat{j}-2\hat{k}| = \sqrt{33}$
+    \item $\frac{2}{\sqrt{14}}\hat{i}-\frac{1}{\sqrt{14}}\hat{j}+\frac{3}{\sqrt{14}}\hat{k}$
+    \item They are scalar multiples. That is $\vec{u} = t \vec{v}$ where $t$ is some real number.
+\end{enumerate}
+
+
+\end{document} 

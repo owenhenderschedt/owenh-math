@@ -1,0 +1,102 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 16.1 Vector Fields\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+\textbf{Problem 1:} Find the gradient of $f(x,y) = x^2 + e^{xy}$.
+
+\section{Motivation}
+We switch our attention to a new definition called vector fields. As of right now we take the definition as is, as we develop some intuition for what these are and how they could be useful!
+
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item Our story of vector fields, of course begins with the definition of one. A vector field on some set  $D\subseteq \mathbb{R}^2$ is a function $F$ which assigns to each point $(x,y)$ a 2-dimensional vector $F(x,y)$.
+
+\item A vector field on some set $E\subseteq \mathbb{R}^3$ is a function $F$ which assigns each point $(x,y,z)$ a 3-dimensional vector $F(x,y,z)$.
+
+
+\item If we remember back from Chapter 14, the gradient $\nabla f(x,y) = \langle f_x(x,y), f_y(x,y)\rangle$. Hence the gradient is really a vector field over $\mathbb{R}^2$ and hence we call it a gradient vector field. If $F(x,y)$ is the gradient of some function $f(x,y)$, we call $F$ a conservative vector field.
+
+\item For right now our sole objective is to get some intuition towards what vector fields look like and how we can visualize them. 
+\end{enumerate}
+
+
+
+
+\section{Examples}
+
+\begin{problem}
+    Draw the following vector fields
+
+    \begin{enumerate}
+        \item $F(x,y) = 2\hat{i}$
+        \item $F(x,y) = -x\hat{i} - y\hat{j}$
+        \item $F(x,y) = y\hat{i} - x\hat{j}$
+        \item $F(x,y) = x^2 \hat{i} + y^2\hat{j}$
+        \item $F(x,y) = y^2 \hat{i} + x^2 \hat{j}$
+        \item $F(x,y) = \frac{x}{\sqrt{x^2+y^2}}\hat{i} + \frac{y}{\sqrt{x^2+y^2}}\hat{j}$
+        \item $F(x,y) = \hat{i} + x\hat{j}$
+        \item $F(x,y) = x \hat{i} + \hat{j}$
+    \end{enumerate}
+\end{problem}
+
+
+
+\section{Scratch Work}
+
+\end{document} 

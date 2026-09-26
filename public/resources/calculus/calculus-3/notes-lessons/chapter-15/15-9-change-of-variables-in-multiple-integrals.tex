@@ -1,0 +1,157 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 15.9 Change of Variables in Multiple Integrals\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+\textbf{Problem 1}: Find $\int_0^1 e^{2x} \dif{x}$
+
+\textbf{Problem 2}: Find the determinant of the matrix with rows $[1,2]$ and $[1,4]$.
+
+\textbf{Problem 3}: Find $\langle 2,1,5\rangle \times \langle 0,-1, 1 \rangle$.
+
+
+\section{Motivation}
+Although some of the multiple integrals which we have worked through, in the previous chapters, have been hard, in general the regions that have been given to us have been fairly nice (either as is, or once we convert to polar or spherical). What do we do though when our region just SUCKS! We can generalize the idea of a u-substitution for a substitution in multiple dimensions in order to transform our region into something nice. In this chapter we learn how to do this.
+
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+
+\item In calc 1 we learn about $u$-substitution where we define $x = g(u)$ and then our interval changes as follows.
+
+\begin{equation*}
+    \int_a^b f(x) \dif{x} \to \int_c^d f(g(u)) g'(u) \dif{u}
+\end{equation*}
+
+\item One way to think about what a $u$-sub is doing is we are transforming the region which we are integrating over. In the case of a single integral, we are stretching or compressing the interval in which we are integrating our curve along (well sort of, really we are doing more than just stretching/compressing we are mapping it using some function but zooming in at any given input resembles a stretch/compression thanks to the derivative).
+
+\item When we are integrating surfaces over a region, it may be beneficial to also transform our region into something which is easier to work with. We have already seen this in the case of polar coordinates where $x$ and $y$ change to $r$ and $\theta$ when our regions are circular in nature. Our transformation cannot just be any transformation, it must be one-to-one which means it has an inverse. For example if $(u,v)\in \mathbb{R}^2 \to (x,y)$ then any $(x,y)$ must come from some $(u,v)$.
+
+\item Just like we saw in polar coordinates, when we do one of these ``double" substitutions, our $\dif{A} = \dif{x}\dif{y}$ does not necessarily turn into $\dif{A} = \dif{u}\dif{v}$ (in fact it rarely will). We can use some basic linear algebra to help up figure out however what the conversion should be.
+
+
+\item The \textbf{Jacobian} of a transformation is defined as follows.
+
+\begin{equation*}
+J = \frac{\partial (x,y)}{\partial (u,v)} = \begin{vmatrix}
+    \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\[6pt]
+    \frac{\partial y}{\partial u}  & \frac{\partial y}{\partial v} 
+\end{vmatrix} = \frac{\partial x}{\partial u} \frac{\partial y}{\partial v} - \frac{\partial x}{\partial v} \frac{\partial y}{\partial u}
+\end{equation*}
+
+\item This Jacobian gives us some measure of how our area scales as we go through our substitution. The only thing we have to be careful about is when our Jacobian is negative, the bounds will already flip and negate our integral therefore we don't want to have a double negative with our Jacobian. This can be seen with a real quick example if our region $R$ is $x=0,x=1,y=0,y=1$ and our transformation is $x=-u$, and $y=v$. the size of our area doesn't change here so $|J| = 1$. We can now rewrite any double (or triple) integral as follows!
+
+\begin{equation*}
+    \iint_R f(x,y) \dif{A}  = \iint_S f(x(u,v),y(u,v)) |J| \dif{u}\dif{v}.
+\end{equation*}
+
+
+
+
+\end{enumerate}
+
+
+
+
+\section{Examples}
+
+\begin{problem}
+    Find the Jacobian of the transformation $x = u^2+v^2$, $y = 2uv$.
+\end{problem}
+
+\vspace{4cm}
+
+\begin{problem}
+    Find the Jacobian of the transformation $x = 2u+w$, $y= u^2-v^2$, $z = u+v^2-2w^2$.
+\end{problem}
+
+
+\newpage
+
+
+\begin{problem}
+    Evaluate $\iint_R (x+y) \dif{A}$ where $R$ is bounded by $y = -2x$, $y= 1/2x - 15/2$, $y = -2x+10$, and $y = 1/2 x$ using the transformation $x = u+2v$ and $y = v-2u$.
+\end{problem}
+
+
+\vspace{9cm}
+
+\begin{problem}
+    Evaluate the following  double integral where $R$ is bounded by $\frac{x^2}{4}+\frac{y^2}{9}=1$
+
+    \begin{equation*}
+        \iint_R \sqrt{1 - \frac{x^2}{4}-\frac{y^2}{9}} \dif{A}.
+    \end{equation*}
+\end{problem}
+
+\vspace{9cm}
+
+\begin{problem}
+    Evaluate $\iint_R xy^2 \dif{A}$ where $R$ is bounded by $xy = 1$, $xy= 2$, $y = x$, and $y = 2x$ using the transformation $x = u/v$ and $y = v$.
+\end{problem}
+
+\vspace{9 cm}
+
+\begin{problem}
+    Prove the Jacobian of our spherical coordinate system is what we define it to be.
+\end{problem}
+
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

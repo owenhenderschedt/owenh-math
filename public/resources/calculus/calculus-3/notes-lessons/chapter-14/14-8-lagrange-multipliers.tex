@@ -1,0 +1,114 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 14.8 Lagrange Multipliers\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+
+
+
+\section{Motivation}
+What if we do not have a bounded region in which we want to find absolute extrema but rather a specific curve or constraint we must live on? Yes we could try to substitute this curve into our surface and turn the problem into a calc-1 problem, but if the curve is complicated, or implicitly defined, this could get real tricky.
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item For a \emph{Lagrange multiplier problem} we are always given a surface and a constraint. More specifically our surface may be $z=f(x,y)$ and our constraint may be $g(x,y) = c$. Notice that the constraint is a single level curve while the surface is an infinite family of level curves.
+
+\item The astute observation is the following: At an absolute extrema, the normal of the constraint level curve will be going in the same direction as the normal of a level curve of our original surface. All of this is to say 
+
+\[f_x = \lambda g_x \text{ and } f_y = \lambda g_y\]
+
+
+We call $\lambda$ the multiplier constant.
+
+
+\item Note that this idea scales for higher dimensional surfaces!
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+\newpage
+
+\section{Examples}
+
+\begin{problem}
+Use Lagrange multipliers to find the extrema of the below surface given the constraint (you do not need to find the extrema's values).
+
+\vspace{.25cm}
+
+Maximize: $f(x,y) = x^2 + 4y^2 - 2x +8y$
+
+\vspace{.25cm}
+
+Subject to the constraint: $x + 2y = 7$
+\end{problem}
+
+
+\newpage
+
+\begin{problem} Use Lagrange multipliers to find the absolute extrema of the function $f(x,y) = 2x^2 + y^2+x-3y+5$ constrained by the level curve $2x-2y=\frac{11}{2}$.
+\end{problem}
+
+
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

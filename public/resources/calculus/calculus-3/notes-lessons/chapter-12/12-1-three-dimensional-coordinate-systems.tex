@@ -1,0 +1,115 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 12.1 Three-Dimensional Coordinate Systems\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+
+\textbf{Problem 1:} Find the distance between $(x_1,y_1)$ and $(x_2,y_2)$ in two dimensions. Find the midpoint. 
+
+\textbf{Problem 2:} What \emph{is} a circle? What is the equation of a circle centered at $(h,k)$ and radius $r$?
+
+\section{Motivation}
+
+We live in a 3-D world. When we say "3"-dimensions we mean that we can represent any point in our 3-D space with three numbers $(a,b,c)$. There are actually infinite ways we could set up a 3-D coordinate system (just like in 2-D) but if we were to create it ourselves, what would be the best way to do this? Can we see that a lot of what happens in 3-D is analogous to 2-D? 
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+    \item  Rectangular coordinate system.
+    \item  Right hand rule.
+    \item Octants (Why are there 8?).
+    \item  Projections. $(a,b,0), (a,0,c), (0,b,c)$.
+
+\item  The \textbf{distance} between $(x_1,y_1,z_1)$ and $(x_1,y_2,z_2)$ is $\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}$
+
+\item  The \textbf{midpoint} of $(x_1,y_1,z_1)$ and $(x_2,y_2,z_2)$ is $(\frac{x_1+x_2}{2},\frac{y_1+y_2}{2},\frac{z_1+z_2}{2})$.
+
+
+\item The equations of a \textbf{sphere} with center $(h,k,l)$ and radius $r$ is $(x-h)^2+(y-k)^2+(z-l)^2 = r^2$.
+
+\end{enumerate}
+
+
+\newpage
+
+\section{Examples}
+
+\begin{problem}
+    What does the surface $z=-2$ and $y=3$ look like? Which points satisfy $y=x^2+1$ and $z=4$?
+\end{problem}
+
+\vspace{5.5cm}
+
+
+\begin{problem}
+Find the distance between $(2,-6,-9)$ and $(-1,1,3)$. Find the midpoint.
+\end{problem}
+
+\vspace{5.5cm}
+
+\begin{problem}
+    Find the equation of the sphere with two endpoints of a diameter at $(1,-3,-5)$ and $(-2,-2,-6)$.
+\end{problem}
+
+\vspace{5.75cm}
+
+\begin{problem}
+Show that $x^2+y^2+z^2 -6x+12y-z+3=0$ is the equation of a sphere. Find its center and radius.
+\end{problem}
+
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

@@ -1,0 +1,168 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 12.4 Cross Product \end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+
+\textbf{Question}: When in calculus 1 or 2 did we care about being ``perpendicular"? Why may we need this in 3-D?
+
+\textbf{Problem 1}: Find the determinant of 
+$\begin{bmatrix}
+1 & -2 \\
+4 & 3
+\end{bmatrix}$
+
+
+\section{Motivation}
+Suppose I have two vectors $u$ and $v$. It is seemingly useful to know a vector $w$ which is perpendicular to \emph{BOTH} $u$ and $v$. From our previous chapter we know that in order for this to happen we would need $u \cdot w = 0$ and $v \cdot w = 0$. This resulting vector we will call the \emph{cross product} of $u$ and $v$.
+
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+    \item If $a = \langle a_1,a_2,a_3 \rangle$ and $b = \langle b_1,b_2,b_3 \rangle$, then the cross product of $a$ and $b$ is the vector 
+
+    \begin{equation*}
+        a \times b = \langle a_2b_3-a_3b_2, a_3b_1-a_1b_3, a_1b_2 - a_2b_1 \rangle.
+    \end{equation*}
+
+
+    \item The cross product can be found by taking the determinant of the 3 by 3 matrix whose first row is $(i,j,k)$, second row is $a = (a_1,a_2,a_3)$ and third row is $b = (b_1,b_2,b_3)$.
+
+    \item  We can also leverage the cross product to find the angle $\theta$ between two vectors. We get the following theorem.
+
+    \begin{theorem}
+        If $\theta$ is the angle between vectors $a$ and $b$, then $|a\times b| = |a||b|\sin(\theta)$.
+    \end{theorem}
+
+    \begin{proof}
+    \begin{align*}
+        |a\times b|^2 &= (a_2b_3-a_3b_2)^2+(a_3b_1-a_1b_3)^2+(a_1b_2-a_2b_1)^2 \\
+        &= a_2^2b_3^3-2a_2a_3b_2b_3+a_3^2b_2^2+a_3^2b_1^2-2a_1a_3b_1b_3+a_1^2b_3^2+a_1^2b_2^2 - 2a_1a_2b_1b_2 +a_2^2b_1^2 \\
+        &=(a_1^2+a_2^2+a_3^2)(b_1^2+b_2^2+b_3^2)-(a_1b_1+a_2b_2+a_3b_3)^2\\
+        &=|a|^2|b|^2-(a \cdot b)^2 \\
+        &= |a|^2|b|^2-|a|^2|b|^2\cos^2(\theta)\\
+        &=|a|^2|b|^2(1-\cos^2(\theta))\\
+        &=|a|^2|b|^2\sin^2(\theta)
+    \end{align*}
+    \end{proof}
+
+    \item Since the angle between parallel vectors is 0 and $\sin(0)=0$, we see that two vectors are parallel if and only if $a\times b = 0$.
+
+    \item The geometric representation of the cross product gives us the following insight. The magnitude of the cross product $|a \times b|$ is equal to the area of the parallelogram determined by $a$ and $b$. This can easily seen by taking the sin of the angle in our parallelogram and solving for base times height.
+
+    \item While the proof of this next theorem is not super enlightening, it is interesting to see how we can combine these notions of products and find the volume of a 3-D parallelogram.
+
+    \begin{theorem}
+        The volume of the parallelepiped determined by the vectors $a,b$, and $c$ is $V=|a \cdot (b\times c)|$.
+    \end{theorem}
+
+    \item  Torque $\tau = r \times F$ where $r$ is a position vector and $F$ is a force vector.
+\end{enumerate}
+
+
+
+\section{Examples}
+
+
+\begin{problem}
+    Find the determinant of the following $3\times 3$ matrix.
+
+    \begin{equation*}
+        \begin{bmatrix}
+            1&-2&2 \\
+            3 &1&2 \\
+            -2 & -2 &1 
+        \end{bmatrix}
+    \end{equation*}
+\end{problem}
+
+\vspace{3cm}
+
+
+\begin{problem}
+    Find $\langle 5,1,-3 \rangle \times \langle 4,-4,2 \rangle$.
+\end{problem}
+
+\vspace{6cm}
+\begin{problem}
+Find a vector which is perpendicular to the plane which passes through the points $A(1,4,6)$, $B(-2,5,-1)$, and $C(1,-1,1)$.
+\end{problem}
+
+\vspace{5cm}
+
+
+\begin{problem}
+    Find the area of the triangle whose two sides are formed by $u = 4i-2k$ and $v=-i+3j+2k$.
+\end{problem}
+
+\vspace{5cm}
+
+\begin{problem}
+    Find the volume of the paralellepiped determined by the vectors $a= \langle 2,0,-3 \rangle$, $b=\langle 5,1,1 \rangle$, and $c=\langle -2,3,1 \rangle$.
+\end{problem}
+
+
+\vspace{8 cm}
+
+\begin{problem}
+    A bolt is tightened by applying a 40N force to a .25-m wrench. Find the magnitude of the torque at the center of the bolt.
+\end{problem}
+
+\newpage
+
+\section{Scratch Work}
+
+
+\end{document} 

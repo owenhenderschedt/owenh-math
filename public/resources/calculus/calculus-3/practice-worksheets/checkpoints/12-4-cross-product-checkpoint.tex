@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+\begin{huge}
+    \begin{center}
+        Checkpoint
+    \end{center}
+\end{huge}
+\begin{large}\begin{center}\bf 12.4 The Cross Product\end{center}
+\end{large}
+
+\vs\vs
+
+\section{Problems}
+
+\begin{problem}
+ Find $\langle 1,2,3\rangle \times \langle 3,2,1 \rangle$.   
+\end{problem}
+
+\begin{problem}
+    What is the difference between $\Vec{u}\times \vec{v}$ and $\vec{v} \times \vec{u}$?
+\end{problem}
+
+\begin{problem}
+    Geometrically, what is $2|\vec{u} \times \vec{v}|$
+\end{problem}
+
+\begin{problem}
+If $\vec{u}= \hat{i}-2\hat{j}+\hat{k}$, find $\vec{u}\times \vec{u}$. Does the specifics of $\vec{u}$ even matter in this case?
+\end{problem}
+
+\begin{problem}
+    If The angle between $\vec{u}$ and $\vec{v}$ is $45$ degrees, and $|\vec{u}|=2$ and $|\vec{v}|=3$, then what is $|\vec{u} \times \vec{v}|$?
+\end{problem}
+
+\begin{problem} [***Most Important Problem***] What does it mean for $\vec{x}$ to be the cross product of $\vec{u}$ and $\vec{v}$?
+\end{problem}
+
+\newpage
+
+\section{Answers}
+
+\begin{enumerate}
+    \item $\langle -4,8,-4\rangle$
+    \item One is the negative of the other, that is $\Vec{u}\times \vec{v} = -(\vec{v} \times \vec{u})$
+    \item it is twice the area of the parallelogram formed by the vectors $\vec{u}$ and $\vec{v}$.
+    \item $\langle 0,0,0 \rangle $ and no, $\vec{u}\times \vec{u}  = \langle 0,0,0\rangle $ for any $\vec{u}$.
+    \item $3\sqrt{2}$
+    \item $\vec{x}$ is orthogonal to both $\vec{u}$ and $\vec{v}$
+\end{enumerate}
+
+
+\end{document} 

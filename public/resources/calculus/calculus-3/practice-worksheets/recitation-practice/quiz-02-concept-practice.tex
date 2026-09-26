@@ -1,0 +1,276 @@
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,margin=0.58in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage}
+
+\definecolor{sectiongray}{gray}{0.935}
+
+\newcommand{\sectionbar}[1]{%
+  \vspace{0.55em}%
+  \noindent\colorbox{sectiongray}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
+      \textbf{\large\strut #1\strut}%
+    }%
+  }%
+  \par\vspace{0.47em}%
+}
+
+\newcommand{\answerbar}[1]{%
+  \vspace{0.55em}%
+  \noindent\colorbox{sectiongray}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
+      \strut\textbf{#1}\strut
+    }%
+  }%
+  \par\vspace{0.50em}%
+}
+
+\newlist{parts}{enumerate}{1}
+\setlist[parts]{
+  label=(\alph*),
+  leftmargin=2.1em,
+  itemsep=0.45em,
+  topsep=0.25em,
+  parsep=0pt
+}
+
+\begin{document}
+
+% ================================================================
+% PAGE 1
+% ================================================================
+
+\begin{center}
+    {\Large\bfseries Math 2650 -- Quiz 02 Concept Practice}\\[0.28em]
+    \small Choose the section matching the skill you want to practice.
+    Answers are on the back.
+\end{center}
+
+\vspace{0.07em}
+
+% ================================================================
+% A
+% ================================================================
+
+\sectionbar{A. Planes and Perpendicular Geometry}
+
+Let $P=(1,1,0)$ and $Q=(5,-1,4)$, and let $X$ be the set of
+all points equidistant from $P$ and $Q$.
+
+\begin{parts}
+
+\item Find an equation of the plane $X$.
+
+\item Let $M$ be the midpoint of $\overline{PQ}$, and let $\ell$ be
+the line through $M$ with direction vector $\langle1,2,0\rangle$.
+Find an equation of the plane $Y$ that contains $\ell$ and is
+perpendicular to $X$. Also give a unit normal vector to $Y$.
+
+\item Find the point on $X$ closest to the origin.
+
+\end{parts}
+
+\vspace{0.12em}
+
+% ================================================================
+% B
+% ================================================================
+
+\sectionbar{B. Triangle Geometry and Cross Product}
+
+A triangle has vertices
+\[
+U=(0,0,0),\qquad V=(4,0,0),\qquad W=(1,a,2a).
+\]
+
+\begin{parts}
+
+\item Find the area of the triangle in terms of $a$.
+
+\item Find all values of $a$ for which the area is $6\sqrt5$.
+
+\end{parts}
+
+\vspace{0.12em}
+
+% ================================================================
+% C
+% ================================================================
+
+\sectionbar{C. Projections and Parallel Lines}
+
+Consider the parallel lines
+\[
+L_1:\quad x=2+t,\qquad y=2+2t,\qquad z=3+t,
+\]
+and
+\[
+L_2:\quad x=5+s,\qquad y=7+2s,\qquad z=2+s.
+\]
+Let $A=(2,2,3)$ be the point on $L_1$ corresponding to $t=0$, and
+let $B=(5,7,2)$ be the point on $L_2$ corresponding to $s=0$.
+
+\begin{parts}
+
+\item Find the projection of $\overrightarrow{AB}$ onto the direction
+of the lines.
+
+\item Find the distance between $L_1$ and $L_2$.
+
+\end{parts}
+
+\vspace{0.12em}
+
+% ================================================================
+% D
+% ================================================================
+
+\sectionbar{D. Angles and Unit Vectors and Dot Product}
+
+Let $\theta$ be the angle between vectors $\mathbf u$ and $\mathbf v$.
+Suppose
+\[
+|\mathbf u|=3,\qquad
+|\mathbf v|=5,\qquad
+(\mathbf u+2\mathbf v)\cdot(3\mathbf u-\mathbf v)=27.
+\]
+
+\begin{parts}
+
+\item Find $\cos\theta$.
+
+\item Let $\mathbf q=\langle2,1,2\rangle$. Find all unit vectors
+$\mathbf w=\langle a,0,b\rangle$ that make the same angle $\theta$
+with $\mathbf q$.
+
+\end{parts}
+
+
+% ================================================================
+% PAGE 2: ANSWER KEY
+% ================================================================
+
+\newpage
+
+\begin{center}
+    {\Large\bfseries Answer Key}\\[0.28em]
+    \small Final answers only
+\end{center}
+
+\vspace{0.30em}
+
+% ================================================================
+% A ANSWERS
+% ================================================================
+
+\answerbar{A. Planes and Perpendicular Geometry}
+
+\begin{parts}
+
+\item
+\[
+\boxed{2x-y+2z=10}
+\]
+
+\item
+\[
+\boxed{4x-2y-5z=2}
+\]
+and one unit normal vector is
+\[
+\boxed{\frac{1}{3\sqrt5}\langle4,-2,-5\rangle}.
+\]
+
+\item
+\[
+\boxed{\left(\frac{20}{9},-\frac{10}{9},\frac{20}{9}\right)}
+\]
+
+\end{parts}
+
+\vspace{0.25em}
+
+% ================================================================
+% B ANSWERS
+% ================================================================
+
+\answerbar{B. Triangle Geometry}
+
+\begin{parts}
+
+\item
+\[
+\boxed{2\sqrt5\,|a|}
+\]
+
+\item
+\[
+\boxed{a=\pm3}
+\]
+
+\end{parts}
+
+\vspace{0.25em}
+
+% ================================================================
+% C ANSWERS
+% ================================================================
+
+% ================================================================
+% C ANSWERS
+% ================================================================
+
+\answerbar{C. Projections and Parallel Lines}
+
+\begin{parts}
+
+\item
+\[
+\boxed{\operatorname{proj}_{\langle1,2,1\rangle}
+\overrightarrow{AB}
+=\langle2,4,2\rangle}
+\]
+
+\item
+\[
+\boxed{d(L_1,L_2)=\sqrt{11}}
+\]
+
+\end{parts}
+
+\vspace{0.25em}
+
+% ================================================================
+% D ANSWERS
+% ================================================================
+
+\answerbar{D. Angles and Unit Vectors}
+
+\begin{parts}
+
+\item
+\[
+\boxed{\cos\theta=\frac23}
+\]
+
+\item
+\[
+\boxed{\mathbf w=\langle1,0,0\rangle
+\quad\text{or}\quad
+\mathbf w=\langle0,0,1\rangle}
+\]
+
+\end{parts}
+
+\end{document}

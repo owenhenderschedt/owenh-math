@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 14.3 Partial Derivatives\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+\textbf{Question:} What does the derivative of a function of one variable represent?
+
+
+
+\section{Motivation}
+For a function of one variable (two dimensions on the plane $f(x)$ we have an unambiguous definition of a derivative. In 2D the derivative at a point $x$ is the slope of the tangent line to the curve at that point. The issue when we talk about surfaces in 3D is that there are infinite tangent lines to a surface at at point $(x,y)$ what do we do here? In this chapter we begin to answer this question.
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item Let $f(x,y)$ be a function of two variables aka a surface. Since there are infinite tangent lines to the surface at $(x,y)$, we specifically set our direction to get one and only one line. Two directions which make sense to select is the $x$ direction and the $y$ direction. 
+
+\item Since we want our tangent line to be in the direction of the $x$-axis, it must lie in a plane parallel to the $xz$ plane and cuts through our surface creating a curve. Any plane parallel to the $xz$ plane has $y$ constant. Thus, we call the derivative in the x direction the partial derivative with respect to $x$ and we denote this $f_x$ or $\partial f/ \partial x$. We think about $y$ in this case as a constant.
+
+\item Similarly the partial derivative with respect to $y$ denoted $f_y$ or $\partial f/ \partial f$ is the tangent line to our surface in the direction of the $y$-axis. Here out line lies in a plane parallel to the $yz$ plane and we consider $x$ as a constant.
+
+\item We can also write these derivative in terms of there limit definitions as follows.
+
+\begin{equation*}
+    f_x(x,y) = \lim_{h \to 0} \frac{f(x+h,y)-f(x,y)}{h}
+\end{equation*}
+
+\begin{equation*}
+     f_y(x,y) = \lim_{h \to 0} \frac{f(x,y+h)-f(x,y)}{h}.
+\end{equation*}
+
+\item This definition can easily be extended beyond functions of two variable for instance if $w = f(x,y,z)$ is a function in $\mathbb{R}^4$ we have,
+
+\begin{equation*}
+   \partial w / \partial x =  f_x(x,y,z) = \lim_{h\to 0} \frac{f(x+h,y,z) - f(x,y,z)}{h}
+\end{equation*}
+
+
+\item We of course can take higher derivatives than just the first partial derivatives. The following figure 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = .75]{Figures/partial der.png}
+    \label{fig:enter-label}
+\end{figure}
+
+\item \begin{theorem}(Clairaut's Theorem)
+    If $f$ is defined on a disk $D$ which contains $(a,b)$ and $f_x$ and $f_y$ are both continuous on $D$ then $f_{xy}(a,b) = f_{yx}(a,b)$.
+\end{theorem}
+
+\end{enumerate}
+
+
+
+
+\section{Examples}
+
+See partial-derivative worksheet
+
+
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

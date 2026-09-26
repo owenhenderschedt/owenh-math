@@ -1,0 +1,177 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 16.4 Green's Theorem\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+
+
+\section{Motivation}
+In the last section we looked at what happens when we go to take a line integral over a vector field and my vector field is conservative. This took care of a special case of the line integral problem and with the FToC we solved it! What if instead of taking a special vector field and any curve, we reversed that and looked at any vector field and a specific curve? Can we also answer the line integral problem?
+
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item A closed simple curve is one that starts and ends at the same point and does not cross over itself. We also assume we travel in the counter-clockwise direction.
+
+\item Green's Theorem says the following
+
+\begin{theorem}(Green's Theorem)
+If $C$ is a simple closed curve containing the region $R$ then,
+
+\begin{equation*}
+       \oint_C F \cdot \dif{r} =  \oint_C P \dif{x} + Q \dif{y} = \iint_R \left[\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right] \dif{A}.
+\end{equation*}
+\end{theorem}
+
+
+
+
+\item Just to make sure we see the various forms of a line integral and our notation is consistent, let $F(x,y) = P\hat{i} + Q \hat{j}$ and let our curve be defined by $\vec{r}(t) = x\hat{i} + y\hat{j}$. Remember $\vec{r'}(t) = f_x \hat{i} + f_y \hat{j}$. Then $F\cdot \vec{r'} = P f_x + Q f_y$
+
+
+\item Okay what if we had the vector field $F(x,y) = -y \hat{i} + x\hat{j}$. For now this just seems like a regular vector field. But now consider the line integral through through a closed loop over this vector field! (Well half of it)
+
+\begin{equation*}
+    \frac{1}{2}\oint_C -y \dif{x} + x\dif{y} = \iint_R \left(  \frac{\partial Q}{\partial x}    - \frac{\partial P}{\partial y} \right) \dif{A} = \frac{1}{2} \iint_R 1 - (-1) \dif{A} = \iint_R 1 \dif{A}.
+\end{equation*}
+
+We now have an equation for the area bounded by a closed simple curve in terms of line integrals! This is cool!
+
+
+
+
+
+\end{enumerate}
+
+
+
+
+\section{Examples}
+
+
+\begin{problem}
+    Evaluate the following line integral where $C$ is the closed curve around the triangle with vertices $(0,0),(1,1), (0,1)$.
+
+    \begin{equation*}
+        \oint_C x^3 \dif{x} + xy \dif{y}
+    \end{equation*}
+\end{problem}
+
+
+\vspace{7cm}
+
+\begin{problem}
+    Evaluate the following line integral where $C$ is the closed curve around $y=x$ and $y=x^2$.
+
+    \begin{equation*}
+        \oint_C (x^2y+x^3) \dif{x} + 2xy \dif{y}
+    \end{equation*}
+\end{problem}
+
+
+\vspace{8cm}
+
+\begin{problem}
+    Evaluate the following line integral.
+
+    \begin{equation*}
+        \oint_C xe^x \dif{x} + y^5 \dif{y}
+    \end{equation*}
+\end{problem}
+
+
+\vspace{6cm}
+
+
+
+\begin{problem}
+    Evaluate the following line integral where $C$ is the closed curve around the top half semicircle $x^2+y^2=1$ and the $x$-axis.
+
+    \begin{equation*}
+        \oint_C x^2y \dif{x} + y^3 \dif{y}
+    \end{equation*}
+\end{problem}
+
+\vspace{10cm}
+
+\begin{problem}
+    Evaluate the following line integral where $C$ is the closed curve around the circle with radius 2.
+
+    \begin{equation*}
+        \oint_C 6xy \dif{x} + (3x^2+\ln{(1+y)}) \dif{y}
+    \end{equation*}
+\end{problem}
+
+\vspace{9cm}
+
+\begin{problem}
+    Find the area of the ellipse $\frac{x^2}{a^2}+ \frac{y^2}{b^2} = 1$
+\end{problem}
+
+
+\vspace{9cm}
+
+\begin{problem}
+    Find the work done through the vector field $F(x,y) = \frac{y}{1+x^2}\hat{i} + (x+\tan^{-1}(x)) \hat{j}$ along the right loop of the curve $r^2 = \cos(2\theta)$.
+\end{problem}
+
+
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

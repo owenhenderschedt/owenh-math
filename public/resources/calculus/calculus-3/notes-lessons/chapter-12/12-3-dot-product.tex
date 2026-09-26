@@ -1,0 +1,157 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 12.3 Dot Product \end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+
+\textbf{Problem 1:} If $a= \langle 2, -5 \rangle$, find $|a|$.
+
+\textbf{Problem 2:} Find $\cos(\pi/4)$, $\cos(\pi/2)$, $\cos(\pi/3)$.
+
+
+
+\section{Motivation}
+
+Now that we have unpacked all the definitions corresponding to vectors, we can be creative with them! Wouldn't it be cool if we had two vectors $a$ and $b$ and we defined the ``product" of $a$ and $b$. This is in fact novel since we only know how to multiply a vector by a scalar. What would $a \cdot b$ mean and what would be the most logical way to multiply two vectors?
+
+
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+
+\item If $a = \langle x_1,y_1,z_1 \rangle$ and $b= \langle x_2,y_2,z_2 \rangle$, We say the \textbf{dot product} $a \cdot b = x_1x_2+y_1y_2+z_1z_2$. 
+
+    \item Question, What is $a \cdot a$? Answer: $|a|^2$.
+
+    \item $a \cdot (b+c) = a\cdot b + a\cdot c$
+
+    \item  Okay this seems pretty cool, but does the dot product mean anything. Yes, geometrically $a\cdot b$ is a scaled measure of the angle between your vectors. More precisely we can prove that $a\cdot b = |a||b| \cos(\theta)$ where $\theta$ is the angle between $a$ and $b$ between 0 and $\pi$. This can be proved using the Law of Cosines.
+
+    \item  Perpendicular vectors are also called \textbf{orthogonal} and two vectors are orthogonal if and only if $a\cdot b = 0$.
+
+    \item  Suppose we have a vector $a= \langle a_1,a_2,a_3 \rangle$. If we scale or "normalize" a vector by its magnitude we get $\frac{1}{|a|}a = \langle a_1/|a|,a_2/|a|,a_3/|a| \rangle$ which is a vector of magnitude 1 or a \textbf{unit vector}. All unit vectors lie on our unit circle. We also use our dot product theorem and replace $b$ with $i = \langle 1,0,0 \rangle$ and see that $\cos(\alpha) = a_1/|a|$. Thus, our normalized vector gives us some sense of direction called the \textbf{direction cosines} or \textbf{direction angles} of $a$ which are $a/|a| = \langle \cos(\alpha),\cos(\beta),\cos(\gamma) \rangle$.
+
+
+    \item The \textbf{vector projection} of $b$ onto $a$ is the vector with initial point at the initial point of $a$ and terminal point on vector $a$ where the perpendicular projection of the terminal point of $b$ hits the vector $a$. We write $\text{proj}_ab$. The signed magnitude of the vector projection is called the \textbf{scalar projection} of $b$ onto $a$. This is denoted $\text{comp}_ab$. We have the following equations from simply looking at the cosine (A/H) of a right triangle.
+
+    \begin{theorem}
+        The scalar projection of $b$ onto $a$: 
+        
+        \begin{equation*}
+            \text{comp}_ab = \frac{a\cdot b}{|a|}.
+        \end{equation*}
+    \end{theorem}
+
+    \begin{theorem}
+       The vector projection of $b$ onto $a$: 
+    \begin{equation*}
+        \text{proj}_ab = \frac{a \cdot b}{|a|^2}a
+    \end{equation*}
+
+    \end{theorem}
+
+    \item We can use the dot product to find work when you have a force vector $F$ and a displacement vector $D$. We then have Work $= F \cdot D$.
+\end{enumerate}
+
+
+
+\section{Examples}
+
+\begin{problem}
+    Find the dot product $\langle 2,-5,1 \rangle \cdot \langle 2,1,-4 \rangle$.
+\end{problem}
+
+\vspace{2cm}
+
+
+\begin{problem}
+    Find the dot product $u \cdot v$ where $u = 3i+3j+3k$ and  $v=2i-2j$.
+\end{problem}
+
+\vspace{2cm}
+
+\begin{problem}
+    Find the angle between $\langle 1,0,-4 \rangle$ and $\langle -2, -3, -1 \rangle$.
+\end{problem}
+
+\vspace{6cm}
+
+\begin{problem}
+    Find the direction cosines of $\langle 3,-10,2 \rangle$.
+\end{problem}
+
+\vspace{5cm}
+
+\begin{problem}
+ Find the direction angles of $u = 2i-4j+k$.
+\end{problem}
+
+\vspace{3cm}
+
+\begin{problem}
+    Find the scalar projections and vector projections of $b = \langle 1,-3,-3 \rangle$ onto $a = \langle 0,-2,5 \rangle$
+\end{problem}
+
+\vspace{3cm}
+
+\begin{problem}
+    I walk my dog up a 45 meter hill at a constant force of $28N$. The leash is held at an angle of $22^\circ$. Find the work done pulling my dog up the hill.
+\end{problem}
+
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

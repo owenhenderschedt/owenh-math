@@ -1,0 +1,247 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 12.5 Equations of Lines and Planes \end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+\textbf{Problem 1:} Find the equation of the line which goes through $(1,3)$ and has slope $-1/2$
+
+\textbf{Problem 2:} Find the equation of the line which passes through $(1,3)$ and is parallel to the line $y=2x-17$.
+
+
+
+\section{Motivation}
+To determine a line in 2-dimensions, all you need is a point and a slope (or direction). Two points also suffice because you can always find the slope first. In 3-dimensions we likewise just need a point $P(x_0,y_0,z_0)$ and a direction. This ``direction'' is defined by a vector!
+
+
+
+\section{Definitions \& Theorems}
+\begin{enumerate}
+    \item If $P(x_0,y_0,z_0)$ is a point which our line $L$ goes through and $v=\langle a,b,c \rangle$ is a parallel direction vector to $L$ then we can find the equation of our line by defining the position vectors $r_0 = \langle x_0,y_0,z_0 \rangle$ and $r = \langle x,y,z \rangle$ where $P(x,y,z)$ is some other point on $L$. Since parallel vectors are scalar multiples of each other we get $r=r_0+tv$ where $t$ is a variable (time). The \textbf{Parametric Equations of the line} $L$ is thus,
+
+    \begin{equation*}
+        x=x_0+at \hspace{1cm} y=y_0+bt \hspace{1cm} z = z+ct.
+    \end{equation*}
+
+
+\item  Solving for $t$ in our parametric equations we get the following \textbf{symmetric equations} for our line $L$.
+
+\begin{equation*}
+    \frac{x-x_0}{a} = \frac{y-y_0}{b} = \frac{z-z_0}{c}
+\end{equation*}
+
+\item  If one of the components of our parallel vector $v$ is 0, i.e. $a,b, \text{ or } c = 0$, then we can still eliminate $t$. For example if $a=0$ we get $x=x_0$, and $\frac{y-y_0}{b}=\frac{z-z_0}{c}$. In other words, $L$ lies in the vertical plane $x=x_0$.
+
+\item Two lines which are not parallel and do not intersect are called \textbf{Skew lines}.
+
+\item Now suppose we want to find an equation of a \textbf{plane}. Let $P(x_0,y_0,z_0)$ be a point on our plane and let $n = \langle a,b,c \rangle$ be a normal vector to our plane. We can find the \textbf{useful-form of the plane} by letting $P(x,y,z)$ be some other point on our plane and finding the vector between the two points $\langle x-x_0,y-y_0,z-z_0 \rangle$ and realizing the dot product between this vector and the normal vector is zero. We thus get,
+
+\begin{equation*}
+    a(x-x_0)+b(y-y_0)+c(z-z_0) = 0.
+\end{equation*}
+
+\item If we distribute and realize which terms are just numbers added together we get the \textbf{Good-looking form of a plane} as,
+
+\begin{equation*}
+    ax+by+cz = d.
+\end{equation*}
+
+\item Okay if you are given two points in a plane (or even easier a vector in a plane) and a normal vector we can plug everything in and find our plane. BUT... many many other things could be given and so we have to problem solve. Here's a helpful table.
+
+\begin{center}
+
+\begin{tabular}{|c|c|}
+\hline
+ \textbf{What's given}    & \textbf{Finding equation of a plane} \\
+     \hline \hline
+A point and a normal vector    &  Plug into the equation. \\
+\hline
+A point and a parallel plane & Use the normal vector of the parallel plane. \\
+\hline
+Three points in the plane & Find the vectors and take cross product. \\
+\hline
+A point and a line in the plane & find direction vector of line and use cross product. \\
+\hline
+two points and perpendicular plane & take normal vector of perp plane and cross product. \\
+\hline
+\end{tabular}
+
+\end{center}
+
+
+\item  We can see from the final example in the table that two planes are parallel (perpendicular) if their corresponding normal vectors are parallel (perpendicular). Hence the angle between planes can be found by the angle between their normal vectors.
+
+\item If we want to find the angle between a line and a plane we have to just do one extra step and realize the normal vector of the plane and direction vector of the line wont give me the correct angle... but we can see it forms a right triangle so we can take 90 - angle.
+
+\item To find when a plane intersects a line, we can simply plug our line into our plane to solve for $t$ and then plug that $t$ back into our line to get the actual point which intersects both.
+
+\item To find when a plane intersects another plane we can realize that it will be a line (unless parallel). This means we need a point or vector on the line and a direction. 
+
+\item We can also find the distance between a point off of a plane and the plane itself by using projections. We get the following equation for the distance between plane $ax+by+cz+d=0$ and point $P_1(x_1,y_1,z_1)$. (note $n = \langle a,b,c \rangle$, and $b = \langle x_1-x_0,y_1-y_0,z_1-z_0 \rangle$).
+
+\begin{equation*}
+    D = |\text{comp}_nb| = \frac{|ax_1+by_1+cz_1+d|}{\sqrt{a^2+b^2+c^2}}.
+\end{equation*}
+\end{enumerate}
+
+
+
+\section{Examples}
+
+\begin{problem}
+    Given the line $L$, find a point which $L$ goes through and a direction vectors parallel to $L$.
+
+    \begin{equation*}
+        L = \frac{x-3}{-2} = \frac{y+5}{4} = z.
+    \end{equation*}
+\end{problem}
+
+\vspace{2cm}
+
+\begin{problem}
+    Find the line which passes through $P(2, -1, 3)$ and $Q(5,-2,-1)$.
+\end{problem}
+
+\vspace{4cm}
+
+\begin{problem}
+If two airplanes are flying according to lines $L_1$ and $L_2$, find if they will crash and if so at what point.
+
+\begin{align*}
+    &L_1: x_1 = 1-2t_1, \hspace{.25cm} y_1 = -1-3t_1, \hspace{.25cm} z_1 = -2+t_1.\\
+    &L_2: x_2 = -3+t_2, \hspace{.25cm} y_2 = -2+2t_2, \hspace{.25cm} z_2 = 3-
+    t_2.
+\end{align*}
+\end{problem}
+
+\vspace{7cm}
+
+
+\begin{problem}
+    Are $L_1: \frac{2-x}{6}+\frac{y-5}{2}+\frac{z}{3}$ and $L_2: \frac{x+4}{2}=\frac{y+1}{2/3}=z-5$ parallel?
+\end{problem}
+
+\vspace{2cm}
+
+\begin{problem}
+    What angle do the following lines intersect at?
+
+    \begin{align*}
+        &L_1 : \frac{x_1-1}{-1}=\frac{y_1-3}{-2}=z_1 \\
+        &L_2 : \frac{x_2-2}{3} = \frac{y_2-3}{2}=z_2-1
+    \end{align*}
+\end{problem}
+
+\vspace{5cm}
+
+
+\begin{problem}
+    When does $L_2$ from the previous problem intersect the $xy,xz$, and $yz$ plane?
+\end{problem}
+
+\vspace{3cm}
+
+\begin{problem}
+    Find the plane which contains $P(2,-4,-1)$ and is normal to $\langle -5,1,-2 \rangle$.
+\end{problem}
+
+\vspace{5cm}
+
+\begin{problem}
+    Find the plane which passes through $P(1,1,-3)$, $Q(-6,2,3)$, and $R(-2,1,-2)$.
+\end{problem}
+
+\vspace{6cm}
+
+\begin{problem}
+    Find the plane which contains $P(2,5,3)$ and the line $L: x = 3+2t$, $y = -1-t$, $z = -2+3t$.
+\end{problem}
+
+\vspace{6cm}
+
+\begin{problem}
+    Find the plane which contains $P(2,7,-2)$ and $Q(-1,-2,8)$ and is perpendicular to the plane $3x-5y+2z = -4$.
+\end{problem}
+
+\vspace{6cm}
+
+\begin{problem}
+    Find the intersection of the line $L: x = 2+3t,y=-4t, z = 5+t$, and plane $4x+5y-2z = 18$.
+\end{problem}
+
+\vspace{6cm}
+
+\begin{problem}
+    Find the angle between the planes $x+y+z=1$ and $x-2y+3z = 1$ and then find the line which intersects the planes.
+\end{problem}
+
+\vspace{6cm}
+
+\begin{problem}
+    Find the distance between the point $P(2,4,-6)$ and the plane $x+y+z = -3$.
+\end{problem}
+
+
+\vspace{6cm}
+
+
+\begin{problem}
+    Find the distance between the parallel planes $10x+2y-2z=5$ and $5x+y-z = 1$.
+\end{problem}
+
+\newpage
+
+
+\section{Scratch Work}
+
+
+\end{document} 

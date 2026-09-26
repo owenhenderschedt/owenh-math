@@ -1,0 +1,169 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 14.5 The Chain Rule\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+\textbf{Question:} What does the chain rule say in calculus 1?
+
+
+\section{Motivation}
+Since we have learned how to take partial derivatives, we can attempt to extend some of the calculus 1 derivative rules and see if they can be applied to multi-variable functions.
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item Recall what the chain rule says in calculus one. If $y$ is a function of $x$ and $x$ is a function of $t$, we can find the derivative of $y$ with respect to $t$ as follows.
+
+\begin{equation*}
+    \frac{dy}{dt} = \frac{dy}{dx} \frac{dx}{dt}
+\end{equation*}
+
+In this example we call $x$ an \textbf{intermediate} variable and it \textbf{chains} or links our one independent variable $y$ with our one dependent variable $t$.
+
+\item  The chain rule is really taking derivatives of composition of functions. For example if $y = (3x)^4$ then we can say $y = u^4$ and $u = 3x$. In this case $u$ is the middle-man and to differentiate we would do $4u^3 * 3 = 4(3x)^3*3$. These intermediate variables give us a pathway from a dependent variable to an independent variable.
+
+\item  As in example 1, we can have examples with have multiple paths between our one independent variable and one dependent variable. The goal is to somehow combine the "paths" or combine the intermediate variables in order to find the derivative of our dependent variable with respect to our independent variable.
+
+\item Using example 1 as a proof skeleton we have $z = f(x,y)$ as our dependent variable and $t$ and our independent variable. Thus, if $t$ changes $(\Delta t)$, $x$ and $y$ also change $(\Delta x$ and $\Delta y)$. This in turn will change $z$ $(\Delta z)$.
+
+\begin{align*}
+    \Delta z &= \Delta x * (\text{amount change in } x \text{ changes } z) + \Delta y * (\text{amount change in} y \text{ changes } z)\\
+    &= \Delta x * \partial f/ \partial x + \Delta y * \partial f/ \partial y\\
+\end{align*}
+
+Dividing everything by $\Delta t$ and then taking the limit as $\Delta t \to 0$, we get the following.
+\begin{theorem}(Chain Rule)
+
+\begin{equation*}
+    \frac{dz}{dt} = \frac{\partial f}{\partial x} \frac{dx}{dt} + \frac{\partial f}{\partial y} \frac{dy}{dt}
+\end{equation*}
+
+or EQUIVALENTLY 
+
+\begin{equation*}
+    \frac{dz}{dt} = \frac{\partial z}{\partial x} \frac{dx}{dt} + \frac{\partial z}{\partial y} \frac{dy}{dt}
+\end{equation*}
+    
+\end{theorem}
+
+
+\item Now suppose I have 2 independent variables. More specifically say I have a function $z=f(x,y)$ and then $x$ and $y$ can be written in terms of two variables $s$ and $t$. That is $x = g(s,t)$ and $y = h(s,t)$. We can now find "partial"-chain rule derivatives as follows.
+
+\begin{theorem}(2 independent variable Chain Rule)
+\begin{equation*}
+    \frac{\partial z}{\partial t} = \frac{\partial z}{\partial x} \frac{\partial x}{\partial t} + \frac{\partial z}{\partial y} \frac{\partial y}{\partial t} \hspace{ 1 cm} \frac{\partial z}{\partial s} = \frac{\partial z}{\partial x} \frac{\partial x}{\partial s} + \frac{\partial z}{\partial y} \frac{\partial y}{\partial s}
+\end{equation*}
+
+    
+\end{theorem}
+
+\item We can use derivative trees to help us out!
+
+\item In general if $z$ is my dependent variable, $x_1,...,x_n$ are my intermediate variables, and $t_1,...,t_m$ are my independent variables, our chain rule says the following.
+
+\begin{equation*}
+\frac{\partial z}{\partial t_i} = \frac{\partial z}{\partial x_1}\frac{\partial x_1 }{\partial t_i}+ \frac{\partial z}{\partial x_2}\frac{\partial x_2 }{\partial t_i} + ... + \frac{\partial z}{\partial x_n}\frac{\partial x_n }{\partial t_i}
+\end{equation*}
+
+
+\item If $w=f(x,y)$ but then $y$ is implicitly defined by $x$, that is $y = g(x)$. Here $x$ is the only independent variable. (Since its implicitly defined we can move all our variables to one side and equaling it to a constant.) Setting it equal to zero becasue we derive both sides we get,
+
+\begin{equation*}
+    \frac{\partial w}{\partial x} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial x} + \frac{\partial f}{\partial y} \frac{dy}{dx} = 0
+\end{equation*}
+
+Solving this we get,
+
+\begin{equation*}
+   \frac{dy}{dx} = \frac{-f_x}{f_y}
+\end{equation*}
+
+\item Similiarly if $w = f(x,y,z)$ and $z = g(x,y)$ so $z$ is implicitly defined or is a "dependent" variable for $x$ and $y$. We have,
+
+\begin{equation*}
+    \frac{\partial z}{\partial x} = \frac{-f_x}{f_z} \hspace{1 cm}  \frac{\partial z}{\partial y} = \frac{-f_y}{f_z}
+\end{equation*}
+
+\end{enumerate}
+
+
+
+
+\section{Examples}
+
+\begin{problem}
+    Suppose $w = 2x^3-y^2$, $x=t^2-1$, and $y=t^3+t^2$. Which variables are dependent, independent, and intermediate? Find $dw/dt$.
+\end{problem}
+
+\vspace{5cm}
+
+\begin{problem}
+If $2x^2 - 3\sqrt{xy}-2y -4= 0$, find $dy/dx$.
+\end{problem}
+
+\vspace{5cm}
+
+\begin{problem}
+    If $x^2+xy-x^2z+yz^2 = 0$ find $\partial z/\partial x$ and $\partial z/\partial y$.
+\end{problem}
+
+
+\newpage
+See Chain Rule Worksheet for extra problems
+
+
+
+\section{Scratch Work}
+
+\end{document} 

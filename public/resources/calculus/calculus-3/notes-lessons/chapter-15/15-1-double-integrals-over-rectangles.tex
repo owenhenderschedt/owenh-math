@@ -1,0 +1,170 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 15.1 Double Integrals over Rectangles\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+\textbf{Question:} What are all the ways to represent a rectangular region on the $xy$-plane?
+
+
+
+\section{Motivation}
+
+In Chapter 14 we mastered the question regarding derivatives in 3-dimensions (or higher) we now switch our focus to the other calculus question. How can we find the area (volume) under a curve (surface now) in 3-dimensions (or higher).
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item We begin by recapping what an integral in 2-dimensions (calc 1) means. When we see the definition of the integral it can be a bit confusing so before we dive into it in 3D we should dissect it a bit.
+
+\begin{equation*}
+    \int_a^b f(x) dx = \lim_{n\to \infty} \sum_{i=1}^n f(x_i^*) \Delta x
+\end{equation*}
+
+What we are doing is trying to find the area under a curve in a given region on our independent variables. In other words, the area under a curve bounded by an interval along the $x$-axis. In order to do this, we cut our interval into $n$ pieces (or rectangles once we give it a height) of width $\Delta x$. We then pick an arbitrary point within each interval and we call it $x^*_i$ where $i$ ranges from $1$ to $n$. We are eventually going to want infinite rectangles so the arbitrary point doesn't actually matter. In practice we like to pick endpoints or midpoints. We then find the height of these points, $f(x_i^*)$ and multiply it by the width $\Delta x$ to get the area of each rectangle. Summing these up gives us an approximation for the area under the curve and when we take $n\to \infty$ we get the definition of the integral!
+
+\item In 3D we can play the exact same game where instead we are trying to find the volume under a surface bounded by intervals along our $x$ \emph{and} $y$-axis otherwise known (for now) as a rectangular region on the $xy$-plane. Once again we will dissect the definition of the double integral below.
+
+\begin{equation*}
+    \iint_R f(x,y) dA = \lim_{m,n \to \infty} \sum_{i=1}^n \sum_{j=1}^n f(x^*_{i,j}, y^*_{i,j}) \Delta A 
+\end{equation*}
+
+Here we are estimating the volume under our service by chopping our region into rectangles, diving the $x$-axis into $m$ parts and the $y$-axis into $n$ parts. This will give us $nm$ rectangles each one with surface area $\Delta x \Delta y = \Delta A$. We then chose an arbitrary point in each rectangle $(x^*_{i,j}, y^*_{i,j})$ and find its height $f(x^*_{i,j}, y^*_{i,j})$ to find the volume of the rectangular prism. Adding these all up will give us an approximation for the volume under the surface and then taking the limit as both $n$ and $m$ approach infinity will give us the definition of the double integral.
+
+\item One method of solving these is known as \textbf{``Iterated Integrals"} which just means it doesn't matter whether we add up all our $x$ rectangles first and then $y$ or $y$ then $x$. In other words $\Delta A = \Delta x \Delta y = \Delta y \Delta x$. So for our integral $dA = dx dy = dy dx$. Thus, for rectangular regions $R: \{(x,y) : a \leq x \leq b, c \leq y \leq d\}$ we can write our integral as follows.
+
+\begin{equation*}
+    \int_a^b \int_c^d f(x,y) dydx = \int_c^d \int_a^b f(x,y) dxdy.
+\end{equation*}
+
+\item Note. You may see rectangular regions as $R = [a,b] \times [c,d]$.
+
+\item We therefore solving these integrals starting on the inside and working our way outward.
+
+\begin{equation*}
+    \int_a^b \left[\int_c^d f(x,y) dy \right] dx \text{ or }  \int_c^d \left[\int_a^b f(x,y) dx \right] dy
+\end{equation*}
+
+Just like with partial derivatives, we treat the variable we are not integrating in terms of, as a constant.
+
+\item One fun extension from calc 1 (really calc 2) is that we can find the average value of an integral as follows.
+
+\begin{equation*}
+    f_{avg} = \frac{1}{b-a} \int_a^b f(x) dx
+\end{equation*}
+
+It the same for average value of a double integral!
+
+\begin{equation*}
+    f_{avg} =  \frac{1}{A(R)}\iint_R f(x,y) dA.
+\end{equation*}
+
+\end{enumerate}
+
+
+
+
+\newpage
+
+
+
+
+\section{Examples}
+
+
+\begin{problem}
+    Find the approximation of volume under the surface $f(x,y) = x^2+y - 1$ over the region $R=\{1\leq x \leq 4, 2\leq y \leq 6\}$ if $m=3$, $n=2$ and lower left corner (lower right corner) (midpoint).
+\end{problem}
+
+
+\newpage
+
+\begin{problem}
+     Find $\iint_R (x^2 + y -1) dA$ if $R=\{1\leq x \leq 4, 2\leq y \leq 6\}$.
+\end{problem}
+
+\vspace{5cm}
+
+\begin{problem}
+     Find $\iint_R (\sin{x} \cos{y}) dA$ if $R= [0, \pi/2] \times [0, \pi/2]$.
+\end{problem}
+
+\vspace{5cm}
+
+\begin{problem}
+     Find $\iint_R e^{xy} dA$ if $R=\{0\leq x \leq 1, 0\leq y \leq 2\}$.
+\end{problem}
+
+
+
+\vspace{10cm}
+
+
+\begin{problem}
+    Find the average value of the integral from Problem 2 and Problem 3.
+\end{problem}
+
+
+
+
+\vspace{6cm}
+
+
+\begin{problem}
+    Evaluate $\iint_R y\sin(xy) dA$, where $R = [1,2] \times [0, \pi]$.
+\end{problem}
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

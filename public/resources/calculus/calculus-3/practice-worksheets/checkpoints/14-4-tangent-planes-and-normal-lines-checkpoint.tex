@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm, standalone}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+% \usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{amssymb}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+\begin{huge}
+    \begin{center}
+        Checkpoint
+    \end{center}
+\end{huge}
+\begin{large}\begin{center}\bf 14.4: Tangent Planes and Normal Lines \end{center}
+\end{large}
+
+\vs\vs
+
+\begin{problem}
+What is a level curve to a surface $f(x,y)$?
+\end{problem}
+
+\begin{problem}
+The gradient of a $k$-dimensional surface lives in what dimension? What does the gradient vector represent with respect to a level curve of the surface?
+\end{problem}
+
+\begin{problem}
+If a plane needs a point and a normal? What will we use for the normal of a \textbf{tangent} plane?
+\end{problem}
+
+
+\begin{problem}
+If $2(x-1)+3(y-2)+4(z-3)=0$ is a tangent plane to some surface $f(x,y)$, find the corresponding normal line at the same point.  
+\end{problem}
+
+\begin{problem}
+If $\nabla f(x,y,z) = \langle xy, x+y+z,x-y-z\rangle$ find the equation of the tangent plane at $(1,2,3)$.
+\end{problem}
+
+
+
+
+\newpage
+
+\section{Answers}
+
+\begin{enumerate}
+    \item It is setting our surface equal to a constant $f(x,y) = c$.
+    \item $k-1$. The gradient is the normal vector to the level curve.
+    \item We use the gradient of a surface one dimension higher by thinking about our surface as a specific level surface of something larger.
+    \item $\frac{x-1}{2}= \frac{y-2}{3}= \frac{z-3}{4}$.
+    \item $2(x-1)+6(y-2)-4(z-3)=0$
+\end{enumerate}
+
+
+
+\end{document} 

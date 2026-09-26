@@ -1,0 +1,168 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 15.3 Double Integrals in Polar Coordinates\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+\textbf{Question 1}: What are the polar to rectangular conversions (and rectangular to polar)?
+
+
+
+\section{Motivation}
+As we learn in calc one, some integrals are \emph{impossible} with elementary methods of integration. Similarly, some double integrals are impossible... but if we convert to integrating with respect to polar coordinates, we can turn some impossible double integrals possible and make many of them much easier! 
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item A quick recap on polar coordinates, from the Pythagorean theorem we know,
+
+\begin{equation*}
+    r^2 = x^2 + y^x \hspace{1cm} \text{ and } \hspace{1cm} \tan{\theta} = \frac{y}{x} 
+\end{equation*}
+
+Using our unit circle (or circle with radius $r$) we can also see that,
+
+\begin{equation*}
+    x = r\cos{\theta}\hspace{1cm} \text{  and  }\hspace{1cm} y = r\sin{\theta}
+\end{equation*}
+
+
+\item Just like with all the double integrals in the previous chapter, our polar coordinates much draw out a region and so we can think about it as going between two fixed angles $\alpha$ and $\beta$, and sandwiched between two functions $r = g_1(\theta)$ and $r = g_2(\theta)$. When these are constant radii say $r=a$ and $r=b$ we get a region bounded by 4 constants... a polar rectangle. Since our angles are fixed we know they must be final iteration of our double integral so in both cases we have the following double integral.
+
+\begin{equation*}
+    \int_{\alpha}^{\beta} \int_{a}^{b} f(r,\theta) \dif{r} \dif{\theta} \text{ or } \int_{ \alpha}^{\beta} \int_{g_1(\theta)}^{g_2(\theta)} f(r,\theta) \dif{r} \dif{\theta}.
+\end{equation*}
+
+\item To find our surface $f(r,\theta)$ we take our surface $f(x,y) \to f(r,\theta)$ by setting $x=r\cos{\theta}$ and $y=r\sin{\theta}$.
+
+
+
+
+\item Now for the \emph{MOST IMPORTANT THING} $\dif{A}$ doesn't just become $\dif{r}\dif{\theta}$ we need to add an extra $r$. So $\dif{A} =r \dif{r}\dif{\theta}$. So here is what our double integral looks like.
+
+\begin{equation*}
+    \int_{\alpha}^{\beta} \int_{a}^{b} f(r,\theta) r \dif{r} \dif{\theta} \text{ or } \int_{ \alpha}^{\beta} \int_{g_1(\theta)}^{g_2(\theta)} f(r,\theta) r \dif{r} \dif{\theta}.
+\end{equation*}
+
+
+\item Why do we add this extra $r$? If we remember from geometry or trig, the area of a sector of circle is $A = \frac{1}{2}r^2 \theta$. So our region which is the difference between the bigger sector and the smaller theta, is
+
+\begin{equation*}
+    A = \frac{1}{2}b^2 \Delta \theta - \frac{1}{2}a^2 \Delta \theta = \frac{1}{2}(b+a)(b-a)\Delta \theta = r_k^* (b-a) \Delta \theta = r_k^* \Delta r \Delta \theta
+\end{equation*}
+
+When we take the limit as both of our changes approach zero we get $r\dif{r}\dif{\theta}$.
+
+\item The other cool thing we can do with polar coordinates is find the area of a region. Keep in mind for circular regions, this question stumped mathematicians for centuries. What we can realize is that the volume of a cylinder (not just a circle base) can be calculated by surface area time height. $V = Ah$ but when $h=1$ we get $V=A$. Yes the units are not equal here but numerically they are the same. Hence we get the following.
+
+\begin{equation*}
+    \iint_R 1 \dif{A} = \text{Area of Region } R.
+\end{equation*}
+
+
+
+\end{enumerate}
+
+
+
+
+\section{Examples}
+
+\begin{problem}
+    Evaluate $\iint_R xy \dif{A}$ where $R$ is the region in the first quadrant bounded by $x^2+y^2= 4$, and $x=y$ and $x=0$.
+\end{problem}
+
+
+\vspace{10cm}
+
+
+
+\begin{problem}
+    Find the volume between $z=9-x^2-y^2$ and the $xy$-plane as bounded by the cylinder $x^2+y^2=1$.
+\end{problem}
+
+\vspace{7cm}
+
+
+\begin{problem}
+    Find the volume below $z = \frac{y^2}{x^2+y^2}$ above the $xy$-plane and between cylinders $x^2+y^2=1$ and $x^2+y^2=2$.
+\end{problem}
+
+
+\newpage
+
+\begin{problem}
+    Evaluate $\iint_R y \dif{A}$ where $R$ is bounded by $x^2+y^2 = 2x$ and $y=x$.
+\end{problem}
+
+\vspace{6cm}
+
+
+\begin{problem}
+    Evaluate $\iint_R f(r,\theta) \dif{A}$ where $R$ is bounded by $x^2+y^2 = 4$ and $x^2+y^2 = 2y$ in quadrant 1.
+\end{problem}
+
+\vspace{6cm}
+
+
+\begin{problem}
+    Find the volume below $3x+4y+z = 12$, bound between $x^2+y^2=2x$ and above the $xy$-plane.
+\end{problem}
+
+
+
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

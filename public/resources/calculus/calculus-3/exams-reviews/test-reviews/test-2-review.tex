@@ -1,0 +1,188 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+\begin{huge}
+    \begin{center}
+        Test 2 Review
+    \end{center}
+\end{huge}
+
+
+\vs\vs
+
+\section{Limits}
+
+\begin{problem}
+Evaluate the following limit. If it does not exists write DNE. \[\lim_{(x,y,z) \to (-1,1,0)} e^{xyz}+x^2\cos{z}-2x\tan^{-1}{y}\]
+\end{problem}
+
+\begin{problem}
+ Use the Squeeze Theorem to Evaluate the following limit. \[\lim_{(x,y) \to (0,0)} x^4\sin\left(\frac{1}{x^2+y^2}\right)\]   
+\end{problem}
+
+\begin{problem}
+Evaluate the following limit. If it does not exists write DNE. \[\lim_{(x,y) \to (2,2)} \frac{x-y}{\sqrt{x}-\sqrt{y}}\]
+\end{problem}
+
+\begin{problem}
+    Evaluate the following limit. If it does not exist write DNE. \[\lim_{(x,y)\to (2,0)} \frac{2xy-2y}{x^2+y^2-4x+4}\]
+\end{problem}
+
+\begin{problem}
+Evaluate the following limit. If it does not exists write DNE. \[\lim_{(x,y) \to (0,0)} \frac{x^6-3y^2x^3}{y^4+2x^6}\]
+\end{problem}
+
+
+\section{Partial Derivatives}
+
+\begin{problem}
+Find both first order partial derivatives of the following surface.
+\begin{enumerate}
+    \item $f(x,y) = 4^{\cos(xy)}+2xy^5$
+    \item $f(x,y) = x^2\sqrt[6]{2xy}$
+    \item $z = \frac{6y}{\ln{(x+y)}}$
+    \item $f(x,y) = \cos^2{(ye^{x})}$
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+    Find all second order partial 
+\begin{enumerate}
+    \item $f(x,y) = \frac{x^3}{y^5}+x^2-y^7$
+    \item $f(x,y) = x^{\cos{y}}+e^x$
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Consider the surface $f(x,y) = 5x^3y-2y^2-3x+1$. Find the direction of steepest ascent at $(2,2,67)$ and find the slope of steepest ascent.
+\end{problem}
+
+
+
+
+\section{The Chain Rule}
+
+\begin{problem}
+Find $\frac{\partial z}{\partial t}$ if $z = \sqrt{x}-\ln{xy}$, $x = st+t^2$, and $y = \frac{5s}{t}$.
+\end{problem}
+
+\begin{problem}
+    Find $\frac{df}{d\theta}$ evaluated at $\theta = \pi$ where $f(x,y) = e^{xy^2}$, $x = \cos{\theta}-\sin^2{\theta}$ and $y = \tan{\left(\frac{\theta}{4}\right)}$.
+\end{problem}
+
+\begin{problem}
+    Find an equation which represents $\frac{\partial z}{\partial m}$ where $z = f_1(x,y,z)$, $x = f_2(s)$, $y = f_3(t)$, $z = f_4(s,t)$, $s = f_5(n)$, $t = f_6(m,n)$.
+\end{problem}
+
+\begin{problem}
+    Find $\frac{dy}{dx}$ if $y^3+x^3-xy=0$
+\end{problem}
+
+\section{Directional Derivatives}
+
+\begin{problem}
+Find $\mathcal{D}_{\hat{u}} f(1,1)$ where $f(x,y) = x^3-5y+3xy^2$ and $\hat{u} = \langle \frac{8}{17}, \frac{15}{17}\rangle $    
+\end{problem}
+
+\begin{problem}
+Find the derivative of $f(x,y) = e^{x^2y}+\frac{y}{6x^3}$ in the direction that the angle $\frac{5\pi}{6}$ makes with the $x$-axis.
+\end{problem}
+
+\begin{problem}
+Find the derivative of $f(x,y) = e^{x^2y}+\frac{y}{6x^3}$ in the direction of $\vec{w} = 2 \hat{i} - 9\hat{j}$.
+\end{problem}
+
+\section{Tangent Planes and Normal Lines}
+
+\begin{problem}
+Find the equation both the tangent plane and normal line to the following surfaces at the given points.
+
+\begin{enumerate}
+    \item $z = \frac{1}{2}x^2-\frac{1}{3}y^3+\frac{1}{4}x^4; (2,3, -3)$
+    \item $z^2 + xyz = xy-2xz+yz+1 ; (1,2,1)$
+    \item $f(x,y) = \sec{x}+\ln{\frac{xy}{\pi}}; (\frac{\pi}{3}, 3e,3)$
+\end{enumerate}
+\end{problem}
+
+
+\section{Relative Extrema}
+
+\begin{problem}
+Find and classify all critical values of the following surface. \[f(x,y) = 7x-8y+2xy-x^2+y^3 \]
+\end{problem}
+
+
+
+\begin{problem}
+Find and classify all critical values of the following surface. \[f(x,y)=(3x+4x^3)(y^2+2y)\]
+\end{problem}
+
+\begin{problem}
+Find and classify all critical values of the following surface. \[f(x,y) = x^3 - 3x^2 + 3y^2 + y^3 - 5\]
+\end{problem}
+
+
+\begin{problem}
+ Find the absolute maximum and minimum of $f(x,y) = 5x^2-3y^3+4y-x+1$ bounded by the region $R = \{(x,y) : 0\leq x\leq 4, 1\leq y\leq 8\}$   
+\end{problem}
+   
+\begin{problem} 
+    Find the absolute maximum/minimum and where they occur on the surface $f(x,y) = 2x^2+3xy+y^2$ bounded by the triangle with end points $(-4,-1),(3,-1),(1,2)$.
+\end{problem}
+
+\begin{problem}
+Use Lagrange multipliers to maximize $f(x,y) = x^2 + 4y^2 - 2x +8y $ subject to the constraint: $x + 2y = 7$.
+\end{problem}
+
+\begin{problem}
+Use Lagrange multipliers to maximize $f(x,y) = 8x^2 - 2y$ subject to the constraint: $x^2 + y^2 = 1$.
+\end{problem}
+
+
+
+
+
+\end{document} 

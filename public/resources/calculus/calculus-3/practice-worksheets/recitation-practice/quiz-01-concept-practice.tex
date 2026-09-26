@@ -1,0 +1,291 @@
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,margin=0.58in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage}
+
+\definecolor{sectiongray}{gray}{0.935}
+
+% Gray section bands on the worksheet side.
+\newcommand{\sectionbar}[1]{%
+  \vspace{0.55em}%
+  \noindent\colorbox{sectiongray}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
+      \textbf{\large\strut #1\strut}%
+    }%
+  }%
+  \par\vspace{0.47em}%
+}
+
+% Slightly more compact gray section bands on the answer-key side.
+\newcommand{\answerbar}[1]{%
+  \vspace{0.55em}%
+  \noindent\colorbox{sectiongray}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
+      \strut\textbf{#1}\strut
+    }%
+  }%
+  \par\vspace{0.50em}%
+}
+
+\newlist{problems}{enumerate}{1}
+\setlist[problems]{
+  leftmargin=19.981pt,
+  labelwidth=17.572pt,
+  labelsep=5.481pt,
+  labelindent=-3.127pt,
+  itemsep=0.58em,
+  topsep=0pt,
+  parsep=0pt
+}
+
+\newlist{answers}{enumerate}{1}
+\setlist[answers]{
+  leftmargin=19.981pt,
+  labelwidth=17.572pt,
+  labelsep=5.481pt,
+  labelindent=-3.127pt,
+  topsep=0pt,
+  parsep=0pt
+}
+
+\begin{document}
+
+% ================================================================
+% PAGE 1: PRACTICE
+% ================================================================
+\begin{center}
+    {\Large\bfseries Math 2650 Recitation -- Week 1 Concept Practice}\\[0.28em]
+    \small Choose the section matching the skill you want to practice.
+    Answers are on the back.
+\end{center}
+
+\vspace{0.07em}
+
+% ================================================================
+% SECTION A
+% ================================================================
+\sectionbar{A. Coordinate Systems and Surface Equations}
+
+\begin{problems}[label=\textbf{A\arabic*.}]
+
+\item A sphere has diameter endpoints
+\[
+D_1=(-1,2,0),
+\qquad
+D_2=(3,2,4).
+\]
+Find an equation of the sphere in rectangular coordinates.
+Then rewrite the same sphere in cylindrical coordinates.
+
+\item A surface is given in spherical coordinates by
+\[
+\rho\sin\phi\,(2\cos\theta-\sin\theta)=6.
+\]
+Rewrite the surface in rectangular coordinates and identify the type
+of surface.
+
+\item Sphere $S_1$ is given by
+\[
+(x-1)^2+(y+2)^2+(z-2)^2=9.
+\]
+Sphere $S_2$ has twice the radius of $S_1$. The center of $S_2$
+is one unit from the center of $S_1$ in the direction of the unit vector
+\[
+\mathbf u=\frac13\langle2,-1,2\rangle.
+\]
+Find a rectangular-coordinate equation for $S_2$.
+
+\item The surface
+\[
+(x-1)^2+(z+2)^2=9
+\]
+is a circular cylinder. State which coordinate axis its axis is parallel
+to, give one point on its axis, and rewrite the equation in cylindrical
+coordinates.
+
+\end{problems}
+
+\vspace{0.12em}
+
+% ================================================================
+% SECTION B
+% ================================================================
+\sectionbar{B. Vectors and Lines in Space}
+
+\begin{problems}[label=\textbf{B\arabic*.}]
+
+\item Let
+\[
+\mathbf u=\langle1,1,0\rangle,
+\qquad
+\mathbf v=\langle0,1,1\rangle,
+\qquad
+\mathbf w=\langle1,-1,1\rangle.
+\]
+Find $(a,b,c)$ such that
+\[
+\langle7,0,5\rangle
+=
+a\mathbf u+b\mathbf v+c\mathbf w.
+\]
+
+\item A line through $(x_0,y_0,z_0)$ with direction vector
+$\langle a,b,c\rangle$ has parametric equations
+\[
+x=x_0+at,\qquad y=y_0+bt,\qquad z=z_0+ct.
+\]
+Let $\ell$ be the line through $A=(1,0,-1)$ and $B=(5,2,3)$, and let
+$C=(4,1,0)$. Find the point $P\in\ell$ such that
+$\overrightarrow{CP}$ is perpendicular to $\ell$.
+
+\end{problems}
+
+\vspace{0.12em}
+
+% ================================================================
+% SECTION C
+% ================================================================
+\sectionbar{C. Sphere/Cone Geometry and Volume}
+
+\begin{problems}[label=\textbf{C\arabic*.}]
+
+\item Sphere $S_1$ has center $(1,-2,3)$ and radius $2$, while
+sphere $S_2$ has center $(7,2,6)$ and radius $1$. Find the
+\emph{greatest possible distance} between a point on $S_1$ and a
+point on $S_2$.
+
+\item Three concentric spheres $S_1,S_2,S_3$ have radii
+$6$, $R$, and $2$, respectively, with $S_1$ the largest.
+Choose $R$ so that the volume inside $S_1$ but outside $S_2$
+is equal to the volume inside $S_2$ but outside $S_3$.
+
+\item Find the volume of the solid described in cylindrical coordinates by
+\[
+-\sqrt{9-r^2}\le z\le 4-\frac43r.
+\]
+
+\end{problems}
+
+% ================================================================
+% PAGE 2: ANSWER KEY
+% ================================================================
+\newpage
+
+\begin{center}
+    {\Large\bfseries Answer Key}\\[0.28em]
+    \small Final answers only
+\end{center}
+
+\vspace{0.30em}
+
+% ================================================================
+% ANSWERS A
+% ================================================================
+\answerbar{A. Coordinate Systems and Surface Equations}
+
+\begin{answers}[label=\textbf{A\arabic*.},itemsep=0.95em]
+
+\item
+Rectangular:
+\[
+\boxed{(x-1)^2+(y-2)^2+(z-2)^2=8}.
+\]
+Cylindrical:
+\[
+\boxed{(r\cos\theta-1)^2+(r\sin\theta-2)^2+(z-2)^2=8}.
+\]
+
+\item
+\[
+\boxed{2x-y=6};
+\qquad
+\boxed{\text{plane}}.
+\]
+
+\item
+\[
+\boxed{
+\left(x-\frac53\right)^2
++
+\left(y+\frac73\right)^2
++
+\left(z-\frac83\right)^2
+=36
+}.
+\]
+
+\item
+Axis parallel to the
+\[
+\boxed{y\text{-axis}}.
+\]
+One point on the axis is
+\[
+\boxed{(1,0,-2)}.
+\]
+Cylindrical:
+\[
+\boxed{(r\cos\theta-1)^2+(z+2)^2=9}.
+\]
+
+\end{answers}
+
+\vspace{0.30em}
+
+% ================================================================
+% ANSWERS B
+% ================================================================
+\answerbar{B. Vectors and Lines in Space}
+
+\begin{answers}[label=\textbf{B\arabic*.},itemsep=1.00em]
+
+\item
+\[
+\boxed{(a,b,c)=(3,1,4)}.
+\]
+
+\item
+\[
+\boxed{P=(3,1,1)}.
+\]
+
+\end{answers}
+
+\vspace{0.30em}
+
+% ================================================================
+% ANSWERS C
+% ================================================================
+\answerbar{C. Sphere Geometry and Volume}
+
+\begin{answers}[label=\textbf{C\arabic*.},itemsep=1.00em]
+
+\item
+\[
+\boxed{\sqrt{61}+3}.
+\]
+
+\item
+\[
+\boxed{R=2\sqrt[3]{14}}.
+\]
+
+\item
+\[
+\boxed{30\pi}.
+\]
+
+\end{answers}
+
+\end{document}

@@ -1,0 +1,95 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+\begin{huge}
+    \begin{center}
+        Checkpoint
+    \end{center}
+\end{huge}
+\begin{large}\begin{center}\bf 12.5 Part 2: Planes\end{center}
+\end{large}
+
+\vs\vs
+
+\begin{problem}
+What two things do you need for a plane in $3$D?  
+\end{problem}
+
+\begin{problem}
+Find the normal to the following plane. \[x+6y-4z=12\]
+\end{problem}
+
+\begin{problem}
+If I gave you two (non-parallel) lines in a plane, how would you find the equation of the plane?
+\end{problem}
+
+
+\begin{problem}
+Find the equation of the plane with normal $2\hat{i}-5\hat{j}+\hat{k}$ which goes through the point $(5,-3,0)$.
+\end{problem}
+
+\begin{problem}
+    Are the following planes perpendicular?
+
+    \[2(x-100)+2(y-200)+2(x-300)=0 \] and \[(x+100)+(y+200)+(z+300)=0\]
+\end{problem}
+
+
+\newpage
+
+\section{Answers}
+
+\begin{enumerate}
+    \item A point and a normal
+    \item $\langle 1,6,-4\rangle$
+    \item Use the point on either line for the \textbf{point} and take the cross product of the directions of the lines for the \textbf{normal}.
+    \item $2(x-5)-5(y+3)+z=0$
+    \item No $\langle 2,2,2 \rangle \cdot \langle 1,1,1 \rangle \neq 0$
+\end{enumerate}
+
+
+
+\end{document} 

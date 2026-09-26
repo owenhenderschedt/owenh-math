@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 12.2 Vectors \end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+
+\textbf{Question}: How would you describe to someone, how to walk from the point $(2,4)$ to $(-3,-3)$? 
+
+\section{Motivation}
+
+When formalizing mathematically the idea of movement and change, we need more than simply numbers. Vectors allow us to represent movement in a certain direction for a certain distance or magnitude. Lots of interesting mathematical properties unfold from the simple definitions regarding vectors. We first need lots of definitions to unpack.
+
+
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+    \item A \textbf{vector} has both a direction and length (magnitude) we can think of it starting at an \textbf{initial point} and ending at a \textbf{terminal point}. If vector $u$ and $v$ have the same length and direction we say $u=v$.
+    \item  \textbf{Adding} vectors $u+v$ can be thought of as first traveling down $u$ and then traveling down $v$. We can imagine moving the initial point of $v$ to the terminal point of $u$ (Tip to Tail). Does it matter $u+v$ vs. $v+u$ (Parallelogram Law)?
+    \item Since $u+u=$ "two" $u's$ we think of $2$ as a \textbf{scalar}. Hence we can multiply vectors by scalars $cv$. Note that two vectors are "parallel" if and only if they are scalar multiples of each other. 
+    \item The \textbf{negative} of a vector is like "reversing" the vector. Thus, $u-v = u + (-v)$.
+    \item \textbf{Component form} of a vector has its initial point at the origin and looks like $\langle x,y \rangle$. In three dimensions it looks like $\langle x,y,z \rangle$. These vectors are called \textbf{position vectors}. Don't confuse vectors with points (although they are related).
+
+    \item Given two points $A(x_1,y_1,z_1)$ and $B(x_2,y_2,z_2)$, the \textbf{vector representation} from $A$ to $B$ is $\langle x_2-x_1,y_2-y_1,z_2-z_1 \rangle$.
+
+    \item The length or \textbf{magnitude} of a vector $v= \langle x,y \rangle$ is $|v|=\sqrt{x^2+y^2}$. In three dimensions if $v= \langle x,y,z \rangle$, $|v|=\sqrt{x^2+y^2+z^2}$.
+
+    \item $\langle x_1,y_1,z_1 \rangle + \langle x_2,y_2,z_2 \rangle = \langle x_1+x_2, y_1+y_2, z_1+z_2 \rangle$ and $c\langle x,y,z \rangle = \langle cx,cy,cz \rangle$.
+
+
+    \item $\langle 1,0,0 \rangle , \langle 0,1,0 \rangle , \langle 0,0,1 \rangle$ are called \textbf{standard basis vectors} and are denoted $i,j,k$. Every vector can be represented as the summation of scalar multiples of these basis vectors.
+
+    \item  A \textbf{unit vector} has magnitude 1. If $a$ is some vector, $a/|a|$ is the unit vector of $a$.
+\end{enumerate}
+
+
+
+\section{Examples}
+
+\begin{problem}
+    Add the vectors $u$ and $v$. Find $3u$. Find $u-2v$.
+\end{problem}
+
+\vspace{3cm}
+
+\begin{problem}
+    Find the vector representation $AB$ given the points $A(1,-5,3)$ and $B(6/5,,4, -2)$.
+\end{problem}
+
+\vspace{2cm}
+
+
+\begin{problem}
+    If $u = \langle 2,-3,-4 \rangle$ and $v = \langle 2,4,-1 \rangle$ find $|2u-3v|$.
+\end{problem}
+
+
+\vspace{3cm}
+
+\begin{problem}
+Find the standard basis representation of $\langle -7.2,3.4,-10.1 \rangle$.
+\end{problem}
+
+\vspace{1cm}
+
+\begin{problem}
+    Find the unit vector in the same direction as the vector $4i-3j-k$.
+\end{problem}
+
+\vspace{4cm}
+
+
+\section{Scratch Work}
+
+\end{document} 

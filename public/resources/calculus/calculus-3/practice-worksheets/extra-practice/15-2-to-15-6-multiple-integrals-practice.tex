@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm,mathtools}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+
+
+
+\begin{document}
+
+Name: \underline{\hspace{10cm}}
+
+\begin{center}
+\begin{huge}\bf Multiple Integrals Practice 
+\end{huge}
+\end{center}
+
+(1.) Consider the following expressions.
+
+\begin{equation}
+    I = \iint_R f(x,y) \dif{A} \hspace{1.5cm} \text{and} \hspace{1.5cm} J = \iiint_T f(x,y,z) \dif{V} 
+\end{equation}
+
+
+
+(i.) In words, what does $I$ represent?
+
+
+
+\vspace{3cm}
+
+
+(i.) In words, what does $J$ represent? (The 4D meaning)
+
+
+
+\vspace{3cm}
+
+(ii.) As a mathematical expression, what is the definition of $I$
+
+
+\vspace{3cm}
+
+
+
+(iv.) If $f(x,y,z)$ is a mass density function on the region $T$, what does $J$ represent?
+
+
+\newpage
+
+(2.) Consider the following double integral
+
+\begin{equation}
+    \iint_R 5x^3 \cos{y^3} \dif{A}
+\end{equation}
+
+
+
+where $R$ is bounded by $y=2$ and $y= \frac{1}{4}x^2$.
+
+\vspace{.5cm}
+
+(i.) Evaluate the double integral. 
+
+\vspace{12cm}
+
+(ii.) In words, interpret your previous answer.
+
+
+\newpage
+
+(3.) Consider the following double integral
+
+\begin{equation}
+    \iint_R e^{-x^2-y^2} \dif{A}
+\end{equation}
+
+
+
+where $R$ is the region between $x^2+y^2 = 2x$ and $x^2+y^2 = 8x$ and $y=0$.
+
+\vspace{.5cm}
+
+(i.) Evaluate the double integral. 
+
+\vspace{11cm}
+
+(ii.) Using calculus find the area of $R$.
+
+
+\newpage
+
+
+(4.) Consider the following triple integral.
+
+\begin{equation}
+    \iiint_T \sqrt{x^2+y^2} \dif{V}
+\end{equation}
+
+Where $T$ is the region which lies inside the cylinder $x^2+y^2 =16$, and between planes $z=1$ and $z = y+1$
+
+
+(i.) Evaluate the triple integral.
+
+
+\newpage
+
+(5) Suppose $\rho(x,y,z) = 15z$ is the mass density function over the 3-dimensional region $T$ which is bounded by $2x+y+z=4$, $4x+4y+2z=20$, $z=2y^2$, and $z=\sqrt{4y}$.
+
+(i.) Find the mass of the $T$.
+
+\end{document}

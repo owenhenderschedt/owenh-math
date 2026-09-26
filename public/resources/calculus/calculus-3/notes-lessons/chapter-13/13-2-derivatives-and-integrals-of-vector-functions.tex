@@ -1,0 +1,153 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 13.2 Derivatives and Integrals of Vector Functions\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+
+\textbf{Question 1}: What is the definition of the derivative?
+
+\textbf{Problem 1:} Find the derivative of $\cos{x}$, $\ln{x}$, $xe^x$, $(1+\sqrt{x})^3$
+
+\section{Motivation}
+
+We have defined vector functions which seem useful to describe motion and curves/surfaces in 3-space. It seems natural to wonder if we have a notion of the derivative, which also helps us analyze the motion of functions?
+
+
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item  If $r$ is a vector function, the derivative of $r$ denoted $r'$ is defined the same way we define it in calc I.
+
+\begin{equation*}
+    r'(t) = \lim_{h \to 0}\frac{r(t+h)-r(t)}{h}.
+\end{equation*}
+
+
+
+If this limit exists, geometrically it represents the \textbf{tangent vector} to the curve defined by $r$. It is a direction vector to the line tangent to the curve at a given $t$.
+
+\item  This tangent vector will be useful to know and thus we define a \textbf{unit tangent vector} $T(t)$ as follows.
+
+\begin{equation*}
+    T(t) = \frac{r'(t)}{|r'(t)|}.
+\end{equation*}
+
+\item To compute the derivative for these vector functions we utilize the following theorem.
+
+\begin{theorem}
+    If $r(t) = \langle f(t),g(t),h(t) \rangle$ where $f,g,h$ are differentiable functions then $r'(t) = \langle f'(t), g'(t), h'(t) \rangle$. 
+\end{theorem}
+
+\item Many of the rules when taking the derivatives of functions also hold when taking the derivative of vector functions. These include the following.
+
+\begin{itemize}
+    \item $(u(t)+v(t))' = u'(t) + v'(t)$
+    \item $(cu(t))' = cu'(t)$
+    \item $(f(t)u(t))' = f'(t)u(t)+f(t)u'(t)$
+    \item $(u(t)\cdot v(t))' = u(t)\cdot v'(t)+u'(t) \cdot v(t)$
+    \item $(u(t) \times v(t))' = u'(t)\times v(t) + u(t) \times v'(t)$
+    \item $(u(f(t))') = f'(t)u'(f(t))$
+\end{itemize}
+
+\item If we can find the derivative of a vector function which gives us a direction vector which is tangent to our space curve, we can use that, along with a point (Point of tangency) to find the \textbf{equation of the tangent line}! Just like we did in 12.5.
+
+\item Similarly we can find the \textbf{integral} of a vector functions as follows.
+
+\begin{equation*}
+    \int_a^b r(t) = \left(\int_a^b f(t)\right) i + \left(\int_a^b g(t)\right) j + \left(\int_a^b h(t)\right) k.
+\end{equation*}
+   
+   \end{enumerate}
+
+
+
+\section{Examples}
+
+\begin{problem}
+  Find $r'(t)$ if $r(t) = \langle 1/t, 1/t^2, 1/t^3 \rangle$.
+\end{problem}
+
+\vspace{6cm}
+
+\begin{problem}
+   Find $r'(t)$ if $r(t) = e^t\sin(t)i - 2^tj + (1+\ln{t})^3k$.
+\end{problem}
+
+\vspace{7 cm}
+
+
+\begin{problem}
+Find $r''(t)$ in problem 1.
+\end{problem}
+
+
+\vspace{8cm}
+
+\begin{problem}
+Find $\int r(t) $ where $r(t) = \sqrt{t}i + 2t/(t^2+5)j - 4k$.
+\end{problem}
+
+\vspace{12cm}
+
+
+
+\begin{problem}
+    If $u(t) = \langle 3t^2, \sqrt[3]{t}, -5t \rangle$ and $v(t) = \langle 2t+3, -t^2, t-t^2 \rangle$, find $(u(t)\cdot v(t))'$ and $(u(t) \times v(t))'$.
+\end{problem}
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

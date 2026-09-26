@@ -1,0 +1,201 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{array}
+\usepackage{boxedminipage}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+
+\newenvironment{problem}[1][]{%
+  \bigskip% put space before problem statement box %
+  \noindent\begin{boxedminipage}{\columnwidth}%
+  \def\@tempa{#1}%
+  \ifx\@tempa\empty\else%
+    \textbf{#1}\hspace{0.5em}%
+  \fi%
+}{%
+  \end{boxedminipage}%
+}
+
+% header for each page of test
+% be sure to change everything to what it should be (including total number of pages!)
+\pagestyle{fancyplain}
+\lhead{MATH 2630-080}
+\chead{Test 1}
+\rhead{Page \thepage \ of 9}
+\cfoot{}
+
+
+\begin{document}
+\thispagestyle{empty}
+% front page heading
+\begin{Center}
+    \Large{\textbf{MATH 2630-090: TEST 1 -- Summer 2024}} \\
+    \large{
+    June 4, 2024 \\
+    Owen Henderschedt
+    }
+\end{Center}
+
+\vspace*{1cm}
+
+% space for name
+\begin{FlushRight}
+    Name (\textit{please print}): \underline{\hspace{12.5cm}}
+\end{FlushRight}
+
+\vspace*{1cm}
+
+% instructions
+\textbf{Instructions:}
+Please read the following instructions carefully.
+\begin{itemize}
+    \item \textbf{Read all of the directions} for each problem.
+
+    \item You have \textbf{75 minutes} to finish the exam.
+
+    \item \textbf{Show work to receive credit.}
+    Answers that are wrong, but still have work might receive partial credit.
+    If you provide the answer to a computation without work, I will not give partial credit.
+
+    \item Provide \textbf{exact} solutions.
+
+    \item Do \textbf{not} write in the table below.
+\end{itemize}
+
+\vspace*{1cm}
+
+% scoring table
+\begin{center}
+\begin{tabular}{|*{3}{>{\centering\arraybackslash}p{.1\linewidth}|}}
+    \hline
+    \textbf{Problem} & \textbf{Points} & \textbf{Score} \\
+    \hline
+    1 & 10 &  \\
+    \hline
+    2 & 12 &  \\
+    \hline
+    3 & 10 &  \\
+    \hline
+    4 & 15 &  \\
+    \hline
+    5 & 10 &  \\
+    \hline
+    6 & 12 &  \\
+    \hline
+    7 & 15 &  \\
+    \hline
+    8 & 15 &  \\
+    \hline \hline
+    \textbf{Total} & 99 +1 &  \\
+    \hline
+\end{tabular}
+\end{center}
+
+
+% start of test
+%%%%% PROBLEM 1 %%%%%
+\newpage
+\begin{problem}[1. (8 points)]
+Find the domain of the vector function. 
+
+\begin{equation*}
+    \vec{r}(t) = \left\langle \frac{t}{\sqrt{t-3}}, \frac{1}{(t+6)(t-5)}, \ln(t+1)\right\rangle
+\end{equation*}
+\end{problem}
+
+
+%%%%% PROBLEM 2 %%%%%
+\newpage
+\begin{problem}[2. (12 points, 3 each)]
+Use the vectors $\vec{v} = 4\hat{i}-3\hat{j}+\hat{k}$ and $\vec{w} = -2\hat{i}-\hat{j}+2\hat{k}$ to answer the following.
+
+\vspace{.5cm}
+
+(a) $\Vec{v}\cdot \vec{w}$
+
+\vspace{.125cm}
+
+(b) $|\vec{v}-\vec{w}|$
+
+\vspace{.125cm}
+
+(c) A \emph{unit} vector orthogonal to both $\vec{v}$ and $\vec{w}$.
+
+\vspace{.125cm}
+
+(d) The angle $\theta$ between $\vec{v}$ and $\vec{w}$ (Round to 2 decimals).
+
+\end{problem}
+
+
+
+%%%%% PROBLEM 3 %%%%%
+\newpage
+\begin{problem}[3. (10 points)]
+Find the parametric equation for a line which passes through points $P(1,-1,3)$ and $Q(-2,0,7)$.
+\end{problem}
+
+
+%%%%% PROBLEM 4 %%%%%
+\newpage
+\begin{problem}[4. (15 points, 3,7,5 resp.)]
+Use the two lines $L_1$ and $L_2$ to answer the following.
+
+\begin{equation*}
+    L_1: \frac{x_1-3}{-2}=\frac{y_1+1}{-4}=\frac{z_1}{2} \hspace{1cm} L_2: x_2 = 3-6t_2, y_2 = 1 + 2t_2, z_2 = -1 - 4t_2. 
+\end{equation*}
+
+\vspace{.125cm}
+
+(a) Are $L_1$ and $L_2$ parallel? Justify your answer.
+
+\vspace{.125cm}
+
+(b) Are $L_1$ and $L_2$ skew lines or do they intersect? If they intersect, at which point?
+
+\vspace{.125cm}
+
+(c) Where does $L_1$ cross the $xz$-plane?
+\end{problem}
+
+
+%%%%% PROBLEM 5 %%%%%
+\newpage
+\begin{problem}[5. (10 points)]
+Find the equation for the plane which contains points $P(-5,2,0)$ and $Q(1,1,1)$ and is perpendicular to the plane $x-y+2z = 5$.
+\end{problem}
+
+
+%%%%% PROBLEM 6 %%%%%
+\newpage
+\begin{problem}[6. (12 points)]
+Evaluate the limit of the vector function, $\lim_{t\to 1}\vec{r}(t)$.
+
+\begin{equation*}
+\vec{r}(t) = (te^{-t}) \hat{i} + \left(\frac{5t^2-5}{t-1}\right) \hat{j} + \left(\cos(t-1)-\sin(t-1)\right)\hat{k}.
+\end{equation*}
+\end{problem}
+
+
+%%%%% PROBLEM 7 %%%%%
+\newpage
+\begin{problem}[7. (15 points)]
+Find the equation of the tangent line to the space curve given by the vector function $\vec{r}(t)$ at the time $t = 4$.
+
+\begin{equation*}
+    \vec{r}(t) = \left\langle \sqrt{t}, t+2, t^2 \right\rangle.
+\end{equation*}
+\end{problem}
+
+
+%%%%% PROBLEM 8 %%%%%
+\newpage
+\begin{problem}[8. (15 points)]
+If $\vec{r'}(t) = \sin(t) \hat{i} + t \hat{j} + \hat{k}$ and $\vec{r}(0) = -\hat{i} + 3\hat{k}$. Find $\vec{r}(t)$.
+\end{problem}
+
+
+
+
+\end{document}

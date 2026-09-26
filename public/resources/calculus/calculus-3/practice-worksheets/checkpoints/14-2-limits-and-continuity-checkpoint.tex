@@ -1,0 +1,95 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+\begin{huge}
+    \begin{center}
+        Checkpoint
+    \end{center}
+\end{huge}
+\begin{large}\begin{center}\bf 14.2: Limits and Continuity\end{center}
+\end{large}
+
+\vs\vs
+
+\begin{problem}
+What is $z=f(x,y)$? How many independent and dependent variables does it have?
+\end{problem}
+
+\begin{problem}
+Why is it harder to find determine whether a limit exists on a surface than on a curve?
+\end{problem}
+
+\begin{problem}
+Find $\lim_{(x,y)\to (1,1)} e^xy+2xy-y^2$
+\end{problem}
+
+
+\begin{problem}
+Is the following statement valid or invalid?
+
+``The $\lim_{(x,y)\to (a,b)}f(x,y)$ exists and is equal to $c$ since along the path $x = a$, $f(x,y)$ approaches $c$, and along the path $y=b$, $f(x,y)$ approaches $c$"
+\end{problem}
+
+\begin{problem}
+Determine if $\lim_{(x,y)\to (0,0)}\frac{xy^2}{x^2+y^4}$ exists or does not exist.
+\end{problem}
+
+
+\newpage
+
+\section{Answers}
+
+\begin{enumerate}
+    \item A surface with one dependent variable $z$ and two independent variables $x,y$.
+    \item There are infinitely many paths along my independent variables to get to the desired point $(x,y)$ whereas for a curve there are just two (left and right).
+    \item $e+1$
+    \item Invalid, to show a limit does exists we need to prove along \emph{all} paths, $f(x,y)$ approaches $c$.
+    \item Does not exist.
+\end{enumerate}
+
+
+
+\end{document} 

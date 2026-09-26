@@ -1,0 +1,204 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 15.2 Double Integrals over General Regions\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+\textbf{Problem 1:} Graph the following functions. $y = (x-1)^2$, $y = \sqrt{x}$, $y = \sin{x}$.
+
+\textbf{Problem 2:} Find $\int \ln{x}$, $\int \cos^2{x}$, $\int x\sqrt{1 - x^2}$.
+
+\section{Motivation}
+In the previous section we defined a double integral which is the volume under a surface bounded by a rectangle. In words, the way we define this is to cut up our rectangle into infinite smaller rectangles and by selecting an arbitrary point inside the rectangle we can find a height for each rectangle and add up the volumes of infinitely many rectangular prisms. What happens though when we want the volume under a bounded region which is not a rectangle. In this section we answer this!
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item In order to find a double integral or the volume under a surface we need a surface $f(x,y)$ and a region $R$. It is important not to confuse what is a region and what is the surface.
+
+\item If $R$ is a bounded region which is not a rectangle, we can imagine our region being enclosed by a rectangle. From last section we know that we can chop up our rectangle into infinitely many smaller rectangles and find the volume of the rectangular prisms. We have one caveat. Only choose the rectangles in with the arbitrary point lies within the original region $R$. Thus, when the number of rectangles approaches infinity, the rectangular prisms which we choose will get finer and finer towards the bounded region $R$.
+
+
+\item The general form of our double integrals look like this when our region is bounded by $a \leq x \leq b$ and $g_1(x) \leq y \leq g_2(x)$.
+
+\begin{equation*}
+    \int_a^b \int_{g_1(x)}^{g_2(x)} f(x,y) dy dx
+\end{equation*}
+
+\item The general form of our double integrals look like this when our region is bounded by $h_1(y) \leq x \leq h_2(y)$ and $c \leq y \leq d$.
+
+\begin{equation*}
+    \int_c^d \int_{h_1(y)}^{h_2(y)} f(x,y) dx dy
+\end{equation*}
+
+\item Here are a few helpful hints in order to know the order of integration.
+
+\begin{itemize}
+    \item The bounds of the outer integral must be constants in order for our final answer to be a number (volume is a number)
+    \item If I am integrating with respect to $dx$ I am moving across the $x$-axis from left to right and my bounds should be $x = f(y)$ bounds.
+    \item If I am integrating with respect to $dy$ I am moving across the $y$-axis from bottom to top and my bounds should be $y = f(x)$.
+    \item I \emph{never} want to switch functions as I move across my axis between my bounds.
+    \item Look at the integral and try to make your life easier (look for u-subs)
+\end{itemize}
+
+\item We will now see a TON of example regions and integrals to demonstrate the various set-ups we may encounter and how to choose which order of integration I should choose. 
+
+\end{enumerate}
+
+
+
+
+
+
+\section{Examples}
+
+\begin{problem}
+    Evaluate $\iint_R 2xy \dif{A}$ where $R = \{(x,y) : 0 \leq x \leq 1/2, 0 \leq y \leq \sqrt{1-x}\}$
+\end{problem}
+
+\vspace{5cm}
+
+
+\begin{problem}
+    Set up $\iint_R f(x,y) \dif{A}$ where $R$ is bounded by $y= 2x$ and $y = x^2$.
+\end{problem}
+
+
+\vspace{6 cm}
+
+
+
+\begin{problem}
+    Evaluate $\iint_R \frac{x}{1+xy} \dif{A}$ where $R = \{(x,y) : 0 \leq x \leq 1, 0 \leq y \leq 1\}$
+\end{problem}
+
+
+\vspace{6.5cm}
+
+
+
+\begin{problem}
+    Evaluate $\iint_R \frac{\ln{y}}{y} \dif{A}$ where $R = \{(x,y) : 0 \leq x \leq \pi, e^{-2x} \leq y \leq e^{-\cos{x}}\}$
+\end{problem}
+
+\vspace{6.5cm}
+
+
+
+
+
+\begin{problem}
+    Evaluate $\iint_R ye^{xy} \dif{A}$ where $R = \{(x,y) : 0 \leq x \leq 1, 0 \leq y \leq 1\}$
+\end{problem}
+
+
+\vspace{6.5cm}
+
+
+
+
+
+\begin{problem}
+    Evaluate $\iint_R \frac{1}{xy} \dif{A}$ where $R = \{(x,y) : 1 \leq y \leq e, y \leq x \leq y^2\}$
+\end{problem}
+
+
+\vspace{6.5cm}
+
+
+
+
+
+
+\begin{problem}
+    Evaluate $\iint_R (\sin{x}-y) \dif{A}$ where $R$ is bounded by $y=\cos{x}$, $y=0$, $x=0$, and $x=\pi/2$
+\end{problem}
+
+
+\vspace{6.5cm}
+
+
+
+
+\begin{problem}
+    Evaluate $\iint_R 4x^3 \dif{A}$ where $R$ is bounded by $y = (x-1)^2$ and $y = -x+3$
+\end{problem}
+
+\vspace{6.5cm}
+
+
+\begin{problem}
+Suppose we are given the following integral which cannot be solved using elementary integration methods. Switch the order of integration and evaluate.
+
+\begin{equation*}
+\int_0^1 \int_2^{y^2} e^{-x^2} \dif{x} \dif{y}
+\end{equation*}
+\end{problem}
+
+
+\vspace{7cm}
+
+\begin{problem}
+Suppose we are given the following integral which cannot be solved using elementary integration methods. Switch the order of integration and evaluate.
+
+\begin{equation*}
+\int_0^4 \int_{\sqrt{x}}^2 \sin{y^3} \dif{y} \dif{x}
+\end{equation*}
+\end{problem}
+
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

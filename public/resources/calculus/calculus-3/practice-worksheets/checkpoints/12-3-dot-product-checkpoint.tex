@@ -1,0 +1,91 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+\begin{huge}
+    \begin{center}
+        Checkpoint
+    \end{center}
+\end{huge}
+\begin{large}\begin{center}\bf 12.3 The Dot Product\end{center}
+\end{large}
+
+\vs\vs
+
+\section{Problems}
+
+\begin{problem}
+Find $\langle 2,6,-1\rangle \cdot \langle -3,0,4\rangle$.   
+\end{problem}
+
+\begin{problem}
+    If $\Vec{u} = -2\hat{i}-\hat{j}+\hat{k}$ and $\Vec{v}= 5\hat{i}+2\hat{j}-2\hat{k}$, what is $\Vec{u}\cdot \Vec{v}$?
+\end{problem}
+
+\begin{problem}
+    If $\vec{u}\cdot \vec{v} = 2$, $|\vec{u}|=8$, and $|\vec{v}|=\frac{1}{2}$, what is the angle between $\Vec{u}$ and $\vec{v}$? 
+\end{problem}
+
+\begin{problem}
+    Are $\langle 1,1,1 \rangle$ and $\langle -2,3,-1\rangle$ orthogonal?
+\end{problem}
+
+\begin{problem}
+    Find $\text{proj}_ab$ if $a = \langle 1,0,2 \rangle$ and $b = \langle 0,0,3 \rangle$.
+\end{problem}
+
+\newpage
+
+\section{Answers}
+
+\begin{enumerate}
+    \item $-10$
+    \item $-14$
+    \item $2 = (8)(\frac{1}{2})\cos(\theta)$ so $\cos(\theta) = \frac{1}{2} \implies \theta = \frac{\pi}{3}$.
+    \item Yes since $\langle 1,1,1 \rangle \cdot \langle -2,3,-1\rangle = 0$
+    \item $\text{proj}_ab = \langle \frac{6}{5}, 0, \frac{12}{5}\rangle $
+\end{enumerate}
+
+\end{document} 

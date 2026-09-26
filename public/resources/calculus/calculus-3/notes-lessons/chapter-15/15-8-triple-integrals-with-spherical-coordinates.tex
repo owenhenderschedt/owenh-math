@@ -1,0 +1,151 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 15.8 Triple Integrals with Spherical Coordinates\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+\textbf{Question 1:} In a right triangle what are the 6 basic trig functions in terms of side lengths?
+
+\textbf{Question 2:} What is the shape $x^2+y^2+z^2=4$?
+
+\section{Motivation}
+
+If we remember back to double integrals, when our regions are circular in nature, polar coordinates make our lives much easier and sometimes even make the integrals possible. With triple integrals, when our 3D regions are circular that is now ambiguous. We saw in the previous section that if one variable is between two planes and the iterated double integral in terms of the other variables is a circular region we get cylindrical coordinates, but what happens when every projection of our region is circular. We solve this problem here.
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item We first must define spherical coordinates which is another way of mapping any point in 3-space. Instead of mapping it with our standard basis, $x,y,z$ we map it a point in terms of $\rho, \phi, \theta$ where $\rho$ is the distance from the point to the origin, $\phi$ is the angle between the $z$-axis and the plane containing our point and the position vector to our point, and then $\theta$ which is the same as in polar coordinates, the angle between the projection of our point onto the $xy$-plane and the $x$-axis. Using some standard trigonometry we get the following conversions from rectangular to spherical coordinates.
+
+
+\item \begin{itemize}
+    \item $x^2+y^2+z^2 = \rho^2$ - Distance Formula
+    \item $z = \rho \cos{(\phi)}$ - Trig on plane through point and position vector
+    \item $r = \rho \sin{(\phi)}$ - Trip on plane through point and position vector
+    \item $x = \rho\sin{(\phi)}\cos{(\theta)}$ - Polar Coordinate Definition
+    \item $y = \rho \sin{(\phi)}\sin{(\theta)}$ - Polar Coordinate Definition
+\end{itemize}
+
+
+
+
+\item Similarly with polar coordinates $\dif{V}$ instead of being a 3D box with volume $\dif{x}\dif{y}\dif{z}$, we can find the volume of a 3D wedge of a sphere in terms of spherical coordinates and we see the following.
+
+\begin{equation*}
+    \dif{V} = \rho^2 \sin{(\phi)} \dif{\rho} \dif{\phi} \dif{\theta}
+\end{equation*}
+
+
+\item In order to figure out what $\rho$ is bounded between, we can set $x=0$ and graph our projected region onto the $yz$-plane. We just need to make sure we keep in mind that we are graphing a level curve and we do still need the $x$ in the equation to truly convert to spherical coordinates. We will see examples of this.
+
+
+\end{enumerate}
+
+
+
+
+\section{Examples}
+
+\begin{problem}
+    Evaluate the following triple integral where $T$ is the ball $x^2+y^2+z^2 \leq 1$.
+
+    \begin{equation*}
+        \iiint_T \sqrt{x^2+y^2+z^2}\dif{V}
+    \end{equation*}
+\end{problem}
+
+\newpage
+
+
+\begin{problem}
+    Evaluate the following triple integral where $T$ is the region bounded by $z=\sqrt{1-x^2 -y^2}$ and the $xy$-plane.
+
+    \begin{equation*}
+        \iiint_T y\dif{V}
+    \end{equation*}
+\end{problem}
+
+\vspace{9cm}
+
+
+
+\begin{problem}
+    Evaluate the following triple integral where $T$ is the region bounded by $x^2 +y^2+z^2 = 4$ and  $z= \sqrt{x^2+y^2}$.
+
+    \begin{equation*}
+        \iiint_T xz\dif{V}
+    \end{equation*}
+\end{problem}
+
+\newpage 
+
+
+\begin{problem}
+    Find the volume of the solid bounded by $z=2$, and $z=\sqrt{x^2+y^2}$
+\end{problem}
+
+
+\vspace{9cm} 
+
+\begin{problem}
+    Using calculus, find the volume between the spheres $x^2+y^2+z^2=4$ and $x^2+y^2 + z^2 = 25$.
+\end{problem}
+
+
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

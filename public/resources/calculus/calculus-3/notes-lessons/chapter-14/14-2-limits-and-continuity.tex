@@ -1,0 +1,153 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 14.2 Limits and Continuity\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+\textbf{Question:} What does it mean for a limit of a function on one variable to exist?
+
+
+
+\section{Motivation}
+For a function of one variable (two dimensions on the plane $f(x)$ we have a very natural definition of a limit. The height or function value as we approach some $x$ value from the left must equal the height or function value as we approach some $x$ value from the right. Because we are on the plane in two dimensions, we literally only have two paths to get to any $x$ value along a curve (left and right). In 3-dimensions with two (or more) variables, there are infinite paths a point on a surface. Because of this the definition of limit is harder. We develop this in this section.
+
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item Let $f(x,y)$ be a function of two variables whose domain $D$ includes points arbitrarily close to some point $(a,b)$. Then we say the limit of $f(x,y)$ as $(x,y)$ approached $(a,b)$ is $L$ and we write,
+
+\begin{equation*}
+    \lim_{(x,y)\to (a,b)}f(x,y) = L
+\end{equation*}
+
+If no matter which ``path" I take to $(a,b)$ I get the height $f(x,y)$ to approach $L$.
+
+
+\item Because there are infinite paths on a surface to a point $(a,b)$ it is significantly harder to show a limit does exist, since we must prove \emph{every} path approaches the same value. But to show a limit \emph{does not} exists all we have to do is find 2 ``paths" which do not approach the same limit.
+
+\item One of the few tools we have to prove that a limit exists in 3 or more dimensions is to leverage the \textbf{squeeze theorem} or \textbf{continuity}.
+
+\item A function $f$ of two variables is \textbf{continuous} at $(a,b)$ if $lim_{(x,y)\to (a,b)} f(x,y) = f(a,b)$.
+
+\item It is not too difficult to show that any polynomial in $\mathbb{R}^2$ and any rational function over its domain is continuous so if we are working with these special functions then we know our limits will exist! We also know continuity holds for composition of functions.
+
+\item All the following definitions hold for functions of 3 or more variables too such as $f(x,y,z)$.
+
+\item We can also use polar coordinated to find limits if they exist.
+
+
+\end{enumerate}
+
+
+
+
+\section{Examples}
+
+\begin{problem}
+    Show that $\lim_{(x,y)\to (0,0)} \frac{x^2-y^2}{x^2+y^2}$ does not exist.
+\end{problem}
+
+\vspace{7.5cm}
+
+
+\begin{problem}
+    Show that $\lim
+_{(x,y)\to (0,0)} \frac{xy}{x^2+y^2}$ does not exist.
+\end{problem}
+
+\vspace{8.5cm}
+
+\begin{problem}
+    Find $\lim_{(x,y)\to (1,0)} \frac{2xy-2y}{x^2+y^2-2x+1}$
+\end{problem}
+
+\vspace{6cm}
+
+\begin{problem}
+    Show that $\lim_{(x,y) \to (0,0)} \frac{xy^3\cos{x}}{2x^2+y^6}$ does not exist
+\end{problem}
+
+\vspace{6cm}
+
+\begin{problem}
+    Show that $\lim_{(x,y,z)\to (0,0,0)}\frac{xy+yz+xz}{x^2+y^2+z^2}$ does not exist.
+\end{problem}
+
+
+\vspace{6.5cm}
+
+\begin{problem}
+Find $\lim_{(x,y)\to (1,2)} (x^2y^3-xy)/(x^2 + y^2)$.
+\end{problem}
+
+\vspace{8cm}
+
+\begin{problem}
+    Find $\lim_{(x,y)\to (0,0)} \frac{x^3+y^3}{x^2+y^2}$.
+\end{problem}
+
+\vspace{12 cm}
+
+\begin{problem}
+    Find $\lim_{(x,y)\to (0,0)} \frac{5x^2y}{x^2+y^2}$
+\end{problem}
+
+\vspace{10cm}
+
+
+
+
+\section{Scratch Work}
+
+\end{document} 

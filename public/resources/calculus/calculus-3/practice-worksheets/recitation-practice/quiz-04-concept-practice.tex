@@ -1,0 +1,315 @@
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,margin=0.58in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage}
+
+\definecolor{sectiongray}{gray}{0.935}
+
+\newcommand{\sectionbar}[1]{%
+  \vspace{0.55em}%
+  \noindent\colorbox{sectiongray}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
+      \textbf{\large\strut #1\strut}%
+    }%
+  }%
+  \par\vspace{0.47em}%
+}
+
+\newcommand{\answerbar}[1]{%
+  \vspace{0.55em}%
+  \noindent\colorbox{sectiongray}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
+      \strut\textbf{#1}\strut
+    }%
+  }%
+  \par\vspace{0.50em}%
+}
+
+\newlist{parts}{enumerate}{1}
+\setlist[parts]{
+  label=(\alph*),
+  leftmargin=2.1em,
+  itemsep=0.45em,
+  topsep=0.25em,
+  parsep=0pt
+}
+
+\begin{document}
+
+% ================================================================
+% PAGE 1
+% ================================================================
+
+\begin{center}
+    {\Large\bfseries Math 2650 -- Quiz 04 Concept Practice}\\[0.28em]
+    \small Choose the section matching the skill you want to practice.
+    Answers are on the back.
+\end{center}
+
+\vspace{0.07em}
+
+% ================================================================
+% A
+% ================================================================
+
+\sectionbar{A. Position, Velocity, and the Osculating Plane}
+
+A particle has acceleration
+\[
+\mathbf a(t)
+=
+\langle 2\cos t,\;6t+1,\;-4\rangle.
+\]
+At time $t=0$, its position and velocity are
+\[
+\mathbf r(0)=\langle0,1,-1\rangle,
+\qquad
+\mathbf v(0)=\langle1,2,1\rangle.
+\]
+
+\begin{parts}
+
+\item Find the position function $\mathbf r(t)$ and determine the
+particle's position at $t=1$.
+
+\item Find an equation of the osculating plane to the particle's path
+at $t=0$.
+
+\end{parts}
+
+\vspace{0.12em}
+
+% ================================================================
+% B
+% ================================================================
+
+\sectionbar{B. Motion with Constant Acceleration}
+
+An object moves with constant acceleration
+\[
+\mathbf a(t)=\langle0,g,0\rangle.
+\]
+At $t=0$,
+\[
+\mathbf r(0)=\langle2,50,-3\rangle,
+\qquad
+\mathbf v(0)=\langle6,0,8\rangle.
+\]
+At some later time, the object is at
+\[
+\langle14,18,13\rangle.
+\]
+
+\begin{parts}
+
+\item Find the later time and determine the value of $g$.
+
+\item Find the velocity of the object at that time.
+
+\end{parts}
+
+\vspace{0.12em}
+
+% ================================================================
+% C
+% ================================================================
+
+\sectionbar{C. Arc Length and Distance Along a Curve}
+
+Consider the curve
+\[
+\mathbf r(t)
+=
+\left\langle
+2(\cos t+t\sin t),\;
+2(\sin t-t\cos t),\;
+t^2
+\right\rangle,
+\qquad t\geq0.
+\]
+
+\begin{parts}
+
+\item Find the distance traveled along the curve from $t=1$ to $t=3$.
+
+\item Starting at $\mathbf r(0)$ and moving in the direction of
+increasing $t$, find the point $P$ that lies $9\sqrt2$ units along
+the curve from $\mathbf r(0)$.
+
+\end{parts}
+
+\vspace{0.12em}
+
+% ================================================================
+% D
+% ================================================================
+
+\sectionbar{D. Tangential and Normal Acceleration and Curvature}
+
+A particle moves along the curve
+\[
+\mathbf r(t)
+=
+\left\langle
+t+\frac{t^3}{3},\;
+t-\frac{t^3}{3},\;
+t^2
+\right\rangle,
+\qquad t\geq0.
+\]
+
+\begin{parts}
+
+\item Find the tangential component of acceleration $a_T(t)$.
+
+\item Find the normal component of acceleration $a_N(t)$.
+
+\item Find the curvature $\kappa(t)$.
+
+\end{parts}
+
+% ================================================================
+% PAGE 2: ANSWER KEY
+% ================================================================
+
+\newpage
+
+\begin{center}
+    {\Large\bfseries Answer Key}\\[0.28em]
+    \small Final answers only
+\end{center}
+
+\vspace{0.30em}
+
+% ================================================================
+% A ANSWERS
+% ================================================================
+
+\answerbar{A. Position, Velocity, and the Osculating Plane}
+
+\begin{parts}
+
+\item
+\[
+\boxed{
+\mathbf r(t)
+=
+\left\langle
+-2\cos t+t+2,\;
+t^3+\frac12t^2+2t+1,\;
+-2t^2+t-1
+\right\rangle
+}
+\]
+and
+\[
+\boxed{
+\mathbf r(1)
+=
+\left\langle
+3-2\cos1,\;
+\frac92,\;
+-2
+\right\rangle
+}.
+\]
+
+\item
+\[
+\boxed{-3x+2y-z=3}
+\]
+
+\end{parts}
+
+\vspace{0.25em}
+
+% ================================================================
+% B ANSWERS
+% ================================================================
+
+\answerbar{B. Motion with Constant Acceleration}
+
+\begin{parts}
+
+\item
+\[
+\boxed{t=2},
+\qquad
+\boxed{g=-16}.
+\]
+
+\item
+\[
+\boxed{\mathbf v(2)=\langle6,-32,8\rangle}
+\]
+
+\end{parts}
+
+\vspace{0.25em}
+
+% ================================================================
+% C ANSWERS
+% ================================================================
+
+\answerbar{C. Arc Length and Distance Along a Curve}
+
+\begin{parts}
+
+\item
+\[
+\boxed{8\sqrt2}
+\]
+
+\item
+\[
+\boxed{
+P=
+\left(
+2(\cos3+3\sin3),\;
+2(\sin3-3\cos3),\;
+9
+\right)
+}
+\]
+
+\end{parts}
+
+\vspace{0.25em}
+
+% ================================================================
+% D ANSWERS
+% ================================================================
+
+\answerbar{D. Tangential and Normal Acceleration and Curvature}
+
+\begin{parts}
+
+\item
+\[
+\boxed{a_T(t)=2\sqrt2\,t}
+\]
+
+\item
+\[
+\boxed{a_N(t)=2}
+\]
+
+\item
+\[
+\boxed{\kappa(t)=\frac{1}{(1+t^2)^2}}
+\]
+
+\end{parts}
+
+\end{document}

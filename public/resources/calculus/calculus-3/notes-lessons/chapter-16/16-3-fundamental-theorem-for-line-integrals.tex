@@ -1,0 +1,135 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 16.3 The Fundamental Theorem for Line Integrals\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+\textbf{Problem 1:} Find $\int_0^1 f'(x) \dif{x}$ Hint: FToC
+
+
+\section{Motivation}
+We have now unpacked the definition of a line integral and looked at how we can send our curve, which our surface is bounded by, and send it through a vector field! This calculates the amount of work done as a particle travels through down our curve. Today we specifically look at what happens when our vector field is a conservative vector field, meaning it is the gradient of some surface.
+
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item The punch line for conservative vector fields is that the line integrals are \textbf{Independent Of Path}. This means that it doesn't matter if my curve twists around like crazy or just goes straight like a line segment. The work done to go from point A to point B is all the same when the vector field is conservative.
+
+
+\item We therefore get an analogue to the fundamental theorem of calculus because all that matters is our endpoints. Just to remember, the FToC states,
+
+\begin{equation*}
+    \int_a^b f'(x) dx = f(b)- f(a).
+\end{equation*}
+
+\item Now if our gradient is $\nabla f = \langle f_x, f_y,f_z \rangle $ then $f$ acts as the ``anti-derivative" of the gradient. If $F$ is a conservative vector field then $F = \nabla f$ for some function $f$. We then have the following.
+
+\begin{equation*}
+    \int_C F \cdot \dif{r} = \int_C \nabla f \cdot \dif{r} = f(b) - f(a).
+\end{equation*}
+
+This is called the fundamental theorem for line integrals. (ONLY FOR CONSERVATIVE VECTOR FIELDS!)
+
+    \item So it all boils down to solving for $f$. We do this by integrating $\int f_x \dif{x}$. Instead of adding a $+C$ for the integrals, since I am integrating with respect to $d$ $x$ I need to add a $+g(y)$. Next take the derivative of this $f$ and set equal to the gradient! (Really just set equal to the missing component (in this case $g'(y)$). Lastly integrate with respect to $y$ to get a $+C$
+
+\item Note if our curve is a closed loop then we know the work done is zero by this theorem! This will be useful for Green's Theorem.
+
+
+
+\end{enumerate}
+
+
+
+
+\section{Examples}
+
+\begin{problem}
+    Find the work done on $F(x,y) = (2y+1)\hat{i} + (2x+3) \hat{j}$ from $A(0,0)$ to $B(-1,1)$.
+\end{problem}
+
+\vspace{9.5cm}
+
+\begin{problem}
+    Find the work done on $F(x,y) = xe^{2y}\hat{i} + x^2e^{2y} \hat{j}$ from $A(0,0)$ to $B(-1,1)$.
+\end{problem}
+
+
+\vspace{9.5cm}
+
+
+\begin{problem}
+        Find the work done on $F(x,y) = (x^2+\frac{y}{x})\hat{i} + (y^2+\ln{x}) \hat{j}$ from $A(1,0)$ to $B(e,1)$.
+\end{problem}
+
+\vspace{9.5 cm}
+
+
+\begin{problem}
+    Find the work done on $F(x,y) = (x+\tan^{-1}(y))\hat{i} + \left(\frac{x+y}{1+y^2}\right) \hat{j}$ from $A$ to $B$.
+\end{problem}
+
+\vspace{9.5 cm}
+
+
+\begin{problem}
+    Find the work done on $F(x,y,z) = yz^2 \hat{i} + xz^2 \hat{j}+ 2xyz \hat{k}$ from $(0,0,1)$ to $(1,3,2)$.
+\end{problem}
+
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

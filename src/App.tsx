@@ -3,6 +3,7 @@ import './index.css'
 import SiteHeader from './components/SiteHeader'
 import Home from './pages/Home'
 import Papers from './pages/Papers'
+import Teaching from './pages/Teaching'
 
 function PlaceholderPage({ title }: { title: string }) {
   return (
@@ -23,7 +24,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/research" element={<PlaceholderPage title="Research" />} />
         <Route path="/papers" element={<Papers />} />
-        <Route path="/teaching" element={<PlaceholderPage title="Teaching" />} />
+        <Route path="/teaching" element={<Teaching />} />
         <Route path="/about" element={<PlaceholderPage title="About" />} />
         <Route path="/cv" element={<PlaceholderPage title="CV" />} />
       </Routes>

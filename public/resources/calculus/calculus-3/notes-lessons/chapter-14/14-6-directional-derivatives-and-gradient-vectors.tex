@@ -1,0 +1,194 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 14.6 Directional Derivatives \& Gradient Vectors\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+\textbf{Question:} If $f(x,y)$ is a surface. What \emph{exactly} does the partial derivative with respect to $x$ mean and the partial derivative with respect to $y$ mean?
+
+
+\section{Motivation}
+We learned how to take a derivative of a surface known as the partial derivative. We realized we had to restrict ourselves to a direction and the partials do this specifically in the $x$ and $y$ direction. Today we learn how to take a directional derivative for \emph{any} direction we want, not just $x$ or $y$.
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item Suppose I want the slope of the tangent line in the direction of some vector $\hat{u}$ (more specifically a unit vector), which is on the plane of the independent variables. We just need a direction in the $xy$ plane since these are our independent variable. We also need a point say $P$ in the $xy$ plane whose height $P'$ is on our surface, which projects down to $P$. To finish the set up lets $Q$ be another point on the $xy$ plane which is on the line going through $P$ in the direction of $\hat{u}$. Similarly let $Q'$ be its height on the surface. See the following figure.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = .175]{Figures/DirDer.jpeg}
+\end{figure}
+
+\item The idea is that line through $P$ parallel to $\hat{u}$ can form a plane parallel to the $\hat{u}z$ plane which makes a curve on on our surface in the plane. Thus, $P'Q'$ is a secant line in the plane. If $Q\to P$ then $Q'\to P'$ and our line approaches a \textbf{Tangent Line!!!} at $P'$.
+
+\item In order to move $Q$ close to $P$ we have a change in $x$, say $\Delta x$ \emph{and} a change in $y$, say $\Delta y$. In order for $Q\to P$, we need $\Delta x \to 0$ \emph{and} $\Delta y \to 0$.
+
+\item By definition, $\vec{PQ}= \Delta x \hat{i} + \Delta y \hat{j} = h \hat{u} = h (u_1 \hat{i}+u_2 \hat{j})$ since $\vec{PQ}$ is parallel to $\hat{u}$. Hence the vector components must be equal. In other words,
+
+\begin{equation*}
+    \Delta x = h u_1 \hspace{ 1cm} \Delta y = hu_2
+\end{equation*}
+
+\item Taking the limit we first get something awkward with multiple variables 
+
+\begin{equation*}
+    \lim_{\Delta x \to 0, \Delta y \to 0} \frac{f(x+\Delta x, y+ \Delta y)-f(x,y)}{\sqrt{(\Delta x)^2 + (\Delta y )^2}}
+\end{equation*}
+
+but substituting for $h$ we get...
+
+\begin{equation*}
+    \lim_{h \to 0} \frac{f(x+hu_1,y+hu_2)-f(x,y)}{h \sqrt{(u_1)^2+(u_2)^2}} =   \lim_{h \to 0} \frac{f(x+hu_1,y+hu_2)-f(x,y)}{h |\hat{u}| }
+\end{equation*}
+
+\item BUT $\hat{u}$ is a UNIT VECTOR!
+
+\begin{equation*}
+    D_{\hat{u}}f(x,y) = \lim_{h \to 0} \frac{f(x+hu_1,y+hu_2)-f(x,y)}{h}
+\end{equation*}
+
+\item Okay now actually finding these, we don't want to always have to use the definition of the derivative and limit definitions. Here we see an easiler way to find any directional derivative.
+
+\begin{equation*}
+    D_{\hat{u}} f(x,y) = f_x u_1 + f_y u_2
+\end{equation*}
+
+\item  Note $\hat{u}$ \emph{must} be a unit vector.
+
+\item Notice a unit vector in $2D$ sits on a unit circle whose components are $\cos(\theta)$ and $\sin(\theta)$. Thus if $\theta$ is the angle that $\hat{u}$ makes with the positive $x$ axis.
+
+\begin{equation*}
+    D_{\hat{u}}f(x,y) = f_x\cos{\theta} + f_y \sin{\theta}
+\end{equation*}
+
+\item It is also often nice to package my two first order partials in a vector whose components are the two partials. We call this the \textbf{gradient} of $f(x,y)$ denoted $\nabla f(x,y) = (\partial f/\partial x ) \hat{i} + (\partial f/\partial y ) \hat{j}$. Thus, we see, the following nice and concise formula for directional derivatives.
+
+\begin{equation*}
+    D_{\hat{u}} f(x,y) = \nabla f(x,y) \cdot \hat{u}
+\end{equation*}
+
+\item For a function with more than 2 independent variables, the directional derivative is very similar.
+
+\begin{equation*}
+    D_{\hat{u}}f(x,y,z) = \lim_{h\to 0} \frac{f(x+hu_1, y+ hu_2 + z + hu_3) -f(x,y,z)}{h}
+\end{equation*}
+
+or in terms of our gradient,
+
+\begin{equation*}
+    D_{\hat{u}} f(x,y,z) = \nabla f(x,y,z) \cdot \hat{u}
+\end{equation*}
+
+
+\item Somewhere along our surface we must have a maximal slope in some direction. In other words suppose I am a hiker on my surface at some point and I want to know which direction to walk to increase my grade the most. It turns out that the maximum slope of our curve is equal to the magnitude of the gradient and this will happen when $\hat{u}$ is parallel to the gradient. We say, the gradient points in the direction of \textbf{steepest ascent}. The proof of this follows from maximizing the following.
+
+\begin{equation*}
+    D_{\hat{u}}f(x,y) = \nabla f(x,y) \cdot \hat{u} = |\nabla f(x,y)||\hat{u}|\cos{\theta} = |\nabla f(x,y)|\cos{\theta} 
+\end{equation*}
+
+\end{enumerate}
+
+
+
+
+
+\newpage
+
+\section{Examples}
+
+\begin{problem}
+    Find the derivative of $f(x,y)=x^3-2x^2+y^3$ at the point $P(1,2)$ in the direction of the vector $\vec{v}= 2\sqrt{3}\hat{i} + 2\hat{j}$.
+\end{problem}
+
+\vspace{6cm}
+
+
+\begin{problem}
+        Find the derivative of $f(x,y)=x^3-2x^2+y^3$ at the point $P(1,2)$ in the direction of the vector that makes an angle of $\theta = \pi/6$ with the $x$-axis.
+\end{problem}
+
+
+\vspace{6cm}
+
+
+\begin{problem}
+    Find the gradient of $f(x,y) = 3x\sin(y) + y^2\cos(x)$.
+\end{problem}
+
+\vspace{5cm}
+
+\begin{problem}
+    Find the directional derivative of $f(x,y) = \cos(x/y)$ in the direction of $\langle 3, -4 \rangle$.
+\end{problem}
+
+\vspace{5cm}
+
+
+\begin{problem}
+        Find the directional derivative of $f(x,y,z) = x^2y^3-4xz$ in the direction of $\langle -1, 2, 0 \rangle$.
+\end{problem}
+
+\vspace{5cm}
+
+\begin{problem}
+    Find the maximum rate of change and the direction of this rate of change at the surface $f(x,y) = \sqrt{x^2 + y^4}$ at $(-2,3)$.
+\end{problem}
+
+
+
+
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

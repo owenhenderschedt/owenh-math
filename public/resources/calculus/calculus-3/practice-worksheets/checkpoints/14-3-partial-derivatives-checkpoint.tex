@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+\begin{huge}
+    \begin{center}
+        Checkpoint
+    \end{center}
+\end{huge}
+\begin{large}\begin{center}\bf 14.3: Partial Derivatives \end{center}
+\end{large}
+
+\vs\vs
+
+\begin{problem}
+Why is the \emph{derivative} ambiguous in 3-dimensions?
+\end{problem}
+
+\begin{problem}
+What else do we need in order for a derivative to no longer be ambiguous? What are the most natural choices for these?
+\end{problem}
+
+\begin{problem}
+Find $f_x$ and $f_y$ where $f(x,y) = 3xy+x^3-7y^2$.
+\end{problem}
+
+
+\begin{problem}
+What is $f_{xxxx...x}$ if $f(x,y) = ye^{x}$
+\end{problem}
+
+\begin{problem}
+Find $\frac{\partial f}{\partial y}$ where $f(x,y) = \ln(xy+x)$.
+\end{problem}
+
+
+\newpage
+
+\section{Answers}
+
+\begin{enumerate}
+    \item There are infinitely many lines tangent to a point on a surface.
+    \item We need to specify a direction. $\hat{i}$ and $\hat{j}$ are the most natural choices ($x$-direction and $y$-direction).
+    \item $f_x = 3y+3x^2$ and $f_y = 3x - 14y$.
+    \item $ye^x$
+    \item $\frac{x}{xy+x}$
+\end{enumerate}
+
+
+
+\end{document} 

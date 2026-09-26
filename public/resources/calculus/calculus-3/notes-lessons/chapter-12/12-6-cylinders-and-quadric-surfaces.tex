@@ -1,0 +1,228 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 12.6 Cylinders and Quadric Surfaces \end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+\textbf{Problem 1:} Graph the curve $y = 9-x^2$.
+
+\textbf{Question 2:} What is an ellipse? What is the equation of an ellipse?
+
+
+
+\section{Motivation}
+    In 2-dimension we spend many years of math classes learning how to graph curves on the xy plane. In order to understand the tools of calculus in 3 dimensions, we similarly need to be proficient at graphing and visualizing surfaces in the xyz coordinate system.
+
+
+
+
+\section{Definitions \& Theorems}
+\begin{enumerate}
+    \item If we just took a screenshot of a surface on any plane parallel to our coordinate planes (xy,xz,yz) we would get a picture which looks like a curve in 2-dimensions. We call this a \textbf{trace}. A trace can be thought of as a cross section.
+    \item  A \textbf{cylinder} is a surface which has 2 variables and thus, its trace remains unchanged as it moves through the axis of the variable missing from the surface.
+    \item A \textbf{Quadric Surface} is a surface with largest degree 2. The most general equation for this is,
+
+    \begin{equation*}
+        Ax^2+By^2+Cz^2+Dxy+Eyz+Fxz+Gx+Hy+Iz+J=0
+    \end{equation*}
+
+These will be some of the surfaces we \emph{do} want to feel comfortable drawing in 3-dimensions.
+
+\item An \textbf{Ellipsoid} is of the form 
+
+\begin{equation*}
+    \frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1.
+\end{equation*} 
+Its $x$-intercepts are at $\pm a$, its $y$-intercepts are at $\pm b$ and its $z$-intercepts are at $\pm c$. Here are ways to identify the ellipsoid.
+\begin{itemize}
+    \item ALL positive.
+    \item All variables squared.
+    \item Has a constant.
+\end{itemize}
+
+\item A \textbf{1-sheet Hyperboloid} is of the form 
+
+\begin{equation*}
+    \frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=1.
+\end{equation*} 
+It always is in the direction of the variable with the minus sign. Here are ways to identify the 1-sheet hyperboloid.
+\begin{itemize}
+    \item Has one minus sign.
+    \item All variables squared.
+    \item Has a constant.
+\end{itemize}
+
+To start graphing set the negative variable equal to 0 and $\pm\sqrt{\text{denominator}}$ for 3 traces (which will always be circles or ellipses).
+
+\item A \textbf{2-sheet Hyperboloid} is of the form 
+
+\begin{equation*}
+    -\frac{x^2}{a^2}-\frac{y^2}{b^2}+\frac{z^2}{c^2}=1.
+\end{equation*} 
+It always is in the direction of the variable with the plus sign. Here are ways to identify the 2-sheet hyperboloid.
+\begin{itemize}
+    \item Has one plus sign.
+    \item All variables squared.
+    \item Has a constant.
+\end{itemize}
+
+To start graphing set both the negative variable equal to 0 to find the intercepts of the axis. Set the plus variable equal to some numbers divisible by the denominator.
+
+\item A \textbf{Cone} is of the form 
+\begin{equation*}
+    \frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=0.
+\end{equation*} 
+
+It always is in the direction of the variable with the minus sign. Here are ways to identify the 1-sheet hyperboloid.
+\begin{itemize}
+    \item Has one minus sign.
+    \item All variables squared.
+    \item NO constant.
+\end{itemize}
+
+Our cone will hit the origin. To graph traces, set negative variable equal to numbers which are divisible by the denominator (traces will be circles and ellipses).
+
+\item A \textbf{Paraboloid} is of the form
+
+\begin{equation*}
+    \frac{x^2}{a^2}+\frac{y^2}{b^2}=cz
+\end{equation*}
+
+To tell we have a paraboloid check for the following.
+
+\begin{itemize}
+    \item 3 variables 2 of which are squared
+    \item squared variables are positive
+\end{itemize}
+
+Paraboloids travel in the direction of the degree one variable and opens in the direction depending on the variable $c$ (positive or negative). To graph set the degree one variable equal to 0 (unless shifted).
+
+\item A \textbf{Hyperbolic Paraboloid} is of the form
+
+\begin{equation*}
+    \frac{x^2}{a^2}-\frac{y^2}{b^2}=cz
+\end{equation*}
+
+To tell we have a paraboloid check for the following.
+
+\begin{itemize}
+    \item 3 variables 2 of which are squared
+    \item one squared variables is positive
+\end{itemize}
+
+Paraboloids travel in the direction of the degree one variable. Plug in positives and negatives into the degree one variable to check whether we get hyperbolas on certain axis.
+
+\end{enumerate}
+
+
+
+
+\section{Examples}
+
+\begin{problem}
+    Sketch the surface $z = 9-x^2$.
+\end{problem}
+
+\vspace{7cm}
+
+\begin{problem}
+    Sketch the surface $yz=1$.
+\end{problem}
+
+\vspace{5cm}
+
+
+\begin{problem}
+    Sketch the surface $4x^2+16y^2+z^2=64$.
+\end{problem}
+
+\vspace{7cm}
+
+\begin{problem}
+    Sketch the curve $9x^2+9z^2-4y^2=36$.
+\end{problem}
+
+\vspace{7cm}
+
+\begin{problem}
+    Sketch the curve $-z^2+9x^2+y^2+9=0$
+\end{problem}
+
+\vspace{6.5cm}
+
+\begin{problem}
+    Sketch the surface $y^2 = 4x^2+16z^2$.
+\end{problem}
+
+\vspace{6.5cm}
+
+\begin{problem}
+    Sketch the surface $z = x^2+4y^2-4$.
+\end{problem}
+
+\vspace{6.5cm}
+
+\begin{problem}
+    Sketch the surface $x = 4-5y^2-9z^2$.
+\end{problem}
+
+\vspace{9cm}
+
+\begin{problem}
+    Sketch the surface $x^2-y^2-z=0$.
+\end{problem}
+
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

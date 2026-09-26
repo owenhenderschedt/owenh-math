@@ -1,0 +1,133 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 13.1 Vector Functions and Space Curves\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+
+\textbf{Question 1}: What is \emph{domain}? and What is the domain of $\ln(x-2)$? $\sqrt{x^2-4}$? $\sqrt{x^2+4}$? 
+
+\textbf{Problem 1:} Find $\lim{x \to 0}\frac{1-e^x}{x}$
+
+\section{Motivation}
+
+In two-dimension, The tools of calculus are used on functions and curves. Functions are the language of calculus and it is seemingly natural to try to develop similar functions in 3-dimensions. It turns out that having an output of a function being a vector has many interesting consequences.
+
+
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item  In 3-D a \textbf{parametric function} is of the form $x= f(t), y=g(t), z=h(t)$. Where $t$ is our only independent input (parameter) and for each $t$ in our domain, we get a point. Likewise a \textbf{vector function} $r(t)$ takes in our parameter $t$ and outputs a vector where each component is a function. 
+
+\begin{equation*}
+    r(t) = \langle f(t), g(t), h(t) \rangle = f(t)i+g(t)j+h(t)k.
+\end{equation*}
+
+Since each vector output is in our domain for $t$, the terminal points of our vector functions outputs, traces out a curve in 3-space which has some orientation. This is known as a \textbf{space curve}.
+
+\item We can imagine now taking the \textbf{limit} of a vector function in very natural way.
+
+\begin{equation*}
+    \lim_{t\to a}r(t) = \left\langle \lim_{t\to a}f(t), \lim_{t\to a}g(t), \lim_{t\to a}h(t) \right\rangle.
+\end{equation*}
+
+
+\item We say a vector function is \textbf{continuous} at $a$ if the limit of the vector function as $t$ approaches $a$ is equal to the actual vector function value at $a$. 
+
+\begin{equation*}
+    \lim_{t \to a}r(t) = r(a).
+\end{equation*}
+   
+
+\item The vector function $\langle t,t^2,t^3 \rangle$ gives us the \textbf{twisted cubic}. The vector function $\langle (2+\cos{1.5t})\cos(t),(4+\sin{20t})\sin{t}, \cos{20t} \rangle$ gives the \textbf{trefoil knot}.
+   
+   
+   \end{enumerate}
+
+
+
+\section{Examples}
+
+\begin{problem}
+    Write the component function for the following vector function, find its domain, and find any vector output.
+
+    \begin{equation*}
+        r(t) = \left\langle \frac{1}{t}, \sqrt{t+2}, \ln(t-3) \right\rangle.
+    \end{equation*}
+\end{problem}
+
+\vspace{8.5cm}
+
+\begin{problem}
+    Find the $\lim_{t \to 0}r(t)$ where $r(t) = (1+t^5)i+te^{-t}j+\frac{\sin{t}}{t}k$.
+\end{problem}
+
+\vspace{8.5cm}
+
+\begin{problem}
+    What does the vector function $r(t) = \cos{t}i+\sin{t}j+tk$ look like?
+\end{problem}
+
+
+\vspace{8.5cm}
+
+\begin{problem}
+    Find a vector equation and parametric equations for the line segment which joins the point $P(1,3,-2)$ and $Q(2,-1,3)$.
+\end{problem}
+
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

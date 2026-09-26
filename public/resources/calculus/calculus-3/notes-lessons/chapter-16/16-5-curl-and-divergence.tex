@@ -1,0 +1,190 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+
+\begin{document}
+
+\begin{LARGE}\begin{center}\bf 16.5 Curl and Divergence\end{center}
+\end{LARGE}
+
+\vs\vs
+
+
+
+\section{Warm Up}
+\textbf{Problem 1:} Draw the vector field $F(x,y) = x \hat{i}$
+
+\textbf{Problem 2:} Find the equation of the plane contain the point $(1,0,2)$ and the line $x = t$, $y=2t-1$, $z= t$
+
+
+\section{Motivation}
+We are now going to learn about some properties of vector fields known as curl and divergence. The will allow us to analyze and understand what a vector field is doing. One way to get us in the mindset of properties of vector fields, we can imagine a fluid on a vector field and the vectors at each point may describe the velocities of particles of fluid or flow at that point.
+
+
+
+\section{Definitions \& Theorems}
+
+\begin{enumerate}
+\item Divergence at a point is a measure of how much \emph{flow} enters the neighborhood around the point compared to how much flow leaves the neighborhood around the point. If more flow is entering the neighborhood than leaving it, then divergence is negative. If more flow is leaving the neighborhood than entering it then divergence is positive. If the two are the same, divergence is zero. This point is called incompressible. If every point is incomprehensible, the vector field is said to be incompressible.
+
+\begin{itemize}
+    \item Divergence negative $\to$ point gathers flow
+    \item Divergence positive $\to$ flow leaves the point (divergent)
+    \item Divergence zero $
+    \to$ point is incompressible 
+\end{itemize}
+
+\item If every point has positive divergence (i.e. is divergent) our vector field is called divergent.
+
+\item Mathematically to find divergence of a point $(x,y,z)$ on a vector field $F(x,y,z) = P\hat{i} + Q\hat{j} + R\hat{k}$, we define ``del" $\nabla = \frac{\partial}{\partial x}\hat{i} + \frac{\partial}{\partial y}\hat{j}+ \frac{\partial}{\partial z}\hat{k}$, just like we did with the gradient. Then we have divergence as follows.
+
+\begin{equation*}
+    \text{div}F = \nabla \cdot F = \frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}
+\end{equation*}
+
+
+\item The other measure we have is known as \textbf{curl}. This measures the rotation of a vector field in the neighborhood of a point. If we imagine a paddle sticking up in the vertical $z$ direction, we can think of curl as telling how the paddle will spin. 
+
+\begin{itemize}
+    \item Curl positive $\to$ counterclockwise rotation
+    \item Curl negative $\to$ clockwise rotation
+    \item Curl zero $\to$ no rotation (irrotational)
+\end{itemize}
+
+\item Mathematically to find curl to a vector field with component equations $P,Q,R$ we take the cross product. 
+
+\begin{equation*}
+    \text{curl} F = \nabla \times F = \left(\frac{\partial R}{\partial y}- \frac{\partial Q}{\partial z}\right)\hat{i}-\left(\frac{\partial R}{\partial x}- \frac{\partial P}{\partial z}\right)\hat{j}+\left(\frac{\partial Q}{\partial x}- \frac{\partial P}{\partial y}\right)\hat{k}
+\end{equation*}
+
+\item If we want to know the maximum rotation of our curl vectors, we can take the magnitude of our vector. This rotation would happen when our ``paddle" lies parallel to our curl vector. 
+
+
+
+\item To keep things straight, it is important to know what the del operator is being applied to and what it produced.
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+  & Applied to   & Produces \\
+  \hline \hline
+ Gradient &  surface $\to$ $\nabla f(x,y)$   & (conservative) vector field\\
+  \hline
+  Divergence & vector field $\to$ $\nabla \cdot F(x,y)$ & (scalar field) surface \\
+  \hline
+  Curl & vector field $\to$ $\nabla \times F(x,y)$ & vector field\\
+  \hline \hline
+\end{tabular}
+\end{center}
+
+
+\item We get a useful theorem about conservative vector fields.
+
+\begin{theorem}
+    If $F$ is a conservative vector field then $\text{curl}F = 0$ everywhere.
+\end{theorem}
+
+This can be easily proved using Clairaut's theorem. 
+\end{enumerate}
+
+
+\newpage
+
+\section{Examples}
+
+
+\begin{problem}
+    Compare the curl and divergence to the vector fields $F(x,y,z) = x\hat{i}$ and $F(x,y,z) = x\hat{j}$.
+\end{problem}
+
+\vspace{9cm}
+
+
+\begin{problem}
+    Compare the curl and divergence to the vector fields $F(x,y,z) = x^2\hat{i}+y^2\hat{j}$ and $F(x,y,z) = y^2\hat{i}+x^2\hat{j}$.
+\end{problem}
+
+\vspace{9cm}
+
+
+\begin{problem}
+    Find the divergence and curl of $y^2 \hat{i} + x^2 \hat{j}$.
+\end{problem}
+
+
+\vspace{10cm}
+
+
+\begin{problem}
+    Find the divergence and curl of $F(x,y) = \frac{x}{\sqrt{x^2+y^2}}\hat{i}+\frac{y}{\sqrt{x^2+y^2}}\hat{j}$
+\end{problem}
+
+
+
+\vspace{10cm}
+
+
+
+\begin{problem}
+    Find the divergence and curl of $yz \hat{i} + xz \hat{j}+xy\hat{k}$.
+\end{problem}
+
+\vspace{10 cm}
+
+
+\begin{problem}
+    Find the divergence and curl of $xy \hat{i} + xz \hat{j}+ xyz^2 \hat{k}$.
+\end{problem}
+
+
+
+
+
+\newpage
+
+\section{Scratch Work}
+
+\end{document} 

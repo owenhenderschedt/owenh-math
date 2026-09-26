@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+
+\begin{document}
+\begin{huge}
+    \begin{center}
+       It's all just a bunch of symbols
+    \end{center}
+\end{huge}
+
+
+\vs\vs
+
+\[\iint_Rf(x,y)\dif{A} \hspace{2cm}\underline{\hspace{10cm}}\]
+
+\[\oint_C F \cdot \dif{r}\hspace{2cm}\underline{\hspace{10cm}}\]
+
+
+\[\nabla f(x,y,z)\hspace{2cm}\underline{\hspace{10cm}}\]
+
+\[\int_C f(x,y,z) \dif{s}\hspace{2cm}\underline{\hspace{10cm}}\]
+
+
+\[\iiint_T \rho(x,y,z) \dif{V}\hspace{2cm}\underline{\hspace{10cm}}\]
+
+\[\mathcal{D}_{\hat{u}}f(x,y)\hspace{2cm}\underline{\hspace{10cm}}\]
+
+\[\int_C P\dif{x}+Q\dif{y}\hspace{2cm}\underline{\hspace{10cm}}\]
+
+
+\[\iint_R 1 \dif{A} \text{ or } \iiint_T 1 \dif{V}\hspace{2cm}\underline{\hspace{9cm}}\]
+
+\[\iint_R \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \dif{A} \hspace{2cm}\underline{\hspace{10cm}}\]
+
+\[\nabla \cdot F \text{ and } \nabla \times F \hspace{2cm}\underline{\hspace{10cm}}\]
+
+
+
+
+\end{document} 

@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm, standalone}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+% \usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{amssymb}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+\begin{huge}
+    \begin{center}
+        Checkpoint
+    \end{center}
+\end{huge}
+\begin{large}\begin{center}\bf 14.6: Directional Derivatives \end{center}
+\end{large}
+
+\vs\vs
+
+\begin{problem}
+If we want to find the directional derivative in the direction of $\vec{v} = \langle 19, -2 \rangle$ what is wrong with $\vec{v}$?
+\end{problem}
+
+\begin{problem}
+What is one way to interpret the formula for a directional derivative in the direction of $\hat{u} = \langle u_1, u_2 \rangle$ which is $\mathcal{D}_{\hat{u}}f(x,y) = f_xu_1+f_yu_2$?
+\end{problem}
+
+\begin{problem}
+If we package our partial in a vector known as the gradient $\langle f_x, f_x \rangle = \nabla f(x,y)$ what does $\nabla f(x,y)$ and $|\nabla f(x,y)|$ tell us?
+\end{problem}
+
+
+\begin{problem}
+If $f_x = x+e^y$ and $f_y = \ln{(x^2y)}$ find the directional derivative in the direction that is made by an angle of $\pi/3$ from the $x$-axis.
+\end{problem}
+
+
+
+
+
+\newpage
+
+\section{Answers}
+
+\begin{enumerate}
+    \item It is not a unit vector since $|\vec{v}| = \sqrt{365}$
+    \item A weighted average of our partials. We can think of $u_1$ and $u_2$ being the percentage we weight our partial in the $x$ and partial in the $y$ direction.
+    \item the direction of steepest ascent from any point and the slope of the steepest ascent.
+    \item $(x+e^y)(\frac{1}{2})+(\ln{(x^2y)})(\frac{\sqrt{3}}{2})$
+\end{enumerate}
+
+
+
+\end{document} 

@@ -1,0 +1,210 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{array}
+\usepackage{boxedminipage}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+
+
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+\newenvironment{problem}[1][]{%
+  \bigskip% put space before problem statement box %
+  \noindent\begin{boxedminipage}{\columnwidth}%
+  \def\@tempa{#1}%
+  \ifx\@tempa\empty\else%
+    \textbf{#1}\hspace{0.5em}%
+  \fi%
+}{%
+  \end{boxedminipage}%
+}
+
+% header for each page of test
+% be sure to change everything to what it should be (including total number of pages!)
+\pagestyle{fancyplain}
+\lhead{MATH 2630-090}
+\chead{Test 3}
+\rhead{Page \thepage \ of 10}
+\cfoot{}
+
+
+\begin{document}
+\thispagestyle{empty}
+% front page heading
+\begin{Center}
+    \Large{\textbf{MATH 2630-090: TEST 3 -- Summer 2024}} \\
+    \large{
+    July 10, 2024 \\
+    Owen Henderschedt
+    }
+\end{Center}
+
+\vspace*{1cm}
+
+% space for name
+\begin{FlushRight}
+    Name (\textit{please print}): \underline{\hspace{12.5cm}}
+\end{FlushRight}
+
+\vspace*{1cm}
+
+% instructions
+\textbf{Instructions:}
+Please read the following instructions carefully.
+\begin{itemize}
+    \item \textbf{Read all of the directions} for each problem.
+
+    \item You have \textbf{75 minutes} to finish the exam.
+
+    \item \textbf{Show work to receive credit.}
+    Answers that are wrong, but still have work might receive partial credit.
+    If you provide the answer to a computation without work, I will not give partial credit.
+
+    \item Provide \textbf{exact} solutions.
+
+    \item Do \textbf{not} write in the table below.
+\end{itemize}
+
+\vspace*{1cm}
+
+% scoring table
+\begin{center}
+\begin{tabular}{|*{3}{>{\centering\arraybackslash}p{.1\linewidth}|}}
+    \hline
+    \textbf{Problem} & \textbf{Points} & \textbf{Score} \\
+    \hline
+    1 & 12 &  \\
+    \hline
+    2 & 10 &  \\
+    \hline
+    3 & 15 &  \\
+    \hline
+    4 & 12 &  \\
+    \hline
+    5 & 12 &  \\
+    \hline
+    6 & 12 &  \\
+    \hline
+    7 & 15 &  \\
+    \hline
+    8 & 12 &  \\
+    \hline \hline
+    \textbf{Total} & 100 &  \\
+    \hline
+\end{tabular}
+\end{center}
+
+
+% start of test
+%%%%% PROBLEM 1 %%%%%
+\newpage
+\begin{problem}[1. (12 points)]
+Evaluate the following double integral where $R$ is the region bounded by the first quadrant, $x=3$ and $y = \sqrt{x}$.
+
+\begin{equation*}
+    \iint_R \frac{y}{x^2+1} \dif{A}
+\end{equation*}
+\end{problem}
+
+
+%%%%% PROBLEM 2 %%%%%
+\newpage
+\begin{problem}[2. (10 points)]
+Estimate the volume under the surface $f(x,y)$, over the region $R = \{(x,y): 0\leq x\leq 2, 0\leq y \leq 4\}$ using upper right corners, $m=2$ and $n=2$.
+
+\begin{equation*}
+    f(x,y) = \frac{xy}{x+y+1}
+\end{equation*}
+\end{problem}
+
+
+
+%%%%% PROBLEM 3 %%%%%
+\newpage
+\begin{problem}[3. (15 points)]
+Find the volume of $T$, where $T$ is the solid bounded by the $xy$-plane, $z = 3+x$, $x^2+y^2 = 4$, and $x^2+y^2 = 1$.
+\end{problem}
+
+
+%%%%% PROBLEM 4 %%%%%
+\newpage
+\begin{problem}[4. (12 point)]
+Use spherical coordinates to find an expression for the volume of the region bounded by the first octant, $x^2+y^2+z^2 = 2z$ and $x^2+y^2+z^2=4$. \textbf{DO NOT EVALUATE!}
+\end{problem}
+
+
+
+
+%%%%% PROBLEM 5 %%%%%
+\newpage
+\begin{problem}[5. (12 points)]
+Consider the following double integral.
+
+\begin{equation*}
+    \iint_R f(x,y) \dif{A} = \int_0^1 \int_y^{\sqrt{y}} x-y \dif{x}\dif{y}
+\end{equation*}
+
+\vspace{.25cm}
+
+(a) Reverse the order of integration.
+
+\vspace{.25cm}
+
+(b) Evaluate the integral.
+
+\vspace{.25cm}
+
+(c) If the area of the $R$ is $\frac{1}{6}$ find the average value of $f(x,y)$.
+\end{problem}
+
+
+%%%%% PROBLEM 6 %%%%%
+\newpage
+\begin{problem}[6. (12 points)]
+Prove using integration that the volume of the region between spheres $x^2+y^2+z^2=4$ and $x^2+y^2+z^2= 9$ is $\frac{76\pi}{3}$.
+\end{problem}
+
+
+%%%%% PROBLEM 7 %%%%%
+\newpage
+\begin{problem}[7. (15 points)]
+Set up \textbf{BUT DO NOT EVALUATE} the following double integral using the transformation $x=\frac{1}{2}(u+v)$ and $y= \frac{1}{2}(u-v)$.
+
+\begin{equation*}
+\iint_R \frac{4}{(x-y)^2}\dif{x}\dif{y}
+\end{equation*}
+
+\vspace{.25cm}
+
+Where $R$ is the trapezoid bounded by the lines $x-y=2$, $x-y=4$, $x=0$, and $y=0$.
+
+\end{problem}
+
+
+%%%%% PROBLEM 8 %%%%%
+\newpage
+\begin{problem}[8. (12 points)]
+If $\mu(x,y) = e^{x^2+y^2}$ is the mass density function of the disc $D = \{(x,y): x^2+y^2\leq 81\}$, find the mass of $D$.
+
+\end{problem}
+
+%%%%% EXTRA %%%%%
+\newpage
+\begin{problem}[JUST FOR FUN. (OPTIONAL)]
+
+As I mentioned in class I am creating a 3D-solid to represent each class I teach. If you want to be apart of it...
+
+\begin{center}
+give me two numbers $(x,y)$ where $0\leq x\leq 3.14159$ and $0\leq y \leq 6.28318$
+\end{center}
+
+Try to use 2-5 decimals so for example $(.4582, 2.9893)$ or $(1.1124, 5.0035)$
+
+\end{problem}
+
+
+
+
+
+\end{document}

@@ -1,0 +1,153 @@
+\documentclass[11pt]{article}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb,amstext,amsthm,standalone,tikz}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+\begin{huge}
+    \begin{center}
+        Test 4 Review
+    \end{center}
+\end{huge}
+
+
+\vs\vs
+
+This is a review of the material covered after test 3 but will be on the final.
+
+\section{Line Integrals}
+
+\begin{problem}
+Evaluate \[\int_C 3x^2-2y \dif{s}\]  where $C$ is the line segment from $(3,6)$ to $(1,-1)$
+\end{problem}
+
+\begin{problem}
+    Using the same $C$ from the previous problem, compute \[\int_C 3x^2 - 2y \dif{x} \text{ and } \int_C 3x^2-2y \dif{y}\]
+\end{problem}
+
+\begin{problem}
+    Find area under the surface $f(x,y)=2yx^2-4x$ bounded by the curve obtained by traveling counterclockwise around the lower half of the semicircle with radius $3$.
+\end{problem}
+
+\begin{problem}
+    Evaluate \[\int_C 6x \dif{s}\] where $C$ is the parabola $y=x^2$ from $x=-1$ to $x=2$.
+\end{problem}
+
+\begin{problem}
+If $F(x,y,z)$ is a conservative vector field then we know $F = \nabla f(x,y,z)$ for some surface $f(x,y,z)$. We call such $f(x,y,z)$ the potential function. Find the potential function for \[F(x,y,z) = (2z^4-2y-y^3)\hat{i}+(z-2x-3xy^2)\hat{j}+(6+y+8xz^3)\hat{k}\]
+\end{problem}
+
+
+
+\section{Vector Fields}
+
+\begin{problem}
+Find the divergence and curl for each of the following vector fields. Sketch the vector field to verify your answer.
+
+\begin{enumerate}
+    \item $\frac{x}{y}\hat{i}+\frac{y}{x}\hat{j}$
+    \item $\frac{y}{x}\hat{i}+\frac{x}{y}\hat{j}$
+    \item $\frac{x}{\sqrt{x^2+y^2}}\hat{i}+\frac{y}{\sqrt{x^2+y^2}}\hat{j}$
+    \item $yz\hat{i} + xz\hat{j}+xy\hat{k}$
+    \item $xy\hat{i}+xz\hat{j}+xyz^2\hat{k}$
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+    Which of the vector fields above are conservative? How do you know?
+\end{problem}
+
+\section{Vector Fields through Line Integrals}
+
+\begin{problem}
+  Find the work done along the line segment $(0,0,0)$ to $(1,2,3)$ through the vector field $\langle xy, x^2, yz \rangle$  
+\end{problem}
+
+\begin{problem}
+    Evaluate \[\int_C F\cdot \dif{r}\] where $F(x,y,z) = e^{2x}\hat{i}+z(y+1)\hat{j}+z^3\hat{k}$ and $C$ is given by the vector function $\vec{r}(t) = t^3\hat{i}+(1-3t)\hat{j}+e^t\hat{k}$ from $0\leq t\leq 2$.
+\end{problem}
+
+\begin{problem}
+    Find the work done to travel from $(2,-1)$ to $(5,0)$ through the vector field \[F(x,y) = \left\langle \frac{y}{3\sqrt[3]{x^2}}+\frac{1}{x}, \sqrt[3]{x}+2y \right\rangle\]
+\end{problem}
+
+
+\begin{problem}
+Evaluate \[\oint_C yx^2 \dif{x} + x^2\dif{y}\] where $C$ is the left half of $x^2+y^2=25$ and the $y$-axis (assume counterclockwise)
+\end{problem}
+
+
+\begin{problem}
+Evaluate \[\oint_C F \cdot \dif{r}\] where $F$ is the $4$-dimensional conservative vector field $F(x,y,z,w) = \nabla f(x,y,z,w)$
+\end{problem}
+
+
+
+\begin{problem}
+Evaluate \[\int_C x^2 \dif{y} - yz \dif{z}\] where $C$ is the line segment from $(4,-1,2)$ to $(1,7,-1)$.
+\end{problem}
+
+
+
+
+
+\begin{problem}
+Evaluate \[\oint_C xy \dif{x} + y^{2024} \dif{y}\] where $C$ is the curve traveling along the triangle with vertices $(-1,2), (3,5), (3,7)$.
+\end{problem}
+
+\begin{problem}
+    Find the work required to travel along the curve parameterized by $\vec{r}(t) = \langle \sin{t}, 1, t \rangle$ through the vector field $F(x,y,z) = \langle x, (xyz)^{x^2+y^2+z^2}, ze^{z} \rangle$ from $t= 0$ to $t=1$.
+\end{problem}
+
+
+
+
+
+
+\end{document} 

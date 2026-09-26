@@ -1,0 +1,243 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{array}
+\usepackage{boxedminipage}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+
+
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+\newenvironment{problem}[1][]{%
+  \bigskip% put space before problem statement box %
+  \noindent\begin{boxedminipage}{\columnwidth}%
+  \def\@tempa{#1}%
+  \ifx\@tempa\empty\else%
+    \textbf{#1}\hspace{0.5em}%
+  \fi%
+}{%
+  \end{boxedminipage}%
+}
+
+% header for each page of test
+% be sure to change everything to what it should be (including total number of pages!)
+\pagestyle{fancyplain}
+\lhead{MATH 2630-090}
+\chead{Final Exam}
+\rhead{Page \thepage \ of 11}
+\cfoot{}
+
+
+\begin{document}
+\thispagestyle{empty}
+% front page heading
+\begin{Center}
+    \Large{\textbf{MATH 2630-090: Final Exam -- Summer 2024}} \\
+    \large{
+    July 31, 2024 \\
+    Owen Henderschedt
+    }
+\end{Center}
+
+\vspace*{1cm}
+
+% space for name
+\begin{FlushRight}
+    Name (\textit{please print}): \underline{\hspace{12.5cm}}
+\end{FlushRight}
+
+\vspace*{1cm}
+
+% instructions
+\textbf{Instructions:}
+Please read the following instructions carefully.
+\begin{itemize}
+    \item \textbf{Read all of the directions} for each problem.
+
+    \item You have \textbf{120 minutes} to finish the exam.
+
+    \item \textbf{Show work to receive credit.}
+    Answers that are wrong, but still have work might receive partial credit.
+    If you provide the answer to a computation without work, I will not give partial credit.
+
+    \item Provide \textbf{exact} solutions.
+
+    \item Do \textbf{not} write in the table below.
+\end{itemize}
+
+\vspace*{1cm}
+
+% scoring table
+\begin{center}
+\begin{tabular}{|*{3}{>{\centering\arraybackslash}p{.1\linewidth}|}}
+    \hline
+    \textbf{Problem} & \textbf{Points} & \textbf{Score} \\
+    \hline
+    1 &  &  \\
+    \hline
+    2 &  &  \\
+    \hline
+    3 &  &  \\
+    \hline
+    4 &  &  \\
+    \hline
+    5 &  &  \\
+    \hline
+    6 &  &  \\
+    \hline
+    7 &  &  \\
+    \hline
+    8 &  &  \\
+    \hline
+    9 &  &  \\
+    \hline
+    10 &  &  \\
+    \hline \hline
+    \textbf{Total} & 200 &  \\
+    \hline
+\end{tabular}
+\end{center}
+
+
+% start of test
+%%%%% PROBLEM 1 %%%%%
+\newpage
+\begin{problem}[1. (20 points)]
+Find $\frac{\partial f}{\partial t}$ where $f(x,y) = e^{xy}+ x^2y$, $x = 2u-v$, $y = u^2+v^2$, $u = 3s-4t, v = \sqrt{s}$.
+\end{problem}
+
+
+%%%%% PROBLEM 2 %%%%%
+\newpage
+\begin{problem}[2. (20 points)]
+Evaluate the following limit. Write ``Does not exist" if applicable.
+
+\begin{equation*}
+    \lim_{(x,y) \to (0,0)} \frac{xy}{x^2+y^2 + (x-y)^2}.
+\end{equation*}
+\end{problem}
+
+
+
+%%%%% PROBLEM 3 %%%%%
+\newpage
+\begin{problem}[3. (20 points)]
+Consider the following surface.
+
+\begin{equation*}
+    f(x,y) = 4xy-x^4-y^4.
+\end{equation*}
+
+Find \emph{and} classify \textbf{ALL} relative maximum,  minimums, and saddle points.
+\end{problem}
+
+
+%%%%% PROBLEM 4 %%%%%
+\newpage
+\begin{problem}[4. (20 point)]
+Consider the following surface.
+
+\begin{equation*}
+    z = y^2\ln{x}
+\end{equation*}
+
+\vspace{.125cm}
+
+(i) Find the slope of the tangent line to the surface at $(e,1)$ in the direction of $\vec{u} = \langle 2, 3 \rangle$.
+
+\vspace{.25cm}
+
+(ii) Find the equation of the tangent plane to the surface at the point $(e,1,1)$.
+\end{problem}
+
+
+
+
+%%%%% PROBLEM 5 %%%%%
+\newpage
+\begin{problem}[5. (20 points)]
+Evaluate the following double integral.
+
+\begin{equation*}
+    \int_0^2 \int_{y/2}^1 \cos{(x^2)} \dif{x}\dif{y}.
+\end{equation*}
+
+\end{problem}
+
+
+%%%%% PROBLEM 6 %%%%%
+\newpage
+\begin{problem}[6. (20 points)]
+Set up but \textbf{DO NOT EVALUATE} an expression for the volume of the solid bounded by the sphere with radius 5, centered at the origin and the below the $xy$-plane. 
+\end{problem}
+
+
+%%%%% PROBLEM 7 %%%%%
+\newpage
+\begin{problem}[7. (20 points)]
+Set up \textbf{BUT DO NOT EVALUATE} the following double integral using the transformation $u = \frac{y}{x}$ and $v = xy$.
+
+\begin{equation*}
+\iint_R e^{xy} \dif{A}
+\end{equation*}
+
+\vspace{.25cm}
+
+Where $R$ is bounded by the lines $y=\frac{1}{2}x$, $y=x$, and the hyperbolas $y=\frac{1}{x}$, and $y=\frac{2}{x}$.
+
+\end{problem}
+
+
+%%%%% PROBLEM 8 %%%%%
+\newpage
+\begin{problem}[8. (20 points)]
+Evaluate the following line integral where $C$ is the curve formed by the circle $x^2+y^2=1$ and $y = |x|$.
+
+\begin{equation*}
+    \oint_C \sqrt{x}\dif{x} +  (xy +e^{\tan{y}}) \dif{y}
+\end{equation*}
+
+\end{problem}
+
+
+
+%%%%% PROBLEM 9 %%%%%
+\newpage
+\begin{problem}[9. (20 points)]
+Consider the vector field $F(x,y) = (2xy^2+2y) \hat{i} + (2x^2y+2x)\hat{j}$
+
+\vspace{.125cm}
+
+
+(i) Find the divergence of $F$ at the point $(2,3)$.
+
+\vspace{.125cm}
+
+(ii) Find the curl of $F$ at the point $(2,3)$
+
+
+\vspace{.125cm}
+
+(iii) Find the amount of work to go through $F$ from $(1,1)$ to $(2,2)$.
+
+\end{problem}
+
+
+
+%%%%% PROBLEM 10 %%%%%
+\newpage
+\begin{problem}[10. (20 points)]
+Evaluate the line integral where $C$ is line segment from $(1,2,3)$ to $(2,5,4)$.
+
+\begin{equation*}
+    \int_C x+y+z \dif{s}
+\end{equation*}
+
+
+\end{problem}
+
+
+
+
+\end{document}

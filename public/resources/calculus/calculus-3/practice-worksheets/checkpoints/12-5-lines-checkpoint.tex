@@ -1,0 +1,79 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amstext,amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+
+\geometry{
+  verbose,
+  dvips,
+  width=430pt, marginparsep=0pt, marginparwidth=0pt,
+  top=90pt, headheight=12pt, headsep=20pt, footskip=30pt, bottom=80pt}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\linespread{1.05}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{obs}{Observation}
+\newtheorem{clm}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{problem}{Problem}
+
+\newtheorem{ex}{Example}
+
+
+\newcommand{\spc}{\hspace{0.08in}}
+\newcommand{\vs}{\vspace*{.1in}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\edit}[1]{\emph{\textcolor{blue}{#1}}}
+
+
+\renewenvironment{proof}{{\noindent \textbf{\textit{Proof.}}}}
+{\hfill $\Box$ \vspace*{0.1in}}
+\newenvironment{proofc}{{\noindent \textit{Proof of Claim.}}}
+{\hfill $\Box$}
+
+
+\begin{document}
+\begin{huge}
+    \begin{center}
+        Checkpoint
+    \end{center}
+\end{huge}
+\begin{large}\begin{center}\bf 12.5 Part 1: Lines\end{center}
+\end{large}
+
+\vs\vs
+
+\begin{problem}
+What two things do you need for a line in $3$D?  
+\end{problem}
+
+\begin{problem}
+If I gave you a point on line $L_1$ and the equation of a parallel line $L_2$, how would you find the equation of $L_1$?
+\end{problem}
+
+\begin{problem}
+Rewrite the equation of the following line in symmetric form. \[x(t) = 2t-5, y(t) = -t+7, z(t) = 3t-4\]
+\end{problem}
+
+\begin{problem}
+    Rewrite the equation of the following line in parametric form. \[\frac{x+3}{-2} = \frac{y}{11} = z-4\]
+\end{problem}
+
+\begin{problem}
+Are the following lines intersecting, parallel, or skew?
+\[L_1: x(t) = 2t+5, y(t) = t-3, z(t) = 2t\] and \[L_2: \frac{x+1}{4}= \frac{y-4}{2} = \frac{z+2}{4}\]
+\end{problem}
+
+
+\end{document} 
