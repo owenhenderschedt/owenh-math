@@ -1,0 +1,160 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem, array}
+
+\usepackage{boxedminipage}
+\usepackage{fancyhdr}
+\usepackage{ragged2e, comment}
+
+
+\newenvironment{problem}[1][]{%
+  \bigskip% put space before problem statement box %
+  \noindent\begin{boxedminipage}{\columnwidth}%
+  \def\@tempa{#1}%
+  \ifx\@tempa\empty\else%
+    \textbf{#1}\hspace{0.5em}%
+  \fi%
+}{%
+  \end{boxedminipage}%
+}
+
+
+\begin{document}
+
+\begin{center}
+    \Large \textbf{MATH 2790 Test 1 Fall 2025} \\[1em]
+\end{center}
+
+\vspace{.25cm}
+
+\noindent Name: \underline{\hspace{8cm}} \hspace{.25cm} Auburn ID: \underline{\hspace{4cm}}
+
+
+
+\section*{Instructions}
+\begin{enumerate}[label=\arabic*.]
+\item Print your full name and your banner ID on your exam. Then finish reading these instructions, and sign the bottom of this page.
+\item All electronic equipment (cell phones, Apple Watch, AirPod, etc) are \textbf{NOT ALLOWED} during the exam time.
+\item You are allowed to use up to 2 calculators from the following list: BA-35, BA II Plus, BA II Plus Professional, TI-30Xa, TI-30X II (IIS solar or IIB battery), TI-30XS MultiView (or XB battery).
+\item No talking is allowed during the exam.
+\item Unless otherwise indicated, \textbf{SHOW ALL YOUR WORK}. If no work is shown, no partial credit can be awarded. Your work and answer need to be accurate and relevant to receive points.
+\item You will be given exactly 50 minutes for this exam.
+\item Any student not following the above instructions nor behaving according to the above instructions during the exam may have their exam confiscated and points deducted.
+\end{enumerate}
+
+I have read and fully understand all of the above instructions. \\[2em]
+Signature: \hrulefill
+
+
+\vspace{.75cm}
+Do not write in the table below
+
+% scoring table
+\begin{center}
+\begin{tabular}{|*{3}{>{\centering\arraybackslash}p{.1\linewidth}|}}
+    \hline
+    \textbf{Problem} & \textbf{Points} & \textbf{Score} \\
+    \hline
+    1 & 10 &  \\
+    \hline
+    2 & 10 &  \\
+    \hline
+    3 & 15 &  \\
+    \hline
+    4 & 12 &  \\
+    \hline
+    5 & 16 &  \\
+    \hline
+    6 & 12 &  \\
+    \hline
+    7 & 12 &  \\
+    \hline
+    8 & 12 &  \\
+    \hline \hline
+    \textbf{Total} & 99+1 &  \\
+    \hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+%%%%% PROBLEM 1 %%%%%
+\newpage
+\begin{problem}[1. (10 points)]
+Find the accumulated value of $\$5,000$ at the end of $8$ years if the nominal rate of discount was $4.5\%$ convertible quarterly for the first $1$ years, the effective monthly interest rate was $.025\%$ for the next $4$ years and the nominal interest rate was $2.5\%$ convertible continuously for the last $3$ years. Round to $4$ decimal places.
+\end{problem}
+
+\newpage
+%%%%% PROBLEM 2 %%%%%
+\newpage
+\begin{problem}[2. (10 points)]
+Owen took out a loan governed by simple interest at a rate of $6.5\%$. Find the discount rate $d_{[4,6]}$. Round to $4$ decimal places.
+\end{problem}
+
+\newpage
+
+%%%%% PROBLEM 3 %%%%%
+\newpage
+\begin{problem}[3. (15 points)]
+Given that the force of interest is $\delta_t = \frac{2t}{1+2t^2}$,
+    \begin{enumerate}[label=(\alph*)]
+        \item (9 points) Find the accumulation function $a(t)$.
+        \item (6 points) Find the value at time 4 of \$800 to be paid at time $t=9$. Round to 4 decimal places.
+    \end{enumerate}
+\end{problem}
+
+\newpage
+
+%%%%% PROBLEM 4 %%%%%
+\newpage
+\begin{problem}[4. (12 points, 4 each)]
+Given $d^{(8)} = 12\%$, find the following equivalent rates.
+
+
+\begin{enumerate}
+\itemsep = .01em
+    \item[(a)] The effective annual interest rate. 
+    \item[(b)] The force of interest $\delta$.
+    \item[(c)] The nominal interest rate convertible quarterly.
+\end{enumerate} 
+\end{problem}
+
+\newpage
+
+%%%%% PROBLEM 5 %%%%%
+\newpage
+\begin{problem}[5. (16 points)]
+Aubie loans Chris \$20,000. Chris repays the loan by paying Aubie \$18,000 at the end of one year and \$2,500 at the end of both three and four years. The money received at $t=1,3$ is immediately reinvested at annual effective interest rate of 3\%.
+    \begin{enumerate}[label=(\alph*)]
+        \item (8 points) Write out the equation to solve for Chris’s annual effective interest rate. Use the financial calculator to find out the value. Round to 4 decimal places as a percentage.
+        \item (8 points) Calculate Aubie's annual yield rate. Round to 4 decimal places as a percentage.
+    \end{enumerate}
+\end{problem}
+
+\newpage
+
+%%%%% PROBLEM 6 %%%%%
+\newpage
+\begin{problem}[6. (12 points)]
+To pay your tuition you take out a loan of \$25,000. The loan is governed by compound annual discount rate of 5\%. you repay $\$1,000$ at the end of one year, $X$ at the end of three years, \$6,000 at the end of four years and \$10,000 at the end of six years. Calculate $X$. Round to 4 decimal places.
+\end{problem}
+
+\newpage
+
+%%%%% PROBLEM 7 %%%%%
+\newpage
+\begin{problem}[7. (12 points)]
+Ellen receives \$2,000 every year on her eighteenth birthday through her thirtieth birthday. using an annual effective discount rate of 5\%. Find the value of her payments on her thirtieth birthday. Round to 2 decimal places. (\textit{Simply entering numbers into a calculator without showing your work will not receive full credit})
+\end{problem}
+
+\newpage
+
+%%%%% PROBLEM 8 %%%%%
+\newpage
+\begin{problem}[8. (12 points)]
+Ava makes monthly deposits of $X$ for 5 years with 12\% nominal monthly interest rate. These deposits are exactly enough to allow her to make 10 annual withdrawals of \$1,000. The first withdrawal is one year after the last deposit. The nominal monthly interest rate decreases to 6\% directly after the time of the last deposit and continues forever. Find $X$. Round to 2 decimal places. (\textit{Simply entering numbers into a calculator without showing your work will not receive full credit})
+\end{problem}
+
+
+\end{document}

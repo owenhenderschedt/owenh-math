@@ -1332,16 +1332,51 @@ function SphereScene({
     edgeGeometry,
   ])
 
-  const pointTargetQuaternion =
-    useMemo(() => {
-      if (
-        activeIndex < 0 ||
-        activeIndex >=
-          coordinates.length
-      ) {
-        return new THREE.Quaternion()
-      }
+  useEffect(() => {
+    if (
+      phase === 'revealing' &&
+      group.current
+    ) {
+      /*
+       * A completed stone may have been rotated
+       * while its faces were being signed or by
+       * the viewer. Start each new stone from a
+       * clean object-space orientation.
+       */
+      group.current.quaternion.identity()
+    }
+  }, [phase])
 
+  useEffect(() => {
+    if (
+      phase === 'presenting' &&
+      group.current
+    ) {
+      presentationBase.current.copy(
+        group.current.quaternion,
+      )
+
+      presentationElapsed.current = 0
+    }
+  }, [phase])
+
+  useFrame(({ camera }, delta) => {
+    if (!group.current) return
+
+    if (
+      phase === 'placing' &&
+      activeIndex >= 0 &&
+      activeIndex < coordinates.length
+    ) {
+      /*
+       * Rotate the active point toward the
+       * CURRENT camera, not toward world +z.
+       *
+       * Since OrbitControls can change the
+       * camera position, camera.position gives
+       * the direction that actually projects to
+       * the center of the screen.
+       */
       const point =
         new THREE.Vector3(
           ...coordinates[
@@ -1349,30 +1384,30 @@ function SphereScene({
           ].point,
         ).normalize()
 
-      return new THREE.Quaternion()
-        .setFromUnitVectors(
-          point,
-          new THREE.Vector3(
-            0,
-            0.18,
-            1,
-          ).normalize(),
-        )
-    }, [
-      activeIndex,
-      coordinates,
-    ])
+      const cameraDirection =
+        camera.position
+          .clone()
+          .normalize()
 
-  const signatureTargetQuaternion =
-    useMemo(() => {
-      if (
-        signingIndex < 0 ||
-        signingIndex >=
-          signaturePlacements.length
-      ) {
-        return new THREE.Quaternion()
-      }
+      const targetQuaternion =
+        new THREE.Quaternion()
+          .setFromUnitVectors(
+            point,
+            cameraDirection,
+          )
 
+      group.current.quaternion.slerp(
+        targetQuaternion,
+        0.14,
+      )
+    }
+
+    if (
+      phase === 'signing' &&
+      signingIndex >= 0 &&
+      signingIndex <
+        signaturePlacements.length
+    ) {
       const placement =
         signaturePlacements[
           signingIndex
@@ -1391,55 +1426,27 @@ function SphereScene({
           )
           .normalize()
 
-      const presentationPoint =
-        new THREE.Vector3(
-          0,
-          0.08,
-          1,
-        ).normalize()
+      /*
+       * Bring the face being signed directly
+       * toward the viewer's actual camera.
+       * This keeps the signature and pen near
+       * screen center regardless of how the
+       * camera was previously rotated.
+       */
+      const cameraDirection =
+        camera.position
+          .clone()
+          .normalize()
 
-      return new THREE.Quaternion()
-        .setFromUnitVectors(
-          aim,
-          presentationPoint,
-        )
-    }, [
-      signingIndex,
-      signaturePlacements,
-    ])
+      const targetQuaternion =
+        new THREE.Quaternion()
+          .setFromUnitVectors(
+            aim,
+            cameraDirection,
+          )
 
-  useEffect(() => {
-    if (
-      phase === 'presenting' &&
-      group.current
-    ) {
-      presentationBase.current.copy(
-        group.current.quaternion,
-      )
-
-      presentationElapsed.current = 0
-    }
-  }, [phase])
-
-  useFrame((_, delta) => {
-    if (!group.current) return
-
-    if (
-      phase === 'placing' &&
-      activeIndex >= 0
-    ) {
       group.current.quaternion.slerp(
-        pointTargetQuaternion,
-        0.14,
-      )
-    }
-
-    if (
-      phase === 'signing' &&
-      signingIndex >= 0
-    ) {
-      group.current.quaternion.slerp(
-        signatureTargetQuaternion,
+        targetQuaternion,
         0.13,
       )
     }

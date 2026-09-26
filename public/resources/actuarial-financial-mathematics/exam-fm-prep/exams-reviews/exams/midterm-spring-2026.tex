@@ -1,0 +1,329 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem, array}
+
+\usepackage{boxedminipage}
+\usepackage{fancyhdr}
+\usepackage{ragged2e, comment, parskip}
+
+
+\newenvironment{problem}[1][]{%
+  \bigskip% put space before problem statement box %
+  \noindent\begin{boxedminipage}{\columnwidth}%
+  \def\@tempa{#1}%
+  \ifx\@tempa\empty\else%
+    \textbf{#1}\hspace{0.5em}%
+  \fi%
+}{%
+  \end{boxedminipage}%
+}
+
+
+\begin{document}
+
+\begin{center}
+    \Large \textbf{MATH 4790 Midterm Spring 2026} \\[1em]
+\end{center}
+
+\vspace{.25cm}
+
+\noindent Name: \underline{\hspace{8cm}} \hspace{.25cm} Auburn ID: \underline{\hspace{4cm}}
+
+
+
+\section*{Instructions}
+\begin{enumerate}[label=\arabic*.]
+\item Print your full name and your banner ID on your exam. Then finish reading these instructions, and sign the bottom of this page.
+\item All electronic equipment (cell phones, Apple Watch, AirPod, etc) are \textbf{NOT ALLOWED} during the exam time.
+\item You are allowed to use up to 2 calculators from the following list: BA-35, BA II Plus, BA II Plus Professional, TI-30Xa, TI-30X II (IIS solar or IIB battery), TI-30XS MultiView (or XB battery).
+\item No talking is allowed during the exam.
+\item Unless otherwise indicated, \textbf{SHOW ALL YOUR WORK}. If no work is shown, no partial credit can be awarded. Your work and answer need to be accurate and relevant to receive points.
+\item You will be given exactly 50 minutes for this exam.
+\item Any student not following the above instructions nor behaving according to the above instructions during the exam may have their exam confiscated and points deducted.
+\end{enumerate}
+
+I have read and fully understand all of the above instructions. \\[2em]
+Signature: \hrulefill
+
+
+\vspace{.75cm}
+Do not write in the table below
+
+% scoring table
+\begin{center}
+\begin{tabular}{|*{3}{>{\centering\arraybackslash}p{.1\linewidth}|}}
+    \hline
+    \textbf{Problem} & \textbf{Points} & \textbf{Score} \\
+    \hline
+    1 & 11 &  \\
+    \hline
+    2 & 11 &  \\
+    \hline
+    3 & 11 &  \\
+    \hline
+    4 & 11 &  \\
+    \hline
+    5 & 11 &  \\
+    \hline
+    6 & 11 &  \\
+    \hline
+    7 & 11 &  \\
+    \hline
+    8 & 11 &  \\
+        \hline
+    9 & 11 &  \\
+    \hline \hline
+    \textbf{Total} & 99+1 &  \\
+    \hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+\newpage
+
+\begin{center}
+{\Large \textbf{Answer Sheet}}
+\end{center}
+
+\vspace{1cm}
+
+\begin{enumerate}
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+\end{enumerate}
+
+\newpage
+
+%%%%% PROBLEM 1 %%%%%
+\newpage
+\noindent \textbf{Problem 1.}
+Ace-My-Test Bank has liabilities of \$4,000 due in one year, 
+\$3,000 due in two years, and \$2,000 due in three years. The bank may invest in the following bonds:
+
+\begin{itemize}
+    \item \textbf{Bond A:} A 1-year zero-coupon bond with annual effective yield $i$.
+    \item \textbf{Bond B:} A 2-year bond with annual coupons at $5\%$ and yield $4\%$ effective annually.
+    \item \textbf{Bond C:} A 3-year bond with annual coupons at $6\%$ and yield $6\%$ effective annually.
+\end{itemize}
+
+Suppose the bank constructs a cash flow matching portfolio using these bonds.  
+If the total amount invested in Bond A is \$3,567.39, determine $i$.
+
+\vspace{.5cm}
+
+
+
+\begin{enumerate}[label = \Alph*.]
+\item $4.8\%$
+\item  $5.1\%$ 
+\item  $5.4\%$ 
+\item  $5.8\%$ 
+\item $6.0\%$
+\end{enumerate}
+
+\newpage
+
+
+
+\textbf{Problem 2.} The annual effective spot rate for maturity $t$ (in years) is given by the function
+\[
+s_t=
+\begin{cases}
+0.04, & 1\le t\le 10,\\
+0.06, & 11\le t\le 20.
+\end{cases}
+\]
+
+
+A 20-year annuity-immediate pays \$100 at the end of each year and each subsequent payment increase by 2\%. Find its present value.
+
+\begin{enumerate}[label=\Alph*.]
+    \item 1,389
+    \item 1,401
+    \item 1,426
+    \item 1,511
+    \item 1,589
+\end{enumerate}
+
+
+\newpage
+
+
+\textbf{Problem 3.} You are given that the force of interest at time $t$ (in years) is \[\delta_t = \frac{1}{2t+5}.\]
+
+Find the effective interest rate in the $5$th year.
+
+\begin{enumerate}[label=\Alph*.]
+    \item 4.4\%
+    \item 5.4\%
+    \item 6.4\%
+    \item 7.4\%
+    \item 8.4\%
+\end{enumerate}
+
+
+\newpage
+
+
+\textbf{Problem 4.} Maya purchases a portfolio of two zero-coupon bonds.
+
+\begin{itemize}
+    \item Bond 1 matures in 4 years for \$327.70
+    \item Bond 2 matures in 8 years for \$1{,}288.64.
+\end{itemize}
+
+The annual effective yield is $7.0\%$. Calculate the modified convexity of Maya's portfolio.
+
+\begin{enumerate}[label=\Alph*.]
+    \item $40.18$
+    \item $43.92$
+    \item $45.98$
+    \item $50.08$
+    \item $51.53$
+\end{enumerate}
+
+
+\newpage
+
+
+\textbf{Problem 5.} Jerry and Sally both 
+
+Jerry invests in a perpetuity which yields payments at the end of each year starting with $P$, and each subsequent payment increases by \$10.
+
+Sally invests in an annuity-due which yields payments at the beginning of the year 10 years. The first payment is \$1{,}000 and each subsequent payment increases by $3\%$.
+
+The annual effective interest rate is $5\%$.
+
+Both investments have the same price. Find $P$.
+
+\begin{enumerate}[label=\Alph*.]
+    \item $245.75$
+    \item $259.25$
+    \item $271.80$
+    \item $284.50$
+    \item $296.10$
+\end{enumerate}
+
+
+\newpage
+
+
+\textbf{Problem 6.} Bob's portfolio is a level perpetuity-immediate valued at an annual effective yield of $i$.
+
+ Tina's portfolio consists of two cash flows: \$100 at time $t=5$ and \$200 at time $t=25$, valued at an annual effective yield of $6\%$.
+
+
+If the modified duration of Bob's portfolio equals the modified duration of Tina's portfolio, find $i$.
+
+\begin{enumerate}[label=\Alph*.]
+    \item $7.50\%$
+    \item $8.36\%$
+    \item $9.10\%$
+    \item $10.00\%$
+    \item $11.20\%$
+\end{enumerate}
+
+
+
+
+\newpage
+
+
+\textbf{Problem 7.}
+Carlos has a liability of \$11{,}000 due in 8 years. This liability will be met with payments of \$4{,}500 in 5 years and $B$ in $b$ years for some $b>8$.
+
+Carlos is employing a full immunization strategy using an annual effective interest rate of $17\%$.
+
+Calculate $B$.
+
+\begin{enumerate}[label=\Alph*.]
+\item 8,987
+\item 9,045
+\item 9,283
+\item 10,023
+\item 10,460
+\end{enumerate}
+
+
+\newpage
+
+
+\textbf{Problem 8.}
+
+Alex deposits \$100 into Fund A, which earns a nominal annual interest rate of $8\%$ convertible quarterly.
+
+At the same time, Jordan deposits \$150 into Fund B, which earns a constant annual force of interest of $0.05$.
+
+After $n$ years, the balance of Fund A equals the balance of Fund B.
+
+Calculate $n$.
+
+\begin{enumerate}[label=\Alph*.]
+\item 9.4
+\item 10.6
+\item 11.8
+\item 12.7
+\item 13.9
+\end{enumerate}
+
+\newpage
+
+
+\textbf{Problem 9.}
+A continuous annuity pays at a rate of $3e^{0.08t}$ where $t$ is in years. The fund earns interest at a constant force of interest $\delta=0.05$.
+
+Find the accumulated value at time $10$ of this annuity.
+
+\begin{enumerate}[label=\Alph*.]
+\item 54.13
+\item 55.99
+\item 57.68
+\item 59.42
+\item 61.27
+\end{enumerate}
+
+
+\newpage
+
+Scratch Work
+
+\newpage 
+
+Scratch Work
+
+
+
+\end{document}

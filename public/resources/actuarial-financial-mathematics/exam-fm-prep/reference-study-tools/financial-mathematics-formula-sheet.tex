@@ -1,0 +1,212 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.58in]{geometry}
+\usepackage{amsmath,amssymb,array,booktabs,multicol,xcolor,enumitem}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\setlength{\columnsep}{0.28in}
+\setlist[itemize]{leftmargin=1.3em,itemsep=1pt,topsep=1pt}
+
+\definecolor{deepgreen}{HTML}{244734}
+\definecolor{softgreen}{HTML}{E9EFEA}
+\definecolor{gold}{HTML}{9A7A38}
+
+\newcommand{\sect}[1]{%
+  \vspace{4pt}%
+  \noindent\colorbox{softgreen}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\color{deepgreen}\bfseries #1}}%
+  \vspace{3pt}%
+}
+\newcommand{\ann}[1]{a_{\overline{#1}|}}
+\newcommand{\annDue}[1]{\ddot{a}_{\overline{#1}|}}
+\newcommand{\acc}[1]{s_{\overline{#1}|}}
+\newcommand{\accDue}[1]{\ddot{s}_{\overline{#1}|}}
+\newcommand{\PV}{\operatorname{PV}}
+\newcommand{\FV}{\operatorname{FV}}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries\color{deepgreen} Financial Mathematics Formula Sheet}\\[2pt]
+{\small An independent reference for interest theory and Exam FM preparation}\\[4pt]
+{\footnotesize Standard notation: $i$ = effective interest rate per period, $v=(1+i)^{-1}$, $d=i/(1+i)$, and $n$ = number of periods.}
+\end{center}
+
+\begin{multicols}{2}
+
+\sect{1. Interest Measurement}
+
+If $a(t)$ is the accumulation function with $a(0)=1$, then an investment of $K$ at time $0$ has value $K a(t)$ at time $t$.
+
+\[ i_{[t_1,t_2]}=\frac{a(t_2)-a(t_1)}{a(t_1)}, \qquad d_{[t_1,t_2]}=\frac{a(t_2)-a(t_1)}{a(t_2)}. \]
+
+For one period,
+\[ v=\frac{1}{1+i}=1-d, \qquad d=\frac{i}{1+i}, \qquad i=\frac{d}{1-d}. \]
+
+\textbf{Simple interest:}
+\[ a(t)=1+it. \]
+
+\textbf{Simple discount:}
+\[ a(t)=\frac{1}{1-dt}. \]
+
+\textbf{Compound interest:}
+\[ a(t)=(1+i)^t, \qquad v^t=(1+i)^{-t}. \]
+
+For nominal rates convertible $m$ times per year,
+\[ 1+i=\left(1+\frac{i^{(m)}}{m}\right)^m, \qquad 1-d=\left(1-\frac{d^{(m)}}{m}\right)^m. \]
+
+For a constant force of interest $\delta$,
+\[ 1+i=e^{\delta}, \qquad \delta=\ln(1+i). \]
+
+For a time-varying force $\delta_t$,
+\[ \delta_t=\frac{a'(t)}{a(t)}, \qquad a(t)=\exp\!\left(\int_0^t \delta_s\,ds\right). \]
+
+\sect{2. Equations of Value}
+
+Move every cash flow to one common comparison date. If cash flow $C_k$ occurs at time $t_k$, then at time $0$,
+\[ \PV=\sum_k C_k v^{t_k}. \]
+
+At time $T$,
+\[ \FV_T=\sum_k C_k(1+i)^{T-t_k}. \]
+
+The yield rate or internal rate of return is a rate $i$ satisfying
+\[ \sum_k C_k(1+i)^{-t_k}=0, \]
+where inflows and outflows are assigned opposite signs.
+
+\sect{3. Level Annuities}
+
+For payments of $1$ at times $1,2,\ldots,n$,
+\[ \ann{n}=\frac{1-v^n}{i}, \qquad \acc{n}=\frac{(1+i)^n-1}{i}. \]
+
+For payments of $1$ at times $0,1,\ldots,n-1$,
+\[ \annDue{n}=(1+i)\ann{n}=\frac{1-v^n}{d}, \]
+\[ \accDue{n}=(1+i)\acc{n}. \]
+
+Perpetuities:
+\[ \ann{\infty}=\frac{1}{i}, \qquad \annDue{\infty}=\frac{1}{d}. \]
+
+A deferred annuity-immediate with first payment after $k$ deferral periods has present value
+\[ {}_{k|}\ann{n}=v^k\ann{n}. \]
+
+For level payment $R$, multiply the appropriate annuity factor by $R$.
+
+\sect{4. Varying Annuities}
+
+For payments $1,2,\ldots,n$ at times $1,2,\ldots,n$,
+\[ (I\!a)_{\overline{n}|}=\frac{\annDue{n}-nv^n}{i}. \]
+
+For payments $n,n-1,\ldots,1$,
+\[ (D\!a)_{\overline{n}|}=\frac{n-\ann{n}}{i}. \]
+
+For payments $1,(1+g),\ldots,(1+g)^{n-1}$,
+\[ \PV=\frac{1-\left(\frac{1+g}{1+i}\right)^n}{i-g}, \qquad i\neq g. \]
+
+For an infinite geometric payment stream beginning with $1$ at time $1$,
+\[ \PV=\frac{1}{i-g}, \qquad i>g. \]
+
+\sect{5. Payment Frequency}
+
+If the annual effective rate is $i$, define
+\[ i^{(m)}=m\big((1+i)^{1/m}-1\big), \]
+\[ d^{(m)}=m\big(1-(1+i)^{-1/m}\big). \]
+
+For $m$ payments per year of amount $1/m$ over $n$ years,
+\[ \ann{n}^{(m)}=\frac{1-v^n}{i^{(m)}}=\ann{n}\frac{i}{i^{(m)}}, \]
+\[ \annDue{n}^{(m)}=\frac{1-v^n}{d^{(m)}}=\ann{n}\frac{i}{d^{(m)}}. \]
+
+For a continuous payment rate $c(t)$,
+\[ \PV=\int_0^n c(t)v(t)\,dt. \]
+If the force is constant, $v(t)=e^{-\delta t}$.
+
+\sect{6. Loans}
+
+For a loan of amount $L$ repaid by $n$ level payments $R$,
+\[ L=R\ann{n}, \qquad R=\frac{L}{\ann{n}}. \]
+
+Immediately after payment $t$, the outstanding balance may be found prospectively:
+\[ B_t=R\ann{n-t}, \]
+or retrospectively:
+\[ B_t=L(1+i)^t-R\acc{t}. \]
+
+For nonlevel payments,
+\[ B_{t}=B_{t-1}(1+i)-R_t. \]
+
+Interest and principal in payment $t$ are
+\[ I_t=iB_{t-1}, \qquad P_t=R_t-I_t. \]
+
+Principal repaid from time $r$ through time $s$ is the decrease in balance over that interval.
+
+\sect{7. Bonds}
+
+Let $F$ be face value, $r$ the coupon rate per coupon period, $C$ the redemption value, $j$ the yield rate per coupon period, and $n$ the number of remaining coupons. Coupon amount is $Fr$.
+
+Bond price:
+\[ P=Fr\,\ann{n}\big|_{i=j}+Cv_j^n. \]
+
+Equivalent premium/discount form:
+\[ P-C=(Fr-Cj)\ann{n}\big|_{i=j}. \]
+
+Thus $P>C$ when $Fr>Cj$ (premium) and $P<C$ when $Fr<Cj$ (discount).
+
+Book value immediately after coupon $t$:
+\[ B_t=Fr\,\ann{n-t}\big|_{i=j}+Cv_j^{n-t}. \]
+
+Recursive book value:
+\[ B_t=B_{t-1}(1+j)-Fr. \]
+
+Interest earned during period $t$ is $jB_{t-1}$; the difference between the coupon and interest is the premium amortization or discount accumulation.
+
+\sect{8. Spot and Forward Rates}
+
+If $s_n$ is the $n$-period spot rate,
+\[ v(0,n)=(1+s_n)^{-n}. \]
+
+If $f_{n,n+m}$ is the $m$-period forward rate beginning at time $n$,
+\[ (1+s_{n+m})^{n+m}=(1+s_n)^n(1+f_{n,n+m})^m. \]
+
+For one-period forward rates,
+\[ (1+s_n)^n=\prod_{k=1}^{n}(1+f_{k-1,k}). \]
+
+Value any deterministic cash flow stream using spot rates:
+\[ P=\sum_{t} \frac{C_t}{(1+s_t)^t}. \]
+
+\sect{9. Duration and Convexity}
+
+For price
+\[ P(i)=\sum_t C_t(1+i)^{-t}, \]
+Macaulay duration is
+\[ D_M=\frac{\sum_t t\,C_t(1+i)^{-t}}{P}. \]
+
+Modified duration is
+\[ D_{\mathrm{mod}}=\frac{D_M}{1+i}=-\frac{1}{P}\frac{dP}{di}. \]
+
+A useful convexity measure is
+\[ \mathcal C=\frac{1}{P}\frac{d^2P}{di^2}=\frac{\sum_t t(t+1)C_t(1+i)^{-t-2}}{P}. \]
+
+For a small change $\Delta i$,
+\[ \frac{\Delta P}{P}\approx -D_{\mathrm{mod}}\Delta i+\frac12\mathcal C(\Delta i)^2. \]
+
+\sect{10. Matching and Immunization}
+
+\textbf{Exact matching:} choose asset cash flows so that the asset cash flow at each relevant date equals the liability cash flow at that date.
+
+\textbf{First-order immunization at rate $i$:}
+\begin{itemize}
+\item present value of assets = present value of liabilities;
+\item modified duration of assets = modified duration of liabilities.
+\end{itemize}
+
+A standard Redington condition additionally requires asset convexity to exceed liability convexity at the matching rate.
+
+\sect{11. Quick Identities}
+
+\[ \annDue{n}-\ann{n}=1-v^n, \qquad \accDue{n}-\acc{n}=(1+i)^n-1. \]
+
+\[ \ann{n}=v\annDue{n}, \qquad \acc{n}=(1+i)^n\ann{n}. \]
+
+For a level annuity, always check whether the valuation date is \emph{before the first payment} (immediate) or \emph{at the first payment} (due).
+
+\end{multicols}
+
+\end{document}

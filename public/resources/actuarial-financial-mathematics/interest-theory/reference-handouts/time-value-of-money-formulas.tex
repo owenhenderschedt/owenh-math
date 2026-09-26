@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, geometry, graphicx, tikz}
+\usepackage{actuarialangle}
+\usetikzlibrary{patterns}
+\usetikzlibrary{calc}
+\geometry{margin=1in}
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+    \Large \textbf{Time value of money formulas}
+\end{center}
+
+(1.) Amount of Interest from $t_1$ to $t_2$ if \$$K$ is invested: $A_K(t_2)-A_K(t_1)$
+
+(1.) Effective interest rate from $t_1$ to $t_2$: $i_{[t_1,t_2]} = \dfrac{a(t_2)-a(t_1)}{a(t_1)}$
+
+(2.) Effective discount rate from $t_1$ to $t_2$:  $d_{[t_1,t_2]} = \dfrac{a(t_2)-a(t_1)}{a(t_2)}$
+
+(3.) Simple Interest accumulation function: $a(t) = 1+rt$ (where $r = i_{[0,1]}$)
+
+(4.) Simple Discount accumulation function: $a(t) = \frac{1}{1-rt}$ (where $r = d_{[0,1]}$)
+
+(4.) Compound Interest accumulation function: $a(t) = (1+i)^t$ (where $i = i_{[t,t+1]}$ for any $t$)
+
+(5.) Discount function: $v(t)=\dfrac{1}{a(t)}$ and for compound interest $v = v(1)= \dfrac{1}{1+i}$
+
+(6.) $1+i = \left(1+\frac{i^{(m)}}{m}\right)^m $ where $i^{(m)}$ is the nominal interest rate compounded $m$ times per year
+
+(7.) $1-d = \left(1-\frac{d^{(m)}}{m}\right)^m $ where $d^{(m)}$ is the nominal discount rate compounded $m$ times per year
+
+(8.) $d = \dfrac{i}{1+i}$ and $i = \dfrac{d}{1-d} = \dfrac{d}{v}$
+
+(9.) Constant force of interest or nominal rate convertible continuously: 
+\vspace{-.5cm}
+    
+    \[\delta = \ln(1+i) \iff e^{\delta}=1+i\]
+
+
+(10.) Force of interest at time $t$: $\delta_t = \dfrac{a'(t)}{a(t)} = \dfrac{d}{dt}\left(\ln(a(t)\right) \iff a(t) = e^{\displaystyle \int_0^t \delta_r \, dr}$
+
+
+
+
+\end{document}

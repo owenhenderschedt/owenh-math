@@ -1,0 +1,680 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem, array}
+
+\usepackage{boxedminipage}
+\usepackage{fancyhdr}
+\usepackage{ragged2e, comment, parskip}
+
+
+\newenvironment{problem}[1][]{%
+  \bigskip% put space before problem statement box %
+  \noindent\begin{boxedminipage}{\columnwidth}%
+  \def\@tempa{#1}%
+  \ifx\@tempa\empty\else%
+    \textbf{#1}\hspace{0.5em}%
+  \fi%
+}{%
+  \end{boxedminipage}%
+}
+
+
+\begin{document}
+
+\begin{center}
+    \Large \textbf{MATH 4790 Final Exam Spring 2026} \\[1em]
+\end{center}
+
+\vspace{.25cm}
+
+\noindent Name: \underline{\hspace{8cm}} \hspace{.25cm} Auburn ID: \underline{\hspace{4cm}}
+
+
+
+\section*{Instructions}
+\begin{enumerate}[label=\arabic*.]
+\item Print your full name and your banner ID on your exam. Then finish reading these instructions, and sign the bottom of this page.
+\item All electronic equipment (cell phones, Apple Watch, AirPod, etc) are \textbf{NOT ALLOWED} during the exam time.
+\item You are allowed to use up to 2 calculators from the following list: BA-35, BA II Plus, BA II Plus Professional, TI-30Xa, TI-30X II (IIS solar or IIB battery), TI-30XS MultiView (or XB battery).
+\item No talking is allowed during the exam.
+\item Unless otherwise indicated, \textbf{SHOW ALL YOUR WORK}. If no work is shown, no partial credit can be awarded. Your work and answer need to be accurate and relevant to receive points.
+\item You will be given exactly 120 minutes for this exam.
+\item Any student not following the above instructions nor behaving according to the above instructions during the exam may have their exam confiscated and points deducted.
+\end{enumerate}
+
+I have read and fully understand all of the above instructions. \\[2em]
+Signature: \hrulefill
+
+
+\vspace{.5cm}
+Do not write in the table below
+
+% scoring table
+\begin{center}
+
+\begin{tabular}{c c}
+
+% -------- LEFT TABLE --------
+\begin{tabular}{|*{3}{>{\centering\arraybackslash}p{.1\linewidth}|}}
+    \hline
+    \textbf{Problem} & \textbf{Points} & \textbf{Score} \\
+    \hline
+    1 & 5 &  \\
+    \hline
+    2 & 5 &  \\
+    \hline
+    3 & 5 &  \\
+    \hline
+    4 & 5 &  \\
+    \hline
+    5 & 5 &  \\
+    \hline
+    6 & 5 &  \\
+    \hline
+    7 & 5 &  \\
+    \hline
+    8 & 5 &  \\
+    \hline
+    9 & 5 &  \\
+    \hline
+    10 & 5 &  \\
+    \hline
+\end{tabular}
+
+&
+
+% -------- RIGHT TABLE --------
+\begin{tabular}{|*{3}{>{\centering\arraybackslash}p{.1\linewidth}|}}
+    \hline
+    \textbf{Problem} & \textbf{Points} & \textbf{Score} \\
+    \hline
+    11 & 5 &  \\
+    \hline
+    12 & 5 &  \\
+    \hline
+    13 & 5 &  \\
+    \hline
+    14 & 5 &  \\
+    \hline
+    15 & 5 &  \\
+    \hline
+    16 & 5 &  \\
+    \hline
+    17 & 5 &  \\
+    \hline
+    18 & 5 &  \\
+    \hline
+    19 & 5 &  \\
+    \hline
+    20 & 5 &  \\
+    \hline
+\end{tabular}
+
+\end{tabular}
+
+\vspace{1em}
+
+% -------- TOTAL ROW --------
+\begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Total} & 100 & \text{\hspace{2cm}}\\
+    \hline
+\end{tabular}
+
+\end{center}
+
+\newpage
+
+\newpage
+
+\begin{center}
+{\Large \textbf{Answer Sheet}}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+\begin{minipage}{0.4\textwidth}
+\begin{enumerate}
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+\end{enumerate}
+\end{minipage}
+\hspace{0.15\textwidth}
+\begin{minipage}{0.4\textwidth}
+\begin{enumerate}
+\setcounter{enumi}{10}
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+
+\vspace{0.6cm}
+
+\item \underline{\hspace{1.5cm}}
+\end{enumerate}
+\end{minipage}
+\end{center}
+
+\newpage
+
+%%%%% PROBLEM 1 %%%%%
+\newpage
+\noindent \textbf{Problem 1.}
+An investor deposits $Z$ into a fund that accumulates at an annual effective interest rate of $4\%$ for 12 years.
+
+At the same time, $\frac{Z}{2}$ is invested in a second fund that accumulates at an annual effective rate of discount $d$ for 9 years.
+
+The total interest earned in each fund over its respective investment period is the same.
+
+Determine $d$.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item $4.8\%$
+\item $5.6\%$
+\item $6.2\%$
+\item $6.9\%$
+\item $7.5\%$
+\end{enumerate}
+
+\newpage
+
+
+
+\noindent \textbf{Problem 2.}
+A deposit of \$250 is made into an account at time 0. The force of interest, $\delta_t$, is given by
+
+\[
+\delta_t =
+\begin{cases}
+0.035, & 0 < t \leq 3,\\
+0.002t^2, & 3 < t \leq 6,\\
+\dfrac{1}{t+20}, & 6 < t \leq 10.
+\end{cases}
+\]
+
+Determine the accumulated value of the deposit at time 10.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item \$341.16
+\item \$352.80
+\item \$363.42
+\item \$375.09
+\item \$389.64
+\end{enumerate}
+
+\newpage
+
+
+\noindent \textbf{Problem 3.}
+At an effective annual interest rate $i$, you are given:
+
+\begin{enumerate}[label = \roman*.]
+\item the present value of an annuity-immediate with annual payments of 1 for $n$ years is 20;
+\item the present value of an annuity-immediate with annual payments of 1 for $2n$ years is 32.
+\end{enumerate}
+
+Calculate the present value of an annuity-due with annual payments of 1 for $3n$ years.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item 40
+\item 42
+\item 44
+\item 46
+\item 48
+\end{enumerate}
+
+\newpage
+
+
+\noindent \textbf{Problem 4.}
+An endowment is valued using an annual effective interest rate of $4\%$. The endowment provides annual payments as follows:
+
+\begin{enumerate}[label = \roman*.]
+\item The first 12 payments are each \$1{,}800, with the first payment occurring two years from today.
+\item Starting with the 13th payment, each payment is $k\%$ larger than the previous payment.
+\item The present value of all payments is \$76{,}977.
+\end{enumerate}
+
+Calculate $k$.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item $1.75$
+\item $2.00$
+\item $2.25$
+\item $2.50$
+\item $2.75$
+\end{enumerate}
+
+\newpage
+
+\noindent \textbf{Problem 5.}
+An investor makes deposits of \$1{,}200 at the end of each year for 6 years. Each deposit earns interest at an annual effective rate of $9\%$, but the interest received is reinvested at a constant force of interest $\delta = 0.05$.
+
+Determine the accumulated value at the end of 6 years.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item \$8{,}850
+\item \$8{,}935
+\item \$9{,}020
+\item \$9{,}115
+\item \$9{,}240
+\end{enumerate}
+
+\newpage
+
+\noindent \textbf{Problem 6.}
+A perpetuity pays continuously. At time $t$, the payment rate is $4t$. Time is measured in years.
+
+At an annual effective interest rate of $6\%$, calculate the present value of the perpetuity.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item \$820.45
+\item \$875.32
+\item \$902.78
+\item \$918.27
+\item \$945.10
+\end{enumerate}
+
+\newpage
+
+\noindent \textbf{Problem 7.}
+Two annuities have the same present value at an annual effective interest rate of $8\%$.
+
+The first annuity is an annuity-immediate. Its first payment is \$1{,}000, and each payment is $3\%$ larger than the previous payment. This annuity makes payments for $n$ years.
+
+The second annuity makes payments at the beginning of each year forever. The first payment is \$100, the second payment is \$140, the third payment is \$180, and so on.2
+
+Determine $n$.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item 9
+\item 10
+\item 11
+\item 12
+\item 13
+\end{enumerate}
+
+\newpage
+
+\noindent \textbf{Problem 8.}
+A \$85{,}000 loan has an annual nominal interest rate of $7.2\%$ convertible monthly. The loan is repaid with monthly payments, with the first payment due one month from the date of the loan.
+
+For the first four years, each monthly payment is \$950. All payments thereafter are \$1{,}300 except for a final smaller balloon payment.
+
+Calculate the balloon payment.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item \$1{,}062
+\item \$1{,}084
+\item \$1{,}109
+\item \$1{,}137
+\item \$1{,}165
+\end{enumerate}
+
+\newpage
+
+
+\noindent \textbf{Problem 9.}
+A 30-year loan is repaid with equal annual payments.
+
+The amount of interest paid in the 7th payment is \$120.
+
+The amount of interest paid in the 19th payment is \$96.
+
+Calculate the original amount of the loan.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item \$985
+\item \$1{,}013
+\item \$1{,}046
+\item \$1{,}081
+\item \$1{,}125
+\end{enumerate}
+
+\newpage
+
+\noindent \textbf{Problem 10.}
+A loan is repaid with level monthly payments at the end of each month for $n^2+n-10$ months.
+
+The annual nominal interest rate is $21\%$, convertible monthly.
+
+The $n$th payment consists of approximately equal amounts of interest and principal.
+
+Calculate $n$.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item 5
+\item 6
+\item 7
+\item 8
+\item 9
+\end{enumerate}
+
+
+
+
+\newpage
+
+
+\noindent \textbf{Problem 11.}
+An $n$-year bond with annual coupons has the following characteristics:
+
+\begin{enumerate}[label = \roman*.]
+\item The redemption value at maturity is \$1{,}000;
+\item The annual effective yield rate is $6\%$;
+\item The book value immediately after the 12th coupon is \$748.99; and
+\item The book value immediately after the 13th coupon is \$753.93.
+\end{enumerate}
+
+Calculate $n$.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item 32
+\item 34
+\item 36
+\item 38
+\item 40
+\end{enumerate}
+
+\newpage
+
+\noindent \textbf{Problem 12.}
+Bond A and Bond B are each 6-year \$1{,}000 face amount bonds. In addition:
+
+\begin{enumerate}[label = \roman*.]
+\item Bond A has an annual coupon rate of $5.6\%$ paid quarterly.
+\item Bond B has an annual coupon rate of $4\%$ paid semiannually.
+\item The price of Bond B is \$50 less than the price of Bond A.
+\item The annual nominal yield rate for Bond A is $4.8\%$ convertible quarterly.
+\end{enumerate}
+
+Calculate the annual nominal yield rate for Bond B, convertible semiannually.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item $3.96\%$
+\item $4.08\%$
+\item $4.16\%$
+\item $4.24\%$
+\item $4.35\%$
+\end{enumerate}
+
+\newpage
+
+\noindent \textbf{Problem 13.}
+A 20-year bond with semiannual coupons has a redemption value of \$1{,}000. It is purchased at a discount to yield $8\%$ nominal, convertible semiannually.
+
+If the amount of discount accumulated in the 35th coupon payment is \$18.50, which of the following is closest to the total discount in the original purchase price?
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item \$118
+\item \$120
+\item \$122
+\item \$124
+\item \$126
+\end{enumerate}
+
+\newpage
+
+\noindent \textbf{Problem 14.}
+Baxter Investments purchases an $n$-year \$1{,}000 face amount bond with $5\%$ annual coupons at a price of \$920, to yield an annual effective rate $i$, where $i>0$.
+
+After the first three years, the bond's book value has increased by \$46.29.
+
+Calculate $i$.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item $6.0\%$
+\item $6.5\%$
+\item $7.0\%$
+\item $7.5\%$
+\item $8.0\%$
+\end{enumerate}
+
+\newpage
+
+\noindent \textbf{Problem 15.}
+Morgan is considering purchasing a \$1{,}000-par callable bond with semiannual coupons at an annual coupon rate of $7\%$. The bond matures at the end of 25 years and has a redemption value of \$1{,}000.
+
+The bond may be called as follows:
+
+\begin{itemize}
+    \item at the end of years 10 through 12 for \$1{,}080;
+    \item at the end of years 13 through 17 for \$1{,}050;
+    \item at the end of years 18 through 24 for \$1{,}020.
+\end{itemize}
+
+Calculate the highest price Morgan should pay to guarantee a yield of at least $6\%$ nominal, convertible semiannually.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item \$1{,}106
+\item \$1{,}110
+\item \$1{,}114
+\item \$1{,}118
+\item \$1{,}122
+\end{enumerate}
+
+\newpage
+
+\noindent \textbf{Problem 16.}
+You are given the following term structure of effective annual spot rates on zero-coupon bonds:
+
+\begin{itemize}
+\item 1-year maturity: $5\%$
+\item 2-year maturity: $6\%$
+\item 3-year maturity: $7\%$
+\end{itemize}
+
+The price of a 4-year \$100 par value bond with annual coupons of \$7 is \$98.01.
+
+Calculate the two-year forward rate, deferred for 2 years.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item $8.4\%$
+\item $9.0\%$
+\item $9.5\%$
+\item $10.1\%$
+\item $10.7\%$
+\end{enumerate}
+
+\newpage
+
+\noindent \textbf{Problem 17.}
+You are given the following information about Red Oak Financial.
+
+\begin{enumerate}[label = \roman*.]
+\item It has a single liability of \$1{,}500{,}000 due 11 years from today.
+\item Its asset portfolio consists of a zero-coupon bond maturing in 6 years for \$522{,}351 and a zero-coupon bond maturing in $n$ years.
+\item At an annual effective interest rate of $5\%$, Red Oak Financial's position is fully immunized.
+\end{enumerate}
+
+Calculate $n$.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item 13
+\item 14
+\item 15
+\item 16
+\item 17
+\end{enumerate}
+
+\newpage
+
+\noindent \textbf{Problem 18.}
+A perpetuity-immediate pays \$50 at the end of each year forever.
+
+Using an annual effective interest rate of $8\%$, let
+\[
+Z = \frac{\text{Macaulay Duration}+\text{Modified Duration}}{2}
+\]
+denote the average of the Macaulay and modified durations.
+
+Calculate $Z$.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item 12.50
+\item 13.50
+\item 14.50
+\item 15.50
+\item 16.50
+\end{enumerate}
+
+\newpage
+
+\noindent \textbf{Problem 19.}
+A company has liabilities of \$1{,}000 due in 1 year and \$2{,}000 due in 2 years.
+
+The company cash flow exactly matches these liabilities using the following assets:
+
+\begin{itemize}
+\item a 2-year bond with annual coupons of $5\%$ yielding $5\%$
+\item a 1-year bond with annual coupons of $4\%$ yielding $4\%$
+\end{itemize}
+
+Calculate the internal rate of return (IRR) on the asset portfolio.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item $4.00\%$
+\item $4.25\%$
+\item $4.50\%$
+\item $4.75\%$
+\item $5.00\%$
+\end{enumerate}
+
+\newpage
+
+\noindent \textbf{Problem 20.}
+A portfolio has the following cash flows:
+
+\begin{itemize}
+\item \$105 at time 1;
+\item \$220.50 at time 2;
+\item \$378.69 at time 4.
+\end{itemize}
+
+The annual effective interest rate is $5\%$ for the first 2 years. After time 2, the annual effective interest rate is $7\%$.
+
+Calculate the Macaulay convexity of the portfolio.
+
+\vspace{.5cm}
+
+\begin{enumerate}[label = \Alph*.]
+\item $8.50$
+\item $9.00$
+\item $9.50$
+\item $10.00$
+\item $10.50$
+\end{enumerate}
+
+\newpage
+
+
+Scratch Work
+
+
+
+
+\end{document}

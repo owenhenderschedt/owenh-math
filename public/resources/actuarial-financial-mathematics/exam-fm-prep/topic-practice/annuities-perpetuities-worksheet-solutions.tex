@@ -1,0 +1,278 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,siunitx,geometry,enumitem}
+\geometry{margin=1in}
+\newcommand{\ddota}{\ddot{a}}
+\newcommand{\ddotA}{\ddot{a}}
+\begin{document}
+
+\begin{center}
+  {\LARGE \textbf{Annuities and Perpetuities — Worksheet}\\[6pt]}
+\end{center}
+
+\bigskip
+
+\begin{enumerate}[leftmargin=*,itemsep=12pt]
+  \item \textbf{Problem 1.} Tracy receives payments of \$X at the end of each year for $n$ years. The present value of her annuity is \$493. Gary receives payments of \$3X at the end of each year for $2n$ years. The present value of his annuity is \$2{,}748. Both present values are calculated at the same annual effective interest rate. Find $v^n$.
+
+  \item \textbf{Problem 2.} Starting on his 25th birthday and continuing through his 60th birthday, Fred deposits \$7,500 each year on his birthday into a retirement fund earning an annual effective rate of 5\%. Immediately after the last deposit, the accumulated value of the fund is transferred to a fund earning an annual effective rate of $j$. Five years later, a twenty-five year annuity-due paying \$5,800 each month is purchased with the funds. The purchase price of the annuity was determined using an annual effective rate of interest of 4\%. Find $j$.
+
+  \item \textbf{Problem 3.} A scholarship fund pays a level scholarship of \$\(X\) at the \emph{end} of each year for 15 years. The fund’s effective annual interest rate is 6\% up until year $8$ and then a discount rate of 4\% after that. If the present value today of the 15 payments is \$120,000, find \(X\).
+
+  \item \textbf{Problem 4.} The Browns wish to accumulate at least 150,000 at the time of their last
+deposit in a college fund for their daughter by contributing an amount
+A into the account at the end of each year for eighteen years. What is
+the smallest annual payment A that will suffice if the college fund earns
+a level annual effective interest rate of 5\%? If at the end of ten years, it
+is announced that the annual effective interest rate will drop to 4.5\%,
+how much must the Browns increase their payments in order to reach
+their accumulation goal? Assume that the Browns wish to continue to
+make level payments except for a slightly reduced final payment.
+
+\item \textbf{Problem 5.} Suppose \$40,000 was invested on January 1, 1980 at an annual effective interest rate of 7\% in order to provide an annual (calendar-year) scholarship of \$5,000 each year forever, the scholarships paid out each January 1. \begin{enumerate} \item In what year can the first \$5,000 scholarship be made? \item What smaller scholarship can be awarded the year prior to the first \$5,000 scholarship? \end{enumerate}
+
+  \item \textbf{Problem 6.} An investor sets up a perpetuity-due that pays \$10,000 at the \emph{beginning} of each year forever. For valuation, the effective annual discounting rate is 4\% for payments in years 0–9 and 6\% for payments in years \(\ge 10\). Compute the present value today of this perpetuity-due.
+\end{enumerate}
+
+\newpage
+\section*{Solutions}
+
+\textbf{Notation / standard formulas used:}
+\[
+v=\frac{1}{1+i},\qquad a_{\overline{n}|i}=\sum_{t=1}^n v^t=\frac{1-v^n}{i},\qquad
+s_{\overline{n}|i}=\sum_{t=1}^n(1+i)^{t-1}=\frac{(1+i)^n-1}{i},
+\]
+\[
+\ddot a_{\overline{n}|i}=(1+i)a_{\overline{n}|i}=\frac{1-v^n}{d},\quad d=\frac{i}{1+i}.
+\]
+
+\bigskip
+
+\begin{enumerate}[leftmargin=*,itemsep=16pt]
+
+\item \textbf{(Annuity Immediate, piecewise interest)}\\[4pt]
+  \emph{Derivation:} A payments \(A\) occur at times \(t=1,2,\dots,10\) (end of years 1–10). Each payment made at time \(t\) accumulates to time 10 at rate \(5\%\) for \((10-t)\) years, and then accrues at \(4\%\) for the remaining 10 years (from time 10 to 20). Therefore the accumulation to time 20 of the \(A\)-block is
+  \[
+    A\cdot(1.04)^{10}\sum_{j=0}^{9}1.05^{\,j}
+    =A\cdot(1.04)^{10}\cdot\frac{1.05^{10}-1}{0.05}.
+  \]
+  The \(B\)-payments occur at \(t=11,12,\dots,20\) and each such payment accumulates to time 20 at 4\% for the appropriate remaining years, so the \(B\)-block accumulates to
+  \[
+    B\sum_{k=0}^{9}1.04^{\,k}=B\cdot\frac{1.04^{10}-1}{0.04}.
+  \]
+  The required condition (total accumulation = \$2,000,000) is
+  \[
+    A\cdot(1.04)^{10}\cdot\frac{1.05^{10}-1}{0.05}
+    \;+\;
+    B\cdot\frac{1.04^{10}-1}{0.04}
+    \;=\;2{,}000{,}000.
+  \]
+  Define the two accumulation factors
+  \[
+    F_A=(1.04)^{10}\cdot\frac{1.05^{10}-1}{0.05},\qquad
+    F_B=\frac{1.04^{10}-1}{0.04}.
+  \]
+  Numerically (to high precision)
+  \[
+    F_A\approx 18.61835354206,\qquad F_B\approx 12.00610712296.
+  \]
+  Thus the linear relation between \(A\) and \(B\) is
+  \[
+    A\cdot 18.61835354206 + B\cdot 12.00610712296 = 2{,}000{,}000,
+  \]
+  or equivalently
+  \[
+    B \;=\; \frac{2{,}000{,}000 - A\cdot 18.61835354206}{12.00610712296}.
+  \]
+  This is the general solution family (one linear equation, two unknowns).
+
+  \smallskip
+  \emph{Special case: equal payments \(A=B\).} If we impose \(A=B\) (a commonly useful special case), then
+  \[
+    A\,(F_A+F_B)=2{,}000{,}000 \quad\Rightarrow\quad
+    A=\frac{2{,}000{,}000}{F_A+F_B}.
+  \]
+  Numerically,
+  \[
+    A \;=\; \frac{2{,}000{,}000}{18.61835354206 + 12.00610712296}
+      \approx 65{,}307.27.
+  \]
+  So if the corporation chooses equal payments for all 20 years, each payment would be \(\boxed{\$65{,}307.27}\).
+
+\bigskip
+
+\item \textbf{(Annuity Due — Janet)}\\[4pt]
+  \emph{Setup:} Let time \(0\) be Janet's 41st birthday (first deposit). Deposits of size \(D\) are at times \(0,1,\dots,19\) (20 beginning-of-year deposits). The annuity payments to Janet are \$30,000 at the beginning of years 61–80, which correspond to times \(20,21,\dots,39\) relative to our time 0; there are 20 beginning payments (an annuity-due of 20 payments) starting at time 20.
+
+  \emph{Value required at time 20:} The \emph{present value at time 20} of the annuity-due of 20 payments of \$30,000 is
+  \[
+    30{,}000\cdot \ddot a_{\overline{20}\,|\,0.05}
+    =30{,}000\cdot\frac{1-(1.05)^{-20}}{d_{0.05}}
+    \quad\text{where } d_{0.05}=\frac{0.05}{1.05}.
+  \]
+  It is often convenient to use \(\ddot a_{\overline{20}}=(1+i)a_{\overline{20}}\), so
+  \[
+    \ddot a_{\overline{20}\,|\,0.05}=(1.05)\cdot\frac{1-(1.05)^{-20}}{0.05}.
+  \]
+
+  \emph{Accumulation of the deposits to time 20:} Deposits \(D\) at times \(0,1,\dots,19\) accumulate to time 20 to
+  \[
+    D\cdot(1.05)\,s_{\overline{20}\,|\,0.05},
+  \]
+  because the accumulation of an annuity-due of \(n\) deposits to time \(n\) is \((1+i)s_n\).
+
+  \emph{Equation:} Equate accumulation of deposits to the amount required at time 20:
+  \[
+    D\cdot(1.05)\,s_{\overline{20}\,|\,0.05}
+    =30{,}000\cdot\ddot a_{\overline{20}\,|\,0.05}.
+  \]
+  Hence
+  \[
+    D=\frac{30{,}000\cdot\ddot a_{\overline{20}\,|\,0.05}}{(1.05)\,s_{\overline{20}\,|\,0.05}}.
+  \]
+
+  \emph{Numeric evaluation:} At \(i=0.05\),
+  \[
+    \ddot a_{\overline{20}\,|\,0.05}\approx 13.0853208597,\qquad
+    s_{\overline{20}\,|\,0.05}\approx 33.0659541029.
+  \]
+  Thus
+  \[
+    D\approx \frac{30{,}000\cdot 13.0853208597}{1.05\cdot 33.0659541029}
+     \approx 11{,}306.68.
+  \]
+  \(\boxed{D\approx \$11{,}306.68}\) (each beginning-of-year deposit).
+
+\bigskip
+
+\item \textbf{(Annuity Immediate, piecewise interest — find level payment \(X\))}\\[4pt]
+  \emph{Setup:} Payments \(X\) at times \(t=1,\dots,15\). Interest is 6\% for years 1–8 and 4\% for years 9–15.
+
+  \emph{Present value decomposition:}
+  \[
+    \text{PV} = X\sum_{t=1}^{8}(1.06)^{-t}
+      \;+\; X\sum_{t=9}^{15}\Bigl((1.06)^{-8}(1.04)^{-(t-8)}\Bigr).
+  \]
+  The second sum is just \((1.06)^{-8}\sum_{s=1}^{7}(1.04)^{-s}\) (where \(s=t-8\)).
+
+  Therefore the PV factor (call it \(F\)) satisfying PV \(=X\cdot F\) is
+  \[
+    F = a_{\overline{8}\,|\,0.06} + (1.06)^{-8}\cdot a_{\overline{7}\,|\,0.04}.
+  \]
+
+  \emph{Given:} PV \(=120{,}000\). So \(X = 120{,}000 / F.\)
+
+  \emph{Numeric evaluation:}
+  \[
+    a_{\overline{8}\,|\,0.06}\approx 6.20979381097,\qquad
+    a_{\overline{7}\,|\,0.04}\approx 6.00205466995,
+  \]
+  \[
+    F \approx 6.20979381097 + (1.06)^{-8}\cdot 6.00205466995
+      \approx 9.97555716437.
+  \]
+  Hence
+  \[
+    X \approx \frac{120{,}000}{9.97555716437}
+      \approx 12{,}029.40.
+  \]
+  \(\boxed{X\approx \$12{,}029.40}\) per year (end of year payments).
+
+\bigskip
+
+\item \textbf{(Annuity Due, piecewise interest — present value)}\\[4pt]
+  \emph{Setup:} Payments \$5,000 at times \(t=0,1,2,\dots,24\) (25 beginning payments). Interest is 7\% for years 0–9 (affecting discount factors for times up to 9) and 4\% for times \(\ge 10\).
+
+  \emph{Present value calculation:} Discount each payment back to time 0 using the piecewise structure.
+  \[
+    \text{PV} = 5{,}000\sum_{t=0}^{9}(1.07)^{-t}
+      \;+\;5{,}000\sum_{t=10}^{24}\bigl((1.07)^{-10}(1.04)^{-(t-10)}\bigr).
+  \]
+  The second sum is \(5{,}000(1.07)^{-10}\sum_{s=0}^{14}(1.04)^{-s}\).
+
+  \emph{Numeric evaluation:}
+  \[
+    \sum_{t=0}^{9}(1.07)^{-t}\approx 7.51523224880,\qquad
+    (1.07)^{-10}\sum_{s=0}^{14}(1.04)^{-s}\approx 5.87810535606.
+  \]
+  So
+  \[
+    \text{PV}\approx 5{,}000\cdot(7.51523224880 + 5.87810535606)
+      \approx 66{,}966.69.
+  \]
+  \(\boxed{\text{Purchase price} \approx \$66{,}966.69.}\)
+
+\bigskip
+
+\item \textbf{(Perpetuity Immediate — equality condition)}\\[4pt]
+  \emph{Interpretation:} The mathematics+engineering pair together receive \$100,000 at the end of each year for years 1–20, and \$0 thereafter. The medical school receives \$0 for years 1–20 and \$100,000 for years 21–\(\infty\). The donor wants the \emph{present value at time 0} of (math+eng) to equal the PV of medical.
+
+  \emph{Write PVs:}
+  \[
+    \text{PV}_{\text{M+E}} = 100{,}000\cdot a_{\overline{20}\,|\,i}
+    \quad\text{(finite annuity of 20 payments).}
+  \]
+  \[
+    \text{PV}_{\text{Med}} = 100{,}000\cdot\frac{v^{20}}{i}
+    \quad\text{(deferred perpetuity: a perpetuity immediate deferred 20 years).}
+  \]
+  Equate:
+  \[
+    100{,}000\cdot a_{\overline{20}\,|\,i} \;=\; 100{,}000\cdot\frac{v^{20}}{i}.
+  \]
+  Cancelling \(100{,}000\) and using \(a_{\overline{20}}=(1-v^{20})/i\) gives
+  \[
+    \frac{1-v^{20}}{i} = \frac{v^{20}}{i}
+    \quad\Rightarrow\quad 1-v^{20}=v^{20} \quad\Rightarrow\quad v^{20}=\tfrac{1}{2}.
+  \]
+  Therefore
+  \[
+    (1+i)^{20}=2 \quad\Rightarrow\quad i = 2^{1/20}-1.
+  \]
+  \emph{Numeric value:}
+  \[
+    i \approx 2^{1/20}-1 \approx 0.03526492384 \approx 3.5265\%.
+  \]
+  So the required annual effective interest rate is \(\boxed{i=2^{1/20}-1\approx 3.5265\%}\).
+
+\bigskip
+
+\item \textbf{(Perpetuity Due, piecewise discounting)}\\[4pt]
+  \emph{Setup:} Payments \$10,000 at times \(t=0,1,2,\dots\). For \(t=0,\dots,9\) the appropriate effective discounting factor per year is 4\% (so each of those payments is discounted with \(1.04^{-t}\)). For \(t\ge 10\) the discounting for the years \(\ge 10\) uses 6\% per year (so to discount a payment at time \(t\ge 10\) back to time 0, we multiply by \((1.04)^{-10}(1.06)^{-(t-10)}\)).
+
+  \emph{PV:} Split the perpetuity into the first 10 payments and the tail:
+  \[
+    \text{PV} = 10{,}000\sum_{t=0}^{9}(1.04)^{-t}
+      \;+\;10{,}000(1.04)^{-10}\sum_{s=0}^{\infty}(1.06)^{-s},
+  \]
+  where \(s=t-10\) indexes the tail payments. The infinite geometric sum is
+  \[
+    \sum_{s=0}^{\infty}(1.06)^{-s} = \frac{1}{1-(1/1.06)} = \frac{1.06}{0.06}.
+  \]
+  So
+  \[
+    \text{PV} = 10{,}000\left(\sum_{t=0}^{9}(1.04)^{-t} \;+\; (1.04)^{-10}\cdot\frac{1.06}{0.06}\right).
+  \]
+
+  \emph{Numeric evaluation:}
+  \[
+    \sum_{t=0}^{9}(1.04)^{-t}\approx 8.43533161053,\qquad
+    (1.04)^{-10}\cdot\frac{1.06}{0.06}\approx 11.93496698259.
+  \]
+  Hence
+  \[
+    \text{PV}\approx 10{,}000\cdot(8.43533161053 + 11.93496698259)
+      \approx 203{,}702.99.
+  \]
+  \(\boxed{\text{PV}\approx \$203{,}702.99.}\)
+
+\end{enumerate}
+
+\bigskip
+\noindent\textbf{Notes / Remarks}
+\begin{itemize}
+  \item I have given both algebraic (symbolic) derivations and numerical evaluations. Each approximate monetary answer is rounded to the nearest cent in the boxed result.
+  \item Problem 1 as stated admits infinitely many \((A,B)\) pairs satisfying the single accumulation equation; I supplied the general linear relation and then the common special case \(A=B\). If you'd like a different additional constraint (for example minimize total paid, or set \(B\) to some fixed fraction of \(A\)), tell me which constraint and I will compute the unique pair.
+  \item If you prefer different notation (for example the \(a_{\overline{n}}\) vs. \(\ddot a_{\overline{n}}\) conventions, or using \(s_n\) explicitly), I can reformat the LaTeX to match your course style.
+\end{itemize}
+
+\end{document}

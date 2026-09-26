@@ -1,0 +1,143 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{tabularx}
+
+\usepackage{actuarialangle}
+
+% ---------- Styling ----------
+\definecolor{HeaderGray}{RGB}{240,240,240}
+\definecolor{BorderGray}{RGB}{200,200,200}
+
+\tcbset{
+  colback=white,
+  colframe=BorderGray,
+  boxrule=0.8pt,
+  arc=2mm,
+  left=4pt,right=4pt,top=4pt,bottom=4pt
+}
+
+\setlist[itemize]{leftmargin=1.2em, itemsep=2pt}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{Two-Step Quiz 3 Solutions}}
+\end{center}
+
+\vspace{8pt}
+
+\begin{tabularx}{\linewidth}{>{\hsize=.95\hsize}X >{\hsize=1.05\hsize}X}
+
+% ---------------- HEADER ROW ----------------
+\begin{tcolorbox}[colback=HeaderGray]
+\centering \textbf{Step 1: Setup}
+\end{tcolorbox}
+&
+\begin{tcolorbox}[colback=HeaderGray]
+\centering \textbf{Step 2: Execution}
+\end{tcolorbox}
+\\
+
+% ================= QUESTION 1 =================
+\begin{tcolorbox}[height=5cm,valign=top]
+\textbf{Question 1}
+
+\vspace{.125cm}
+
+\begin{small}
+
+\begin{align*}
+5620=P\left(\frac{1-(\frac{1.03}{1.06})^5}{.06-.03}\right) \\ +P(1.03)^4(.98)(1.06)^{-5} \left(\frac{1-(\frac{.98}{1.06})^5}{.06+.02}\right)
+\end{align*}
+
+\end{small}
+\end{tcolorbox}
+&
+\begin{tcolorbox}[height=5cm,valign=top]
+\textbf{Question 1}
+
+\begin{center}
+\textbf{Answer:} $720$
+\end{center}
+
+\textbf{Procedures:}
+\begin{itemize} 
+    \item Isolates $P$ and solve (calculator)
+\end{itemize}
+\end{tcolorbox}
+\\[6pt]
+
+
+% ================= QUESTION 2 =================
+\begin{tcolorbox}[height=5cm,valign=top]
+\textbf{Question 2}
+
+\vspace{.5cm}
+\begin{small}
+\[
+\frac{P(1.05)}{.05} = P a_{\actuarialangle{10}.05} + \frac{65}{.05}\left(a_{\actuarialangle{10}.05}-10(1.05)^{-10}\right)
+\]
+\end{small}
+
+
+\vspace{.5cm}
+
+\end{tcolorbox}
+&
+\begin{tcolorbox}[height=5cm,valign=top]
+\textbf{Question 2}
+
+\begin{center}
+\textbf{Answer:} $155$
+\end{center}
+
+\textbf{Procedures:}
+\begin{itemize} 
+    \item Isolates $P$ and solve (calculator)
+\end{itemize}
+\end{tcolorbox}
+\\[6pt]
+
+
+% ================= QUESTION 3 =================
+\begin{tcolorbox}[height=5cm,valign=top]
+\textbf{Question 3}
+
+\vspace{.5cm}
+
+\[
+22038 = 100 a_{\actuarialangle{24}j} +1000(1.06)^{-2}\left(\frac{1}{i}\right)
+\]
+
+where $j = (1.06)^{1/12}-1$
+
+
+\end{tcolorbox}
+&
+\begin{tcolorbox}[height=5cm,valign=top]
+\textbf{Question 3}
+
+\begin{center}
+\textbf{Answer:} $4.5\%$
+\end{center}
+
+\textbf{Procedures:}
+\begin{itemize} 
+    \item Isolates $i$ and solve (calculator)
+\end{itemize}
+\end{tcolorbox}
+\\[6pt]
+
+
+
+
+\end{tabularx}
+
+\end{document}

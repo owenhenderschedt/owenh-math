@@ -1,0 +1,149 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem}
+\usepackage{actuarialangle}
+\usepackage{setspace}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+
+\begin{document}
+
+\begin{center}
+    {\Large \textbf{Annuities}}\\
+\end{center}
+
+\vspace{10pt}
+
+\hrule
+
+\medskip
+
+\textbf{Problem 1.} An annuity-immediate provides annual payments of $10$ for $20$ years. Immediately following the $11^{\text{th}}$ payment, the annuity is exchanged for a perpetuity-immediate of equal value with semiannual payments. The present values at the time of exchange are based on an annual effective interest rate of $6\%$.
+
+The first payment of the perpetuity is $K$, and each subsequent payment is $0.5\%$ larger than the previous payment.
+
+Calculate $K$.
+
+\medskip
+
+\hrule
+
+
+\medskip
+
+
+\textbf{Problem 2.} A loan of $\$60{,}000$ is repaid over ten years with semiannual payments at a nominal interest rate of $6\%$ compounded semiannually.
+
+The first payment is $\$3{,}000$ and is paid 6 months from the date of the loan. For the first five years, each subsequent payment will be $\$300$ more than the previous payment. After the $10^{\text{th}}$ payment, each succeeding semiannual payment will be reduced by $X$ until the loan is completely paid.
+
+Calculate $X$.
+
+\medskip
+
+\hrule
+
+
+% ------------------ Problem ------------------
+\textbf{Problem 3.} A series of payments of $1$ is made at times
+\[
+t=10,14,18,\ldots,34.
+\]
+Let $i$ denote the annual effective interest. Find an expression od the present value at time $0$ of this payment stream as a function of $i$.
+
+\begin{enumerate}[label=(\Alph*), leftmargin=2.2em]
+    \item $\displaystyle \frac{a_{\actuarialangle{34}i}-a_{\actuarialangle{6}i}}{s_{\actuarialangle{4}i}}$
+    \item $\displaystyle \frac{a_{\actuarialangle{35}i}-a_{\actuarialangle{7}i}}{s_{\actuarialangle{4}i}}$
+    \item $\displaystyle \frac{\ddot{a}_{\actuarialangle{34}i}-\ddot{a}_{\actuarialangle{6}i}}{s_{\actuarialangle{4}i}}$
+    \item $\displaystyle \frac{a_{\actuarialangle{34}i}-a_{\actuarialangle{6}i}}{\ddot{s}_{\actuarialangle{4}i}}$
+    \item $\displaystyle \frac{\ddot{a}_{\actuarialangle{34}i}-\ddot{a}_{\actuarialangle{6}i}}{\ddot{s}_{\actuarialangle{4}i}}$
+\end{enumerate}
+
+\medskip
+\hrule
+
+
+
+
+
+
+\newpage
+
+\hrule
+
+\medskip
+
+\textbf{Problem 4.} A perpetuity makes continuous payments. At time $t$, the perpetuity pays at an annual rate of $3t$, where time is measured in years. 
+
+At am annual effective interest rate of $5\%$, calculate the present value of the perpetuity.
+
+\medskip
+
+\hrule
+
+\medskip
+
+\textbf{Problem 5.} Jen invests $\$X$ at the beginning of each year for $6$ years at an annual effective interest rate of $5\%$. The interest credited at the end of each year is reinvested at an annual effective interest rate of $7\%$.
+
+Bill invests $\$X$ at the end of each year for $10$ years at an annual effective interest rate of $i\%$. The accumulated value of Bill's investments at the end of $10$ years is twice as much as the accumulated value of Jen's investments at the end of $6$ years.
+
+Calculate $i$.
+
+\medskip
+\hrule
+
+
+\medskip
+
+\newpage
+
+\textbf{Problem A.} \$1{,}000 is deposited into a savings account at time $t=0$. No other amounts are deposited. The accumulated amount in the account at any time is given by
+\[
+A(t) = 1000\left(1 + \frac{2t}{35}\right)^2.
+\]
+
+At what time $t$ is the force of interest equal to $0.04$?
+
+\medskip
+
+\hrule
+
+\medskip
+
+\textbf{Problem B.} Joe deposits \$10 today and another \$30 in five years into a fund paying simple interest of $11\%$ per year.
+
+Tina will make the same two deposits, but the \$10 will be deposited $n$ years from today and the \$30 will be deposited $2n$ years from today. Tina's deposits earn an annual effective interest rate of $9.15\%$.
+
+At the end of $10$ years, the accumulated amount of Tina's deposits equals the accumulated amount of Joe's deposits.
+
+Calculate $n$.
+
+\medskip
+
+\hrule
+
+
+\medskip
+
+
+\textbf{Problem C.} Jim deposits \$100 into an account that credits:
+\begin{itemize}[leftmargin=2em]
+    \item An effective rate of discount of $3\%$ for the first year;
+    \item An effective rate of discount of $6\%$ for the second year;
+    \item An effective rate of discount of $9\%$ for the third year; and
+    \item $\delta_t = 0.02t$ for the fourth and fifth years.
+\end{itemize}
+
+How much is in the account at the end of the fifth year?
+
+\medskip
+
+\hrule
+
+
+
+
+
+\end{document}
