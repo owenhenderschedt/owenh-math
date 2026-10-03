@@ -20,7 +20,7 @@ function Papers() {
 
         <section className="publication-list" aria-label="Publications">
           {publications.map((paper, index) => {
-            const destination = paper.arxiv ?? paper.journal
+            const destination = paper.journal ?? paper.arxiv
             const plainTitle =
               paper.title ??
               `${paper.titlePrefix ?? ''}${paper.titleMath ?? ''}${paper.titleSuffix ?? ''}`

@@ -65,9 +65,10 @@ export const publications: Publication[] = [
   {
     title: 'On orientations with forbidden out-degrees',
     authors: ['Owen Henderschedt', 'Jessica McDonald'],
-    year: 2025,
+    year: 2026,
     status: 'Published',
-    venue: 'Discrete Applied Mathematics, 387',
+    venue: 'Discrete Applied Mathematics, 387, 116–123',
+    journal: 'https://doi.org/10.1016/j.dam.2026.02.048',
     arxiv: 'https://arxiv.org/abs/2406.05095',
   },
   {
@@ -100,7 +101,8 @@ export const publications: Publication[] = [
     ],
     year: 2025,
     status: 'Published',
-    venue: 'Discrete Mathematics, 348',
+    venue: 'Discrete Mathematics, 348, Article 114648',
+    journal: 'https://doi.org/10.1016/j.disc.2025.114648',
     arxiv: 'https://arxiv.org/abs/2401.14590',
   },
   {
