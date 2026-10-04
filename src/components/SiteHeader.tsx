@@ -3,8 +3,17 @@ import { Link } from 'react-router-dom'
 function SiteHeader() {
   return (
     <header className="site-header">
-      <Link className="wordmark" to="/" aria-label="Owen Henderschedt home">
-        OH
+      <Link
+        className="wordmark"
+        to="/"
+        aria-label="Owen Henderschedt home"
+      >
+        <img
+          src="/favicon-rb.svg"
+          alt=""
+          aria-hidden="true"
+          className="wordmark-logo"
+        />
       </Link>
 
       <nav className="site-nav" aria-label="Main navigation">
