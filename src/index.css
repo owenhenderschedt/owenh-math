@@ -7960,3 +7960,1328 @@ h1 {
   transition: opacity 180ms ease;
 }
 
+
+
+/* =========================================================
+   ODD RAMSEY
+   K4,4 + all 36 overlapping K2,2 constraints
+   ========================================================= */
+
+.or-game {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+
+  font-family: "DM Sans", sans-serif;
+}
+
+
+/* ---------------- TOP BAR ---------------- */
+
+.or-top {
+  display: grid;
+  grid-template-columns: auto minmax(320px, 1fr) auto auto;
+  align-items: center;
+
+  gap: 22px;
+
+  margin-bottom: 10px;
+}
+
+.or-heading {
+  min-width: 0;
+}
+
+.or-heading h1 {
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.3rem, 3vw, 3.25rem);
+  font-weight: 600;
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+
+  color: #253a2c;
+}
+
+.or-heading span {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 0.75rem;
+  font-weight: 650;
+
+  color: #737d75;
+}
+
+
+/* ---------------- DIFFICULTY ---------------- */
+
+.or-difficulty {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.or-difficulty > span {
+  font-size: 0.55rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+
+  color: #81745f;
+}
+
+.or-mode-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 72px);
+
+  overflow: hidden;
+
+  border: 1px solid rgba(48, 75, 56, 0.2);
+  border-radius: 10px;
+
+  background: #fffdf8;
+}
+
+.or-mode-buttons button {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+
+  gap: 5px;
+
+  min-height: 42px;
+
+  padding: 6px 8px;
+
+  border: 0;
+  border-right: 1px solid rgba(48, 75, 56, 0.13);
+
+  background: transparent;
+  color: #536158;
+
+  cursor: pointer;
+}
+
+.or-mode-buttons button:last-child {
+  border-right: 0;
+}
+
+.or-mode-buttons button:hover {
+  background: #f1eee5;
+}
+
+.or-mode-buttons button.active {
+  background: #304b38;
+  color: #fffdf8;
+}
+
+.or-mode-buttons strong {
+  font-family:
+    "KaTeX_Main",
+    "Times New Roman",
+    serif;
+
+  font-size: 1.05rem;
+}
+
+.or-mode-buttons small {
+  font-size: 0.61rem;
+  font-weight: 800;
+}
+
+
+/* ---------------- ACTIONS ---------------- */
+
+.or-actions {
+  display: flex;
+
+  gap: 7px;
+}
+
+.or-actions button {
+  min-height: 42px;
+
+  padding: 0 14px;
+
+  border-radius: 9px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 130ms ease,
+    background 130ms ease,
+    border-color 130ms ease;
+}
+
+.or-actions button:hover {
+  transform: translateY(-1px);
+}
+
+.or-check-button {
+  border: 1px solid #304b38;
+
+  background: #304b38;
+  color: #fffdf8;
+}
+
+.or-check-button:hover,
+.or-check-button.active {
+  background: #3c5b44;
+}
+
+.or-reset-button {
+  border: 1px solid rgba(48, 75, 56, 0.22);
+
+  background: #f1ebdc;
+  color: #405647;
+}
+
+
+/* ---------------- MAIN TWO-PANEL WORKSPACE ---------------- */
+
+.or-workspace {
+  display: grid;
+  grid-template-columns:
+    minmax(330px, 0.64fr)
+    minmax(0, 1.36fr);
+
+  gap: clamp(14px, 1.35vw, 22px);
+
+  min-width: 0;
+  min-height: 0;
+}
+
+.or-board-card,
+.or-constraint-card {
+  box-sizing: border-box;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(45, 69, 51, 0.17);
+  border-radius: 15px;
+
+  background: #fffdf8;
+
+  box-shadow:
+    0 8px 24px rgba(43, 52, 45, 0.035);
+}
+
+
+/* =========================================================
+   LEFT — K4,4
+   ========================================================= */
+
+.or-board-card {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.or-board-heading,
+.or-constraint-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  padding: 13px 16px;
+
+  border-bottom: 1px solid rgba(46, 70, 52, 0.12);
+}
+
+.or-board-heading > div > span,
+.or-constraint-heading > div:first-child > span {
+  display: block;
+
+  margin-bottom: 2px;
+
+  font-size: 0.67rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+
+  color: #94754e;
+}
+
+.or-board-heading strong,
+.or-constraint-heading > div:first-child > strong {
+  display: block;
+
+  font-family: "Playfair Display", serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+
+  color: #304b38;
+}
+
+.or-edge-progress {
+  flex: 0 0 auto;
+
+  padding: 6px 9px;
+
+  border-radius: 999px;
+
+  background: #eef0e9;
+
+  font-size: 0.64rem;
+  font-weight: 800;
+
+  color: #5c695f;
+}
+
+.or-board-graph-wrap {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  min-height: 0;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 48%,
+      rgba(222, 229, 216, 0.5),
+      rgba(255, 253, 248, 0) 64%
+    );
+}
+
+.or-main-graph {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: visible;
+}
+
+.or-edge {
+  stroke-width: 6.5;
+  stroke-linecap: round;
+
+  pointer-events: none;
+
+  transition:
+    stroke 130ms ease,
+    stroke-width 130ms ease;
+}
+
+.or-edge-hit {
+  stroke: transparent;
+  stroke-width: 21;
+
+  cursor: pointer;
+}
+
+.or-edge-focus {
+  stroke: #d8bb66;
+  stroke-width: 16;
+  stroke-linecap: round;
+
+  opacity: 0.53;
+
+  pointer-events: none;
+}
+
+.or-gold-vertex {
+  fill: #c5a85d;
+
+  stroke: #5d4c29;
+  stroke-width: 3;
+}
+
+.or-silver-vertex {
+  fill: #d5d8d4;
+
+  stroke: #59655d;
+  stroke-width: 3;
+}
+
+.or-vertex-label {
+  fill: #283b2e;
+
+  font-family:
+    "KaTeX_Main",
+    "Times New Roman",
+    serif;
+
+  font-size: 19px;
+  font-weight: 700;
+
+  pointer-events: none;
+}
+
+.or-side-label {
+  fill: #879087;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+
+.or-side-label-gold {
+  fill: #92784c;
+}
+
+
+/* ---------------- COLOR POPOVER ---------------- */
+
+.or-popover {
+  position: absolute;
+  z-index: 20;
+
+  width: 215px;
+
+  box-sizing: border-box;
+
+  padding: 11px;
+
+  transform: translate(17px, 14px);
+
+  border: 1px solid rgba(40, 61, 46, 0.2);
+  border-radius: 13px;
+
+  background: rgba(255, 253, 248, 0.985);
+
+  box-shadow:
+    0 12px 30px rgba(35, 53, 40, 0.18);
+}
+
+.or-popover-up {
+  transform: translate(17px, calc(-100% - 14px));
+}
+
+.or-popover-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 9px;
+}
+
+.or-popover-title strong {
+  font-size: 0.7rem;
+
+  color: #314738;
+}
+
+.or-popover-title > button {
+  display: grid;
+  place-items: center;
+
+  width: 22px;
+  height: 22px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #eef0e9;
+  color: #667168;
+
+  cursor: pointer;
+}
+
+.or-popover-colors {
+  display: flex;
+
+  gap: 7px;
+}
+
+.or-color-button {
+  width: 30px;
+  height: 30px;
+
+  padding: 0;
+
+  border: 2px solid #fffdf8;
+  border-radius: 50%;
+
+  outline: 1px solid rgba(36, 54, 41, 0.15);
+
+  cursor: pointer;
+
+  transition:
+    transform 120ms ease,
+    outline-color 120ms ease;
+}
+
+.or-color-button:hover {
+  transform: scale(1.13);
+
+  outline-color: #344c3a;
+}
+
+.or-color-button.current {
+  outline: 3px solid #263c2d;
+}
+
+.or-erase {
+  width: 100%;
+
+  margin-top: 9px;
+  padding: 6px;
+
+  border: 0;
+  border-radius: 7px;
+
+  background: #eef0e9;
+  color: #526157;
+
+  font-size: 0.64rem;
+  font-weight: 750;
+
+  cursor: pointer;
+}
+
+
+/* ---------------- LEFT FOOTER ---------------- */
+
+.or-board-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 10px 14px;
+
+  border-top: 1px solid rgba(46, 70, 52, 0.12);
+
+  font-size: 0.75rem;
+  line-height: 1.4;
+
+  color: #69736c;
+}
+
+.or-board-footer strong {
+  color: #46634d;
+}
+
+.or-hover-hint {
+  text-align: right;
+
+  color: #8b775a;
+}
+
+
+/* =========================================================
+   RIGHT — ALL 36 K2,2 COPIES
+   ========================================================= */
+
+.or-constraint-card {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.or-constraint-heading {
+  min-height: 58px;
+
+  box-sizing: border-box;
+}
+
+.or-constraint-hint {
+  max-width: 190px;
+
+  text-align: right;
+
+  font-size: 0.62rem;
+  font-weight: 650;
+  line-height: 1.35;
+
+  color: #7e867f;
+}
+
+.or-check-summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+
+  gap: 5px 10px;
+
+  max-width: 240px;
+
+  font-size: 0.62rem;
+  font-weight: 800;
+
+  color: #7a827b;
+}
+
+.or-check-summary span.good {
+  color: #5e8b64;
+}
+
+.or-check-summary span.bad {
+  color: #a9544f;
+}
+
+.or-check-summary.solved strong {
+  color: #557e5b;
+}
+
+
+/* ---------------- 6 × 6 CONSTRAINT FIELD ---------------- */
+
+.or-pair-grid {
+  display: grid;
+
+  grid-template-columns:
+    28px
+    repeat(6, minmax(0, 1fr));
+
+  grid-template-rows:
+    23px
+    repeat(6, minmax(0, 1fr));
+
+  gap: 5px;
+
+  min-width: 0;
+  min-height: 0;
+
+  padding: 8px 10px 7px;
+}
+
+.or-grid-row {
+  display: contents;
+}
+
+.or-grid-corner,
+.or-grid-header {
+  display: grid;
+  place-items: center;
+
+  min-width: 0;
+  min-height: 0;
+
+  font-size: 0.58rem;
+  font-weight: 900;
+
+  color: #778078;
+}
+
+.or-grid-corner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1px;
+
+  font-family:
+    "KaTeX_Main",
+    "Times New Roman",
+    serif;
+}
+
+.or-grid-corner span {
+  color: #a48749;
+}
+
+.or-grid-corner b {
+  color: #7d8580;
+}
+
+.or-grid-corner i {
+  font-style: normal;
+
+  color: #adb1ad;
+}
+
+.or-grid-header {
+  font-family:
+    "KaTeX_Main",
+    "Times New Roman",
+    serif;
+
+  font-size: 0.84rem;
+}
+
+.or-grid-header-gold {
+  color: #9b7e43;
+}
+
+.or-grid-header-silver {
+  color: #737d76;
+}
+
+
+/* ---------------- MINI K2,2 BUBBLES ---------------- */
+
+.or-mini-cell {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+
+  border: 1.5px solid rgba(48, 75, 56, 0.13);
+  border-radius: 9px;
+
+  background: #faf7ef;
+
+  outline: none;
+
+  transition:
+    transform 120ms ease,
+    border-color 120ms ease,
+    background 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.or-mini-cell:hover,
+.or-mini-cell:focus {
+  border-color: rgba(48, 75, 56, 0.3);
+}
+
+.or-mini-affected {
+  z-index: 3;
+
+  transform: scale(1.045);
+
+  border-color: #c5a85d !important;
+
+  background: #fff8e7;
+
+  box-shadow:
+    0 0 0 2px rgba(197, 168, 93, 0.2),
+    0 4px 12px rgba(118, 92, 40, 0.15);
+}
+
+.or-mini-good {
+  border-color: #78a27d;
+  background: #f1f7ef;
+}
+
+.or-mini-bad {
+  border-color: #bd6963;
+  background: #fbefed;
+}
+
+.or-mini-incomplete {
+  border-color: #aeb5ae;
+  border-style: dashed;
+
+  background: #f5f4ef;
+}
+
+.or-mini-graph {
+  display: block;
+
+  width: 88%;
+  height: 88%;
+}
+
+.or-mini-edge {
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.or-mini-gold {
+  fill: #c5a85d;
+
+  stroke: #725f34;
+  stroke-width: 1.4;
+}
+
+.or-mini-silver {
+  fill: #d4d7d3;
+
+  stroke: #667069;
+  stroke-width: 1.4;
+}
+
+
+/* ---------------- CHECKER LEGEND ---------------- */
+
+.or-check-key {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 14px;
+
+  min-height: 29px;
+
+  box-sizing: border-box;
+
+  padding: 5px 12px 7px;
+
+  border-top: 1px solid rgba(46, 70, 52, 0.1);
+
+  font-size: 0.57rem;
+  font-weight: 700;
+
+  color: #7b837c;
+}
+
+.or-check-key span {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+}
+
+.or-check-key i {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+}
+
+.or-check-key i.good {
+  background: #78a27d;
+}
+
+.or-check-key i.bad {
+  background: #bd6963;
+}
+
+.or-check-key i.incomplete {
+  background: #aeb5ae;
+}
+
+
+/* =========================================================
+   ODD RAMSEY — DESKTOP VIEWPORT LOCK
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  .research-game-view:has(.or-game) {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    min-height: 0;
+  }
+
+  .research-game-view:has(.or-game) > .research-back {
+    flex: 0 0 auto;
+  }
+
+  .or-game {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+
+    flex: 1 1 auto;
+
+    height: auto;
+    min-height: 0;
+
+    overflow: hidden;
+  }
+
+  .or-workspace {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .or-board-card,
+  .or-constraint-card {
+    height: 100%;
+  }
+}
+
+
+/* =========================================================
+   ODD RAMSEY — TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .or-top {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+  .or-difficulty,
+  .or-actions {
+    justify-content: space-between;
+  }
+
+  .or-workspace {
+    grid-template-columns: 1fr;
+
+    height: auto;
+  }
+
+  .or-board-card {
+    min-height: 520px;
+  }
+
+  .or-constraint-card {
+    min-height: 570px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .or-heading h1 {
+    font-size: 2.5rem;
+  }
+
+  .or-difficulty {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .or-mode-buttons {
+    width: 100%;
+
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .or-actions {
+    display: grid;
+    grid-template-columns: 1fr 0.55fr;
+
+    width: 100%;
+  }
+
+  .or-board-card {
+    min-height: 450px;
+  }
+
+  .or-board-footer {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 4px;
+  }
+
+  .or-hover-hint {
+    text-align: left;
+  }
+
+  .or-constraint-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .or-check-summary,
+  .or-constraint-hint {
+    max-width: none;
+
+    text-align: left;
+  }
+
+  .or-pair-grid {
+    gap: 3px;
+
+    grid-template-columns:
+      22px
+      repeat(6, minmax(0, 1fr));
+  }
+
+  .or-mini-cell {
+    border-radius: 6px;
+  }
+}
+
+
+/* Odd Ramsey — keep the Research back button compact */
+.research-game-view:has(.or-game) > .research-back {
+  width: fit-content;
+  align-self: flex-start;
+}
+
+
+/* =========================================================
+   ODD RAMSEY — MATHEMATICAL LABEL POLISH
+   ========================================================= */
+
+/* Actual mathematics should look like mathematics, not UI text. */
+.or-board-heading .katex,
+.or-constraint-heading .katex,
+.or-board-footer .katex {
+  font-size: 1.14em;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* The upper-left corner of the 6x6 field uses the two
+   vertex types themselves instead of G / S text. */
+.or-grid-corner {
+  gap: 4px;
+}
+
+.or-grid-corner-vertex {
+  display: block;
+
+  width: 11px;
+  height: 11px;
+
+  box-sizing: border-box;
+
+  border-radius: 50%;
+}
+
+.or-grid-corner-vertex.gold {
+  background: #c5a85d;
+  border: 1.4px solid #725f34;
+}
+
+.or-grid-corner-vertex.silver {
+  background: #d4d7d3;
+  border: 1.4px solid #667069;
+}
+
+.or-grid-corner i {
+  font-family: "KaTeX_Main", "Times New Roman", serif;
+  font-size: 0.78rem;
+  font-style: normal;
+
+  color: #a5aaa6;
+}
+
+
+/* Color-picker title uses the same vertex language as the graph. */
+.or-popover-edge-name {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+.or-popover-vertex {
+  display: inline-grid;
+  place-items: center;
+
+  width: 25px;
+  height: 25px;
+
+  box-sizing: border-box;
+
+  border-radius: 50%;
+
+  font-family:
+    "KaTeX_Main",
+    "STIX Two Text",
+    "Times New Roman",
+    serif;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  color: #283b2e;
+}
+
+.or-popover-vertex.gold {
+  background: #c5a85d;
+  border: 1.5px solid #725f34;
+}
+
+.or-popover-vertex.silver {
+  background: #d4d7d3;
+  border: 1.5px solid #667069;
+}
+
+.or-popover-dash {
+  color: #839087;
+
+  font-family:
+    "KaTeX_Main",
+    "Times New Roman",
+    serif;
+
+  font-size: 0.9rem;
+}
+
+
+/* Pair labels 12, 13, ... are mathematical data, not captions. */
+.or-grid-header {
+  font-family:
+    "KaTeX_Main",
+    "STIX Two Text",
+    "Times New Roman",
+    serif;
+
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+
+
+.or-board-instruction {
+  display: block;
+  white-space: nowrap;
+  color: #273129 !important;
+  font-size: 0.98rem !important;
+  font-weight: 600 !important;
+  line-height: 1.25;
+}
+
+.or-board-instruction .katex {
+  font-size: 1em;
+}
+
+/* Odd Ramsey — center the edge palette within the game board */
+.or-popover {
+  transform: translate(-50%, 14px);
+}
+
+.or-popover-up {
+  transform: translate(-50%, calc(-100% - 14px));
+}
+
+
+/* Odd Ramsey — keep the board instruction on one clean line */
+.or-board-instruction {
+  white-space: nowrap;
+  color: #273129 !important;
+}
+
+.or-board-instruction .katex,
+.or-board-instruction .katex * {
+  display: inline;
+  color: inherit !important;
+  margin: 0;
+  letter-spacing: normal;
+}
+
+
+/* =========================================================
+   ODD RAMSEY — RELATED PAPER IN TOP ROW
+   ========================================================= */
+
+.or-related-paper {
+  min-width: 0;
+  width: min(100%, 520px);
+
+  justify-self: center;
+
+  padding: 5px 16px 6px;
+
+  border-left: 2px solid rgba(185, 155, 86, 0.65);
+}
+
+.or-related-paper > span {
+  display: block;
+
+  margin-bottom: 2px;
+
+  font-size: 0.52rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+
+  color: #92764f;
+}
+
+.or-related-paper a {
+  display: block;
+
+  font-family: "Playfair Display", serif;
+  font-size: 0.96rem;
+  font-weight: 600;
+  line-height: 1.18;
+
+  color: #304b38;
+
+  text-decoration: none;
+}
+
+.or-related-paper a:hover {
+  color: #8b6843;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.or-related-paper small {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 0.66rem;
+  line-height: 1.25;
+
+  color: #737c75;
+}
+
+@media (max-width: 1100px) and (min-width: 901px) {
+  .or-related-paper small {
+    display: none;
+  }
+
+  .or-related-paper {
+    width: min(100%, 380px);
+  }
+
+  .or-related-paper a {
+    font-size: 0.87rem;
+  }
+}
+
+
+/* Odd Ramsey — slightly heavier main K4,4 edges */
+.or-edge {
+  stroke-width: 8;
+}
+
+
+/* Odd Ramsey — prominent coloring rule */
+.or-board-footer {
+  padding: 0;
+  border-top: 1px solid rgba(46, 70, 52, 0.14);
+}
+
+.or-coloring-rule {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 12px 16px 13px;
+
+  border-left: 4px solid #b99b56;
+  background: #f5f1e5;
+}
+
+.or-coloring-rule > span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+
+  color: #8e7048;
+}
+
+.or-coloring-rule p {
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+
+  color: #2d3f32;
+}
+
+.or-coloring-rule strong {
+  font-weight: 700;
+  color: #365540;
+}
+
+.or-coloring-rule .katex,
+.or-coloring-rule .katex * {
+  color: inherit !important;
+}
+
+
+/* Odd Ramsey — coloring rule on one line */
+.or-coloring-rule {
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+  padding: 10px 14px;
+}
+
+.or-coloring-rule > span {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.or-coloring-rule p {
+  white-space: nowrap;
+  font-size: clamp(0.75rem, 0.82vw, 0.9rem);
+  line-height: 1.2;
+}
+
+
+/* Odd Ramsey — rule without label */
+.or-coloring-rule {
+  justify-content: center;
+}
+
+.or-coloring-rule > span {
+  display: none;
+}
+
+
+/* =========================================================
+   ODD RAMSEY — SHOW SOLUTION
+   ========================================================= */
+
+.or-constraint-heading > div:first-child {
+  order: 1;
+  margin-right: auto;
+}
+
+.or-check-summary {
+  order: 2;
+}
+
+.or-solution-button {
+  order: 3;
+  flex: 0 0 auto;
+
+  margin-left: 14px;
+  padding: 8px 13px;
+
+  border: 1px solid rgba(74, 94, 77, 0.28);
+  border-radius: 9px;
+
+  background: #f7f3e9;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  color: #405946;
+
+  cursor: pointer;
+
+  transition:
+    background 150ms ease,
+    border-color 150ms ease,
+    transform 150ms ease;
+}
+
+.or-solution-button:hover {
+  background: #eee7d6;
+  border-color: rgba(74, 94, 77, 0.46);
+  transform: translateY(-1px);
+}
+
+.or-solution-button:active {
+  transform: translateY(0);
+}
+
+/* Odd Ramsey — keep the entire Ramsey Theory back button clickable */
+.research-game-view:has(.or-game) > .research-back {
+  position: relative;
+  z-index: 100;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.research-game-view:has(.or-game) .or-game {
+  position: relative;
+  z-index: 1;
+}

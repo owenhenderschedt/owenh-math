@@ -69,8 +69,8 @@ export const researchAreas: ResearchArea[] = [
         id: 'odd-ramsey',
         title: 'Odd Ramsey',
         description:
-          'Color complete graphs and explore Ramsey conditions involving odd color patterns.',
-        status: 'coming-soon',
+          'Color K₄,₄ while tracking all 36 overlapping copies of K₂,₂. Can you make every copy odd?',
+        status: 'playable',
       },
       {
         id: 'purple-ramsey',

@@ -3,6 +3,7 @@ import SiteHeader from '../components/SiteHeader'
 import ResearchGraphMotif from '../research/components/ResearchGraphMotif'
 import TotalColoringGame from '../research/games/total-coloring/TotalColoringGame'
 import ShortPathGame from '../research/games/short-path-algorithms/ShortPathGame'
+import OddRamseyGame from '../research/games/odd-ramsey/OddRamseyGame'
 import { researchAreas } from '../research/data/researchTree'
 
 export default function Research() {
@@ -76,6 +77,7 @@ export default function Research() {
 
             {selectedGame.id === 'total-coloring' && <TotalColoringGame />}
             {selectedGame.id === 'short-path-algorithms' && <ShortPathGame />}
+            {selectedGame.id === 'odd-ramsey' && <OddRamseyGame />}
           </section>
         ) : (
           <section className="research-library">
