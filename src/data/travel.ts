@@ -21,6 +21,20 @@ export type TravelPlace = {
 
 export const travelPlaces: TravelPlace[] = [
   {
+    id: 'smithfield',
+    name: 'Smithfield',
+    region: 'Rhode Island, USA',
+    coordinates: [-71.536, 41.922],
+    events: [
+      {
+        title: 'Bryant University',
+        date: '2016–2020',
+        detail: 'Bachelor of Science in Actuarial Mathematics.',
+      },
+    ],
+  },
+
+  {
     id: 'boston',
     name: 'Boston',
     region: 'Massachusetts, USA',

@@ -7943,3 +7943,20 @@ h1 {
 .travel-geography:active {
   outline: none;
 }
+
+
+/* ---------------- TRAVEL: U.S. STATE BOUNDARIES ---------------- */
+
+.travel-admin-line {
+  fill: transparent;
+
+  stroke: #869188;
+  stroke-width: 0.75;
+
+  vector-effect: non-scaling-stroke;
+
+  pointer-events: none;
+
+  transition: opacity 180ms ease;
+}
+

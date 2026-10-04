@@ -34,6 +34,11 @@ function Travel() {
   const photos = selectedEvent?.photos ?? []
   const currentPhoto = photos[photoIndex] ?? null
 
+  const stateBorderOpacity = Math.max(
+    0,
+    Math.min(0.72, (view.zoom - 3.5) * 0.22),
+  )
+
   function selectPlace(place: TravelPlace) {
     setSelectedId(place.id)
     setEventIndex(0)
@@ -53,7 +58,7 @@ function Travel() {
   function zoomIn() {
     setView((current) => ({
       ...current,
-      zoom: Math.min(6, current.zoom * 1.5),
+      zoom: Math.min(14, current.zoom * 1.5),
     }))
   }
 
@@ -138,9 +143,9 @@ function Travel() {
             <ComposableMap
               width={980}
               height={560}
-              projection="geoEqualEarth"
+              projection="geoMercator"
               projectionConfig={{
-                scale: 168,
+                scale: 145,
               }}
               className="travel-map"
               aria-label="Interactive map of places mathematics has taken Owen"
@@ -149,7 +154,7 @@ function Travel() {
                 center={view.center}
                 zoom={view.zoom}
                 minZoom={1}
-                maxZoom={6}
+                maxZoom={14}
                 onMoveEnd={({ coordinates, zoom }) => {
                   if (
                     !coordinates ||
@@ -178,12 +183,35 @@ function Travel() {
                   }
                 </Geographies>
 
+                {view.zoom > 3.5 && (
+                  <Geographies geography="/maps/us-canada-admin1.json">
+                    {({ geographies }) =>
+                      geographies.map((geo) => (
+                        <Geography
+                          key={geo.rsmKey}
+                          geography={geo}
+                          className="travel-admin-line"
+                          opacity={stateBorderOpacity}
+                        />
+                      ))
+                    }
+                  </Geographies>
+                )}
+
                 {travelPlaces.map((place) => {
                   const selected = place.id === selectedId
-                  const markerScale = Math.max(
-                    0.48,
-                    1 / Math.sqrt(view.zoom),
-                  )
+                  const markerScale = 1 / view.zoom
+
+                  const markerRegion =
+                    place.region === 'USA'
+                      ? ''
+                      : place.region.endsWith(', USA')
+                        ? place.region.replace(', USA', '')
+                        : place.region.split(',').at(-1)?.trim() ?? place.region
+
+                  const markerLabel = markerRegion
+                    ? `${place.name}, ${markerRegion}`
+                    : place.name
 
                   return (
                     <Marker
@@ -232,7 +260,7 @@ function Travel() {
                             textAnchor="middle"
                             y={-21}
                           >
-                            {place.name}
+                            {markerLabel}
                           </text>
                         )}
                       </g>
