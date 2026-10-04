@@ -4,6 +4,28 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      /*
+       * Restore clean React Router URLs after GitHub Pages sends
+       * a direct route through 404.html.
+       */
+      ;(function (location) {
+        if (location.search.startsWith('?/')) {
+          const route = location.search
+            .slice(2)
+            .split('&')
+            .map((part) => part.replace(/~and~/g, '&'))
+            .join('?')
+
+          window.history.replaceState(
+            null,
+            '',
+            '/' + route + location.hash,
+          )
+        }
+      })(window.location)
+    </script>
     <title>owenh-math</title>
   </head>
   <body>
