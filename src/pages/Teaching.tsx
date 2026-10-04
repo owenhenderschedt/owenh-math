@@ -16,12 +16,12 @@ function Teaching() {
             <h1>Teaching Mathematics</h1>
 
             <p className="teaching-philosophy-placeholder">
-              My teaching focuses on helping students develop mathematical
-              understanding through clear explanations, active problem solving,
-              and opportunities to make connections for themselves. I aim to
-              balance rigorous mathematics with an environment where students
-              feel comfortable asking questions, testing ideas, and approaching
-              unfamiliar problems.
+              I want students to come away from my classes feeling that difficult
+              mathematics can make sense, and that they are capable of understanding
+              it. I try to make that happen by knowing the mathematics deeply,
+              finding explanations, examples, and experiences that reveal the ideas
+              behind the formulas, and building a classroom where students are
+              challenged, supported, and comfortable enough to think out loud.
             </p>
 
           </div>

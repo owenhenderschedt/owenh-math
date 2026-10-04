@@ -30,7 +30,7 @@ export const researchAreas: ResearchArea[] = [
         title: 'Total Coloring',
         description:
           'Color every vertex and edge of a graph while avoiding conflicts. How few colors can you use?',
-        status: 'coming-soon',
+        status: 'playable',
       },
       {
         id: 'recoloring',
@@ -109,24 +109,17 @@ export const researchAreas: ResearchArea[] = [
       'Finite point sets, coverings, diameter constraints, and geometric extremal problems.',
     games: [
       {
-        id: 'diameter-one-sets',
-        title: 'Diameter-One Sets',
+        id: 'short-path-algorithms',
+        title: 'Short Path Algorithms',
         description:
-          'Arrange finite point sets subject to a diameter constraint.',
-        status: 'coming-soon',
+          'Navigate between two fixed zones while avoiding rotated square obstacles. How short can you make the path?',
+        status: 'playable',
       },
       {
-        id: 'circle-coverings',
-        title: 'Circle Coverings',
+        id: 'fixed-diameter-coverings',
+        title: 'Covering Points of Fixed Diameter',
         description:
-          'Move points and covering circles to investigate extremal covering questions.',
-        status: 'coming-soon',
-      },
-      {
-        id: 'fractional-jung',
-        title: 'Fractional Jung',
-        description:
-          'Explore how much of a finite point set can be captured below the classical Jung radius.',
+          'Explore circle coverings, diameter-one point sets, and fractional versions of Jung’s theorem.',
         status: 'coming-soon',
       },
     ],

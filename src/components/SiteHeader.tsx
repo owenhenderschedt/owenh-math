@@ -12,7 +12,7 @@ function SiteHeader() {
         <Link to="/papers">Papers</Link>
         <Link to="/research">Research</Link>
         <Link to="/teaching">Teaching</Link>
-        <Link to="/about">About</Link>
+        <Link to="/travel">Travel</Link>
         <Link to="/cv">CV</Link>
       </nav>
     </header>

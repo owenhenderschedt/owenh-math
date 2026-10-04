@@ -5,14 +5,22 @@ import Home from './pages/Home'
 import Papers from './pages/Papers'
 import Research from './pages/Research'
 import Teaching from './pages/Teaching'
+import CV from './pages/CV'
 
-function PlaceholderPage({ title }: { title: string }) {
+function PlaceholderPage({
+  title,
+  message,
+}: {
+  title: string
+  message?: string
+}) {
   return (
     <div className="site-shell">
       <SiteHeader />
 
       <main style={{ padding: '140px 8vw' }}>
         <h1>{title}</h1>
+        {message && <p>{message}</p>}
       </main>
     </div>
   )
@@ -26,8 +34,8 @@ function App() {
         <Route path="/research" element={<Research />} />
         <Route path="/papers" element={<Papers />} />
         <Route path="/teaching" element={<Teaching />} />
-        <Route path="/about" element={<PlaceholderPage title="About" />} />
-        <Route path="/cv" element={<PlaceholderPage title="CV" />} />
+        <Route path="/travel" element={<PlaceholderPage title="Travel" message="Coming soon" />} />
+        <Route path="/cv" element={<CV />} />
       </Routes>
     </BrowserRouter>
   )

@@ -3420,3 +3420,3925 @@ h1 {
     justify-self: center;
   }
 }
+
+/* =========================================================
+   TOTAL COLORING GAME
+   ========================================================= */
+
+.research-game-view {
+  padding-top: 2px;
+}
+
+.total-coloring-game {
+  width: 100%;
+}
+
+.total-coloring-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.total-coloring-kicker {
+  margin: 0 0 5px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #788278;
+}
+
+.total-coloring-topbar h1 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 4vw, 3.7rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: #213528;
+}
+
+.total-coloring-score {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 7px 8px 7px 15px;
+  border: 1px solid rgba(44, 70, 51, 0.18);
+  border-radius: 999px;
+  background: #fffdf8;
+  font-family: "DM Sans", sans-serif;
+}
+
+.total-coloring-score span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #657067;
+}
+
+.total-coloring-score strong {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  background: #35543e;
+  color: #fffdf8;
+  font-size: 0.95rem;
+}
+
+.total-coloring-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.7fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.total-coloring-board {
+  display: grid;
+  min-height: 520px;
+  place-items: center;
+  padding: 20px;
+  border: 1px solid rgba(42, 65, 49, 0.15);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(220, 227, 215, 0.45), transparent 58%),
+    #fffdf8;
+  overflow: hidden;
+}
+
+.total-coloring-svg {
+  display: block;
+  width: min(100%, 700px);
+  height: auto;
+  overflow: visible;
+}
+
+.total-coloring-edge-hit {
+  stroke: transparent;
+  stroke-width: 18;
+  cursor: pointer;
+}
+
+.total-coloring-edge {
+  stroke-width: 7;
+  stroke-linecap: round;
+  pointer-events: none;
+  transition:
+    stroke 140ms ease,
+    opacity 140ms ease;
+}
+
+.total-coloring-vertex {
+  stroke: #304738;
+  stroke-width: 3;
+  cursor: pointer;
+  transition:
+    fill 140ms ease,
+    transform 140ms ease,
+    stroke 140ms ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.total-coloring-vertex:hover {
+  transform: scale(1.08);
+  stroke: #1f3628;
+}
+
+.total-coloring-invalid {
+  animation: total-coloring-shake 280ms ease;
+}
+
+@keyframes total-coloring-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+.total-coloring-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.total-coloring-rule,
+.total-coloring-palette,
+.total-coloring-message,
+.total-coloring-progress {
+  border: 1px solid rgba(42, 65, 49, 0.14);
+  border-radius: 13px;
+  background: #fffdf8;
+}
+
+.total-coloring-rule {
+  padding: 17px 18px;
+}
+
+.total-coloring-rule > span,
+.total-coloring-control-label {
+  display: block;
+  margin-bottom: 7px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: #748075;
+}
+
+.total-coloring-rule p {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.58;
+  color: #556159;
+}
+
+.total-coloring-palette {
+  padding: 16px 18px 18px;
+}
+
+.total-coloring-swatches {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+}
+
+.total-coloring-swatch {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 1;
+  border: 3px solid transparent;
+  border-radius: 9px;
+  cursor: pointer;
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.total-coloring-swatch:hover {
+  transform: translateY(-2px);
+}
+
+.total-coloring-swatch.selected {
+  border-color: #263d2e;
+  box-shadow: 0 0 0 2px #fffdf8 inset;
+  transform: translateY(-2px);
+}
+
+.total-coloring-message {
+  min-height: 52px;
+  padding: 14px 16px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.83rem;
+  line-height: 1.45;
+  color: #58635b;
+}
+
+.total-coloring-message.complete {
+  border-color: rgba(65, 103, 73, 0.28);
+  background: #edf2e9;
+  color: #36543e;
+  font-weight: 700;
+}
+
+.total-coloring-progress {
+  padding: 14px 16px 16px;
+}
+
+.total-coloring-progress > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 9px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #69736c;
+}
+
+.total-coloring-progress strong {
+  color: #334a3a;
+}
+
+.total-coloring-progress-track {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e4e8df;
+}
+
+.total-coloring-progress-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #54755c;
+  transition: width 180ms ease;
+}
+
+.total-coloring-clear {
+  min-height: 40px;
+  margin-top: auto;
+  padding: 0 15px;
+  border: 1px solid rgba(48, 75, 56, 0.25);
+  border-radius: 999px;
+  background: transparent;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #405947;
+  cursor: pointer;
+  transition:
+    background 150ms ease,
+    border-color 150ms ease;
+}
+
+.total-coloring-clear:hover {
+  border-color: rgba(48, 75, 56, 0.45);
+  background: #edf0e9;
+}
+
+@media (max-width: 900px) {
+  .total-coloring-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .total-coloring-board {
+    min-height: 430px;
+  }
+
+  .total-coloring-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .total-coloring-clear {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .total-coloring-topbar {
+    align-items: flex-start;
+  }
+
+  .total-coloring-layout,
+  .total-coloring-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .total-coloring-board {
+    min-height: 340px;
+    padding: 10px;
+  }
+
+  .total-coloring-swatches {
+    grid-template-columns: repeat(4, minmax(44px, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .total-coloring-vertex,
+  .total-coloring-swatch,
+  .total-coloring-progress-track span {
+    transition: none;
+  }
+
+  .total-coloring-invalid {
+    animation: none;
+  }
+}
+
+
+/* =========================================================
+   TOTAL COLORING — GAME REDESIGN
+   ========================================================= */
+
+.research-page:has(.research-game-view) .research-main {
+  padding-top: 88px;
+  padding-bottom: 14px;
+}
+
+.research-game-view {
+  padding-top: 0;
+}
+
+.research-game-view > .research-back {
+  margin-bottom: 10px;
+}
+
+.tc-game {
+  width: 100%;
+  font-family: "DM Sans", sans-serif;
+}
+
+.tc-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 10px;
+}
+
+.tc-heading {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: end;
+  column-gap: 14px;
+}
+
+.tc-heading p {
+  grid-column: 1 / -1;
+  margin: 0 0 2px;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #7c877e;
+}
+
+.tc-heading h1 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 3.6vw, 3.15rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  color: #203427;
+}
+
+.tc-heading > span {
+  padding-bottom: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #7e6650;
+}
+
+/* Sports-style scoreboard */
+
+.tc-scoreboard {
+  display: flex;
+  align-items: stretch;
+  min-height: 70px;
+  overflow: hidden;
+  border: 3px solid #c5a85d;
+  border-radius: 9px;
+  background:
+    linear-gradient(180deg, #23372a 0%, #192a20 100%);
+  box-shadow:
+    0 7px 18px rgba(29, 48, 35, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  color: #fff9df;
+}
+
+.tc-scoreboard-light {
+  display: flex;
+  width: 80px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-right: 1px solid rgba(255, 255, 255, 0.11);
+  font-size: 0.55rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #bdc8bc;
+}
+
+.tc-scoreboard-light span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #d2a547;
+  box-shadow: 0 0 9px rgba(210, 165, 71, 0.65);
+}
+
+.tc-scoreboard-light span.complete {
+  background: #72ad79;
+  box-shadow: 0 0 10px rgba(114, 173, 121, 0.8);
+}
+
+.tc-score-main,
+.tc-score-progress {
+  display: flex;
+  min-width: 108px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 17px;
+}
+
+.tc-score-main span,
+.tc-score-progress span {
+  font-size: 0.54rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  color: #aebbad;
+}
+
+.tc-score-main strong {
+  margin-top: -2px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 2.35rem;
+  line-height: 1;
+  color: #f1cf69;
+  text-shadow: 0 0 9px rgba(241, 207, 105, 0.27);
+}
+
+.tc-score-progress strong {
+  margin-top: 3px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 1.45rem;
+  line-height: 1;
+  color: #f5f2de;
+}
+
+.tc-score-progress small {
+  font-size: 0.68rem;
+  color: #9eab9d;
+}
+
+.tc-score-divider {
+  width: 1px;
+  margin: 10px 0;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* Main game */
+
+.tc-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.72fr) minmax(290px, 0.72fr);
+  gap: 12px;
+  height: clamp(410px, calc(100vh - 247px), 535px);
+  min-height: 0;
+}
+
+.tc-board {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(45, 69, 51, 0.17);
+  border-radius: 15px;
+  background:
+    radial-gradient(
+      circle at 50% 43%,
+      rgba(222, 229, 216, 0.53),
+      rgba(255, 253, 248, 0) 59%
+    ),
+    #fffdf8;
+}
+
+.tc-board-label {
+  position: absolute;
+  top: 14px;
+  left: 17px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.tc-board-label span {
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  color: #52675a;
+}
+
+.tc-board-label small {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #78847b;
+}
+
+.tc-graph {
+  display: block;
+  width: min(88%, 610px);
+  height: 84%;
+  overflow: visible;
+}
+
+.tc-edge {
+  stroke-width: 7;
+  stroke-linecap: round;
+  pointer-events: none;
+  transition:
+    stroke 130ms ease,
+    stroke-width 130ms ease;
+}
+
+.tc-edge-hit {
+  stroke: transparent;
+  stroke-width: 22;
+  cursor: pointer;
+}
+
+.tc-edge-selection {
+  stroke: #d8bb66;
+  stroke-width: 17;
+  stroke-linecap: round;
+  opacity: 0.52;
+  pointer-events: none;
+  animation: tc-pulse-edge 1.1s ease-in-out infinite;
+}
+
+.tc-vertex {
+  stroke: #2e4737;
+  stroke-width: 3.2;
+  cursor: pointer;
+  transition:
+    fill 130ms ease,
+    transform 130ms ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.tc-vertex:hover {
+  transform: scale(1.08);
+}
+
+.tc-vertex-selection {
+  fill: none;
+  stroke: #d8bb66;
+  stroke-width: 5;
+  opacity: 0.78;
+  pointer-events: none;
+  animation: tc-pulse-node 1.1s ease-in-out infinite;
+}
+
+@keyframes tc-pulse-node {
+  50% {
+    stroke-width: 8;
+    opacity: 0.42;
+  }
+}
+
+@keyframes tc-pulse-edge {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+/* Context color picker */
+
+.tc-popover {
+  position: absolute;
+  z-index: 8;
+  width: 206px;
+  padding: 11px;
+  transform: translate(17px, 15px);
+  border: 1px solid rgba(40, 61, 46, 0.19);
+  border-radius: 13px;
+  background: rgba(255, 253, 248, 0.98);
+  box-shadow: 0 12px 30px rgba(35, 53, 40, 0.18);
+  backdrop-filter: blur(9px);
+}
+
+.tc-popover-left {
+  transform: translate(calc(-100% - 17px), 15px);
+}
+
+.tc-popover-up {
+  transform: translate(17px, calc(-100% - 15px));
+}
+
+.tc-popover-left.tc-popover-up {
+  transform: translate(calc(-100% - 17px), calc(-100% - 15px));
+}
+
+.tc-popover-warning {
+  border-color: rgba(162, 72, 65, 0.45);
+  animation: tc-warning-shake 220ms ease;
+}
+
+@keyframes tc-warning-shake {
+  25% {
+    margin-left: -4px;
+  }
+
+  75% {
+    margin-left: 4px;
+  }
+}
+
+.tc-popover-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 9px;
+}
+
+.tc-popover-title strong {
+  font-size: 0.74rem;
+  color: #314738;
+}
+
+.tc-popover-title button {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #eef0e9;
+  color: #667168;
+  cursor: pointer;
+}
+
+.tc-popover-colors {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.tc-color-button {
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 2px solid #fffdf8;
+  border-radius: 50%;
+  outline: 1px solid rgba(36, 54, 41, 0.14);
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    outline-color 120ms ease;
+}
+
+.tc-color-button:hover {
+  transform: scale(1.14);
+  outline-color: #344c3a;
+}
+
+.tc-color-button.current {
+  outline: 3px solid #263c2d;
+}
+
+.tc-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin-top: 9px;
+  padding: 8px;
+  border-radius: 8px;
+  background: #f5e6e3;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #844741;
+}
+
+.tc-warning span {
+  display: grid;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: #b85c57;
+  color: white;
+  font-size: 0.63rem;
+}
+
+.tc-erase {
+  width: 100%;
+  margin-top: 8px;
+  padding: 6px;
+  border: 0;
+  border-radius: 7px;
+  background: #eef0e9;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #526157;
+  cursor: pointer;
+}
+
+/* Rules */
+
+.tc-side {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.tc-rules {
+  padding: 15px;
+  border: 1px solid rgba(45, 69, 51, 0.15);
+  border-radius: 14px;
+  background: #fffdf8;
+}
+
+.tc-rules-heading > span {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  color: #9b7654;
+}
+
+.tc-rules-heading h2 {
+  margin: 0 0 11px;
+  font-family: "Playfair Display", serif;
+  font-size: 1.28rem;
+  font-weight: 600;
+  line-height: 1.12;
+  color: #253a2c;
+}
+
+.tc-rule-list {
+  display: grid;
+  gap: 6px;
+}
+
+.tc-rule-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 65px 1fr 16px;
+  align-items: center;
+  gap: 7px;
+  min-height: 57px;
+  padding: 5px 7px 5px 4px;
+  border-radius: 9px;
+  background: #f6f4ed;
+}
+
+.tc-rule-item svg {
+  width: 62px;
+  height: 34px;
+}
+
+.tc-rule-line {
+  stroke: #8d998f;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.tc-rule-colored-line {
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.tc-rule-node {
+  stroke: #6f413d;
+  stroke-width: 2;
+}
+
+.tc-rule-empty-node {
+  fill: #fffdf8;
+  stroke: #45594b;
+  stroke-width: 2;
+}
+
+.tc-rule-item strong {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 0.75rem;
+  color: #35493b;
+}
+
+.tc-rule-item div span {
+  display: block;
+  font-size: 0.69rem;
+  line-height: 1.28;
+  color: #727c74;
+}
+
+.tc-rule-item > b {
+  align-self: start;
+  padding-top: 7px;
+  font-size: 1rem;
+  color: #b85c57;
+}
+
+.tc-status {
+  padding: 11px 13px;
+  border: 1px solid rgba(50, 75, 56, 0.14);
+  border-radius: 11px;
+  background: #eef1e9;
+}
+
+.tc-status > span {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 0.54rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #6c786e;
+}
+
+.tc-status p {
+  margin: 0;
+  font-size: 0.73rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #405347;
+}
+
+.tc-status-complete {
+  border-color: rgba(75, 120, 82, 0.28);
+  background: #e6efe3;
+}
+
+.tc-side-bottom {
+  margin-top: auto;
+}
+
+.tc-mini-progress {
+  height: 6px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #dde2d9;
+}
+
+.tc-mini-progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #58755f;
+  transition: width 160ms ease;
+}
+
+.tc-reset {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid rgba(46, 71, 53, 0.25);
+  border-radius: 999px;
+  background: #fffdf8;
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #405747;
+  cursor: pointer;
+  transition:
+    background 140ms ease,
+    transform 140ms ease;
+}
+
+.tc-reset:hover {
+  transform: translateY(-1px);
+  background: #edf0e8;
+}
+
+@media (max-width: 900px) {
+  .research-page:has(.research-game-view) .research-main {
+    padding-bottom: 30px;
+  }
+
+  .tc-layout {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .tc-board {
+    height: 480px;
+  }
+
+  .tc-side {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tc-rules {
+    grid-row: span 2;
+  }
+}
+
+@media (max-width: 650px) {
+  .tc-top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .tc-scoreboard {
+    width: 100%;
+  }
+
+  .tc-score-main,
+  .tc-score-progress {
+    flex: 1;
+  }
+
+  .tc-board {
+    height: 390px;
+  }
+
+  .tc-side {
+    grid-template-columns: 1fr;
+  }
+
+  .tc-popover {
+    width: 190px;
+  }
+}
+
+
+/* Total Coloring game actions */
+
+.tc-game-buttons {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 8px;
+}
+
+.tc-game-buttons .tc-reset {
+  width: 100%;
+}
+
+.tc-new-graph {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid #314b39;
+  border-radius: 999px;
+  background: #314b39;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #fffdf8;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(37, 58, 44, 0.12);
+  transition:
+    background 140ms ease,
+    transform 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.tc-new-graph:hover {
+  transform: translateY(-1px);
+  background: #253d2d;
+  box-shadow: 0 6px 14px rgba(37, 58, 44, 0.17);
+}
+
+@media (max-width: 650px) {
+  .tc-game-buttons {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Total Coloring — Related Research */
+
+.tc-related-research {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid rgba(45, 69, 51, 0.15);
+  border-radius: 14px;
+  background: #fffdf8;
+}
+
+.tc-related-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+
+.tc-related-heading span {
+  display: block;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  color: #8d775d;
+}
+
+.tc-related-heading h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #263b2d;
+}
+
+.tc-related-papers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.tc-related-paper {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 13px 14px;
+  border: 1px solid rgba(48, 73, 54, 0.14);
+  border-radius: 10px;
+  background: #f6f4ed;
+  text-decoration: none;
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease,
+    background 140ms ease;
+}
+
+.tc-related-paper:hover {
+  transform: translateY(-2px);
+  border-color: rgba(48, 73, 54, 0.3);
+  background: #f0f0e7;
+}
+
+.tc-related-paper strong {
+  display: block;
+  margin-bottom: 3px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.3;
+  color: #314638;
+}
+
+.tc-related-paper span {
+  display: block;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.67rem;
+  line-height: 1.35;
+  color: #747e76;
+}
+
+.tc-related-paper b {
+  flex: 0 0 auto;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.69rem;
+  color: #49634f;
+}
+
+@media (max-width: 760px) {
+  .tc-related-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .tc-related-papers {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   TOTAL COLORING — FINAL DESKTOP LAYOUT
+   title | scoreboard | status
+   rules | square board | research
+         | controls
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  .research-page:has(.research-game-view) .research-main {
+    padding-top: 72px;
+    padding-bottom: 12px;
+  }
+
+  .research-game-view > .research-back {
+    margin-bottom: 8px;
+  }
+
+  .tc-game {
+    --tc-board-size: min(610px, 43vw, calc(100vh - 255px));
+
+    display: grid;
+    grid-template-columns:
+      minmax(235px, 300px)
+      var(--tc-board-size)
+      minmax(245px, 310px);
+    grid-template-rows:
+      auto
+      var(--tc-board-size)
+      auto;
+
+    column-gap: 14px;
+    row-gap: 10px;
+
+    width: 100%;
+  }
+
+  /* Allow the pieces inside the old wrappers to participate
+     directly in the new page grid. */
+
+  .tc-top,
+  .tc-layout,
+  .tc-side {
+    display: contents;
+  }
+
+  /* ---------------- TOP ROW ---------------- */
+
+  .tc-heading {
+    grid-column: 1;
+    grid-row: 1;
+
+    align-self: center;
+    justify-self: start;
+  }
+
+  .tc-heading h1 {
+    font-size: clamp(2.5rem, 3.3vw, 3.5rem);
+  }
+
+  .tc-scoreboard {
+    grid-column: 2;
+    grid-row: 1;
+
+    justify-self: center;
+    align-self: center;
+
+    width: min(100%, 365px);
+  }
+
+  .tc-status {
+    grid-column: 3;
+    grid-row: 1;
+
+    box-sizing: border-box;
+    align-self: center;
+
+    width: 100%;
+    min-height: 70px;
+    margin: 0;
+    padding: 11px 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .tc-status p {
+    font-size: 0.78rem;
+  }
+
+  /* ---------------- LEFT: RULES ---------------- */
+
+  .tc-rules {
+    grid-column: 1;
+    grid-row: 2;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: var(--tc-board-size);
+
+    padding: 18px;
+    overflow: hidden;
+  }
+
+  .tc-rules-heading h2 {
+    margin-bottom: 14px;
+    font-size: 1.4rem;
+  }
+
+  .tc-rule-list {
+    gap: 10px;
+  }
+
+  .tc-rule-item {
+    min-height: 70px;
+    padding: 8px;
+  }
+
+  .tc-rule-item strong {
+    font-size: 0.8rem;
+  }
+
+  .tc-rule-item div span {
+    font-size: 0.72rem;
+  }
+
+  /* ---------------- CENTER: PLAYING FIELD ---------------- */
+
+  .tc-board {
+    grid-column: 2;
+    grid-row: 2;
+
+    box-sizing: border-box;
+
+    width: var(--tc-board-size);
+    height: var(--tc-board-size);
+
+    min-width: 0;
+    min-height: 0;
+
+    aspect-ratio: 1 / 1;
+
+    justify-self: center;
+    align-self: start;
+
+    overflow: hidden;
+  }
+
+  .tc-graph {
+    display: block;
+
+    width: 95%;
+    height: 95%;
+
+    max-width: 95%;
+    max-height: 95%;
+
+    margin: auto;
+  }
+
+  /* ---------------- RIGHT: RESEARCH ---------------- */
+
+  .tc-related-research {
+    grid-column: 3;
+    grid-row: 2;
+
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 1fr;
+
+    gap: 10px;
+
+    width: 100%;
+    height: var(--tc-board-size);
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+  }
+
+  .tc-related-intro {
+    padding: 14px 15px;
+
+    border-left: 3px solid #b99b56;
+  }
+
+  .tc-related-intro span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 0.56rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+
+    color: #92764f;
+  }
+
+  .tc-related-intro strong {
+    display: block;
+
+    max-width: none;
+
+    font-family: "Playfair Display", serif;
+    font-size: 1.12rem;
+    line-height: 1.18;
+
+    color: #273b2e;
+  }
+
+  .tc-related-paper {
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    grid-template-rows: 1fr auto;
+
+    gap: 8px 12px;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 16px;
+
+    border: 1px solid rgba(46, 70, 52, 0.14);
+    border-radius: 12px;
+
+    background: #fffdf8;
+
+    text-decoration: none;
+
+    transition:
+      transform 140ms ease,
+      border-color 140ms ease,
+      box-shadow 140ms ease;
+  }
+
+  .tc-related-paper:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(46, 70, 52, 0.3);
+
+    box-shadow: 0 6px 16px rgba(34, 54, 40, 0.08);
+  }
+
+  .tc-paper-mark {
+    grid-column: 1;
+    grid-row: 1 / 3;
+
+    display: grid;
+
+    width: 38px;
+    height: 46px;
+
+    place-items: center;
+
+    border-radius: 7px;
+
+    background: #edf0e7;
+
+    font-family: "Playfair Display", serif;
+    font-size: 0.86rem;
+    font-weight: 700;
+
+    color: #536a58;
+  }
+
+  .tc-paper-copy {
+    grid-column: 2;
+    grid-row: 1;
+
+    min-width: 0;
+  }
+
+  .tc-paper-copy strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 0.84rem;
+    line-height: 1.32;
+
+    color: #2f4435;
+  }
+
+  .tc-paper-copy span {
+    display: block;
+
+    font-size: 0.67rem;
+    line-height: 1.4;
+
+    color: #788179;
+  }
+
+  .tc-paper-link {
+    grid-column: 2;
+    grid-row: 2;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    justify-self: start;
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+    color: #526a57;
+  }
+
+  /* ---------------- BELOW BOARD: ACTIONS ---------------- */
+
+  .tc-side-bottom {
+    grid-column: 2;
+    grid-row: 3;
+
+    width: 100%;
+    margin: 0;
+  }
+
+  .tc-mini-progress {
+    display: none;
+  }
+
+  .tc-game-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+  }
+}
+
+
+/* Keep the original stacked mobile/tablet layout. */
+
+@media (max-width: 900px) {
+
+  .tc-related-research {
+    margin-top: 14px;
+  }
+
+  .tc-related-papers {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Total Coloring — balanced scoreboard + status light states */
+
+@media (min-width: 901px) {
+
+  .tc-scoreboard {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    width: min(100%, 430px);
+
+    justify-self: center;
+    align-self: center;
+  }
+
+  .tc-scoreboard-light,
+  .tc-score-main,
+  .tc-score-progress {
+    box-sizing: border-box;
+
+    width: auto;
+    min-width: 0;
+
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .tc-scoreboard-light {
+    border-right: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .tc-score-main {
+    border-right: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .tc-score-divider {
+    display: none;
+  }
+}
+
+/* Yellow = ready */
+
+.tc-scoreboard-light span {
+  background: #d2a547;
+  box-shadow: 0 0 9px rgba(210, 165, 71, 0.65);
+}
+
+/* Green = actively coloring */
+
+.tc-scoreboard-light span.active {
+  background: #72ad79;
+  box-shadow: 0 0 10px rgba(114, 173, 121, 0.8);
+}
+
+/* Red = coloring complete */
+
+.tc-scoreboard-light span.complete {
+  background: #b85c57;
+  box-shadow: 0 0 10px rgba(184, 92, 87, 0.78);
+}
+
+
+/* =========================================================
+   TOTAL COLORING — t / epsilon composition
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  .tc-game {
+    /*
+       t = supporting-column width
+       epsilon = whitespace between graph and playing-field edge
+    */
+    --tc-left-t: clamp(220px, 14vw, 255px);
+    --tc-right-t: clamp(230px, 15vw, 275px);
+    --tc-board-size: min(610px, calc(100vh - 250px));
+    --tc-gap: 16px;
+
+    grid-template-columns:
+      var(--tc-left-t)
+      var(--tc-board-size)
+      var(--tc-right-t);
+
+    grid-template-rows:
+      auto
+      var(--tc-board-size)
+      auto;
+
+    column-gap: var(--tc-gap);
+    row-gap: 9px;
+
+    width: min(
+      100%,
+      calc(
+        var(--tc-left-t)
+        + var(--tc-board-size)
+        + var(--tc-right-t)
+        + 32px
+      )
+    );
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ---------------- centered square playing field ---------------- */
+
+  .tc-board {
+    width: var(--tc-board-size);
+    height: var(--tc-board-size);
+    aspect-ratio: 1 / 1;
+  }
+
+  /*
+     epsilon is now very small:
+     the graph occupies almost the entire square.
+  */
+
+  .tc-graph {
+    width: 96%;
+    height: 96%;
+    max-width: 96%;
+    max-height: 96%;
+    margin: auto;
+  }
+
+  /* ---------------- rules: compact supporting column ---------------- */
+
+  .tc-rules {
+    height: auto;
+    align-self: start;
+    padding: 16px 14px;
+  }
+
+  .tc-rules-heading h2 {
+    font-size: 1.25rem;
+    line-height: 1.12;
+  }
+
+  .tc-rule-list {
+    gap: 7px;
+  }
+
+  .tc-rule-item {
+    grid-template-columns: 58px 1fr 14px;
+    min-height: 61px;
+  }
+
+  .tc-rule-item svg {
+    width: 55px;
+  }
+
+  /* ---------------- papers: simple, quiet, readable ---------------- */
+
+  .tc-related-research {
+    height: auto;
+    align-self: start;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tc-related-intro {
+    padding: 4px 2px 8px;
+    border-left: 0;
+    border-bottom: 1px solid rgba(46, 70, 52, 0.16);
+  }
+
+  .tc-related-intro strong {
+    font-family: "Playfair Display", serif;
+    font-size: 1.28rem;
+    font-weight: 600;
+    color: #273b2e;
+  }
+
+  .tc-related-paper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    height: auto;
+    min-height: 118px;
+
+    padding: 16px 15px;
+
+    border-radius: 11px;
+  }
+
+  .tc-paper-copy strong {
+    margin-bottom: 7px;
+
+    font-size: 0.92rem;
+    line-height: 1.3;
+  }
+
+  .tc-paper-copy span {
+    font-size: 0.74rem;
+    line-height: 1.45;
+  }
+
+  .tc-paper-link {
+    margin-top: 12px;
+
+    font-size: 0.72rem;
+  }
+
+  /* ---------------- controls belong to the board ---------------- */
+
+  .tc-side-bottom {
+    width: var(--tc-board-size);
+    justify-self: center;
+  }
+}
+
+
+/* =========================================================
+   TOTAL COLORING — FIT CENTER COLUMN TO VIEWPORT HEIGHT
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  .research-page:has(.research-game-view) .research-main {
+    box-sizing: border-box;
+    height: 100dvh;
+    padding-top: 68px;
+    padding-bottom: 10px;
+    overflow: hidden;
+  }
+
+  .research-game-view {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .tc-game {
+    /*
+       Remaining vertical space is reserved for:
+       back button + title/scoreboard row + gaps + controls.
+    */
+    --tc-board-size: min(
+      610px,
+      40vw,
+      calc(100dvh - 275px)
+    );
+
+    height: 100%;
+    align-content: start;
+  }
+
+  .tc-side-bottom {
+    align-self: start;
+  }
+
+  .tc-game-buttons {
+    height: 40px;
+  }
+
+  .tc-game-buttons .tc-reset,
+  .tc-game-buttons .tc-new-graph {
+    min-height: 40px;
+  }
+}
+
+
+/* =========================================================
+   TOTAL COLORING — TOP ROW ALIGNMENT
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  .tc-heading {
+    width: 100%;
+    align-self: center;
+  }
+
+  .tc-heading p {
+    margin-bottom: 2px;
+    font-size: 0.62rem;
+  }
+
+  .tc-heading h1 {
+    font-size: clamp(2.55rem, 3vw, 3.3rem);
+    line-height: 0.96;
+  }
+
+  .tc-heading > span {
+    display: block;
+    margin-top: 4px;
+    padding: 0;
+    font-size: 0.75rem;
+  }
+
+  .tc-scoreboard {
+    box-sizing: border-box;
+    width: min(100%, 420px);
+    min-height: 70px;
+    justify-self: center;
+  }
+
+  .tc-scoreboard-light,
+  .tc-score-main,
+  .tc-score-progress {
+    min-height: 70px;
+  }
+
+  .tc-status {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 70px;
+    padding: 11px 14px;
+    border-radius: 9px;
+  }
+
+  .tc-status > span {
+    margin-bottom: 3px;
+    font-size: 0.55rem;
+  }
+
+  .tc-status p {
+    margin: 0;
+    font-size: 0.76rem;
+    line-height: 1.35;
+  }
+}
+
+
+
+/* =========================================================
+   TOTAL COLORING — FULL VIEWPORT GEOMETRY
+
+   screen = (-x, x)
+   side widths = t
+   board = (-x+t, x-t)
+   graph inset = epsilon
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  /* Do not impose a desktop max-width on this interactive page. */
+
+  .research-page:has(.research-game-view) .research-main {
+    box-sizing: border-box;
+
+    width: 100%;
+    max-width: none;
+
+    padding-left: clamp(24px, 2.5vw, 48px);
+    padding-right: clamp(24px, 2.5vw, 48px);
+  }
+
+  .research-game-view {
+    box-sizing: border-box;
+
+    width: 100%;
+    max-width: none;
+  }
+
+  /*
+     Board size is determined primarily by AVAILABLE HEIGHT.
+     That is what lets the board + controls reach the bottom
+     without introducing scrolling.
+  */
+
+  .tc-game {
+    --tc-board-size: min(
+      700px,
+      calc(100dvh - 250px)
+    );
+
+    --tc-gap: clamp(14px, 1.1vw, 22px);
+
+    /*
+       CSS now solves t automatically.
+
+       t | square board | t
+
+       Therefore the entire available width is always used.
+    */
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      var(--tc-board-size)
+      minmax(0, 1fr);
+
+    column-gap: var(--tc-gap);
+
+    width: 100%;
+    max-width: none;
+
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+
+  /* =====================================================
+     PLAYING FIELD
+     ===================================================== */
+
+  .tc-board {
+    width: var(--tc-board-size);
+    height: var(--tc-board-size);
+
+    min-width: var(--tc-board-size);
+    min-height: var(--tc-board-size);
+
+    aspect-ratio: 1 / 1;
+  }
+
+  /*
+     epsilon:
+     very little space between the graph and board boundary.
+  */
+
+  .tc-graph {
+    width: 97%;
+    height: 97%;
+
+    max-width: 97%;
+    max-height: 97%;
+
+    margin: auto;
+  }
+
+
+  /* =====================================================
+     TITLE
+     ===================================================== */
+
+  .tc-heading {
+    min-width: 0;
+  }
+
+  .tc-heading h1 {
+    white-space: nowrap;
+
+    font-size: clamp(2.35rem, 2.7vw, 3.2rem);
+  }
+
+
+  /* =====================================================
+     RULES
+     ===================================================== */
+
+  .tc-rules {
+    width: 100%;
+    max-width: none;
+
+    justify-self: stretch;
+    align-self: start;
+  }
+
+
+  /* =====================================================
+     RELATED RESEARCH
+     typography rather than cards
+     ===================================================== */
+
+  .tc-related-research {
+    box-sizing: border-box;
+
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+    padding: 5px 0 0;
+
+    align-self: start;
+
+    border: 0;
+    background: transparent;
+  }
+
+  .tc-related-research h2 {
+    margin: 0 0 18px;
+
+    font-family: "Playfair Display", serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    line-height: 1;
+
+    color: #273b2e;
+  }
+
+  .tc-paper-row {
+    padding: 15px 0 17px;
+
+    border-top: 1px solid rgba(46, 70, 52, 0.15);
+  }
+
+  .tc-paper-title {
+    display: block;
+
+    white-space: nowrap;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: clamp(0.88rem, 0.95vw, 1rem);
+    font-weight: 700;
+    line-height: 1.3;
+
+    color: #304b38;
+
+    text-decoration: none;
+
+    transition: color 140ms ease;
+  }
+
+  .tc-paper-title:hover {
+    color: #8d6841;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .tc-paper-authors {
+    margin-top: 7px;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: clamp(0.76rem, 0.82vw, 0.87rem);
+    line-height: 1.4;
+
+    color: #747d75;
+  }
+
+
+  /* =====================================================
+     CONTROLS
+     stay directly beneath the square
+     ===================================================== */
+
+  .tc-side-bottom {
+    width: var(--tc-board-size);
+    justify-self: center;
+  }
+}
+
+
+/* =========================================================
+   TOTAL COLORING — CENTER COLUMN VERTICAL LOCK
+   board + controls behave as one composition
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  .tc-game {
+    /*
+      Use the viewport height rather than an arbitrary desktop
+      width to determine the main attraction's size.
+    */
+    --tc-board-size: min(
+      700px,
+      calc(100dvh - 265px)
+    );
+
+    grid-template-rows:
+      auto
+      var(--tc-board-size)
+      46px;
+
+    row-gap: 10px;
+
+    align-content: start;
+  }
+
+  /* Board owns essentially all of the center column. */
+
+  .tc-board {
+    width: var(--tc-board-size);
+    height: var(--tc-board-size);
+
+    justify-self: center;
+    align-self: start;
+  }
+
+  /* Controls read as the footer of the playing field. */
+
+  .tc-side-bottom {
+    box-sizing: border-box;
+
+    width: var(--tc-board-size);
+    height: 46px;
+
+    margin: 0;
+
+    justify-self: center;
+    align-self: start;
+  }
+
+  .tc-game-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    width: 100%;
+    height: 46px;
+
+    gap: 9px;
+  }
+
+  .tc-game-buttons button {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 46px;
+    min-height: 46px;
+
+    margin: 0;
+  }
+
+  /* Side material is allowed to stop naturally.
+     It does not need to pretend it fills the viewport. */
+
+  .tc-rules,
+  .tc-related-research {
+    align-self: start;
+  }
+}
+
+
+/* =========================================================
+   TOTAL COLORING — TRUE VIEWPORT WIDTH
+   Break out of the 1240px Research shell.
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  /*
+     The ordinary Research page lives in a centered 1240px shell.
+     The interactive view should not.
+
+     This makes the Total Coloring page span the actual viewport,
+     with only a small intentional gutter on either side.
+  */
+
+  .research-page:has(.research-game-view) .research-main {
+    box-sizing: border-box;
+
+    width: 100vw;
+    max-width: none;
+
+    margin-left: calc(50% - 50vw);
+    margin-right: 0;
+
+    padding-left: clamp(28px, 2.4vw, 48px);
+    padding-right: clamp(28px, 2.4vw, 48px);
+
+    overflow-x: hidden;
+  }
+
+  .research-game-view {
+    width: 100%;
+    max-width: none;
+  }
+
+  /*
+     True geometry:
+
+        t              board               t
+     |--------|--------------------|--------|
+
+     The board is height-controlled.
+     Whatever horizontal room remains is split equally.
+  */
+
+  .tc-game {
+    grid-template-columns:
+      minmax(0, 1fr)
+      var(--tc-board-size)
+      minmax(0, 1fr);
+
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    column-gap: clamp(16px, 1.25vw, 24px);
+  }
+
+  /* Keep the title on one line now that its column has room. */
+
+  .tc-heading h1 {
+    white-space: nowrap;
+  }
+
+
+  /* =====================================================
+     RELATED RESEARCH — SIMPLE LINK BUTTONS
+     ===================================================== */
+
+  .tc-related-research {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    padding: 4px 0 0;
+    margin: 0;
+
+    border: 0;
+    background: transparent;
+  }
+
+  .tc-related-research h2 {
+    margin: 0 0 13px;
+
+    font-family: "Playfair Display", serif;
+    font-size: 1.38rem;
+    font-weight: 600;
+    line-height: 1.1;
+
+    color: #273b2e;
+  }
+
+  .tc-paper-row {
+    box-sizing: border-box;
+
+    width: 100%;
+
+    margin: 0 0 10px;
+    padding: 14px 16px;
+
+    border: 1px solid rgba(46, 70, 52, 0.16);
+    border-radius: 10px;
+
+    background: rgba(255, 253, 248, 0.62);
+
+    transition:
+      transform 140ms ease,
+      border-color 140ms ease,
+      background 140ms ease;
+  }
+
+  .tc-paper-row:hover {
+    transform: translateY(-1px);
+
+    border-color: rgba(46, 70, 52, 0.3);
+    background: rgba(255, 253, 248, 0.92);
+  }
+
+  .tc-paper-title {
+    display: block;
+
+    width: 100%;
+
+    white-space: nowrap;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: clamp(0.92rem, 0.88vw, 1.02rem);
+    font-weight: 700;
+    line-height: 1.25;
+
+    color: #304b38;
+
+    text-decoration: none;
+  }
+
+  .tc-paper-title:hover {
+    color: #8b6843;
+  }
+
+  .tc-paper-authors {
+    margin-top: 6px;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: clamp(0.78rem, 0.76vw, 0.86rem);
+    line-height: 1.35;
+
+    color: #717a72;
+  }
+}
+
+
+/* =========================================================
+   TOTAL COLORING — FINAL GRAPH SCALE INSIDE PLAYING FIELD
+   Small epsilon: graph nearly fills the square.
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  .tc-graph {
+    width: 99%;
+    height: 99%;
+
+    max-width: 99%;
+    max-height: 99%;
+
+    margin: auto;
+  }
+
+  .tc-board-label {
+    top: 11px;
+    left: 14px;
+  }
+}
+
+
+/* =========================================================
+   TOTAL COLORING — RECLAIM VERTICAL SPACE FOR THE BOARD
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  .research-page:has(.research-game-view) .research-main {
+    padding-top: 58px;
+    padding-bottom: 8px;
+  }
+
+  .research-game-view > .research-back {
+    margin-bottom: 5px;
+  }
+
+  .tc-game {
+    --tc-board-size: min(
+      720px,
+      calc(100dvh - 225px)
+    );
+
+    row-gap: 8px;
+  }
+
+  .tc-top {
+    margin-bottom: 0;
+  }
+
+  .tc-heading p {
+    margin-bottom: 1px;
+  }
+
+  .tc-heading > span {
+    margin-top: 2px;
+  }
+
+  .tc-scoreboard,
+  .tc-scoreboard-light,
+  .tc-score-main,
+  .tc-score-progress,
+  .tc-status {
+    min-height: 62px;
+  }
+
+  .tc-side-bottom,
+  .tc-game-buttons,
+  .tc-game-buttons button {
+    height: 42px;
+    min-height: 42px;
+  }
+}
+
+
+/* =========================================================
+   TOTAL COLORING — SUPPORTING COLUMNS HUG THE BOARD
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  /* Rules live against the left edge of the playing field. */
+
+  .tc-rules {
+    width: min(100%, 330px);
+
+    justify-self: end;
+    align-self: start;
+  }
+
+  /* Related Research lives against the right edge of the field. */
+
+  .tc-related-research {
+    width: min(100%, 390px);
+
+    justify-self: start;
+    align-self: start;
+  }
+
+  .tc-paper-row {
+    width: 100%;
+  }
+
+  .tc-paper-title {
+    font-size: 1rem;
+  }
+
+  .tc-paper-authors {
+    font-size: 0.84rem;
+  }
+}
+
+
+/* =========================================================
+   TOTAL COLORING — SIDE-COLUMN + VIEWPORT POLISH
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  /* -----------------------------------------------------
+     Make sure the bottom controls are fully visible.
+     The previous board was only slightly too tall.
+     ----------------------------------------------------- */
+
+  .tc-game {
+    --tc-board-size: min(
+      720px,
+      calc(100dvh - 248px)
+    );
+  }
+
+
+  /* -----------------------------------------------------
+     RULES
+     Give the rules more breathing room and center the
+     whole rules panel within its supporting column.
+     ----------------------------------------------------- */
+
+  .tc-rules {
+    width: min(100%, 390px);
+
+    justify-self: center;
+    align-self: start;
+
+    padding: 18px 17px;
+  }
+
+  .tc-rule-item {
+    grid-template-columns: 66px minmax(0, 1fr) 16px;
+    column-gap: 10px;
+
+    min-height: 66px;
+  }
+
+  .tc-rule-item svg {
+    width: 63px;
+  }
+
+
+  /* -----------------------------------------------------
+     RELATED PAPERS
+     Simple scholarly presentation, no forced one-line text.
+     ----------------------------------------------------- */
+
+  .tc-related-research {
+    width: min(100%, 400px);
+
+    justify-self: center;
+    align-self: start;
+  }
+
+  .tc-related-research h2 {
+    margin-bottom: 14px;
+
+    font-family: "Playfair Display", serif;
+    font-size: 1.42rem;
+    font-weight: 600;
+
+    color: #273b2e;
+  }
+
+  .tc-paper-row {
+    padding: 15px 16px;
+  }
+
+  .tc-paper-title {
+    white-space: normal;
+
+    font-family: "Playfair Display", serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.24;
+
+    color: #304b38;
+  }
+
+  .tc-paper-authors {
+    margin-top: 7px;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.86rem;
+    line-height: 1.4;
+
+    color: #717a72;
+  }
+}
+
+
+/* =========================================================
+   TOTAL COLORING — HEADER CLEARANCE + CLEAN TITLE
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  /*
+     Give the library-back button clear separation from
+     the fixed OH/site header.
+  */
+
+  .research-page:has(.research-game-view) .research-main {
+    padding-top: 68px;
+  }
+
+  .research-game-view > .research-back {
+    margin-top: 8px;
+    margin-bottom: 7px;
+  }
+
+  /*
+     We used a little more vertical space above, so reclaim
+     exactly that space from the board to keep the controls
+     fully inside the viewport.
+  */
+
+  .tc-game {
+    --tc-board-size: min(
+      720px,
+      calc(100dvh - 266px)
+    );
+  }
+
+  /*
+     With the eyebrow removed, Total Coloring becomes the
+     sole title and no longer needs the old two-row heading.
+  */
+
+  .tc-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+
+    min-width: 0;
+  }
+
+  .tc-heading h1 {
+    margin: 0;
+
+    white-space: nowrap;
+  }
+
+  .tc-heading > span {
+    margin: 0;
+    padding: 0;
+
+    white-space: nowrap;
+  }
+}
+
+
+/* =========================================================
+   TOTAL COLORING — EXTENSION CHALLENGE
+   ========================================================= */
+
+.tc-left-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tc-extension {
+  width: 100%;
+}
+
+.tc-extension-actions {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 36px;
+  gap: 7px;
+
+  width: 100%;
+}
+
+.tc-extension-button,
+.tc-extension-help-button {
+  border: 1px solid rgba(46, 70, 52, 0.2);
+
+  font-family: "DM Sans", sans-serif;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 140ms ease,
+    background 140ms ease,
+    border-color 140ms ease;
+}
+
+.tc-extension-button {
+  min-height: 38px;
+
+  padding: 8px 13px;
+
+  border-radius: 9px;
+
+  background: #304b38;
+  color: #fffdf8;
+
+  font-size: 0.76rem;
+  letter-spacing: 0.01em;
+}
+
+.tc-extension-button:hover {
+  transform: translateY(-1px);
+  background: #3b5943;
+}
+
+.tc-extension-help-button {
+  display: grid;
+  place-items: center;
+
+  width: 36px;
+  height: 38px;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  background: #f1eadb;
+  color: #405746;
+
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+}
+
+.tc-extension-help-button:hover {
+  transform: translateY(-1px);
+
+  border-color: rgba(46, 70, 52, 0.35);
+  background: #ebe1cf;
+}
+
+.tc-extension-help {
+  position: absolute;
+  z-index: 40;
+
+  top: calc(100% + 8px);
+  right: 0;
+
+  box-sizing: border-box;
+
+  width: min(310px, 100%);
+
+  padding: 13px 14px;
+
+  border: 1px solid rgba(46, 70, 52, 0.18);
+  border-radius: 10px;
+
+  background: #fffdf8;
+
+  box-shadow: 0 9px 24px rgba(39, 59, 46, 0.13);
+
+  color: #405047;
+}
+
+.tc-extension-help strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-family: "Playfair Display", serif;
+  font-size: 0.98rem;
+}
+
+.tc-extension-help p {
+  margin: 0;
+
+  font-size: 0.72rem;
+  line-height: 1.48;
+}
+
+
+/* Locked pieces of the precoloring */
+
+.tc-vertex.tc-locked {
+  stroke: #263d2e;
+  stroke-width: 4px;
+
+  cursor: not-allowed;
+}
+
+.tc-edge.tc-locked {
+  stroke-width: 9px;
+}
+
+.tc-locked-hit {
+  cursor: not-allowed;
+}
+
+
+/* Left rail placement on the finished desktop geometry */
+
+@media (min-width: 901px) {
+
+  .tc-left-stack {
+    grid-column: 1;
+    grid-row: 2;
+
+    width: min(100%, 390px);
+
+    justify-self: center;
+    align-self: start;
+  }
+
+  .tc-left-stack .tc-rules {
+    box-sizing: border-box;
+
+    width: 100%;
+    max-width: none;
+  }
+}
+
+
+/* =========================================================
+   TOTAL COLORING — WIDE EXTENSION EXPLANATION
+   ========================================================= */
+
+.tc-extension-actions {
+  grid-template-columns: minmax(0, 1fr) 36px;
+}
+
+.tc-extension-help {
+  position: static;
+
+  grid-column: 1 / -1;
+
+  width: 100%;
+  max-width: none;
+
+  box-sizing: border-box;
+
+  margin-top: 2px;
+  padding: 11px 14px;
+
+  border-radius: 9px;
+
+  box-shadow: none;
+}
+
+.tc-extension-help strong {
+  margin-bottom: 3px;
+
+  font-size: 0.94rem;
+}
+
+.tc-extension-help p {
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   TOTAL COLORING — LABEL CLEARANCE INSIDE PLAYING FIELD
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  /*
+     Leave a little more room for the longer extension label.
+     The graph remains dominant, but sits slightly lower in
+     the square instead of running underneath the text.
+  */
+
+  .tc-graph {
+    width: 95.5%;
+    height: 95.5%;
+
+    max-width: 95.5%;
+    max-height: 95.5%;
+
+    transform: translateY(11px);
+  }
+}
+
+
+
+/* =========================================================
+   SHORT PATH ALGORITHMS
+   Mechanics-first interactive prototype
+   ========================================================= */
+
+.sp-game {
+  --sp-arena-width: min(
+    100%,
+    calc((100dvh - 250px) * 1.785714)
+  );
+
+  width: 100%;
+  min-width: 0;
+
+  font-family: "DM Sans", sans-serif;
+}
+
+.sp-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: var(--sp-arena-width);
+
+  margin: 0 auto 8px;
+
+  gap: 22px;
+}
+
+.sp-heading {
+  min-width: 0;
+}
+
+.sp-heading h1 {
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 2.7vw, 3.2rem);
+  font-weight: 600;
+  line-height: 0.98;
+
+  color: #283d30;
+}
+
+.sp-heading p {
+  margin: 6px 0 0;
+
+  font-size: 0.78rem;
+  line-height: 1.35;
+
+  color: #737c75;
+}
+
+.sp-scoreboard {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(94px, 1fr));
+
+  flex: 0 0 auto;
+
+  min-width: 330px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 10px;
+
+  background: #304b38;
+
+  color: #fffdf8;
+}
+
+.sp-scoreboard > div {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: baseline;
+  justify-content: center;
+
+  min-height: 59px;
+
+  padding: 8px 13px;
+}
+
+.sp-scoreboard > div + div {
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.sp-scoreboard span {
+  grid-column: 1 / -1;
+
+  margin-bottom: 1px;
+
+  font-size: 0.54rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.sp-scoreboard strong {
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1;
+
+  color: #fffdf8;
+}
+
+.sp-scoreboard small {
+  margin-left: 4px;
+
+  font-size: 0.57rem;
+  font-weight: 700;
+
+  color: rgba(255, 255, 255, 0.58);
+}
+
+
+/* ---------------- ARENA ---------------- */
+
+.sp-arena-wrap {
+  width: var(--sp-arena-width);
+
+  aspect-ratio: 1000 / 560;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(45, 67, 51, 0.2);
+  border-radius: 13px;
+
+  background: #fbf8ef;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+}
+
+.sp-arena {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  touch-action: none;
+  user-select: none;
+}
+
+.sp-arena-background {
+  fill: #fbf8ef;
+}
+
+.sp-distance-line {
+  stroke: #b9ad95;
+  stroke-width: 1.4;
+  stroke-dasharray: 5 6;
+
+  vector-effect: non-scaling-stroke;
+}
+
+.sp-distance-line + * {
+  pointer-events: none;
+}
+
+#sp-arrow path {
+  fill: #a89a80;
+}
+
+.sp-distance-label {
+  fill: #948771;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.sp-zone {
+  stroke-width: 2.2;
+
+  vector-effect: non-scaling-stroke;
+}
+
+.sp-zone-start {
+  fill: #e5eee4;
+  stroke: #67816b;
+}
+
+.sp-zone-target {
+  fill: #efe6cf;
+  stroke: #9b8557;
+}
+
+.sp-zone-label {
+  fill: #394e40;
+
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.sp-obstacle {
+  fill: #d7c8a8;
+  stroke: #706650;
+  stroke-width: 2;
+
+  vector-effect: non-scaling-stroke;
+}
+
+.sp-trace {
+  fill: none;
+
+  stroke: #365b43;
+  stroke-width: 2.35;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  opacity: 0.92;
+
+  pointer-events: none;
+
+  vector-effect: non-scaling-stroke;
+}
+
+.sp-runner-halo {
+  fill: none;
+
+  stroke: rgba(47, 77, 56, 0.18);
+  stroke-width: 7;
+
+  pointer-events: none;
+
+  vector-effect: non-scaling-stroke;
+}
+
+.sp-runner {
+  fill: #314f3a;
+
+  stroke: #fffdf8;
+  stroke-width: 2.2;
+
+  cursor: grab;
+
+  vector-effect: non-scaling-stroke;
+}
+
+.sp-arena-dragging .sp-runner {
+  cursor: grabbing;
+}
+
+.sp-arena-complete .sp-runner {
+  fill: #a2824a;
+}
+
+
+/* ---------------- CONTROLS ---------------- */
+
+.sp-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: var(--sp-arena-width);
+
+  margin: 8px auto 0;
+
+  gap: 18px;
+}
+
+.sp-theorem-note {
+  display: flex;
+  align-items: baseline;
+
+  min-width: 0;
+
+  gap: 8px;
+}
+
+.sp-theorem-note strong {
+  white-space: nowrap;
+
+  font-family: "Playfair Display", serif;
+  font-size: 0.91rem;
+  font-weight: 600;
+
+  color: #304b38;
+}
+
+.sp-theorem-note span {
+  font-size: 0.7rem;
+
+  color: #7a817b;
+}
+
+.sp-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  flex: 0 0 auto;
+
+  gap: 8px;
+}
+
+.sp-buttons button {
+  min-width: 138px;
+  min-height: 40px;
+
+  padding: 8px 15px;
+
+  border-radius: 8px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.74rem;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 130ms ease,
+    background 130ms ease,
+    border-color 130ms ease;
+}
+
+.sp-reset {
+  border: 1px solid rgba(48, 75, 56, 0.22);
+
+  background: #f1ebdc;
+  color: #405647;
+}
+
+.sp-new {
+  border: 1px solid #304b38;
+
+  background: #304b38;
+  color: #fffdf8;
+}
+
+.sp-buttons button:hover {
+  transform: translateY(-1px);
+}
+
+.sp-reset:hover {
+  border-color: rgba(48, 75, 56, 0.38);
+
+  background: #ebe2d1;
+}
+
+.sp-new:hover {
+  background: #3a5943;
+}
+
+
+/* ---------------- LAPTOP / DESKTOP ---------------- */
+
+@media (min-width: 901px) {
+  .sp-game {
+    /*
+     * Same lesson as Total Coloring:
+     * fit to the REAL laptop viewport and do not require scrolling.
+     */
+    --sp-arena-width: min(
+      100%,
+      calc((100dvh - 250px) * 1.785714)
+    );
+  }
+}
+
+
+/* ---------------- MOBILE / NARROW ---------------- */
+
+@media (max-width: 900px) {
+  .sp-game {
+    --sp-arena-width: 100%;
+  }
+
+  .sp-top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .sp-scoreboard {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .sp-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .sp-theorem-note {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 2px;
+  }
+
+  .sp-buttons {
+    width: 100%;
+  }
+
+  .sp-buttons button {
+    min-width: 0;
+  }
+}
+
+
+/* =========================================================
+   SHORT PATH — MATHEMATICAL TYPOGRAPHY POLISH
+   ========================================================= */
+
+/*
+ * Use a mathematical serif face for actual quantities.
+ * KaTeX_Main is available on the site through KaTeX; the
+ * fallbacks preserve the same mathematical character.
+ */
+
+.sp-math,
+.sp-scoreboard strong,
+.sp-scoreboard small,
+.sp-distance-label {
+  font-family:
+    "KaTeX_Main",
+    "STIX Two Text",
+    "Times New Roman",
+    serif;
+}
+
+
+/* The theorem statement and its explanation should read
+   as two lines, not one long sentence. */
+
+.sp-theorem-note {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 3px;
+}
+
+.sp-theorem-note strong {
+  white-space: normal;
+
+  font-size: 0.96rem;
+}
+
+.sp-theorem-note > span {
+  display: block;
+
+  font-size: 0.73rem;
+}
+
+
+/* Make the fixed scale visually important inside the arena. */
+
+.sp-distance-label {
+  font-size: 20px;
+  font-weight: 600;
+
+  fill: #756952;
+}
+
+
+/* Mathematical values on the scoreboard should feel less
+   like ordinary UI text and more like displayed quantities. */
+
+.sp-scoreboard strong {
+  font-size: 1.48rem;
+  font-weight: 600;
+}
+
+.sp-scoreboard small {
+  font-size: 0.64rem;
+}
+
+
+/* =========================================================
+   SHORT PATH — EXTREMAL ARRANGEMENT BUTTON
+   ========================================================= */
+
+.sp-buttons {
+  grid-template-columns: repeat(3, auto);
+}
+
+.sp-extremal {
+  min-width: 172px !important;
+
+  border: 1px solid #9a8155;
+
+  background: #ebe1cb;
+  color: #594d38;
+}
+
+.sp-extremal:hover {
+  background: #e2d4b8;
+}
+
+@media (max-width: 900px) {
+  .sp-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .sp-extremal {
+    min-width: 0 !important;
+  }
+}
+
+
+/* =========================================================
+   SHORT PATH — RELATED PAPER
+   ========================================================= */
+
+.sp-info-stack {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 7px;
+}
+
+.sp-related-paper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-width: 0;
+  gap: 18px;
+
+  padding-top: 7px;
+
+  border-top: 1px solid rgba(48, 75, 56, 0.14);
+}
+
+.sp-related-paper-copy {
+  display: flex;
+  align-items: center;
+
+  min-width: 0;
+  gap: 11px;
+}
+
+.sp-related-kicker {
+  flex: 0 0 auto;
+
+  font-size: 0.50rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+
+  color: #927c5d;
+}
+
+.sp-related-paper-copy > div {
+  display: flex;
+  align-items: baseline;
+
+  min-width: 0;
+  gap: 9px;
+}
+
+.sp-related-title {
+  font-family: "Playfair Display", serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+
+  color: #304b38;
+}
+
+.sp-related-authors {
+  white-space: nowrap;
+
+  font-size: 0.61rem;
+
+  color: #777d77;
+}
+
+.sp-related-links {
+  display: flex;
+  flex: 0 0 auto;
+
+  gap: 6px;
+}
+
+.sp-related-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 25px;
+  padding: 0 9px;
+
+  border: 1px solid rgba(48, 75, 56, 0.22);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.38);
+  color: #304b38;
+
+  font-size: 0.61rem;
+  font-weight: 800;
+
+  text-decoration: none;
+}
+
+.sp-related-links a:hover {
+  background: rgba(48, 75, 56, 0.08);
+}
+
+@media (max-width: 900px) {
+  .sp-related-paper {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 7px;
+  }
+
+  .sp-related-paper-copy {
+    align-items: flex-start;
+  }
+
+  .sp-related-paper-copy > div {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 1px;
+  }
+}
+
+
+/* =========================================================
+   SHORT PATH — STANDALONE RELATED PAPER
+   Same structural idea as Total Coloring
+   ========================================================= */
+
+.sp-related-research {
+  width: var(--sp-arena-width);
+  box-sizing: border-box;
+
+  margin: 12px auto 0;
+  padding: 10px 14px;
+
+  border: 1px solid rgba(48, 75, 56, 0.15);
+  border-radius: 10px;
+
+  background: rgba(255, 253, 248, 0.66);
+}
+
+.sp-related-research h2 {
+  margin: 0 0 6px;
+
+  font-family: "Playfair Display", serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+
+  color: #304b38;
+}
+
+.sp-paper-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 18px;
+}
+
+.sp-paper-copy {
+  min-width: 0;
+}
+
+.sp-paper-title {
+  font-family: "Playfair Display", serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+
+  color: #304b38;
+}
+
+.sp-paper-authors {
+  margin-top: 2px;
+
+  font-size: 0.63rem;
+
+  color: #777d77;
+}
+
+.sp-paper-links {
+  display: flex;
+  flex: 0 0 auto;
+
+  gap: 7px;
+}
+
+.sp-paper-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 28px;
+  padding: 0 11px;
+
+  border: 1px solid rgba(48, 75, 56, 0.24);
+  border-radius: 999px;
+
+  background: #fffdf8;
+  color: #304b38;
+
+  font-size: 0.64rem;
+  font-weight: 800;
+
+  text-decoration: none;
+}
+
+.sp-paper-links a:hover {
+  background: rgba(48, 75, 56, 0.08);
+}
+
+
+/* Reserve actual room for the standalone paper section. */
+
+@media (min-width: 901px) {
+  .sp-game {
+    --sp-arena-width: min(
+      100%,
+      calc((100dvh - 250px) * 1.785714)
+    );
+  }
+}
+
+@media (max-width: 900px) {
+  .sp-paper-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+
+/* =========================================================
+   SHORT PATH — VISIBLE RELATED PAPER STRIP
+   ========================================================= */
+
+.sp-paper-banner {
+  display: flex;
+  align-items: center;
+
+  width: var(--sp-arena-width);
+  box-sizing: border-box;
+
+  margin: 0 auto 8px;
+  padding: 8px 12px;
+
+  gap: 14px;
+
+  border: 1px solid rgba(48, 75, 56, 0.18);
+  border-radius: 9px;
+
+  background: #fffdf8;
+}
+
+.sp-paper-banner-label {
+  flex: 0 0 auto;
+
+  font-size: 0.5rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+
+  color: #9a805a;
+}
+
+.sp-paper-banner-copy {
+  display: flex;
+  align-items: baseline;
+
+  min-width: 0;
+  flex: 1;
+
+  gap: 10px;
+}
+
+.sp-paper-banner-title {
+  font-family: "Playfair Display", serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+
+  color: #304b38;
+}
+
+.sp-paper-banner-authors {
+  white-space: nowrap;
+
+  font-size: 0.62rem;
+
+  color: #777d77;
+}
+
+.sp-paper-banner-links {
+  display: flex;
+  flex: 0 0 auto;
+
+  gap: 6px;
+}
+
+.sp-paper-banner-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 27px;
+  padding: 0 10px;
+
+  border: 1px solid rgba(48, 75, 56, 0.24);
+  border-radius: 999px;
+
+  background: #f6f0e5;
+  color: #304b38;
+
+  font-size: 0.63rem;
+  font-weight: 800;
+
+  text-decoration: none;
+}
+
+.sp-paper-banner-links a:hover {
+  background: #ece2d1;
+}
+
+@media (max-width: 900px) {
+  .sp-paper-banner {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .sp-paper-banner-copy {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 1px;
+  }
+}
+
+
+/* =========================================================
+   SHORT PATH — FINAL DESKTOP COMPOSITION
+
+   Keep the game at its original size.
+   Use the otherwise-empty right side for the related paper.
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  .sp-game {
+    --sp-paper-width: clamp(220px, 18vw, 285px);
+
+    /*
+     * This is the ORIGINAL height-based board size that looked right.
+     * The width cap only matters on narrower desktop windows.
+     */
+    --sp-arena-width: min(
+      calc(100% - var(--sp-paper-width) - 26px),
+      calc((100dvh - 250px) * 1.785714)
+    );
+
+    display: grid;
+
+    grid-template-columns:
+      var(--sp-arena-width)
+      var(--sp-paper-width);
+
+    grid-template-areas:
+      "top     ."
+      "arena   paper"
+      "controls paper";
+
+    justify-content: center;
+
+    column-gap: 26px;
+    row-gap: 0;
+  }
+
+
+  /* ---------------- TOP ---------------- */
+
+  .sp-top {
+    grid-area: top;
+
+    width: 100%;
+
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+
+  /* ---------------- PLAYING BOARD ---------------- */
+
+  .sp-arena-wrap {
+    grid-area: arena;
+
+    width: 100%;
+
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+
+  /* ---------------- BUTTONS / THEOREM ---------------- */
+
+  .sp-controls {
+    grid-area: controls;
+
+    width: 100%;
+
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 8px;
+  }
+
+
+  /* ---------------- RELATED PAPER ---------------- */
+
+  .sp-paper-banner {
+    grid-area: paper;
+
+    display: flex;
+    align-self: start;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 18px 17px;
+
+    gap: 10px;
+
+    border: 1px solid rgba(48, 75, 56, 0.18);
+    border-radius: 12px;
+
+    background: #fffdf8;
+  }
+
+  .sp-paper-banner-label {
+    font-size: 0.54rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+
+    color: #9a805a;
+  }
+
+  .sp-paper-banner-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 100%;
+
+    gap: 4px;
+  }
+
+  .sp-paper-banner-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.22;
+
+    color: #304b38;
+  }
+
+  .sp-paper-banner-authors {
+    white-space: normal;
+
+    font-size: 0.68rem;
+    line-height: 1.4;
+
+    color: #777d77;
+  }
+
+  .sp-paper-banner-links {
+    display: grid;
+
+    width: 100%;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px;
+
+    margin-top: 3px;
+  }
+
+  .sp-paper-banner-links a {
+    min-height: 32px;
+
+    padding: 0 8px;
+  }
+}
+
+
+/* =========================================================
+   SHORT PATH — MATCH TOTAL COLORING PAPER TYPOGRAPHY
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  .sp-paper-banner-label {
+    font-family: "Playfair Display", serif;
+    font-size: 1.42rem;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: 0;
+
+    color: #273b2e;
+  }
+
+  .sp-paper-banner-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.24;
+
+    color: #304b38;
+  }
+
+  .sp-paper-banner-authors {
+    margin-top: 7px;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.86rem;
+    line-height: 1.4;
+
+    color: #717a72;
+  }
+}
+
+
+/* Short Path — widen paper panel to the right only */
+@media (min-width: 901px) {
+  .sp-paper-banner {
+    width: calc(100% + 75px);
+    max-width: none;
+
+    justify-self: start;
+  }
+}
+
+
+/* =========================================================
+   SHORT PATH — BOARD INSTRUCTION
+   mirrors the Total Coloring playing-field label
+   ========================================================= */
+
+.sp-arena-wrap {
+  position: relative;
+}
+
+.sp-board-label {
+  position: absolute;
+
+  top: 11px;
+  right: 15px;
+
+  z-index: 4;
+
+  pointer-events: none;
+}
+
+.sp-board-label small {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+
+  color: #747d75;
+}
+
+
+/* =========================================================
+   CV PAGE
+   ========================================================= */
+
+.cv-main {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 120px 0 56px;
+}
+
+.cv-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+
+  margin-bottom: 24px;
+}
+
+.cv-eyebrow {
+  margin: 0 0 5px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+
+  color: #8d775d;
+}
+
+.cv-heading h1 {
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: 500;
+  line-height: 1;
+
+  color: #263b2d;
+}
+
+.cv-open-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+  padding: 0 17px;
+
+  border: 1px solid rgba(46, 70, 52, 0.2);
+  border-radius: 999px;
+
+  background: #fffdf8;
+  color: #304b38;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease,
+    background 140ms ease;
+}
+
+.cv-open-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(46, 70, 52, 0.35);
+  background: #f6f0e5;
+}
+
+.cv-frame-wrap {
+  overflow: hidden;
+
+  width: 100%;
+  height: calc(100dvh - 220px);
+  min-height: 650px;
+
+  border: 1px solid rgba(46, 70, 52, 0.16);
+  border-radius: 14px;
+
+  background: #fffdf8;
+}
+
+.cv-frame {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+}
+
+@media (max-width: 700px) {
+  .cv-main {
+    width: min(100% - 28px, 1180px);
+    padding-top: 100px;
+  }
+
+  .cv-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cv-frame-wrap {
+    height: 72vh;
+    min-height: 520px;
+  }
+}
+
