@@ -7366,3 +7366,580 @@ h1 {
   }
 }
 
+
+
+/* =========================================================
+   TRAVEL — MATHEMATICAL MAP
+   ========================================================= */
+
+.travel-page {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 76% 22%,
+      rgba(185, 155, 86, 0.09),
+      transparent 28rem
+    ),
+    #f4f0e8;
+}
+
+.travel-main {
+  width: min(1480px, calc(100% - 56px));
+  margin: 0 auto;
+  padding: 118px 0 64px;
+}
+
+.travel-intro {
+  max-width: 860px;
+  margin-bottom: 28px;
+}
+
+.travel-eyebrow {
+  margin: 0 0 10px;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+
+  color: #8d775d;
+}
+
+.travel-intro h1 {
+  max-width: none;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 5.4vw, 5.8rem);
+  font-weight: 500;
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+
+  color: #263b2d;
+}
+
+.travel-intro > p:last-child {
+  max-width: 760px;
+  margin: 20px 0 0;
+
+  font-size: clamp(0.96rem, 1.1vw, 1.08rem);
+  line-height: 1.7;
+
+  color: #536158;
+}
+
+
+/* ---------------- MAIN COMPOSITION ---------------- */
+
+.travel-stage {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(300px, 355px);
+
+  gap: clamp(18px, 2.2vw, 32px);
+
+  align-items: start;
+}
+
+
+/* ---------------- MAP ---------------- */
+
+.travel-map-shell {
+  position: relative;
+
+  overflow: hidden;
+
+  min-width: 0;
+
+  border: 1px solid rgba(46, 70, 52, 0.14);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 253, 248, 0.98),
+      rgba(249, 245, 237, 0.98)
+    );
+
+  box-shadow:
+    0 20px 55px rgba(43, 52, 45, 0.07);
+}
+
+.travel-map {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  cursor: grab;
+}
+
+.travel-map:active {
+  cursor: grabbing;
+}
+
+
+/* ---------------- ZOOM CONTROLS ---------------- */
+
+.travel-map-controls {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+.travel-map-controls button {
+  display: grid;
+  place-items: center;
+
+  height: 36px;
+  min-width: 36px;
+
+  padding: 0 10px;
+
+  border: 1px solid rgba(46, 70, 52, 0.17);
+  border-radius: 9px;
+
+  background: rgba(255, 253, 248, 0.94);
+  color: #304b38;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow: 0 5px 18px rgba(48, 75, 56, 0.07);
+
+  transition:
+    transform 130ms ease,
+    background 130ms ease,
+    border-color 130ms ease;
+}
+
+.travel-map-controls button:hover {
+  transform: translateY(-1px);
+
+  border-color: rgba(46, 70, 52, 0.32);
+  background: #fffdf8;
+}
+
+.travel-map-controls .travel-reset-map {
+  min-width: auto;
+
+  padding: 0 12px;
+
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+}
+
+
+/* ---------------- PINS ---------------- */
+
+.travel-marker {
+  cursor: pointer;
+}
+
+.travel-marker:focus {
+  outline: none;
+}
+
+.travel-pin-halo {
+  fill: rgba(185, 155, 86, 0.17);
+
+  transition: fill 150ms ease;
+}
+
+.travel-pin {
+  fill: #b99b56;
+  stroke: #56462d;
+  stroke-width: 1.15;
+
+  transition:
+    fill 150ms ease,
+    transform 150ms ease;
+}
+
+.travel-pin-core {
+  fill: #263b2d;
+}
+
+.travel-marker:hover .travel-pin-halo,
+.travel-marker:focus .travel-pin-halo {
+  fill: rgba(185, 155, 86, 0.32);
+}
+
+.travel-marker:hover .travel-pin,
+.travel-marker:focus .travel-pin {
+  fill: #c4a45d;
+}
+
+.travel-marker-selected .travel-pin {
+  fill: #c4a45d;
+}
+
+.travel-marker-selected .travel-pin-halo {
+  fill: rgba(185, 155, 86, 0.38);
+}
+
+.travel-marker-label {
+  paint-order: stroke fill;
+
+  stroke: #fffdf8;
+  stroke-width: 4px;
+  stroke-linejoin: round;
+
+  fill: #263b2d;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+
+  pointer-events: none;
+}
+
+.travel-map-note {
+  position: absolute;
+  left: 15px;
+  bottom: 13px;
+
+  padding: 6px 9px;
+
+  border-radius: 7px;
+
+  background: rgba(255, 253, 248, 0.82);
+  color: #737d75;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+
+  pointer-events: none;
+}
+
+
+/* ---------------- DETAIL PANEL ---------------- */
+
+.travel-detail {
+  position: sticky;
+  top: 92px;
+
+  box-sizing: border-box;
+
+  min-height: 390px;
+
+  padding: 24px 23px;
+
+  border: 1px solid rgba(46, 70, 52, 0.15);
+  border-radius: 16px;
+
+  background: rgba(255, 253, 248, 0.84);
+
+  box-shadow:
+    0 18px 48px rgba(43, 52, 45, 0.055);
+}
+
+.travel-detail-empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-height: 335px;
+}
+
+.travel-detail-empty > span,
+.travel-detail-heading > span {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.57rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+
+  color: #9a805a;
+}
+
+.travel-detail-empty h2,
+.travel-detail-heading h2 {
+  margin: 7px 0 0;
+
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.05;
+
+  color: #273b2e;
+}
+
+.travel-detail-empty p {
+  margin: 13px 0 0;
+
+  font-size: 0.88rem;
+  line-height: 1.65;
+
+  color: #68736b;
+}
+
+.travel-detail-heading {
+  padding-bottom: 17px;
+
+  border-bottom: 1px solid rgba(46, 70, 52, 0.13);
+}
+
+.travel-detail-heading > p {
+  margin: 6px 0 0;
+
+  font-size: 0.75rem;
+
+  color: #777f79;
+}
+
+
+/* ---------------- MULTIPLE TRIPS ---------------- */
+
+.travel-event-tabs {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  margin-top: 16px;
+}
+
+.travel-event-tab {
+  padding: 7px 9px;
+
+  border: 1px solid rgba(46, 70, 52, 0.16);
+  border-radius: 999px;
+
+  background: transparent;
+  color: #667169;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.travel-event-tab:hover,
+.travel-event-tab.active {
+  border-color: rgba(185, 155, 86, 0.55);
+
+  background: rgba(185, 155, 86, 0.12);
+  color: #56462d;
+}
+
+
+/* ---------------- EVENT ---------------- */
+
+.travel-event {
+  padding-top: 19px;
+}
+
+.travel-event-date {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+
+  color: #9a805a;
+}
+
+.travel-event h3 {
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+
+  color: #304b38;
+}
+
+.travel-event p {
+  margin: 11px 0 0;
+
+  font-size: 0.8rem;
+  line-height: 1.55;
+
+  color: #667169;
+}
+
+
+/* ---------------- PHOTO CAROUSEL ---------------- */
+
+.travel-carousel {
+  margin-top: 20px;
+}
+
+.travel-photo-frame {
+  overflow: hidden;
+
+  border-radius: 11px;
+
+  background: #ece5d9;
+}
+
+.travel-photo-frame img {
+  display: block;
+
+  width: 100%;
+  aspect-ratio: 4 / 3;
+
+  object-fit: cover;
+}
+
+.travel-photo-caption {
+  padding: 8px 10px;
+
+  font-size: 0.7rem;
+  line-height: 1.4;
+
+  color: #68736b;
+}
+
+.travel-carousel-controls {
+  display: grid;
+
+  grid-template-columns: 34px 1fr 34px;
+
+  align-items: center;
+
+  margin-top: 7px;
+}
+
+.travel-carousel-controls button {
+  display: grid;
+  place-items: center;
+
+  width: 32px;
+  height: 32px;
+
+  border: 1px solid rgba(46, 70, 52, 0.16);
+  border-radius: 50%;
+
+  background: #fffdf8;
+  color: #304b38;
+
+  cursor: pointer;
+}
+
+.travel-carousel-controls span {
+  text-align: center;
+
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  color: #7b837d;
+}
+
+.travel-map-credit {
+  margin: 10px 2px 0;
+
+  font-size: 0.58rem;
+
+  color: #91968f;
+}
+
+
+/* =========================================================
+   TRAVEL — TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .travel-main {
+    width: min(100% - 32px, 900px);
+    padding-top: 112px;
+  }
+
+  .travel-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .travel-detail {
+    position: static;
+
+    min-height: 0;
+  }
+
+  .travel-detail-empty {
+    min-height: 170px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .travel-main {
+    width: min(100% - 24px, 900px);
+    padding-top: 124px;
+  }
+
+  .travel-intro {
+    margin-bottom: 20px;
+  }
+
+  .travel-intro h1 {
+    font-size: clamp(2.75rem, 13vw, 4rem);
+  }
+
+  .travel-intro > p:last-child {
+    font-size: 0.91rem;
+  }
+
+  .travel-map-shell {
+    border-radius: 13px;
+  }
+
+  .travel-map-controls {
+    top: 10px;
+    right: 10px;
+  }
+
+  .travel-map-controls button {
+    height: 34px;
+    min-width: 34px;
+  }
+
+  .travel-map-note {
+    left: 10px;
+    bottom: 9px;
+
+    font-size: 0.56rem;
+  }
+
+  .travel-detail {
+    padding: 20px 18px;
+  }
+}
+
+
+.travel-geography {
+  fill: #e4dccf;
+  stroke: #f8f4ec;
+  stroke-width: 0.55;
+  outline: none;
+
+  transition: fill 150ms ease;
+}
+
+.travel-geography:hover {
+  fill: #d8cdbd;
+  outline: none;
+}
+
+.travel-geography:focus,
+.travel-geography:active {
+  outline: none;
+}
