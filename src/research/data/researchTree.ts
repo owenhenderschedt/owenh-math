@@ -119,8 +119,8 @@ export const researchAreas: ResearchArea[] = [
         id: 'fixed-diameter-coverings',
         title: 'Covering Points of Fixed Diameter',
         description:
-          'Explore circle coverings, diameter-one point sets, and fractional versions of Jung’s theorem.',
-        status: 'coming-soon',
+          'Place a fixed-radius disk over 1000-point sets of diameter one. How many points can you capture?',
+        status: 'playable',
       },
     ],
   },

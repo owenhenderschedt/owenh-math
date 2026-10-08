@@ -9285,3 +9285,2181 @@ h1 {
   position: relative;
   z-index: 1;
 }
+
+
+/* =========================================================
+   FIXED DIAMETER COVERINGS
+   Visual language follows the existing interactive games.
+   ========================================================= */
+
+.fd-game {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+
+  font-family: "DM Sans", sans-serif;
+}
+
+.fd-top {
+  display: grid;
+  grid-template-columns:
+    minmax(330px, 1fr)
+    minmax(330px, 0.9fr)
+    auto;
+
+  align-items: center;
+  gap: 24px;
+
+  margin-bottom: 10px;
+}
+
+.fd-heading h1 {
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.15rem, 3vw, 3.2rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+
+  color: #203427;
+}
+
+.fd-related-paper {
+  min-width: 0;
+
+  padding: 5px 16px 6px;
+
+  border-left: 2px solid rgba(185, 155, 86, 0.65);
+}
+
+.fd-related-paper > span,
+.fd-radius-control > span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 0.52rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+
+  color: #92764f;
+}
+
+.fd-related-paper a {
+  display: block;
+
+  font-family: "Playfair Display", serif;
+  font-size: 0.96rem;
+  font-weight: 600;
+  line-height: 1.18;
+
+  color: #304b38;
+  text-decoration: none;
+}
+
+.fd-related-paper a:hover {
+  color: #8b6843;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fd-related-paper small {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 0.68rem;
+  line-height: 1.25;
+
+  color: #737c75;
+}
+
+.fd-radius-control {
+  justify-self: end;
+}
+
+.fd-radius-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.fd-radius-buttons button {
+  min-width: 78px;
+  min-height: 40px;
+
+  padding: 7px 10px;
+
+  border: 1px solid rgba(53, 76, 59, 0.22);
+  border-radius: 9px;
+
+  background: #f7f4eb;
+  color: #405946;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 140ms ease,
+    background 140ms ease,
+    border-color 140ms ease;
+}
+
+.fd-radius-buttons button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(53, 76, 59, 0.42);
+}
+
+.fd-radius-buttons button.active {
+  border-color: #b99b56;
+
+  background: #304b38;
+  color: #fffdf8;
+
+  box-shadow: 0 4px 12px rgba(37, 58, 43, 0.14);
+}
+
+.fd-radius-buttons .katex,
+.fd-radius-buttons .katex * {
+  color: inherit;
+}
+
+.fd-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(270px, 340px);
+
+  gap: 12px;
+
+  min-width: 0;
+  min-height: 0;
+}
+
+.fd-board-card,
+.fd-side-card {
+  min-width: 0;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(46, 70, 52, 0.14);
+  border-radius: 14px;
+
+  background: #fffdf8;
+
+  box-shadow: 0 8px 22px rgba(38, 57, 43, 0.055);
+}
+
+.fd-board-card {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.fd-board-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  min-height: 58px;
+  box-sizing: border-box;
+
+  padding: 9px 14px;
+
+  border-bottom: 1px solid rgba(46, 70, 52, 0.11);
+}
+
+.fd-board-heading > div > span {
+  display: block;
+
+  margin-bottom: 2px;
+
+  font-size: 0.56rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+
+  color: #98794c;
+}
+
+.fd-board-heading strong {
+  display: block;
+
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  font-weight: 600;
+
+  color: #304b38;
+}
+
+.fd-diameter-button {
+  flex: 0 0 auto;
+
+  padding: 7px 11px;
+
+  border: 1px solid rgba(53, 76, 59, 0.2);
+  border-radius: 8px;
+
+  background: #f6f3ea;
+  color: #53645a;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.69rem;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.fd-diameter-button.active {
+  border-color: rgba(185, 155, 86, 0.72);
+
+  background: #eee6d2;
+  color: #6f582f;
+}
+
+.fd-board-wrap {
+  display: grid;
+  place-items: center;
+
+  min-height: 0;
+
+  padding: 8px;
+
+  background:
+    radial-gradient(
+      circle at 50% 44%,
+      rgba(201, 183, 134, 0.075),
+      transparent 56%
+    ),
+    #faf9f4;
+}
+
+.fd-board {
+  display: block;
+
+  width: min(100%, 680px);
+  height: auto;
+  aspect-ratio: 1;
+
+  border-radius: 10px;
+
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.fd-board-cast {
+  cursor: default;
+}
+
+.fd-board-background {
+  fill: #fbfaf6;
+
+  stroke: rgba(47, 70, 53, 0.1);
+  stroke-width: 1.5;
+}
+
+.fd-point {
+  fill: #68776d;
+
+  opacity: 0.8;
+
+  transition:
+    fill 90ms ease,
+    opacity 90ms ease,
+    r 90ms ease;
+}
+
+.fd-point-preview {
+  fill: #c3a052;
+
+  opacity: 1;
+}
+
+.fd-point-captured {
+  fill: #b78e37;
+
+  opacity: 1;
+}
+
+.fd-point-muted {
+  opacity: 0.24;
+}
+
+.fd-cover-disk {
+  pointer-events: none;
+
+  stroke-width: 2.4;
+}
+
+.fd-cover-disk-preview {
+  fill: rgba(197, 168, 93, 0.105);
+  stroke: rgba(160, 128, 53, 0.72);
+  stroke-dasharray: 7 6;
+}
+
+.fd-cover-disk-cast {
+  fill: rgba(197, 168, 93, 0.13);
+  stroke: #a47e34;
+}
+
+.fd-diameter-line {
+  pointer-events: none;
+
+  stroke: #49604f;
+  stroke-width: 2.1;
+  stroke-dasharray: 7 6;
+
+  opacity: 0.78;
+}
+
+.fd-diameter-label {
+  pointer-events: none;
+
+  paint-order: stroke;
+
+  stroke: #fbfaf6;
+  stroke-width: 6px;
+
+  fill: #304b38;
+
+  font-family: "KaTeX_Main", "Times New Roman", serif;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.fd-net-cast {
+  pointer-events: none;
+
+  fill: none;
+  stroke: rgba(183, 142, 55, 0.76);
+  stroke-width: 2.2;
+  stroke-dasharray: 4 6;
+
+  transform-box: fill-box;
+  transform-origin: center;
+
+  animation: fd-net-cast 620ms cubic-bezier(.2, .75, .3, 1) both;
+}
+
+@keyframes fd-net-cast {
+  0% {
+    opacity: 0;
+    transform: scale(0.12);
+  }
+
+  20% {
+    opacity: 0.95;
+  }
+
+  72% {
+    opacity: 0.7;
+    transform: scale(1.035);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.fd-board-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 38px;
+
+  padding: 7px 14px;
+
+  box-sizing: border-box;
+
+  border-top: 1px solid rgba(46, 70, 52, 0.11);
+
+  background: #f7f3e8;
+
+  font-family: "Playfair Display", serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+
+  color: #34493a;
+}
+
+.fd-side-card {
+  display: flex;
+  flex-direction: column;
+
+  padding: 18px;
+}
+
+.fd-side-heading {
+  padding-bottom: 17px;
+
+  border-bottom: 1px solid rgba(46, 70, 52, 0.11);
+}
+
+.fd-side-heading > span,
+.fd-side-rule > span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 0.56rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+
+  color: #92764f;
+}
+
+.fd-side-heading strong {
+  display: block;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.8rem, 4vw, 4.4rem);
+  font-weight: 500;
+  line-height: 0.95;
+
+  color: #284130;
+}
+
+.fd-side-heading small {
+  display: block;
+
+  margin-top: 6px;
+
+  font-size: 0.78rem;
+
+  color: #747e76;
+}
+
+.fd-side-rule {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  padding: 17px 0;
+
+  border-bottom: 1px solid rgba(46, 70, 52, 0.11);
+}
+
+.fd-side-rule > span {
+  margin: 0;
+}
+
+.fd-side-rule strong {
+  font-family: "Playfair Display", serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+
+  color: #304b38;
+}
+
+.fd-side-copy {
+  padding: 18px 0;
+
+  font-size: 0.84rem;
+  line-height: 1.55;
+
+  color: #657068;
+}
+
+.fd-side-copy p {
+  margin: 0 0 12px;
+}
+
+.fd-side-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.fd-try-again {
+  width: 100%;
+  min-height: 42px;
+
+  margin-top: auto;
+
+  border: 1px solid #304b38;
+  border-radius: 9px;
+
+  background: #304b38;
+  color: #fffdf8;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 140ms ease,
+    background 140ms ease;
+}
+
+.fd-try-again:hover {
+  transform: translateY(-1px);
+  background: #3a5943;
+}
+
+
+/* =========================================================
+   FIXED DIAMETER — DESKTOP VIEWPORT
+   ========================================================= */
+
+@media (min-width: 901px) {
+  .research-game-view:has(.fd-game) {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 0;
+    height: 100%;
+  }
+
+  .research-game-view:has(.fd-game) > .research-back {
+    position: relative;
+    z-index: 100;
+
+    width: fit-content;
+    align-self: flex-start;
+
+    pointer-events: auto;
+  }
+
+  .fd-game {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+
+    flex: 1 1 auto;
+
+    min-height: 0;
+
+    overflow: hidden;
+  }
+
+  .fd-workspace {
+    height: 100%;
+  }
+
+  .fd-board-card,
+  .fd-side-card {
+    height: 100%;
+  }
+
+  .fd-board-wrap {
+    overflow: hidden;
+  }
+
+  .fd-board {
+    width: min(
+      100%,
+      calc(100dvh - 285px)
+    );
+
+    max-height: 100%;
+  }
+}
+
+
+/* =========================================================
+   FIXED DIAMETER — TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .fd-top {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .fd-related-paper {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .fd-radius-control {
+    justify-self: start;
+  }
+
+  .fd-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .fd-side-card {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 560px) {
+  .fd-heading h1 {
+    font-size: 2rem;
+  }
+
+  .fd-radius-buttons {
+    width: 100%;
+  }
+
+  .fd-radius-buttons button {
+    flex: 1 1 0;
+    min-width: 0;
+
+    padding-inline: 5px;
+  }
+
+  .fd-board-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+
+/* =========================================================
+   FIXED DIAMETER — FULL-VIEWPORT GEOMETRY COMPOSITION
+   Make the point set the dominant object on the page.
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  /* The game should live entirely inside the viewport. */
+  .research-page:has(.fd-game) .research-main {
+    height: 100dvh;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    padding-bottom: 7px;
+  }
+
+  .research-game-view:has(.fd-game) {
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+
+  /* ---------- TOP ROW ---------- */
+
+  .fd-top {
+    grid-template-columns:
+      minmax(520px, 1.25fr)
+      minmax(360px, 0.9fr)
+      auto;
+
+    gap: 22px;
+
+    min-height: 58px;
+    margin-bottom: 7px;
+  }
+
+  .fd-heading {
+    min-width: 0;
+  }
+
+  .fd-heading h1 {
+    white-space: nowrap;
+
+    font-size: clamp(2rem, 2.65vw, 2.75rem);
+    line-height: 1;
+  }
+
+  .fd-related-paper {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+
+  /* ---------- MAIN GAME ---------- */
+
+  .fd-game {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+
+    flex: 1 1 auto;
+
+    height: 100%;
+    min-height: 0;
+
+    overflow: hidden;
+  }
+
+  .fd-workspace {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(255px, 300px);
+
+    gap: 11px;
+
+    height: 100%;
+    min-height: 0;
+  }
+
+
+  /* ---------- BOARD ---------- */
+
+  .fd-board-card {
+    position: relative;
+
+    display: block;
+
+    height: 100%;
+    min-height: 0;
+
+    overflow: hidden;
+  }
+
+  /*
+     The old heading/footer consumed valuable vertical space.
+     They now float over the board instead.
+  */
+
+  .fd-board-heading {
+    position: absolute;
+    z-index: 20;
+
+    top: 13px;
+    left: 15px;
+    right: 15px;
+
+    min-height: 0;
+
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    pointer-events: none;
+  }
+
+  .fd-board-heading > div {
+    padding: 7px 10px 8px;
+
+    border: 1px solid rgba(46, 70, 52, 0.13);
+    border-radius: 9px;
+
+    background: rgba(255, 253, 248, 0.92);
+
+    backdrop-filter: blur(4px);
+  }
+
+  .fd-board-heading > div > span {
+    margin-bottom: 1px;
+  }
+
+  .fd-board-heading strong {
+    font-size: 0.9rem;
+  }
+
+  .fd-diameter-button {
+    pointer-events: auto;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    background: rgba(247, 244, 235, 0.94);
+
+    backdrop-filter: blur(4px);
+  }
+
+
+  /* The playing region now gets the entire card. */
+
+  .fd-board-wrap {
+    position: absolute;
+    inset: 0;
+
+    display: grid;
+    place-items: center;
+
+    padding: 3px;
+
+    overflow: hidden;
+  }
+
+  .fd-board {
+    width: auto;
+    height: calc(100% - 8px);
+
+    max-width: calc(100% - 8px);
+    max-height: calc(100% - 8px);
+
+    aspect-ratio: 1;
+
+    margin: auto;
+  }
+
+
+  /* Instruction becomes a subtle in-board strip. */
+
+  .fd-board-footer {
+    position: absolute;
+    z-index: 20;
+
+    left: 50%;
+    bottom: 10px;
+
+    transform: translateX(-50%);
+
+    width: max-content;
+    min-height: 0;
+
+    padding: 7px 13px;
+
+    border: 1px solid rgba(46, 70, 52, 0.12);
+    border-radius: 9px;
+
+    background: rgba(247, 243, 232, 0.94);
+
+    backdrop-filter: blur(4px);
+
+    font-size: 0.8rem;
+
+    pointer-events: none;
+  }
+
+
+  /* ---------- SCORE PANEL ---------- */
+
+  .fd-side-card {
+    height: 100%;
+    min-height: 0;
+
+    padding: 15px;
+  }
+
+  .fd-side-heading {
+    padding-bottom: 13px;
+  }
+
+  .fd-side-heading strong {
+    font-size: clamp(2.6rem, 3.4vw, 3.7rem);
+  }
+
+  .fd-side-rule {
+    padding: 13px 0;
+  }
+
+  .fd-side-copy {
+    padding: 14px 0;
+
+    font-size: 0.8rem;
+    line-height: 1.48;
+  }
+}
+
+/* Fixed diameter — instruction belongs beside the geometry */
+.fd-side-instruction {
+  margin: -3px 0 13px;
+
+  padding: 8px 10px;
+
+  border-left: 3px solid rgba(185, 155, 86, 0.72);
+
+  background: #f7f3e8;
+
+  font-family: "Playfair Display", serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.35;
+
+  color: #34493a;
+}
+
+/* No bottom instruction overlay — give the square every pixel available. */
+@media (min-width: 901px) {
+  .fd-board {
+    height: 100%;
+    max-height: 100%;
+  }
+}
+
+/* Fixed diameter — compact instruction inside the board label */
+.fd-board-instruction {
+  display: block;
+
+  margin-top: 4px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.67rem;
+  font-weight: 600;
+  line-height: 1.3;
+
+  color: #6f786f;
+}
+
+/* Retire the temporary side instruction styling. */
+.fd-side-instruction {
+  display: none;
+}
+
+/* Fixed diameter — keep selected-radius fractions properly proportioned */
+.fd-side-rule strong .katex {
+  font-size: 1em;
+  line-height: 1;
+}
+
+.fd-side-rule strong .katex .mfrac {
+  font-size: 0.88em;
+}
+
+.fd-side-rule strong .katex .frac-line {
+  border-bottom-width: 0.04em;
+}
+
+
+/* =========================================================
+   FIXED DIAMETER — DEFINITIVE RADIUS FRACTION RENDERING
+   Do not rely on KaTeX internals for these three UI labels.
+   ========================================================= */
+
+.fd-radius-math {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.22em;
+
+  white-space: nowrap;
+
+  font-family: "KaTeX_Main", "Times New Roman", serif;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.fd-radius-r {
+  font-family: "KaTeX_Math", "Times New Roman", serif;
+  font-style: italic;
+}
+
+.fd-radius-equals {
+  margin-inline: 0.03em;
+}
+
+.fd-radius-fraction {
+  display: inline-grid;
+  grid-template-rows: auto auto;
+
+  align-items: center;
+  justify-items: center;
+
+  min-width: 1.05em;
+
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.fd-radius-numerator {
+  display: block;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 0 0.13em 0.09em;
+
+  border-bottom: 1.35px solid currentColor;
+
+  text-align: center;
+  line-height: 0.9;
+}
+
+.fd-radius-denominator {
+  display: block;
+
+  padding-top: 0.09em;
+
+  text-align: center;
+  line-height: 0.9;
+}
+
+/* Buttons */
+.fd-radius-buttons .fd-radius-math {
+  font-size: 1.08rem;
+}
+
+/* Selected-radius readout */
+.fd-side-rule strong .fd-radius-math {
+  font-size: 1.22rem;
+}
+
+/* Prevent any old KaTeX-specific overrides from mattering here. */
+.fd-radius-math span {
+  color: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+
+/* =========================================================
+   FIXED DIAMETER — ARRANGEMENT CAROUSEL
+   ========================================================= */
+
+.fd-arrangement-carousel {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  margin-bottom: 2px;
+}
+
+.fd-arrangement-name {
+  min-width: 108px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.57rem;
+  font-weight: 900;
+  letter-spacing: 0.105em;
+  text-transform: uppercase;
+
+  color: #98794c;
+
+  text-align: center;
+}
+
+.fd-arrangement-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+
+  padding: 0;
+
+  border: 1px solid rgba(53, 76, 59, 0.16);
+  border-radius: 6px;
+
+  background: rgba(255, 253, 248, 0.92);
+  color: #53645a;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+
+  cursor: pointer;
+  pointer-events: auto;
+
+  transition:
+    background 120ms ease,
+    border-color 120ms ease,
+    transform 120ms ease;
+}
+
+.fd-arrangement-arrow:hover {
+  background: #f0eadc;
+  border-color: rgba(53, 76, 59, 0.34);
+
+  transform: translateY(-1px);
+}
+
+.fd-arrangement-arrow:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   FIXED DIAMETER — OPEN, CENTERED ARRANGEMENT CAROUSEL
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  /*
+     Use the full board width instead of wrapping the
+     arrangement information in a small floating box.
+  */
+  .fd-board-heading {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .fd-board-heading > div {
+    width: min(620px, 68%);
+    box-sizing: border-box;
+
+    margin: 0 auto;
+    padding: 2px 0 0;
+
+    border: 0;
+    border-radius: 0;
+
+    background: transparent;
+    backdrop-filter: none;
+
+    text-align: center;
+  }
+
+
+  /* ---------- ARRANGEMENT CAROUSEL ---------- */
+
+  .fd-arrangement-carousel {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr) 48px;
+    align-items: center;
+
+    column-gap: 30px;
+
+    width: 100%;
+    margin: 0 auto 8px;
+  }
+
+  .fd-arrangement-name {
+    min-width: 0;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+
+    color: #98794c;
+
+    text-align: center;
+    white-space: nowrap;
+  }
+
+
+  /* ---------- LARGE, OBVIOUS CAROUSEL ARROWS ---------- */
+
+  .fd-arrangement-arrow {
+    width: 46px;
+    height: 46px;
+
+    padding: 0;
+
+    border: 1px solid rgba(53, 76, 59, 0.22);
+    border-radius: 50%;
+
+    background: rgba(255, 253, 248, 0.96);
+    color: #405946;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.55rem;
+    font-weight: 800;
+    line-height: 1;
+
+    box-shadow: 0 3px 10px rgba(38, 57, 43, 0.07);
+
+    cursor: pointer;
+    pointer-events: auto;
+
+    transition:
+      transform 140ms ease,
+      background 140ms ease,
+      border-color 140ms ease,
+      box-shadow 140ms ease;
+  }
+
+  .fd-arrangement-arrow:hover {
+    background: #f3edde;
+    border-color: rgba(53, 76, 59, 0.42);
+
+    box-shadow: 0 5px 14px rgba(38, 57, 43, 0.11);
+
+    transform: translateY(-2px);
+  }
+
+  .fd-arrangement-arrow:active {
+    transform: translateY(0);
+  }
+
+
+  /* ---------- QUIET SECONDARY INFORMATION ---------- */
+
+  .fd-board-heading strong {
+    display: block;
+
+    margin-top: 1px;
+
+    font-size: 1.03rem;
+
+    text-align: center;
+  }
+
+  .fd-board-instruction {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 0.72rem;
+
+    text-align: center;
+  }
+}
+
+
+/* =========================================================
+   FIXED DIAMETER — TRUE LEFT CONTROL RAIL + SQUARE ARENA
+   The point-set square is sacred; controls live beside it.
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  /*
+     The large game card is wider than it is tall.
+
+     Left column:
+       arrangement controls / information
+
+     Right column:
+       the square mathematical arena
+  */
+  .fd-board-card {
+    position: relative;
+
+    display: grid;
+    grid-template-columns:
+      minmax(220px, 1fr)
+      auto;
+    grid-template-rows: minmax(0, 1fr);
+
+    align-items: stretch;
+
+    height: 100%;
+    min-height: 0;
+
+    overflow: hidden;
+  }
+
+
+  /* =====================================================
+     LEFT RAIL
+     ===================================================== */
+
+  .fd-board-heading {
+    position: relative;
+    z-index: 5;
+
+    top: auto;
+    left: auto;
+    right: auto;
+
+    grid-column: 1;
+    grid-row: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+
+    box-sizing: border-box;
+
+    padding: 28px 24px 24px;
+
+    border: 0;
+    border-right: 1px solid rgba(46, 70, 52, 0.11);
+
+    background: #fffdf8;
+
+    pointer-events: auto;
+  }
+
+
+  /*
+     The old little floating box disappears completely.
+     Its contents now breathe inside the whole rail.
+  */
+  .fd-board-heading > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    border-radius: 0;
+
+    background: transparent;
+    backdrop-filter: none;
+
+    text-align: center;
+  }
+
+
+  /* =====================================================
+     ARRANGEMENT CAROUSEL
+     ===================================================== */
+
+  .fd-arrangement-carousel {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr) 46px;
+    align-items: center;
+
+    column-gap: 14px;
+
+    width: 100%;
+
+    margin: 0 0 34px;
+  }
+
+  .fd-arrangement-name {
+    min-width: 0;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 900;
+    line-height: 1.25;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    color: #98794c;
+
+    text-align: center;
+    white-space: normal;
+  }
+
+  .fd-arrangement-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    padding: 0;
+
+    border: 1px solid rgba(53, 76, 59, 0.23);
+    border-radius: 50%;
+
+    background: #fffdf8;
+    color: #405946;
+
+    box-shadow:
+      0 3px 10px rgba(38, 57, 43, 0.07);
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1;
+
+    cursor: pointer;
+    pointer-events: auto;
+
+    transition:
+      transform 140ms ease,
+      background 140ms ease,
+      border-color 140ms ease,
+      box-shadow 140ms ease;
+  }
+
+  .fd-arrangement-arrow:hover {
+    background: #f3edde;
+    border-color: rgba(53, 76, 59, 0.43);
+
+    box-shadow:
+      0 6px 15px rgba(38, 57, 43, 0.11);
+
+    transform: translateY(-2px);
+  }
+
+  .fd-arrangement-arrow:active {
+    transform: translateY(0);
+  }
+
+
+  /* =====================================================
+     ARRANGEMENT INFORMATION
+     ===================================================== */
+
+  .fd-board-heading strong {
+    display: block;
+
+    margin: 0;
+
+    font-family: "Playfair Display", serif;
+    font-size: 1.12rem;
+    font-weight: 600;
+    line-height: 1.3;
+
+    color: #304b38;
+
+    text-align: center;
+  }
+
+  .fd-board-instruction {
+    display: block;
+
+    max-width: 190px;
+
+    margin: 20px auto 0;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.5;
+
+    color: #707971;
+
+    text-align: center;
+  }
+
+
+  /* =====================================================
+     SHOW DIAMETER — BOTTOM OF THE LEFT RAIL
+     ===================================================== */
+
+  .fd-diameter-button {
+    position: static;
+
+    width: 100%;
+
+    margin: auto 0 0;
+    padding: 10px 12px;
+
+    border: 1px solid rgba(53, 76, 59, 0.2);
+    border-radius: 9px;
+
+    background: #f6f3ea;
+    color: #53645a;
+
+    backdrop-filter: none;
+
+    font-size: 0.72rem;
+
+    pointer-events: auto;
+  }
+
+  .fd-diameter-button:hover {
+    background: #eee8da;
+    border-color: rgba(53, 76, 59, 0.35);
+  }
+
+
+  /* =====================================================
+     RIGHT SQUARE ARENA
+     ===================================================== */
+
+  .fd-board-wrap {
+    position: relative;
+    inset: auto;
+
+    grid-column: 2;
+    grid-row: 1;
+
+    display: grid;
+    place-items: center;
+
+    height: 100%;
+    width: auto;
+
+    min-width: 0;
+    min-height: 0;
+
+    aspect-ratio: 1 / 1;
+
+    justify-self: end;
+
+    padding: 3px;
+
+    overflow: hidden;
+
+    background:
+      radial-gradient(
+        circle at 50% 44%,
+        rgba(201, 183, 134, 0.075),
+        transparent 56%
+      ),
+      #faf9f4;
+  }
+
+  .fd-board {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    margin: 0;
+  }
+
+
+  /*
+     The old board-footer overlay is not used by the current JSX,
+     but explicitly neutralize it so it can never steal arena space.
+  */
+  .fd-board-footer {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   FIXED DIAMETER — TRUE LEFT CONTROL RAIL + SQUARE ARENA
+   The point-set square is sacred; controls live beside it.
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  /*
+     The large game card is wider than it is tall.
+
+     Left column:
+       arrangement controls / information
+
+     Right column:
+       the square mathematical arena
+  */
+  .fd-board-card {
+    position: relative;
+
+    display: grid;
+    grid-template-columns:
+      minmax(220px, 1fr)
+      auto;
+    grid-template-rows: minmax(0, 1fr);
+
+    align-items: stretch;
+
+    height: 100%;
+    min-height: 0;
+
+    overflow: hidden;
+  }
+
+
+  /* =====================================================
+     LEFT RAIL
+     ===================================================== */
+
+  .fd-board-heading {
+    position: relative;
+    z-index: 5;
+
+    top: auto;
+    left: auto;
+    right: auto;
+
+    grid-column: 1;
+    grid-row: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+
+    box-sizing: border-box;
+
+    padding: 28px 24px 24px;
+
+    border: 0;
+    border-right: 1px solid rgba(46, 70, 52, 0.11);
+
+    background: #fffdf8;
+
+    pointer-events: auto;
+  }
+
+
+  /*
+     The old little floating box disappears completely.
+     Its contents now breathe inside the whole rail.
+  */
+  .fd-board-heading > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    border-radius: 0;
+
+    background: transparent;
+    backdrop-filter: none;
+
+    text-align: center;
+  }
+
+
+  /* =====================================================
+     ARRANGEMENT CAROUSEL
+     ===================================================== */
+
+  .fd-arrangement-carousel {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr) 46px;
+    align-items: center;
+
+    column-gap: 14px;
+
+    width: 100%;
+
+    margin: 0 0 34px;
+  }
+
+  .fd-arrangement-name {
+    min-width: 0;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 900;
+    line-height: 1.25;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    color: #98794c;
+
+    text-align: center;
+    white-space: normal;
+  }
+
+  .fd-arrangement-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    padding: 0;
+
+    border: 1px solid rgba(53, 76, 59, 0.23);
+    border-radius: 50%;
+
+    background: #fffdf8;
+    color: #405946;
+
+    box-shadow:
+      0 3px 10px rgba(38, 57, 43, 0.07);
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1;
+
+    cursor: pointer;
+    pointer-events: auto;
+
+    transition:
+      transform 140ms ease,
+      background 140ms ease,
+      border-color 140ms ease,
+      box-shadow 140ms ease;
+  }
+
+  .fd-arrangement-arrow:hover {
+    background: #f3edde;
+    border-color: rgba(53, 76, 59, 0.43);
+
+    box-shadow:
+      0 6px 15px rgba(38, 57, 43, 0.11);
+
+    transform: translateY(-2px);
+  }
+
+  .fd-arrangement-arrow:active {
+    transform: translateY(0);
+  }
+
+
+  /* =====================================================
+     ARRANGEMENT INFORMATION
+     ===================================================== */
+
+  .fd-board-heading strong {
+    display: block;
+
+    margin: 0;
+
+    font-family: "Playfair Display", serif;
+    font-size: 1.12rem;
+    font-weight: 600;
+    line-height: 1.3;
+
+    color: #304b38;
+
+    text-align: center;
+  }
+
+  .fd-board-instruction {
+    display: block;
+
+    max-width: 190px;
+
+    margin: 20px auto 0;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.5;
+
+    color: #707971;
+
+    text-align: center;
+  }
+
+
+  /* =====================================================
+     SHOW DIAMETER — BOTTOM OF THE LEFT RAIL
+     ===================================================== */
+
+  .fd-diameter-button {
+    position: static;
+
+    width: 100%;
+
+    margin: auto 0 0;
+    padding: 10px 12px;
+
+    border: 1px solid rgba(53, 76, 59, 0.2);
+    border-radius: 9px;
+
+    background: #f6f3ea;
+    color: #53645a;
+
+    backdrop-filter: none;
+
+    font-size: 0.72rem;
+
+    pointer-events: auto;
+  }
+
+  .fd-diameter-button:hover {
+    background: #eee8da;
+    border-color: rgba(53, 76, 59, 0.35);
+  }
+
+
+  /* =====================================================
+     RIGHT SQUARE ARENA
+     ===================================================== */
+
+  .fd-board-wrap {
+    position: relative;
+    inset: auto;
+
+    grid-column: 2;
+    grid-row: 1;
+
+    display: grid;
+    place-items: center;
+
+    height: 100%;
+    width: auto;
+
+    min-width: 0;
+    min-height: 0;
+
+    aspect-ratio: 1 / 1;
+
+    justify-self: end;
+
+    padding: 3px;
+
+    overflow: hidden;
+
+    background:
+      radial-gradient(
+        circle at 50% 44%,
+        rgba(201, 183, 134, 0.075),
+        transparent 56%
+      ),
+      #faf9f4;
+  }
+
+  .fd-board {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    margin: 0;
+  }
+
+
+  /*
+     The old board-footer overlay is not used by the current JSX,
+     but explicitly neutralize it so it can never steal arena space.
+  */
+  .fd-board-footer {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   FIXED DIAMETER — 1/4 INFO RAIL + 3/4 GEOMETRY REGION
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  /*
+     The full card is now:
+       25% information rail
+       75% geometric playing region
+  */
+  .fd-board-card {
+    grid-template-columns: 25% 75%;
+  }
+
+
+  /* ---------- LEFT 1/4 ---------- */
+
+  .fd-board-heading {
+    grid-column: 1;
+
+    padding: 26px 18px 22px;
+  }
+
+  .fd-arrangement-carousel {
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
+
+    column-gap: 9px;
+
+    margin-bottom: 30px;
+  }
+
+  .fd-arrangement-arrow {
+    width: 42px;
+    height: 42px;
+
+    font-size: 1.4rem;
+  }
+
+  .fd-arrangement-name {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  .fd-board-heading strong {
+    font-size: 1rem;
+  }
+
+  .fd-board-instruction {
+    max-width: 175px;
+
+    font-size: 0.72rem;
+  }
+
+
+  /* ---------- RIGHT 3/4 ---------- */
+
+  /*
+     This region itself is rectangular and uses the full 75%.
+     It is NOT forced to be square.
+  */
+  .fd-board-wrap {
+    grid-column: 2;
+
+    width: 100%;
+    height: 100%;
+
+    aspect-ratio: auto;
+
+    justify-self: stretch;
+    align-self: stretch;
+
+    padding: 3px;
+
+    box-sizing: border-box;
+  }
+
+  /*
+     The SVG inside remains mathematically square.
+     It grows according to the available height and is centered
+     inside the much wider 3/4 plot region.
+  */
+  .fd-board {
+    width: auto;
+    height: calc(100% - 6px);
+
+    max-width: calc(100% - 6px);
+    max-height: calc(100% - 6px);
+
+    aspect-ratio: 1 / 1;
+
+    margin: auto;
+  }
+}
+
+
+/* =========================================================
+   FIXED DIAMETER — FULL 3/4 INTERACTION FIELD
+   The point set stays fixed in its central square.
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  /*
+     The entire right-hand region is one continuous white
+     mathematical playing field.
+  */
+  .fd-board-wrap {
+    background: #ffffff;
+
+    cursor: crosshair;
+
+    /*
+       Clip only at the OUTER boundary of the 3/4 region.
+       The circle may extend beyond the central square.
+    */
+    overflow: hidden;
+  }
+
+  .fd-board-wrap-cast {
+    cursor: default;
+  }
+
+  /*
+     The square SVG still determines the coordinates and size
+     of the point arrangement, but its drawings are allowed to
+     extend horizontally outside that square.
+  */
+  .fd-board {
+    overflow: visible;
+  }
+
+  /*
+     Remove the visible square background/border. The square
+     still exists mathematically, but visually the entire 3/4
+     region is now one common white field.
+  */
+  .fd-board-background {
+    fill: transparent;
+    stroke: none;
+  }
+}
+
+
+/* =========================================================
+   FIXED DIAMETER — FIXED SQUARE INSIDE WIDE CURSOR FIELD
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  /*
+     This is the WHOLE right-hand 75%.
+     The cursor may move anywhere in here.
+  */
+  .fd-board-wrap {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    cursor: crosshair;
+  }
+
+  .fd-board-wrap-cast {
+    cursor: default;
+  }
+
+
+  /*
+     This is ONLY the square containing the diameter-one set.
+
+     CRITICAL:
+     its size comes from HEIGHT, not from the 75%-wide container.
+     It is then absolutely centered in that wider region.
+  */
+  .fd-board {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    height: calc(100% - 8px) !important;
+    width: auto !important;
+
+    max-height: calc(100% - 8px) !important;
+    max-width: calc(100% - 8px) !important;
+
+    aspect-ratio: 1 / 1;
+
+    margin: 0;
+
+    /*
+       Allows the moving covering circle to leave the square
+       while the parent 75% region clips it only at its true edge.
+    */
+    overflow: visible;
+  }
+
+
+  /*
+     The square itself should be invisible.
+     Visually, the full 75% region is one common white field.
+  */
+  .fd-board-background {
+    fill: transparent;
+    stroke: none;
+  }
+}
+
+
+/* =========================================================
+   QUARTER EXTREMAL — BEADED OUTER RING
+   Mathematical point positions are unchanged.
+   ========================================================= */
+
+.fd-point-quarter-outer {
+  opacity: 1;
+
+  stroke: #fffdf8;
+  stroke-width: 0.82px;
+
+  /*
+     The light outline visually separates neighboring points,
+     so 857 discrete points do not read as one solid curve.
+  */
+  paint-order: fill stroke;
+}
+
+
+/* Fixed-diameter coverings — optimal comparison */
+.fd-side-actions {
+  margin-top: auto;
+  display: grid;
+  gap: 9px;
+}
+
+.fd-side-actions .fd-try-again {
+  margin-top: 0;
+}
+
+.fd-optimal-button {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid rgba(48, 75, 56, .42);
+  border-radius: 9px;
+  background: #f0f3eb;
+  color: #304b38;
+  font-family: "DM Sans", sans-serif;
+  font-size: .78rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 140ms ease;
+}
+
+.fd-optimal-button:hover:not(:disabled) {
+  background: #e2e9de;
+}
+
+.fd-optimal-button:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+
+.fd-optimal-result {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(46, 70, 52, .11);
+}
+
+.fd-optimal-result > span {
+  display: block;
+  margin-bottom: 5px;
+  color: #49745a;
+  font-size: .56rem;
+  font-weight: 900;
+  letter-spacing: .13em;
+}
+
+.fd-optimal-result strong {
+  display: block;
+  color: #2b6448;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 3.3vw, 3.7rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.fd-optimal-result small {
+  display: block;
+  margin-top: 6px;
+  color: #747e76;
+  font-size: .78rem;
+}
+
+.fd-optimal-error {
+  font-size: .7rem;
+  color: #995b49;
+}
+
+.fd-cover-disk-compared {
+  fill: rgba(197, 168, 93, .045);
+  stroke: rgba(164, 126, 52, .48);
+  stroke-dasharray: 7 6;
+}
+
+.fd-cover-disk-optimal {
+  fill: rgba(73, 135, 96, .09);
+  stroke: #367551;
+  stroke-width: 3;
+  animation: fd-optimal-arrive 420ms ease-out both;
+}
+
+@keyframes fd-optimal-arrive {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fd-point-both {
+  fill: #6e9f79;
+  opacity: 1;
+}
+
+.fd-point-optimal {
+  fill: #277b55;
+  opacity: 1;
+  stroke: rgba(232, 247, 233, .85);
+  stroke-width: .7px;
+}
+
+.fd-point-player-only {
+  fill: #bd9550;
+  opacity: .77;
+}
+
+.fd-point-quarter-outer.fd-point-muted {
+  opacity: .18;
+}
+
+
+/* Jung's theorem takeaway */
+.fd-jung-note {
+  padding: 11px 13px;
+  border-left: 3px solid #668b70;
+  border-radius: 0 7px 7px 0;
+  background: rgba(102, 139, 112, 0.09);
+  color: #304b38;
+  line-height: 1.55;
+}
+
+.fd-jung-note strong {
+  font-weight: 800;
+}
