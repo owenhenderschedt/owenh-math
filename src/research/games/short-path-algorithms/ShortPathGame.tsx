@@ -1,5 +1,7 @@
 import { useMemo, useRef, useState } from 'react'
 import type { PointerEvent as ReactPointerEvent } from 'react'
+import { computePaperHeuristicPath } from './paperHeuristic'
+import type { AlgorithmPath } from './paperHeuristic'
 
 type Point = {
   x: number
@@ -182,7 +184,7 @@ function moveLegally(
     return from
   }
 
-  const steps = Math.max(1, Math.ceil(totalDistance / 2.2))
+  const steps = Math.max(1, Math.ceil(totalDistance / 1.0))
 
   const intended = {
     x: (target.x - from.x) / steps,
@@ -206,7 +208,8 @@ function moveLegally(
       continue
     }
 
-    const normal = collisionNormal(candidate, collision)
+    // Use the last legal position for a stable outward contact normal.
+    const normal = collisionNormal(position, collision)
 
     const normalComponent =
       intended.x * normal.x + intended.y * normal.y
@@ -274,7 +277,7 @@ function moveLegally(
 }
 
 function makeObstacles() {
-  const desiredCount = 13 + Math.floor(Math.random() * 4)
+  const desiredCount = 20 + Math.floor(Math.random() * 4)
   const obstacles: SquareObstacle[] = []
 
   let attempts = 0
@@ -282,14 +285,14 @@ function makeObstacles() {
   while (obstacles.length < desiredCount && attempts < 4000) {
     attempts += 1
 
-    const size = randomBetween(46, 84)
+    const size = randomBetween(39, 65)
     const angle = randomBetween(0, Math.PI / 2)
 
     const candidate: SquareObstacle = {
       id: obstacles.length,
-      cx: randomBetween(215, 785),
+      cx: randomBetween(205, 795),
       cy:
-        Math.random() < 0.82
+        Math.random() < 0.88
           ? randomBetween(185, 375)
           : randomBetween(105, 455),
       size,
@@ -367,7 +370,7 @@ function makeExtremalObstacles(): SquareObstacle[] {
     START.x + ZONE_RADIUS + size / 2
 
   const top = 22
-  const bottom = 453
+  const bottom = 515
 
   let id = 0
 
@@ -405,6 +408,7 @@ function makeExtremalObstacles(): SquareObstacle[] {
 export default function ShortPathGame() {
   const svgRef = useRef<SVGSVGElement | null>(null)
   const runnerRef = useRef<Point>({ ...START })
+  const lastPointerRef = useRef<Point | null>(null)
 
   const [obstacles, setObstacles] =
     useState<SquareObstacle[]>(makeObstacles)
@@ -415,6 +419,7 @@ export default function ShortPathGame() {
   const [pathLengthUnits, setPathLengthUnits] = useState(0)
   const [dragging, setDragging] = useState(false)
   const [complete, setComplete] = useState(false)
+  const [algorithmRoute, setAlgorithmRoute] = useState<AlgorithmPath | null>(null)
 
   const pathLengthMm = pathLengthUnits * MM_PER_UNIT
 
@@ -426,7 +431,7 @@ export default function ShortPathGame() {
   )
 
   function pointerToArena(
-    event: ReactPointerEvent<SVGSVGElement>,
+    event: { clientX: number; clientY: number },
   ): Point {
     const svg = svgRef.current
 
@@ -456,6 +461,7 @@ export default function ShortPathGame() {
     event.preventDefault()
 
     event.currentTarget.setPointerCapture(event.pointerId)
+    lastPointerRef.current = pointerToArena(event)
     setDragging(true)
   }
 
@@ -469,7 +475,18 @@ export default function ShortPathGame() {
     event.preventDefault()
 
     const current = runnerRef.current
-    const desired = pointerToArena(event)
+    const pointer = pointerToArena(event)
+    const previousPointer = lastPointerRef.current
+    lastPointerRef.current = pointer
+
+    if (!previousPointer) return
+
+    // Follow how the mouse moves, rather than chasing its location.
+    // This prevents the runner from pushing repeatedly into a corner.
+    const desired = {
+      x: current.x + pointer.x - previousPointer.x,
+      y: current.y + pointer.y - previousPointer.y,
+    }
 
     const next = moveLegally(current, desired, obstacles)
     const movement = distance(current, next)
@@ -490,11 +507,19 @@ export default function ShortPathGame() {
 
     if (reachedTarget) {
       setComplete(true)
+      lastPointerRef.current = null
       setDragging(false)
     }
   }
 
+  function endDrag() {
+    lastPointerRef.current = null
+    setDragging(false)
+  }
+
   function resetPath() {
+    lastPointerRef.current = null
+    setAlgorithmRoute(null)
     runnerRef.current = { ...START }
 
     setRunner({ ...START })
@@ -512,6 +537,19 @@ export default function ShortPathGame() {
   function showExtremalArrangement() {
     setObstacles(makeExtremalObstacles())
     resetPath()
+  }
+
+  function revealPaperAlgorithm() {
+    if (!complete || algorithmRoute) return
+
+    const route = computePaperHeuristicPath(
+      obstacles,
+      START,
+      TARGET,
+      ZONE_RADIUS - COLLISION_RADIUS,
+    )
+
+    if (route) setAlgorithmRoute(route)
   }
 
   const resultMessage = complete
@@ -583,7 +621,31 @@ export default function ShortPathGame() {
 
       <div className="sp-arena-wrap">
         <div className="sp-board-label">
-          <small>Click and drag the point from S to T, avoiding the squares</small>
+          {algorithmRoute ? (
+            <div className="sp-algorithm-measure" aria-live="polite">
+              <span>
+                {algorithmRoute.usedFallback
+                  ? 'GEOMETRIC FALLBACK'
+                  : 'OUR ALGORITHM'}
+              </span>
+              <strong>
+                {(algorithmRoute.length * MM_PER_UNIT).toFixed(1)}
+                <em> mm</em>
+              </strong>
+            </div>
+          ) : complete ? (
+            <button
+              type="button"
+              className="sp-algorithm-button"
+              onClick={revealPaperAlgorithm}
+            >
+              Show our algorithm's path
+            </button>
+          ) : (
+            <small>
+              Click and drag the point from S to T, avoiding the squares
+            </small>
+          )}
         </div>
 
         <svg
@@ -599,8 +661,8 @@ export default function ShortPathGame() {
           role="img"
           aria-label="Drag a point from zone S to zone T while avoiding rotated square obstacles."
           onPointerMove={moveRunner}
-          onPointerUp={() => setDragging(false)}
-          onPointerCancel={() => setDragging(false)}
+          onPointerUp={endDrag}
+          onPointerCancel={endDrag}
         >
           <defs>
             <marker
@@ -636,7 +698,7 @@ export default function ShortPathGame() {
 
           <text
             x={(START.x + TARGET.x) / 2}
-            y="521"
+            y="550"
             textAnchor="middle"
             className="sp-distance-label"
           >
@@ -693,7 +755,19 @@ export default function ShortPathGame() {
           {path.length > 1 && (
             <polyline
               points={pathString}
-              className="sp-trace"
+              className={algorithmRoute ? 'sp-trace sp-trace-muted' : 'sp-trace'}
+            />
+          )}
+
+          {algorithmRoute && (
+            <polyline
+              points={algorithmRoute.points.map((point) => `${point.x},${point.y}`).join(' ')}
+              className="sp-algorithm-trace"
+              style={{
+                strokeDasharray: algorithmRoute.length,
+                strokeDashoffset: algorithmRoute.length,
+                animation: 'sp-algorithm-reveal 3600ms ease-in-out forwards',
+              }}
             />
           )}
 

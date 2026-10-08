@@ -11463,3 +11463,84 @@ h1 {
 .fd-jung-note strong {
   font-weight: 800;
 }
+
+
+/* Short Path — comparison with the published routing heuristic */
+.sp-trace-muted {
+  opacity: 0.28;
+}
+
+.sp-algorithm-trace {
+  fill: none;
+  stroke: #bd8738;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+}
+
+@keyframes sp-algorithm-reveal {
+  to { stroke-dashoffset: 0; }
+}
+
+.sp-board-label .sp-algorithm-button {
+  pointer-events: auto;
+  border: 1px solid #a48654;
+  border-radius: 8px;
+  padding: 9px 13px;
+  background: #f4ebd9;
+  color: #5d4a2b;
+  font: 800 0.72rem "DM Sans", sans-serif;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(54, 49, 37, 0.07);
+}
+
+.sp-board-label .sp-algorithm-button:hover {
+  background: #ebdebf;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-algorithm-trace {
+    animation-duration: 1ms !important;
+  }
+}
+
+
+/* Short Path: quiet in-board length for the revealed algorithm route. */
+.sp-algorithm-measure {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 9px 12px;
+  border: 1px solid rgba(172, 132, 65, 0.28);
+  border-radius: 8px;
+  background: rgba(251, 248, 239, 0.94);
+  box-shadow: 0 2px 8px rgba(54, 49, 37, 0.06);
+  color: #75572f;
+  animation: sp-algorithm-measure-in 350ms ease 3250ms both;
+}
+
+.sp-algorithm-measure > span {
+  font: 800 0.63rem "DM Sans", sans-serif;
+  letter-spacing: 0.08em;
+}
+
+.sp-algorithm-measure > strong {
+  font: 600 1.1rem "Playfair Display", serif;
+  white-space: nowrap;
+}
+
+.sp-algorithm-measure > strong em {
+  font: 700 0.68rem "DM Sans", sans-serif;
+  font-style: normal;
+}
+
+@keyframes sp-algorithm-measure-in {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-algorithm-measure { animation: none; }
+}
