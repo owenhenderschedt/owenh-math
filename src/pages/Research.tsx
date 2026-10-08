@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import SiteHeader from '../components/SiteHeader'
 import ResearchGraphMotif from '../research/components/ResearchGraphMotif'
 import GameInstructions from '../research/components/GameInstructions'
@@ -9,15 +9,44 @@ import CoveringPointsGame from '../research/games/fixed-diameter-coverings/Cover
 import PurpleRamseyGame from '../research/games/purple-ramsey/PurpleRamseyGame'
 import { researchAreas } from '../research/data/researchTree'
 
+// These public URLs are intentionally independent of the internal game IDs.
+const areaSlugs: Record<string, string> = {
+  'graph-coloring': 'coloring',
+  'ramsey-theory': 'ramsey',
+  'orientations': 'orientations',
+  'discrete-geometry': 'geometry',
+}
+
+const gameSlugs: Record<string, string> = {
+  'total-coloring': 'total',
+  'odd-ramsey': 'odd',
+  'purple-ramsey': 'purple',
+  'short-path-algorithms': 'short-paths',
+  'fixed-diameter-coverings': 'circle-covering',
+}
+
+const areaPath = (areaId: string) => `/research/${areaSlugs[areaId]}`
+const gamePath = (areaId: string, gameId: string) =>
+  `${areaPath(areaId)}/${gameSlugs[gameId]}`
+
 export default function Research() {
-  const [activeArea, setActiveArea] = useState<string | null>(null)
-  const [activeGame, setActiveGame] = useState<string | null>(null)
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
+  const parts = pathname.split('/').filter(Boolean)
 
-  const selectedArea = researchAreas.find((area) => area.id === activeArea)
-
-  const selectedGame = selectedArea?.games.find(
-    (game) => game.id === activeGame,
+  const selectedArea = researchAreas.find(
+    (area) => areaSlugs[area.id] === parts[1],
   )
+  const selectedGame = selectedArea?.games.find(
+    (game) => gameSlugs[game.id] === parts[2] && game.status === 'playable',
+  )
+
+  const validPath =
+    (parts.length === 1 && parts[0] === 'research') ||
+    (parts.length === 2 && Boolean(selectedArea)) ||
+    (parts.length === 3 && Boolean(selectedGame))
+
+  if (!validPath) return <Navigate to="/research" replace />
 
   return (
     <div className="site-shell research-page">
@@ -52,10 +81,7 @@ export default function Research() {
                   key={area.id}
                   type="button"
                   className="research-area-card"
-                  onClick={() => {
-                    setActiveArea(area.id)
-                    setActiveGame(null)
-                  }}
+                  onClick={() => navigate(areaPath(area.id))}
                 >
                   <div className="research-area-topline">
                     <span>{area.games.length} topics</span>
@@ -73,7 +99,7 @@ export default function Research() {
             <button
               type="button"
               className="research-back"
-              onClick={() => setActiveGame(null)}
+              onClick={() => navigate(areaPath(selectedArea.id))}
             >
               ← {selectedArea.title}
             </button>
@@ -93,10 +119,7 @@ export default function Research() {
             <button
               type="button"
               className="research-back"
-              onClick={() => {
-                setActiveArea(null)
-                setActiveGame(null)
-              }}
+              onClick={() => navigate('/research')}
             >
               ← Research library
             </button>
@@ -131,7 +154,7 @@ export default function Research() {
                       type="button"
                       className="research-game-button"
                       disabled={game.status !== 'playable'}
-                      onClick={() => setActiveGame(game.id)}
+                      onClick={() => navigate(gamePath(selectedArea.id, game.id))}
                     >
                       {game.status === 'playable' ? 'Play' : 'Coming soon'}
                     </button>
