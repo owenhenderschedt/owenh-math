@@ -5,6 +5,7 @@ import TotalColoringGame from '../research/games/total-coloring/TotalColoringGam
 import ShortPathGame from '../research/games/short-path-algorithms/ShortPathGame'
 import OddRamseyGame from '../research/games/odd-ramsey/OddRamseyGame'
 import CoveringPointsGame from '../research/games/fixed-diameter-coverings/CoveringPointsGame'
+import PurpleRamseyGame from '../research/games/purple-ramsey/PurpleRamseyGame'
 import { researchAreas } from '../research/data/researchTree'
 
 export default function Research() {
@@ -79,6 +80,7 @@ export default function Research() {
             {selectedGame.id === 'total-coloring' && <TotalColoringGame />}
             {selectedGame.id === 'short-path-algorithms' && <ShortPathGame />}
             {selectedGame.id === 'odd-ramsey' && <OddRamseyGame />}
+            {selectedGame.id === 'purple-ramsey' && <PurpleRamseyGame />}
 
             {selectedGame.id === 'fixed-diameter-coverings' && (
               <CoveringPointsGame />

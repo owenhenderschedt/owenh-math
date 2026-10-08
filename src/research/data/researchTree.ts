@@ -76,8 +76,8 @@ export const researchAreas: ResearchArea[] = [
         id: 'purple-ramsey',
         title: 'Purple Ramsey',
         description:
-          'Search for colorings that avoid the configurations arising in purple Ramsey problems.',
-        status: 'coming-soon',
+          'Paint complete graphs red and blue around a fixed purple matching. Can you avoid both forbidden subgraphs?',
+        status: 'playable',
       },
     ],
   },

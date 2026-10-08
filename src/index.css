@@ -11544,3 +11544,468 @@ h1 {
 @media (prefers-reduced-motion: reduce) {
   .sp-algorithm-measure { animation: none; }
 }
+
+/* =========================================================
+   PURPLE RAMSEY — INTERACTIVE RESEARCH GAME
+   Dedicated styling; other research games unchanged.
+   ========================================================= */
+.pr-game {
+  width: 100%; min-width: 0; min-height: 0;
+  display: flex; flex-direction: column; gap: 11px;
+  font-family: 'DM Sans', sans-serif; color: #304337;
+}
+.pr-top { display: grid; grid-template-columns: minmax(260px, .85fr) minmax(260px, .95fr) minmax(210px, .8fr); gap: 24px; align-items: center; }
+.pr-heading h1 { margin: 0; font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 3vw, 3.1rem); letter-spacing: -.035em; line-height: 1; font-weight: 600; color: #263c2b; }
+.pr-eyebrow, .pr-challenge-heading > span, .pr-side-kicker {
+  color: #927952; font-size: .57rem; font-weight: 850; letter-spacing: .13em;
+}
+.pr-eyebrow { margin: 0 0 5px; }
+.pr-related { border-left: 2px solid #bca270; padding: 4px 0 5px 15px; min-width: 0; }
+.pr-related > span { display:block; color: #927952; font-size: .56rem; font-weight: 850; letter-spacing: .13em; margin-bottom: 5px; }
+.pr-related strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.01rem; font-weight: 600; line-height: 1.22; color: #304937; }
+.pr-related small { display:block; color: #7c8177; font-size: .7rem; margin-top: 4px; }
+.pr-intro { margin: 0; font-size: .77rem; line-height: 1.5; color: #747c71; }
+.pr-challenge-heading { display: flex; justify-content: space-between; align-items: center; padding: 0 1px; }
+.pr-challenge-heading small { color: #879085; font-size: .68rem; }
+.pr-challenge-rail { display:flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; padding: 2px 2px 6px; }
+.pr-challenge { border: 1px solid #d6ded3; border-radius: 11px; background: #fffdfa; padding: 6px 10px 8px; flex: 1 0 0; min-width: 122px; max-width: 190px; cursor:pointer; transition: border-color .16s, background .16s, box-shadow .16s; }
+.pr-challenge:hover { border-color: #a6a8a0; background: #fff; }
+.pr-challenge.active { background: #fbf8f3; border-color: #9873bd; box-shadow: inset 0 0 0 1px #9873bd, 0 2px 9px rgba(92,65,117,.09); }
+.pr-challenge-number { display:block; font-size: .57rem; line-height: 1; font-weight: 850; text-align: left; color: #8d938b; }
+.pr-challenge.active .pr-challenge-number { color: #835ea8; }
+.pr-mini-pair { display: flex; align-items: center; justify-content: center; gap: 2px; }
+.pr-mini { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; min-width: 0; }
+.pr-mini svg { width: 52px; height: 47px; overflow: visible; }
+.pr-mini small { font-family: 'KaTeX_Main', Georgia, serif; font-size: .72rem; color: #5a675d; font-weight: 600; line-height: 1.2; white-space: nowrap; }
+.pr-versus { font-family: Georgia, serif; font-size: 1.1rem; color: #aeb6a9; padding: 0 2px; }
+.pr-workspace { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 300px); gap: 13px; min-height: 0; flex: 1 1 auto; }
+.pr-board-card, .pr-side-card { min-width:0; background: #fffdfa; border: 1px solid #d7dfd4; border-radius: 13px; box-shadow: 0 2px 14px rgba(34,54,39,.045); }
+.pr-board-card { display:flex; flex-direction: column; overflow: hidden; min-height: 0; }
+.pr-board-header { display:flex; align-items: center; justify-content: space-between; padding: 10px 16px 2px; }
+.pr-order-control { display: flex; align-items: center; gap: 14px; }
+.pr-order-control button { border:1px solid #d6dfd3; background: #f7f8f2; color: #48634e; border-radius: 7px; width: 33px; height: 32px; font-size: 1.55rem; line-height: .8; cursor: pointer; }
+.pr-order-control button:hover:not(:disabled) { background: #eaf0e8; }
+.pr-order-control button:disabled { opacity: .28; cursor: default; }
+.pr-order-control > span { min-width: 53px; text-align:center; font: 600 1.45rem 'Playfair Display', serif; color: #304636; }
+.pr-order-control sub { font-size:.62em; vertical-align: -.18em; }
+.pr-progress { font-weight: 750; color: #7b857a; font-size: .7rem; }
+.pr-message { margin: 6px 15px 0; border:1px solid transparent; border-radius: 8px; padding: 8px 12px; font-size:.76rem; line-height:1.35; min-height: 34px; color: #737f73; background: #f8f8f3; display: flex; gap: 8px; align-items: center; }
+.pr-message.bad { background: #fcf2ed; border-color: #eaccc3; color: #9a4d45; font-weight: 700; }
+.pr-message.good { background: #eef5eb; border-color: #bbd2b9; color: #386d46; font-weight: 700; }
+.pr-message.message { background:#f5f0f8; border-color: #e4d9eb; color: #665074; font-weight: 650; }
+.pr-alert-dot { width: 7px; height: 7px; flex: 0 0 7px; background: #cb6556; border-radius: 50%; }
+.pr-graph-wrap { display:flex; align-items:center; justify-content:center; flex: 1 1 auto; min-height:0; padding: 0 6px; }
+.pr-graph { display:block; width: min(100%, 720px); height: min(100%, 560px); min-height: 250px; overflow: visible; user-select: none; }
+.pr-guide-ring { fill: none; stroke:#e4e8df; stroke-width: 1.2; stroke-dasharray: 3 10; }
+.pr-visible-edge { stroke-width: 3.1; stroke-linecap: round; transition: stroke .16s, stroke-width .16s, opacity .16s; pointer-events:none; }
+.pr-visible-edge.hovered { stroke-width: 5.5; }
+.pr-edge-dim { opacity: .34; }
+.pr-offending-edge { stroke-width: 5.2; }
+.pr-violation-halo { stroke: #d1a661; stroke-width: 12; opacity: .65; stroke-linecap: round; pointer-events:none; }
+.pr-wild-edge { stroke-width: 6.8; stroke-linecap: round; pointer-events:none; }
+.pr-wild-offending { stroke-width: 8; }
+.pr-edge-hit { fill:none; stroke: transparent; stroke-width: 16; stroke-linecap: round; cursor: crosshair; pointer-events:stroke; }
+.pr-vertex { pointer-events:none; }
+.pr-vertex circle { fill: #fffdf8; stroke: #6b806e; stroke-width: 2.5; }
+.pr-vertex text { font: 800 15px 'DM Sans', sans-serif; fill: #344a39; }
+.pr-graph-shake { animation: pr-shake .33s ease both; }
+@keyframes pr-shake { 0%,100% { transform:translateX(0) } 20% { transform:translateX(-3px) } 40% { transform:translateX(3px) } 60% { transform:translateX(-2px) } 80% { transform:translateX(2px) } }
+.pr-board-footer { display:flex; align-items:center; justify-content:space-between; gap: 12px; padding: 8px 16px 12px; font-size:.69rem; color:#747e73; }
+.pr-board-footer > span { display:inline-flex; align-items:center; gap:7px; }
+.pr-board-footer > span:last-child { color: #8c936f; white-space:nowrap; }
+.pr-purple-key { display:inline-block; background: #9257d6; width:18px; height:5px; border-radius:9px; box-shadow:0 0 7px rgba(146,87,214,.5); }
+.pr-side-card { padding: 16px; display:flex; flex-direction:column; gap: 15px; overflow-y: auto; scrollbar-width: thin; }
+.pr-goal { border-bottom: 1px solid #e8ebe4; padding-bottom: 12px; }
+.pr-goal p { color:#6c766d; font-size:.76rem; margin: 6px 0 9px; }
+.pr-goal-graphs { display:flex; align-items:center; justify-content:center; gap: 33px; }
+.pr-goal-graphs > div { display:flex; flex-direction:column; align-items:center; gap: 5px; }
+.pr-goal-graphs .pr-mini svg { width: 76px; height: 69px; }
+.pr-goal-graphs .pr-mini small { font-size:1rem; }
+.pr-goal-graphs > div > small { font-size:.58rem; font-weight:900; letter-spacing:.12em; color:#899188; }
+.pr-tools { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px; margin-top: 9px; }
+.pr-tool { border:1px solid #d7ded5; border-radius:9px; background:#fafaf6; padding: 9px 2px 6px; display:flex; flex-direction:column; align-items:center; gap:2px; cursor:pointer; transition:transform .15s, border-color .15s, box-shadow .15s; }
+.pr-tool span { font-size:.7rem; font-weight:800; color: #677467; }
+.pr-tool.active { background:#fffdf8; transform:translateY(-2px); box-shadow:0 3px 0 #aab7a6, 0 2px 10px rgba(52,79,57,.09); }
+.pr-tool.red.active { border-color: #c65355; box-shadow:0 3px 0 #c65355, 0 2px 10px rgba(198,83,85,.12); }
+.pr-tool.blue.active { border-color: #527ab2; box-shadow:0 3px 0 #527ab2, 0 2px 10px rgba(82,122,178,.12); }
+.pr-tool.erase.active { border-color:#b09c8a; box-shadow:0 3px 0 #b09c8a, 0 2px 10px rgba(90,72,55,.1); }
+.pr-tool-instruction { display:block; color: #868c82; margin-top: 9px; font-size:.66rem; line-height:1.4; }
+.pr-edit-actions { display:flex; flex-wrap:wrap; gap:6px; padding-bottom: 13px; border-bottom: 1px solid #e8ebe4; }
+.pr-edit-actions button { border:1px solid #d8dfd5; border-radius:7px; background:#f8f9f5; color:#566d5a; font:750 .68rem 'DM Sans',sans-serif; padding:9px 10px; cursor:pointer; }
+.pr-edit-actions button:hover:not(:disabled) { background:#edf2eb; }
+.pr-edit-actions button:disabled { opacity:.38; cursor:default; }
+.pr-investigate { margin-top: auto; display:flex; flex-direction:column; gap:9px; }
+.pr-investigate p { margin: 0; font-size: .76rem; line-height:1.45; color: #68766b; }
+.pr-impossible { border: 1px solid #4e6654; background:#344f3d; border-radius:8px; padding:11px 9px; color:#fffdf8; font:800 .73rem 'DM Sans',sans-serif; cursor:pointer; }
+.pr-impossible:hover { background:#44614b; }
+.pr-reveal { border:1px solid #d6c8de; border-radius:8px; background:#f9f4fb; padding:10px 9px; color:#78618e; display:flex; align-items:center; justify-content:space-between; cursor:pointer; font:750 .7rem 'DM Sans',sans-serif; }
+.pr-reveal:hover { background:#f1eaf7; }
+.pr-reveal-note { color:#8b867d; font-size:.65rem; line-height:1.4; }
+@media (min-width:901px) {
+  .research-game-view:has(.pr-game) { display:flex; flex-direction:column; height:100%; min-height:0; }
+  .research-game-view:has(.pr-game) > .research-back { position:relative; z-index:3; align-self:flex-start; flex:0 0 auto; }
+  .research-game-view:has(.pr-game) .pr-game { flex: 1 1 auto; overflow: hidden; }
+}
+@media (max-width:1120px) { .pr-top { grid-template-columns: minmax(215px,1fr) minmax(230px,.9fr); } .pr-intro { display:none; } .pr-workspace { grid-template-columns:minmax(0,1fr) 260px; } .pr-side-card { padding:12px; gap:12px; } }
+@media (max-width:900px) { .pr-game { padding-bottom:24px; } .pr-top { grid-template-columns:1fr 1fr; gap:15px; } .pr-workspace { grid-template-columns:1fr; } .pr-graph { min-height: 320px; height: auto; max-height:520px; } .pr-side-card { overflow:visible; } .pr-challenge { min-width:132px; flex: 0 0 132px; } }
+@media (max-width:540px) { .pr-top { grid-template-columns:1fr; } .pr-board-header { padding-left:10px; padding-right:10px; } .pr-message { margin-left:9px; margin-right:9px; } .pr-graph { min-height:270px; } .pr-board-footer { flex-wrap:wrap; } .pr-related { padding-left: 11px; } }
+@media (prefers-reduced-motion:reduce) { .pr-graph-shake { animation: none; } .pr-challenge, .pr-tool { transition:none; } }
+
+
+/* PURPLE RAMSEY: V2 FULL-HEIGHT GRAPH LAYOUT */
+/* The graph controls the layout; challenge cards never sit above it on desktop. */
+.pr-visible-edge { stroke-width: 4.8; }
+.pr-visible-edge.hovered { stroke-width: 7.2; }
+.pr-offending-edge { stroke-width: 7; }
+.pr-violation-halo { stroke-width: 14; }
+.pr-wild-edge { stroke-width: 9.4; }
+.pr-wild-offending { stroke-width: 11; }
+.pr-edge-hit { stroke-width: 19; }
+
+@media (min-width: 901px) {
+  .research-page:has(.pr-game) .research-main {
+    height: 100dvh;
+    overflow: hidden;
+    padding-bottom: 9px;
+  }
+  .research-game-view:has(.pr-game) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .research-game-view:has(.pr-game) > .research-back {
+    flex: 0 0 auto;
+  }
+  .pr-game {
+    flex: 1 1 auto;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    gap: 8px;
+  }
+  .pr-top { flex: 0 0 auto; }
+  .pr-workspace {
+    display: grid;
+    grid-template-columns: clamp(190px, 16.5vw, 232px) minmax(0, 1fr) clamp(242px, 20vw, 290px);
+    gap: clamp(8px, 0.85vw, 14px);
+    flex: 1 1 auto;
+    min-height: 0;
+    height: 100%;
+  }
+  .pr-challenge-column {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+    gap: 6px;
+  }
+  .pr-challenge-heading {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+    padding: 0 3px;
+    flex: 0 0 auto;
+  }
+  .pr-challenge-heading small { font-size: 0.61rem; }
+  .pr-challenge-rail {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(8, minmax(0, 1fr));
+    gap: 5px;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+    padding: 1px 2px 2px;
+  }
+  .pr-challenge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: initial;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    max-width: none;
+    min-height: 0;
+    padding: 2px 6px;
+    border-radius: 8px;
+  }
+  .pr-challenge-number { width: 18px; flex: 0 0 18px; }
+  .pr-mini-pair { flex: 1 1 auto; gap: 3px; }
+  .pr-mini svg { width: 42px; height: 35px; }
+  .pr-mini small { font-size: 0.63rem; line-height: 1.05; }
+  .pr-versus { font-size: 0.93rem; padding: 0; }
+
+  .pr-board-card { min-width: 0; min-height: 0; }
+  .pr-board-header { padding: 6px 12px 1px; }
+  .pr-message { margin: 4px 11px 0; padding: 6px 9px; min-height: 31px; }
+  .pr-graph-wrap {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    padding: 0 2px;
+    overflow: hidden;
+  }
+  .pr-graph {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: 1 / 1;
+  }
+  .pr-board-footer { padding: 5px 12px 8px; }
+  .pr-side-card { min-height: 0; }
+}
+
+/* On narrower screens, keep the challenge selector beside the graph as long as practical. */
+@media (max-width: 900px) {
+  .pr-workspace {
+    display: grid;
+    grid-template-columns: minmax(180px, .8fr) minmax(0, 1.5fr);
+    grid-template-areas: 'challenges board' 'side side';
+    align-items: start;
+    gap: 12px;
+  }
+  .pr-challenge-column { grid-area: challenges; min-width: 0; }
+  .pr-challenge-heading { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+  .pr-challenge-rail { display: grid; grid-template-columns: 1fr; gap: 5px; overflow: visible; padding: 0; }
+  .pr-challenge {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    padding: 3px 6px;
+    gap: 4px;
+  }
+  .pr-challenge-number { width: 17px; flex: 0 0 17px; }
+  .pr-mini-pair { flex: 1; }
+  .pr-mini svg { width: 38px; height: 33px; }
+  .pr-mini small { font-size: 0.62rem; }
+  .pr-board-card { grid-area: board; }
+  .pr-graph { width: 100%; height: auto; min-height: 0; max-height: none; aspect-ratio: 1 / 1; }
+  .pr-side-card { grid-area: side; }
+}
+@media (max-width: 620px) {
+  .pr-workspace {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'challenges' 'board' 'side';
+  }
+  .pr-challenge-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pr-challenge-number { display: none; }
+}
+
+
+/* PURPLE RAMSEY: V3 GRAPH SELECTOR AND EDGE TARGETS */
+/* The left rail is a visual menu. Graph names remain in the right panel. */
+.pr-challenge-column .pr-mini small { display: none; }
+.pr-challenge-column .pr-mini { gap: 0; }
+
+@media (min-width: 901px) {
+  .pr-challenge-column .pr-mini svg {
+    width: clamp(40px, 3.5vw, 52px);
+    height: clamp(34px, 5vh, 46px);
+  }
+}
+
+/* Painted strokes are visibly thicker, and transparent hit strokes are
+   wider still. Small K_n graphs can afford extra-large interaction targets;
+   K_8–K_10 use narrower targets to limit overlap at edge crossings. */
+.pr-graph[data-density="sparse"] .pr-visible-edge { stroke-width: 10; }
+.pr-graph[data-density="sparse"] .pr-visible-edge.hovered { stroke-width: 14; }
+.pr-graph[data-density="sparse"] .pr-visible-edge.pr-offending-edge { stroke-width: 12.5; }
+.pr-graph[data-density="sparse"] .pr-edge-hit { stroke-width: 42; }
+.pr-graph[data-density="sparse"] .pr-wild-edge { stroke-width: 14; }
+.pr-graph[data-density="sparse"] .pr-wild-offending { stroke-width: 16; }
+.pr-graph[data-density="sparse"] .pr-wild-glow { stroke-width: 27; }
+
+.pr-graph[data-density="medium"] .pr-visible-edge { stroke-width: 8.1; }
+.pr-graph[data-density="medium"] .pr-visible-edge.hovered { stroke-width: 11.5; }
+.pr-graph[data-density="medium"] .pr-visible-edge.pr-offending-edge { stroke-width: 10.5; }
+.pr-graph[data-density="medium"] .pr-edge-hit { stroke-width: 31; }
+.pr-graph[data-density="medium"] .pr-wild-edge { stroke-width: 12; }
+.pr-graph[data-density="medium"] .pr-wild-offending { stroke-width: 14; }
+.pr-graph[data-density="medium"] .pr-wild-glow { stroke-width: 23; }
+
+.pr-graph[data-density="dense"] .pr-visible-edge { stroke-width: 6.5; }
+.pr-graph[data-density="dense"] .pr-visible-edge.hovered { stroke-width: 9; }
+.pr-graph[data-density="dense"] .pr-visible-edge.pr-offending-edge { stroke-width: 8.4; }
+.pr-graph[data-density="dense"] .pr-edge-hit { stroke-width: 23; }
+.pr-graph[data-density="dense"] .pr-wild-edge { stroke-width: 10.4; }
+.pr-graph[data-density="dense"] .pr-wild-offending { stroke-width: 12.4; }
+.pr-graph[data-density="dense"] .pr-wild-glow { stroke-width: 20; }
+
+.pr-graph .pr-edge-hit {
+  cursor: pointer;
+  stroke: transparent;
+  pointer-events: stroke;
+}
+
+
+/* PURPLE RAMSEY: V4 IN-BOARD PAINT DOCK */
+/* Keep graph and paint tools as distinct neighbors inside the SAME board. */
+.pr-graph-stage {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 76px;
+  align-items: stretch;
+  overflow: hidden;
+}
+.pr-graph-stage > .pr-graph-wrap {
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+.pr-graph-dock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 0;
+  padding: 8px 6px 10px 3px;
+  border-left: 1px solid rgba(86, 111, 87, 0.12);
+}
+.pr-graph-dock .pr-tools {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  gap: 9px;
+  margin: 0;
+}
+.pr-graph-dock .pr-tool {
+  width: 100%;
+  min-height: 57px;
+  padding: 5px 1px 4px;
+  gap: 1px;
+  border-radius: 9px;
+}
+.pr-graph-dock .pr-tool span { font-size: 0.67rem; }
+.pr-dock-undo {
+  width: 100%;
+  min-height: 37px;
+  padding: 5px 2px;
+  border: 1px solid #d8dfd5;
+  border-radius: 8px;
+  background: #f8f9f5;
+  color: #566d5a;
+  font: 750 0.66rem 'DM Sans', sans-serif;
+  cursor: pointer;
+}
+.pr-dock-undo:hover:not(:disabled) { background: #edf2eb; }
+.pr-dock-undo:disabled { opacity: 0.38; cursor: default; }
+
+@media (max-width: 900px) {
+  .pr-graph-stage { grid-template-columns: minmax(0, 1fr) 67px; }
+  .pr-graph-dock { gap: 7px; padding: 6px 4px; }
+  .pr-graph-dock .pr-tools { gap: 6px; }
+  .pr-graph-dock .pr-tool { min-height: 52px; }
+  .pr-graph-stage > .pr-graph-wrap { height: auto; }
+}
+
+
+/* PURPLE RAMSEY: CENTERED GRAPH NAVIGATION */
+.pr-board-header {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 76px;
+  align-items: center;
+  min-height: 57px;
+  padding: 8px 16px 5px;
+}
+
+.pr-order-control {
+  grid-column: 1;
+  justify-self: center;
+  gap: 16px;
+}
+
+.pr-order-control button {
+  width: 45px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid #91aa92;
+  border-radius: 10px;
+  background: #e9f1e8;
+  color: #375a40;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 2px 5px rgba(45, 76, 50, .08);
+  transition: background .15s, transform .15s, box-shadow .15s;
+}
+
+.pr-order-control button:hover:not(:disabled) {
+  background: #d8e8d6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 9px rgba(45, 76, 50, .13);
+}
+
+.pr-order-control button:disabled {
+  opacity: .25;
+  box-shadow: none;
+  transform: none;
+}
+
+.pr-order-control > span {
+  min-width: 59px;
+  font-size: 1.7rem;
+}
+
+.pr-progress {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .pr-board-header {
+    grid-template-columns: minmax(0, 1fr) 67px;
+  }
+}
+
+@media (max-width: 540px) {
+  .pr-board-header {
+    grid-template-rows: auto auto;
+  }
+  .pr-progress {
+    position: static;
+    grid-column: 1 / -1;
+    justify-self: center;
+    transform: none;
+    margin-top: 5px;
+  }
+}
+
+
+/* PURPLE RAMSEY: FULLY CLICKABLE BACK BUTTON */
+.research-game-view:has(.pr-game) > .research-back {
+  position: relative;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  align-self: flex-start;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.research-game-view:has(.pr-game) > .pr-game {
+  position: relative;
+  z-index: 1;
+}
