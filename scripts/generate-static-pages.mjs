@@ -82,6 +82,11 @@ const pages = [
     description: 'Navigate between two points among square obstacles and compare your route to a short-path algorithm.',
   },
   {
+    path: '/research/orientations/f-avoiding',
+    title: 'Forbidden Outdegrees | Interactive Math',
+    description: 'Play Forbidden Outdegrees: use Owen’s Orientation Mechanism to orient a 6-regular graph while avoiding forbidden outdegrees.',
+  },
+  {
     path: '/research/geometry/circle-covering',
     title: 'Circle Covering | Interactive Math',
     description: 'Explore covering diameter-one point sets using a disk and compare your placement with an optimal covering.',

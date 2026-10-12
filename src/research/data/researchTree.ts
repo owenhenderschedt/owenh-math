@@ -92,7 +92,7 @@ export const researchAreas: ResearchArea[] = [
         title: 'Forbidden Outdegrees',
         description:
           'Orient every edge while avoiding prescribed outdegrees at the vertices.',
-        status: 'coming-soon',
+        status: 'playable',
         relatedPaper: {
           title: 'On orientations with forbidden out-degrees',
           venue: 'Discrete Applied Mathematics, 387, 116–123',

@@ -7,6 +7,7 @@ type GameId =
   | 'short-path-algorithms'
   | 'fixed-diameter-coverings'
   | 'purple-ramsey'
+  | 'forbidden-outdegrees'
 
 type Guide = {
   title: string
@@ -18,6 +19,18 @@ type Guide = {
 }
 
 const GUIDES: Record<GameId, Guide> = {
+  'forbidden-outdegrees': {
+    title: 'Forbidden Outdegrees',
+    kicker: 'Choose which vertex sends each edge outward.',
+    imageTitle: 'A directed edge increases its source’s outdegree',
+    imageCaption: 'The hovered edge reveals two choices. Click the end that sends the edge outward.',
+    steps: [
+      { title: 'Orient the edges', description: 'Hover near a gray edge. Click the small arrow near the vertex that should gain one outgoing edge.' },
+      { title: 'Avoid the forbidden lists', description: 'Each black vertex shows its current outdegree. A red number and a red × above a matching forbidden value indicate a temporary violation.' },
+      { title: 'Finish all 30 edges', description: 'Reverse edges by clicking the opposite arrow. Try new forbidden lists, a new graph, or reveal a guaranteed valid orientation.' },
+    ],
+    takeaway: 'The graph has ten vertices, each of degree six. Every puzzle has at least one valid orientation.',
+  },
   'total-coloring': {
     title: 'Total Coloring',
     kicker: 'Give nearby objects different colors.',
@@ -87,6 +100,22 @@ const GOLD = '#c29a56'
 const PURPLE = '#965bd5'
 
 function TutorialPicture({ gameId }: { gameId: GameId }) {
+  if (gameId === 'forbidden-outdegrees') {
+    return (
+      <svg viewBox="0 0 400 300" role="img" aria-label="Illustration of an outward-pointing edge with a brief green plus one outdegree animation">
+        <line x1="82" y1="148" x2="326" y2="148" stroke="#202824" strokeWidth="12" strokeLinecap="round" />
+        <polygon points="180,148 145,128 145,168" fill="#202824" stroke="#fffefa" strokeWidth="2" />
+        <circle cx="82" cy="148" r="31" fill="#202824" stroke="#fffefa" strokeWidth="4" />
+        <circle cx="326" cy="148" r="31" fill="#202824" stroke="#fffefa" strokeWidth="4" />
+        <text x="82" y="155" textAnchor="middle" fontSize="24" fontWeight="800" fill="#65dc87">+1</text>
+        <text x="326" y="156" textAnchor="middle" fontSize="25" fontWeight="800" fill="white">0</text>
+        <rect x="40" y="66" width="84" height="34" rx="12" fill="#f3f1e9" stroke="#dadfd5" />
+        <text x="82" y="88" textAnchor="middle" fontSize="18" fontWeight="700" fill="#5e7160">2 4</text>
+        <rect x="285" y="66" width="84" height="34" rx="12" fill="#f3f1e9" stroke="#dadfd5" />
+        <text x="327" y="88" textAnchor="middle" fontSize="18" fontWeight="700" fill="#5e7160">1 5</text>
+      </svg>
+    )
+  }
   if (gameId === 'total-coloring') {
     return (
       <svg viewBox="0 0 400 300" role="img" aria-label="Illustration of colored edges and vertices">

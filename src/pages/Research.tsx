@@ -7,6 +7,7 @@ import ShortPathGame from '../research/games/short-path-algorithms/ShortPathGame
 import OddRamseyGame from '../research/games/odd-ramsey/OddRamseyGame'
 import CoveringPointsGame from '../research/games/fixed-diameter-coverings/CoveringPointsGame'
 import PurpleRamseyGame from '../research/games/purple-ramsey/PurpleRamseyGame'
+import ForbiddenOutdegreesGame from '../research/games/forbidden-outdegrees/ForbiddenOutdegreesGame'
 import { researchAreas } from '../research/data/researchTree'
 
 // These public URLs are intentionally independent of the internal game IDs.
@@ -23,6 +24,7 @@ const gameSlugs: Record<string, string> = {
   'purple-ramsey': 'purple',
   'short-path-algorithms': 'short-paths',
   'fixed-diameter-coverings': 'circle-covering',
+  'forbidden-outdegrees': 'f-avoiding',
 }
 
 const areaPath = (areaId: string) => `/research/${areaSlugs[areaId]}`
@@ -109,6 +111,9 @@ export default function Research() {
             {selectedGame.id === 'short-path-algorithms' && <ShortPathGame />}
             {selectedGame.id === 'odd-ramsey' && <OddRamseyGame />}
             {selectedGame.id === 'purple-ramsey' && <PurpleRamseyGame />}
+            {selectedGame.id === 'forbidden-outdegrees' && (
+              <ForbiddenOutdegreesGame />
+            )}
 
             {selectedGame.id === 'fixed-diameter-coverings' && (
               <CoveringPointsGame />
