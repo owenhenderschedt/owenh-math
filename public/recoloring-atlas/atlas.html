@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark" />
+<title>The Recoloring Atlas — Explore colorings</title>
+<style>
+:root { color-scheme:dark; --bg:#080e18; --ink:#eff6ff; --muted:#a4b5cf; --soft:#7186a2; --line:#243347; --accent:#9ccaf3; --pink:#f79eaf; --blue:#8ed5ee; --gold:#f5cc83; }
+*{box-sizing:border-box} html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:400;-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer} button:focus-visible{outline:2px solid var(--blue);outline-offset:5px}
+#app{min-height:100svh;overflow-x:hidden}
+.view{display:none;min-height:100svh} .view.active{display:flex}
+#intro{justify-content:center;align-items:center;flex-direction:column;text-align:center;padding:clamp(22px,5vw,80px);position:relative}
+#intro::before{content:"";pointer-events:none;position:absolute;inset:0;background:radial-gradient(ellipse 45% 40% at 50% 48%,rgba(31,58,95,.22),transparent 85%)}
+.intro-core{position:relative;max-width:740px;display:flex;flex-direction:column;align-items:center;animation:appear .55s both}
+.eyebrow{font-size:10px;color:#88a4c5;text-transform:uppercase;letter-spacing:.27em;font-weight:720}
+h1,h2,h3,p{margin:0}h1{font-size:clamp(38px,6.2vw,68px);font-weight:510;letter-spacing:-.065em;line-height:1.12;margin:18px 0 22px}
+.definition{max-width:550px;color:#bac9df;font-size:clamp(16px,1.75vw,20px);line-height:1.75;letter-spacing:-.015em}
+.definition em{color:#edf4ff;font-style:normal;font-weight:560}
+.primary{margin-top:43px;border:1px solid #739bbe;border-radius:14px;background:#183553;color:#eef8ff;padding:16px 25px;display:inline-flex;align-items:center;gap:24px;letter-spacing:.012em;font-size:15px;font-weight:560;transition:background .2s, transform .2s,box-shadow .2s}
+.primary:hover{transform:translateY(-2px);background:#25547e;box-shadow:0 12px 38px #0005}.primary .arrow{font-size:20px;font-weight:400}
+#chooser{flex-direction:column;align-items:center;padding:clamp(22px,4.4vh,49px) 22px 45px}
+.chooser-head{width:min(1120px,100%);display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin:0 auto 33px}
+.head-text{text-align:center;flex:1}
+.chooser-head h2{font-size:clamp(27px,3.6vw,40px);font-weight:520;letter-spacing:-.05em;margin:8px 0 8px}
+.chooser-note{color:var(--muted);font-size:14px;line-height:1.6}
+.back{background:transparent;border:1px solid #2d435c;color:#b9cce3;border-radius:10px;padding:10px 14px;font-size:13px;transition:background .2s,border-color .2s;white-space:nowrap}
+.back:hover{background:#162a43;border-color:#6b8da9;color:#fff}
+.chooser-head .back{margin-top:12px}
+.card-grid{width:min(1110px,100%);display:flex;gap:18px;flex-wrap:wrap;justify-content:center;align-content:flex-start}
+.world-card{width:min(340px,calc(33.333% - 12px));min-width:262px;max-width:340px;display:flex;align-items:center;flex-direction:column;min-height:272px;padding:14px 17px 17px;border:1px solid #253850;border-radius:19px;color:var(--ink);background:radial-gradient(ellipse 73% 60% at 50% 41%,#17243a 0%,#0e1929 78%);transition:transform .25s,border-color .25s,background .25s,box-shadow .25s;position:relative;overflow:hidden}
+.world-card:hover{transform:translateY(-4px);border-color:#7b9fc0;background:radial-gradient(ellipse 76% 70% at 50% 41%,#20344b 0%,#101e30 82%);box-shadow:0 12px 38px #0005}
+.graph-visual{width:100%;height:196px;display:block;overflow:visible}
+.graph-visual .edge{stroke:#8eabc5;stroke-width:1.65;stroke-opacity:.52;stroke-linecap:round;transition:stroke-opacity .25s}
+.world-card:hover .edge{stroke-opacity:.8}
+.graph-visual .node{stroke:#101a2b;stroke-width:1.8;transition:r .25s,filter .25s}
+.world-card:hover .node{filter:brightness(1.15)}
+.card-name{font-size:18px;font-weight:560;letter-spacing:-.035em;margin-top:2px}
+.card-caption{font-size:12px;color:#8097b2;letter-spacing:.025em;margin-top:5px}
+.card-arrow{position:absolute;right:17px;bottom:19px;font-size:17px;color:#718ca9;transition:color .2s, transform .2s}
+.world-card:hover .card-arrow{color:#d6ebff;transform:translateX(3px)}
+#viewer{flex-direction:column;height:100svh;min-height:0;overflow:hidden}
+.viewer-bar{flex-shrink:0;height:54px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:1px solid #263a50;background:#0c1726;padding:0 clamp(12px,2vw,28px)}
+.viewer-bar .back{border:none;padding:8px 4px;color:#b3d2ed}
+.viewer-bar .back:hover{background:transparent;color:#fff}
+.viewer-name{font-size:13px;color:#a7bdd9;letter-spacing:.04em;white-space:nowrap}
+#explorerFrame{border:0;display:block;flex:1;width:100%;min-height:0;background:var(--bg)}
+.status{color:var(--soft);font-size:11px}
+@keyframes appear{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){.card-grid{gap:14px}.world-card{width:calc(50% - 7px)}.chooser-head{margin-bottom:24px}}
+@media(max-width:610px){#chooser{padding:25px 14px}.chooser-head{flex-direction:column;gap:16px;align-items:center}.head-text{order:1}.chooser-head .back{order:2;margin-top:0}.card-grid{gap:13px}.world-card{width:100%;max-width:450px;min-height:260px}.graph-visual{height:192px}.viewer-bar{height:51px}.viewer-name{max-width:52%;overflow:hidden;text-overflow:ellipsis}.intro-core h1{margin-top:14px}}
+@media(prefers-reduced-motion:reduce){.intro-core,.world-card,.primary,.graph-visual .node{animation:none;transition:none}}
+</style>
+</head>
+<body>
+<div id="app">
+<section id="intro" class="view active" aria-label="Introduction">
+  <div class="intro-core">
+    <div class="eyebrow">A mathematical exploration</div>
+    <h1>The Recoloring Atlas</h1>
+    <p class="definition">Fix a graph <em>G</em> and three colors. Its <em>reconfiguration graph</em> has one vertex for every proper 3-coloring of <em>G</em>. Two colorings are adjacent when they differ at exactly one vertex.</p>
+    <button id="chooseButton" class="primary" type="button">Choose a graph <span class="arrow" aria-hidden="true">→</span></button>
+  </div>
+</section>
+<section id="chooser" class="view" aria-label="Choose a graph">
+  <header class="chooser-head">
+    <div class="head-text"><div class="eyebrow">Five graphs, five worlds</div><h2>Choose a graph</h2><p class="chooser-note">Each drawing is a graph <i>G</i>. Select one to explore all its proper 3-colorings.</p></div>
+    <button id="backIntro" class="back" type="button">← Introduction</button>
+  </header>
+  <main id="cardGrid" class="card-grid" aria-label="Underlying graphs"></main>
+</section>
+<section id="viewer" class="view" aria-label="Explore a reconfiguration graph">
+  <nav class="viewer-bar" aria-label="Explorer navigation">
+    <button id="backGraphs" class="back" type="button">← Choose another graph</button>
+    <span id="currentName" class="viewer-name"></span>
+  </nav>
+  <iframe id="explorerFrame" title="Interactive recoloring universe" loading="eager" allowfullscreen></iframe>
+</section>
+</div>
+<script>
+'use strict';
+const WORLDS=[{"id":"lantern","name":"Lantern Ring","file":"lantern_ring_explorer_v9.html","vertices":20,"edges":[[0,1],[0,4],[0,17],[1,2],[1,5],[2,3],[3,4],[5,6],[5,9],[6,7],[7,8],[7,10],[8,9],[10,11],[10,14],[11,12],[12,13],[12,15],[13,14],[15,16],[15,19],[16,17],[17,18],[18,19]],"coords":[[111.84,83.09],[137.34,57.6],[120.97,25.47],[85.35,31.11],[79.71,66.72],[225.62,38.87],[231.27,74.49],[266.88,80.13],[283.25,48.0],[257.75,22.5],[266.88,139.87],[231.27,145.51],[225.62,181.13],[257.75,197.5],[283.25,172.0],[134.38,181.13],[128.73,145.51],[93.12,139.87],[76.75,172.0],[102.25,197.5]],"colors":[0,2,1,0,2,0,2,1,0,1,0,2,1,2,1,2,1,2,1,0],"recolors":159990,"description":"Four pentagons joined in a ring"},{"id":"oddyssey","name":"Oddyssey","file":"oddyssey_explorer_smooth.html","vertices":21,"edges":[[0,1],[0,4],[0,16],[1,2],[2,3],[2,5],[3,4],[5,6],[5,11],[6,7],[7,8],[8,9],[8,12],[9,10],[10,11],[12,13],[12,20],[13,14],[14,15],[15,16],[16,17],[17,18],[18,19],[19,20]],"coords":[[153.36,57.06],[182.75,78.41],[212.15,57.06],[200.92,22.5],[164.59,22.5],[265.54,123.45],[234.64,129.02],[219.73,156.65],[232.03,185.54],[262.29,193.93],[287.72,175.5],[289.16,144.14],[133.9,189.1],[148.01,166.3],[144.16,139.76],[124.16,121.91],[97.35,121.09],[76.3,137.69],[70.84,163.94],[83.53,187.56],[108.43,197.5]],"colors":[0,1,0,2,1,1,2,0,2,0,1,2,1,0,2,1,2,0,1,0,2],"recolors":571230,"description":"Three linked odd cycles"},{"id":"tides","name":"Twin Tides","file":"twin_tides_explorer.html","vertices":19,"edges":[[0,1],[0,4],[0,12],[1,2],[2,3],[2,17],[3,4],[5,6],[5,11],[5,16],[6,7],[7,8],[7,18],[8,9],[9,10],[10,11],[12,13],[13,14],[14,15],[15,16],[17,18]],"coords":[[82.65,78.71],[130.29,113.32],[112.09,169.33],[53.2,169.33],[35.0,113.32],[246.63,89.0],[289.86,78.86],[324.73,106.33],[325.0,150.73],[290.46,178.62],[247.11,169.0],[227.61,129.11],[109.98,52.18],[137.31,33.21],[164.64,27.36],[191.97,36.64],[219.3,59.03],[207,201],[340,199]],"colors":[0,2,1,0,1,2,0,2,1,0,2,1,1,0,2,0,1,2,0],"recolors":215022,"description":"Two cycles with two connecting paths"},{"id":"triad","name":"Triad Garden","file":"triad_garden_explorer_diffusion.html","vertices":21,"edges":[[0,1],[0,2],[0,3],[0,20],[1,2],[1,8],[1,9],[2,12],[2,13],[3,4],[4,5],[5,6],[6,7],[7,8],[9,10],[10,11],[11,12],[13,14],[14,15],[15,16],[16,17],[17,18],[18,19],[19,20]],"coords":[[179.54,24.61],[108.94,123.66],[250.14,123.66],[138.1,22.5],[107.11,25.81],[86.58,34.54],[76.49,48.69],[76.86,68.26],[87.68,93.25],[137.18,172.89],[165.42,197.5],[193.66,197.5],[221.9,172.89],[267.58,99.54],[278.71,78.7],[283.51,61.14],[281.99,46.85],[274.14,35.85],[259.97,28.12],[239.49,23.67],[212.67,22.5]],"colors":[0,2,1,2,0,1,2,1,0,1,2,0,2,0,1,0,2,1,2,0,1],"recolors":485298,"description":"A triangle with three long outer paths"},{"id":"mosaic","name":"The Mosaic","file":"mosaic_explorer_v10.html","vertices":17,"edges":[[0,1],[0,11],[0,16],[1,2],[2,3],[2,4],[3,4],[3,6],[4,5],[5,6],[5,14],[6,7],[7,8],[8,9],[8,10],[9,10],[10,11],[11,12],[12,13],[13,14],[14,15],[15,16]],"coords":[[180.0,22.5],[211.88,28.46],[239.45,45.53],[259.0,71.41],[267.87,102.61],[264.88,134.9],[250.43,163.93],[226.46,185.78],[196.22,197.5],[163.78,197.5],[133.54,185.78],[109.57,163.93],[95.12,134.9],[92.13,102.61],[101.0,71.41],[120.55,45.53],[148.12,28.46]],"colors":[2,1,2,0,1,2,1,0,1,2,0,1,2,1,0,2,0],"recolors":10728,"description":"A chorded seventeen-cycle"}];
+const COLORS=['#f29bac','#83d1ef','#f2cd86'];
+const cardGrid=document.getElementById('cardGrid');
+const frame=document.getElementById('explorerFrame');
+const nameLabel=document.getElementById('currentName');
+let current='intro';
+function makeSVG(w){
+  const edgeLines=w.edges.map(([a,b])=>`<line class="edge" x1="${w.coords[a][0]}" y1="${w.coords[a][1]}" x2="${w.coords[b][0]}" y2="${w.coords[b][1]}" />`).join('');
+  const nodes=w.coords.map(([x,y],i)=>`<circle class="node" cx="${x}" cy="${y}" r="5.5" fill="${COLORS[w.colors[i]]}" />`).join('');
+  return `<svg class="graph-visual" viewBox="0 0 360 220" role="img" aria-label="The actual ${w.vertices}-vertex graph ${w.name}">${edgeLines}${nodes}</svg>`;
+}
+for(const w of WORLDS){
+  const btn=document.createElement('button');btn.type='button';btn.className='world-card';
+  btn.setAttribute('aria-label',`Explore ${w.name}, a graph with ${w.vertices} vertices`);
+  btn.innerHTML=makeSVG(w)+`<span class="card-name">${w.name}</span><span class="card-caption">${w.vertices} vertices · ${w.edges.length} edges</span><span class="card-arrow" aria-hidden="true">↗</span>`;
+  btn.addEventListener('click',()=>navigate('world/'+w.id));
+  cardGrid.appendChild(btn);
+}
+function getRoute(){return location.hash.replace(/^#/, '')||'intro'}
+function show(route){
+  const world=route.startsWith('world/')?WORLDS.find(w=>w.id===route.slice(6)):null;
+  let target=world?'viewer':route==='choose'?'chooser':'intro';
+  if(target==='viewer'){
+    nameLabel.textContent=world.name;
+    if(frame.getAttribute('src')!==world.file)frame.setAttribute('src',world.file);
+  }else if(frame.hasAttribute('src')){
+    frame.removeAttribute('src'); // Unload several hundred thousand vertices when leaving a world.
+  }
+  for(const id of ['intro','chooser','viewer'])document.getElementById(id).classList.toggle('active',id===target);
+  current=target;
+}
+function navigate(route){
+  const hash='#'+route;
+  if(location.hash===hash){show(route);return;}
+  history.pushState(null,'',hash);
+  show(route);
+}
+window.addEventListener('popstate',()=>show(getRoute()));
+window.addEventListener('hashchange',()=>show(getRoute()));
+document.getElementById('chooseButton').addEventListener('click',()=>navigate('choose'));
+document.getElementById('backIntro').addEventListener('click',()=>navigate('intro'));
+document.getElementById('backGraphs').addEventListener('click',()=>navigate('choose'));
+show(getRoute());
+</script>
+</body>
+</html>

@@ -155,14 +155,42 @@ export default function Research() {
                     <h3>{game.title}</h3>
                     <p>{game.description}</p>
 
-                    <button
-                      type="button"
-                      className="research-game-button"
-                      disabled={game.status !== 'playable'}
-                      onClick={() => navigate(gamePath(selectedArea.id, game.id))}
-                    >
-                      {game.status === 'playable' ? 'Play' : 'Coming soon'}
-                    </button>
+                    {game.id === 'recoloring' ? (
+                      <div
+                        className="research-recoloring-actions"
+                        style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.65rem' }}
+                      >
+                        <button
+                          type="button"
+                          className="research-game-button"
+                          disabled
+                          title="Recoloring game coming soon"
+                          aria-label="Play recoloring game (coming soon)"
+                          style={{ margin: 0 }}
+                        >
+                          Play
+                        </button>
+                        <a
+                          className="research-game-button"
+                          href="/recoloring-atlas/atlas.html"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Explore the recoloring atlas (opens in a new tab)"
+                          style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', cursor: 'pointer', margin: 0 }}
+                        >
+                          Explore ↗
+                        </a>
+                      </div>
+                    ) : (
+                      <button
+                        type="button"
+                        className="research-game-button"
+                        disabled={game.status !== 'playable'}
+                        onClick={() => navigate(gamePath(selectedArea.id, game.id))}
+                      >
+                        {game.status === 'playable' ? 'Play' : 'Coming soon'}
+                      </button>
+                    )}
                   </div>
                 </article>
               ))}
