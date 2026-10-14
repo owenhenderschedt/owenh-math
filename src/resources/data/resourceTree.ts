@@ -825,6 +825,23 @@ export const resourceTree: ResourceFolder = {
                         },
                       ],
                     },
+                    {
+                      id: 'resource-3ff82adf-98b',
+                      type: 'file',
+                      title: 'Quiz 05 Concept Practice',
+                      description: 'Level curves · partial derivatives · directional derivatives · chain rule',
+                      category: 'Recitation Practice',
+                      assets: [
+                        {
+                          type: 'pdf',
+                          path: '/resources/managed/05-quiz-concept-practice-3ff82adf-98b.pdf',
+                        },
+                        {
+                          type: 'tex',
+                          path: '/resources/managed/05-quiz-concept-practice-3ff82adf-98b.tex',
+                        },
+                      ],
+                    },
                   ],
                 },
                 {

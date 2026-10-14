@@ -1,0 +1,374 @@
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,margin=0.52in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+\setlength{\abovedisplayshortskip}{2pt}
+\setlength{\belowdisplayshortskip}{2pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage}
+
+\definecolor{sectiongray}{gray}{0.935}
+
+\newcommand{\sectionbar}[1]{%
+  \vspace{0.30em}%
+  \noindent\colorbox{sectiongray}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
+      \textbf{\normalsize\strut #1\strut}%
+    }%
+  }%
+  \par\vspace{0.28em}%
+}
+
+\newcommand{\answerbar}[1]{%
+  \vspace{0.30em}%
+  \noindent\colorbox{sectiongray}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
+      \strut\textbf{#1}\strut
+    }%
+  }%
+  \par\vspace{0.30em}%
+}
+
+\newlist{parts}{enumerate}{1}
+\setlist[parts]{
+  label=(\alph*),
+  leftmargin=2.0em,
+  itemsep=0.28em,
+  topsep=0.12em,
+  parsep=0pt
+}
+
+\begin{document}
+
+% ================================================================
+% PAGE 1: PRACTICE
+% ================================================================
+
+\begin{center}
+    {\Large\bfseries Math 2650 -- Quiz 05 Concept Practice}\\[-0.05em]
+    \small Choose the section matching the skill you want to practice.
+    Answers are on the back.
+\end{center}
+
+\vspace{-0.10em}
+\small
+
+% ================================================================
+% A
+% ================================================================
+
+\sectionbar{A. Level Curves and Level Surfaces}
+
+\begin{parts}
+
+\item Let
+\[
+f(x,y,z)
+=
+\int_0^x e^t\,dt
++
+\int_1^y\frac{dt}{t}
++
+\sqrt{z-1}.
+\]
+Find the domain of $f$ and the level surface through
+$(\ln 2,e,5)$.
+
+\item For
+\[
+f(x,y)=
+\begin{cases}
+\dfrac{x^2+y^2}{2x+y},&2x+y\neq0,\\[0.2em]
+0,&2x+y=0,
+\end{cases}
+\]
+sketch and label the level curves of heights $-2$ and $2$.
+
+\item Let
+\[
+f(x,y,z)
+=
+\frac{2x-y+z+1}{x+3y-2z+4}.
+\]
+Find an equation of the level surface through $(1,0,2)$.
+
+\end{parts}
+
+% ================================================================
+% B
+% ================================================================
+
+\sectionbar{B. Gradient and Directional Change}
+
+\begin{parts}
+
+\item Find the direction of steepest descent at $(1,0)$ for
+\[
+f(x,y)=e^y(x^2+xy)+(x-y)^3.
+\]
+
+\item For
+\[
+f(x,y)=x^2+xy+2y^2,
+\]
+find the unique vector $\mathbf v=\langle a,b\rangle$ at $(1,-1)$
+such that $f$ has zero change in the direction of $\mathbf v$,
+\[
+|\mathbf v|=2\sqrt{10},
+\qquad
+a>0.
+\]
+
+\end{parts}
+
+% ================================================================
+% C
+% ================================================================
+
+\sectionbar{C. Partial and Implicit Differentiation}
+
+\begin{parts}
+
+\item For
+\[
+f(x,y)=\log_{x+1}(y^2+1),
+\]
+find $f_x$ and $f_y$.
+
+\item The equation
+\[
+x^2+2y^2+z^2+xyz=5
+\]
+defines $z$ implicitly near $(1,1,1)$. Find
+\[
+\frac{\partial z}{\partial y}
+\]
+at $(1,1,1)$.
+
+\end{parts}
+
+% ================================================================
+% D
+% ================================================================
+
+\sectionbar{D. Multivariable Chain Rule}
+
+\begin{parts}
+
+\item Suppose
+\[
+F(x,y)=H\bigl(p(x,y),q(x,y)\bigr).
+\]
+At $(1,-1)$,
+\[
+p=-1,\quad q=2,\quad
+p_x=2,\quad p_y=-3,\quad
+q_x=1,\quad q_y=4,
+\]
+and
+\[
+H_p(-1,2)=3,
+\qquad
+H_q(-1,2)=2.
+\]
+Find $F_x(1,-1)$ and $F_y(1,-1)$.
+
+\item Let
+\[
+g(s,t)=f(s+t^2,\;st,\;s^2-t).
+\]
+Given
+\[
+\nabla f(5,2,-1)=\langle3,-2,4\rangle,
+\]
+find $g_t(1,2)$.
+
+\item Let
+\[
+f(x,y,z)=xyz+e^{x^2+y^2}.
+\]
+Using
+\[
+x=r\cos\theta,
+\qquad
+y=r\sin\theta,
+\]
+express $f_r$, $f_\theta$, and $f_z$ in terms of
+$r,\theta,z$.
+
+\end{parts}
+
+% ================================================================
+% PAGE 2: ANSWER KEY
+% ================================================================
+
+\newpage
+
+\begin{center}
+    {\Large\bfseries Answer Key}\\[-0.05em]
+    \small Final answers only
+\end{center}
+
+\vspace{0.05em}
+\small
+
+% ================================================================
+% A ANSWERS
+% ================================================================
+
+\answerbar{A. Level Curves and Level Surfaces}
+
+\begin{parts}
+
+\item
+\[
+\boxed{
+x\in\mathbb R,\qquad y>0,\qquad z\ge1
+}
+\]
+and
+\[
+\boxed{
+e^x+\ln y+\sqrt{z-1}=5
+}.
+\]
+
+\item Height $-2$:
+\[
+\boxed{(x+2)^2+(y+1)^2=5}.
+\]
+
+Height $2$:
+\[
+\boxed{(x-2)^2+(y-1)^2=5}.
+\]
+
+For both level curves,
+\[
+\boxed{(0,0)\text{ is excluded}}.
+\]
+
+\item
+\[
+\boxed{3x+16y-11z=-19}.
+\]
+
+\end{parts}
+
+% ================================================================
+% B ANSWERS
+% ================================================================
+
+\answerbar{B. Gradient and Directional Change}
+
+\begin{parts}
+
+\item
+\[
+\boxed{
+\frac1{\sqrt{26}}\langle-5,1\rangle
+}.
+\]
+
+\item
+\[
+\boxed{\mathbf v=\langle6,2\rangle}.
+\]
+
+\end{parts}
+
+% ================================================================
+% C ANSWERS
+% ================================================================
+
+\answerbar{C. Partial and Implicit Differentiation}
+
+\begin{parts}
+
+\item
+\[
+\boxed{
+f_x=
+-\frac{\ln(y^2+1)}
+{(x+1)[\ln(x+1)]^2}
+},
+\qquad
+\boxed{
+f_y=
+\frac{2y}
+{(y^2+1)\ln(x+1)}
+}.
+\]
+
+\item
+\[
+\boxed{
+\left.
+\frac{\partial z}{\partial y}
+\right|_{(1,1,1)}
+=
+-\frac53
+}.
+\]
+
+\end{parts}
+
+% ================================================================
+% D ANSWERS
+% ================================================================
+
+\answerbar{D. Multivariable Chain Rule}
+
+\begin{parts}
+
+\item
+\[
+\boxed{F_x(1,-1)=8},
+\qquad
+\boxed{F_y(1,-1)=-1}.
+\]
+
+\item
+\[
+\boxed{g_t(1,2)=6}.
+\]
+
+\item
+\[
+\boxed{
+f_r
+=
+2rz\sin\theta\cos\theta
++
+2re^{r^2}
+},
+\]
+
+\[
+\boxed{
+f_\theta
+=
+r^2z(\cos^2\theta-\sin^2\theta)
+},
+\qquad
+\boxed{
+f_z
+=
+r^2\sin\theta\cos\theta
+}.
+\]
+
+\end{parts}
+
+\end{document}
