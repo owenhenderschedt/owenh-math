@@ -812,6 +812,19 @@ export const resourceTree: ResourceFolder = {
                         },
                       ],
                     },
+                    {
+                      id: 'resource-50597826-5e1',
+                      type: 'file',
+                      title: 'Quiz 06 Concept Practice',
+                      description: 'Taylor approximations · tangent planes · linearization · critical values · optimization',
+                      category: 'Recitation Practice',
+                      assets: [
+                        {
+                          type: 'pdf',
+                          path: '/resources/managed/calculus-3-complete-resources-6-50597826-5e1.pdf',
+                        },
+                      ],
+                    },
                   ],
                 },
                 {
