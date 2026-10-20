@@ -842,6 +842,23 @@ export const resourceTree: ResourceFolder = {
                         },
                       ],
                     },
+                    {
+                      id: 'resource-75eb1d76-500',
+                      type: 'file',
+                      title: 'Quiz 07 Concept Practice',
+                      description: 'Double integrals · Lagrange multipliers · global maxima · absolute max/min',
+                      category: 'Recitation Practice',
+                      assets: [
+                        {
+                          type: 'pdf',
+                          path: '/resources/managed/quiz-07-concept-practice-75eb1d76-500.pdf',
+                        },
+                        {
+                          type: 'tex',
+                          path: '/resources/managed/quiz-07-concept-practice-75eb1d76-500.tex',
+                        },
+                      ],
+                    },
                   ],
                 },
                 {
