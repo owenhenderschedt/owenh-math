@@ -11477,7 +11477,6 @@ h1 {
   stroke-linecap: round;
   stroke-linejoin: round;
   pointer-events: none;
-  vector-effect: non-scaling-stroke;
 }
 
 @keyframes sp-algorithm-reveal {
