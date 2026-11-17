@@ -16,8 +16,17 @@ function Home() {
           <div className="home-bio">
             <p>
               I am a postdoctoral researcher at Iowa State University, where I am
-              mentored by Shira Zerbib and Bernard Lidický. I earned my Ph.D. from
-              Auburn University under the supervision of Jessica McDonald.
+              mentored by{' '}
+              <a href="https://lidicky.name/" target="_blank" rel="noopener noreferrer">
+                Bernard Lidický
+              </a>{' '}
+              and{' '}
+              <a href="https://faculty.sites.iastate.edu/zerbib/" target="_blank" rel="noopener noreferrer">
+                Shira Zerbib
+              </a>. I earned my Ph.D. from Auburn University under the supervision of{' '}
+              <a href="https://cosam.auburn.edu/directory/profile.php?id=jmm0094" target="_blank" rel="noopener noreferrer">
+                Jessica McDonald
+              </a>.
             </p>
 
             <p>
