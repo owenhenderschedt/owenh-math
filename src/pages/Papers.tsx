@@ -40,7 +40,7 @@ function Papers() {
                   {String(publications.length - index).padStart(2, '0')}
                 </div>
 
-                <div className="publication-year">{paper.year}</div>
+                <div className="publication-year">{paper.year ?? ""}</div>
 
                 <div className="publication-content">
                   <h2 className="publication-title">

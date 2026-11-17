@@ -4,7 +4,7 @@ export type Publication = {
   titleMath?: string
   titleSuffix?: string
   authors: string[]
-  year: number
+  year?: number
   status: string
   venue?: string
   arxiv?: string
@@ -20,6 +20,15 @@ export const publications: Publication[] = [
     year: 2026,
     status: 'Preprint',
     arxiv: 'https://arxiv.org/abs/2609.28893',
+  },
+  {
+    titlePrefix: 'On the recolorability of ',
+    titleMath: '(2K_2,K_4)',
+    titleSuffix: '-free graphs',
+    authors: ['Henry Echeverría', 'Owen Henderschedt'],
+    year: 2026,
+    status: 'Submitted',
+    arxiv: 'https://arxiv.org/abs/2607.07860',
   },
   {
     title: 'A finite victory over de Bruijn–Erdős in interval discrepancy',
@@ -70,6 +79,12 @@ export const publications: Publication[] = [
     venue: 'Discrete Applied Mathematics, 387, 116–123',
     journal: 'https://doi.org/10.1016/j.dam.2026.02.048',
     arxiv: 'https://arxiv.org/abs/2406.05095',
+  },
+  {
+    title: 'A short remark on Borsuk’s theorem',
+    authors: ['András Bezdek', 'Owen Henderschedt'],
+    status: 'To appear',
+    venue: 'Discrete, Convex, and Combinatorial Geometry Fest, Springer Proceedings in Mathematics & Statistics',
   },
   {
     title: 'Short path and short chain problems in the plane',
